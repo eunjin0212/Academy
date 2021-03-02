@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML 3.0 과제</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+      font-size: 13px;
+    }
+    table {
+      width: 400px;
+      height: 150px;
+      border-collapse: collapse;
+      border-spacing: 0px;
+    }
+
+    td {
+      border: 1px solid black;
+      padding: 0px;
+      width: 100px;
+    }
+    tr#tr > td:nth-child(2) {
+      background-color: yellow;
+    }
+    tr#tr > td:nth-child(3) {
+      background-color: yellowgreen;
+    }
+  </style>
+  <body>
+    <div>
+      3월 2일 과제
+      <a href="http://eunjin9639.dothome.co.kr/work.html">페이지 보러가기</a>
+    </div>
+    <table>
+      <tr>
+        <td>년도</td>
+        <td>전체 인원수</td>
+        <td colspan="2">분야별</td>
+      </tr>
+      <tr id="tr">
+        <td>2019</td>
+        <td rowspan="3"></td>
+        <td rowspan="3"></td>
+        <td>Design</td>
+      </tr>
+      <tr>
+        <td>2020</td>
+        <td>Publisher</td>
+      </tr>
+      <tr>
+        <td>2021</td>
+        <td>Front-end</td>
+      </tr>
+      <tr>
+        <td colspan="2">데이터 총 합계</td>
+        <td align="right">로스율 : 30%</td>
+        <td align="right">완료율 : 70%</td>
+      </tr>
+    </table>
+  </body>
+</html>
