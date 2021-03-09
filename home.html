@@ -13,7 +13,9 @@
         display: flex;
         flex-direction: column;
       }
-
+      div {
+        position: relative;
+      }
       ul {
         height: 30px;
         display: flex;
@@ -49,31 +51,38 @@
       .date {
         width: 120px;
       }
-      div {
+      a {
+        position: absolute;
+        right: 0;
+        text-decoration: none;
         font-size: 10px;
         color: gray;
       }
     </style>
   </head>
   <body>
-    <ul class="top">
-      <li class="number">번호</li>
-      <li class="title">제목</li>
-      <li class="name">글쓴이</li>
-      <li class="date">등록일</li>
-    </ul>
-    <ul>
-      <li class="number">1</li>
-      <li class="title">사이트 리뉴얼 중 입니다.</li>
-      <li class="name">관리자</li>
-      <li class="date">2021-03-10</li>
-    </ul>
-    <ul>
-      <li class="number">2</li>
-      <li class="title">공지사항 입니다.</li>
-      <li class="name">홍길동</li>
-      <li class="date">2021-03-09</li>
-    </ul>
-    <div><a>code</a></div>
+    <div>
+      <ul class="top">
+        <li class="number">번호</li>
+        <li class="title">제목</li>
+        <li class="name">글쓴이</li>
+        <li class="date">등록일</li>
+      </ul>
+      <ul>
+        <li class="number">1</li>
+        <li class="title">사이트 리뉴얼 중 입니다.</li>
+        <li class="name">관리자</li>
+        <li class="date">2021-03-10</li>
+      </ul>
+      <ul>
+        <li class="number">2</li>
+        <li class="title">공지사항 입니다.</li>
+        <li class="name">홍길동</li>
+        <li class="date">2021-03-09</li>
+      </ul>
+      <a href="https://github.com/eunjin0212/Academy/blob/master/home.html"
+        >code</a
+      >
+    </div>
   </body>
 </html>
