@@ -12,6 +12,8 @@
         align-items: center;
         display: flex;
         flex-direction: column;
+        margin: 0;
+        padding: 0;
       }
       div {
         position: relative;
@@ -26,10 +28,12 @@
       li:not(.title) {
         text-align: center;
       }
+
       ul:first-child {
         background-color: #2651ff;
         text-align: center;
         color: white;
+        padding: 0;
       }
       ul:not(.top) {
         border-bottom: 1px dashed black;
@@ -44,6 +48,9 @@
         width: 295px;
         border-right: 1px solid white;
         border-left: 1px solid white;
+      }
+      span {
+        padding-left: 5px;
       }
       .name {
         width: 120px;
@@ -74,19 +81,20 @@
       </ul>
       <ul>
         <li class="number">1</li>
-        <li class="title">사이트 리뉴얼 중 입니다.</li>
+        <li class="title"><span>사이트 리뉴얼 중 입니다.</span></li>
         <li class="name">관리자</li>
         <li class="date">2021-03-10</li>
       </ul>
       <ul>
         <li class="number">2</li>
-        <li class="title">공지사항 입니다.</li>
+        <li class="title"><span>공지사항 입니다.</span></li>
         <li class="name">홍길동</li>
         <li class="date">2021-03-09</li>
       </ul>
       <a href="https://github.com/eunjin0212/Academy/blob/master/home.html"
         >code</a
       >
+      <!-- http://eunjin9639.dothome.co.kr/home.html -->
     </div>
   </body>
 </html>
