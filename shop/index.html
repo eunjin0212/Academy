@@ -1,0 +1,32 @@
+<?php 
+    $date = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>쇼핑몰 만들기 응용</title>
+  </head>
+  <body>
+    <header class="shop_header">
+      <?php include "top.html"; ?>
+    </header>
+    <nav class="shop_nav">
+      <?php include "menu.html"; ?>
+    </nav>
+    <main class="shop_main">
+      <section class="shop_section">
+        <?php include "banner.html"; ?>
+      </section>
+      <article class="shop_article">
+        <?php include "product.html"; ?>
+      </article>
+    </main>
+    <footer class="shop_footer">
+      <?php include "footer.html"; ?>
+    </footer>
+  </body>
+</html>

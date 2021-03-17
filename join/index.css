@@ -1,0 +1,100 @@
+@viewport{
+    width: divice-width;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+
+body{
+    width: 1000px;
+    height: 400px;
+    font-family: 'Noto Sans KR', sans-serif;
+    border: 1px solid #cccccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.join{
+    width: 100%;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.joinForm{
+    width: 900px;
+    height: 240px;    
+}
+td > button{
+    width: 100px;
+    height: 40px;
+    background-color: #0067b8;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+}
+table{
+    border: 1px solid #0067b8;
+    height: 240px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+tr>td:first-child{
+    width: 120px;
+    height: 40px;
+    font-weight: bold;
+    color: #333333;
+    border-right: 2px solid gray;
+    text-align: center;
+}
+td{
+    height: 40px;
+}
+.input > input, .inputB > input {
+    margin-left: 10px;
+}
+.input > input{
+    width: 200px;
+    height: 30px;
+    padding: 0;
+}
+tr:not(:last-child){
+    border-bottom: 1px solid #0067b8;
+}
+.inputB > input{
+    width: 400px;
+    height: 30px;
+    padding: 0;
+}
+.radio{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+.button{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.button > button {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    margin: 100px;
+}
+.button > button:first-of-type{
+    background-color: #0067b8;
+    color: #ffffff;
+}
+.button > button:last-of-type{
+    background-color: #aaaaaa;
+    color: #ffffff;
+}

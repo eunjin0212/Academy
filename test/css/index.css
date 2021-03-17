@@ -1,0 +1,12 @@
+table {
+    width: 500px;
+    height: 120px;
+    box-sizing: border-box;
+}
+caption{
+    height: 50px;
+    line-height: 50px;
+}
+.tr1 > td:first-of-type, .tr2 > td:first-of-type, .tr3 > td:first-of-type {
+    text-align: center;
+}

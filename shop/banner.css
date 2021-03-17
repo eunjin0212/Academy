@@ -1,0 +1,42 @@
+.banners{
+    width: 1200px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.banner_ol{
+    width: 2400px;
+    height: 500px;
+}
+.banner_ol > li {
+    width: 1200px;
+    height: 500px;
+    float: left;
+
+}
+.banners:hover > .on{
+    display: block ;
+}
+.on{
+    display: none;
+}
+.leftBtn{
+    position: absolute;
+    width: 37px;
+    height: 74px;
+    cursor: pointer;
+    left: 10px;
+    top:50%;
+    margin-top: -37px;
+
+}
+.rightBtn{
+    position: absolute;
+    width: 37px;
+    height: 74px;
+    cursor: pointer;
+    right: 10px;
+    top:50%;
+    margin-top: -37px;
+}
