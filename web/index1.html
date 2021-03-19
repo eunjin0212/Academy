@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object 위치선정 및 레이아웃1</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .wrapper {
+        width: 500px;
+        height: 300px;
+        border: 1px solid black;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .red,
+      .blue {
+        float: left;
+        width: 50px;
+        margin: auto 0;
+        height: 50px;
+      }
+      .red {
+        background-color: red;
+      }
+      .blue {
+        display: block;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="red"></div>
+      <span class="blue"></span>
+    </div>
+  </body>
+</html>

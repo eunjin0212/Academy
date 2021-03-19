@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object 위치선정 및 레이아웃3</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 500px;
+        height: 500px;
+        background-color: aquamarine;
+        box-sizing: border-box;
+        position: relative;
+      }
+      /*
+      div{
+          position: absolute;
+      }
+      span {
+        display: block;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        top: 50%;
+        margin: 0 auto;
+        background-color: blue;
+        margin-top: -50px; */
+      /* margin: 0 auto; 와 순서가 바뀌면 먹히지 않음 */
+      /* } */
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 5%;
+        text-align: center;
+      }
+      li {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+      }
+      li:first-of-type {
+      }
+      li:last-of-type {
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div>
+      <span></span>
+    </div> -->
+    <div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>
