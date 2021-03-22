@@ -1,0 +1,23 @@
+<?php
+    $date = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content="ko" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./index.css?v=<?php echo $date?>"
+    />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <section>
+      <?php include "./mintro/index.html"; ?>
+    </section>
+  </body>
+</html>
