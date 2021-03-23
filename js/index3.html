@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+      응용문제
+      **
+      ****
+      ******
+      ********
+      **********
+      */
+    let a = 1;
+    do {
+      if (a % 2 === 0) {
+        //반복문이 짝수일 때  if문으로 진입함
+        let b = 1;
+        do {
+          // 짝수면 별을 찍음
+          document.write("*");
+          b++; // 별이 하나씩 증가 됨
+        } while (b <= a); // 별이 a랑 같거나 작을 때 빠져나옴
+        document.write("<br>");
+      }
+      a++;
+    } while (a < 11); //짝수로 진행되는 별이기 때문에 5줄이지만 10번은 돌아야함
+  </script>
+</html>
