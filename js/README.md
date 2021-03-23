@@ -2,7 +2,7 @@
 
 1. 반복문을 이용하여 다음과 같이 출력하시오. (for, while, do~while)
    `10 9 8 7 6 5`
-1. 1~50까지 역순으로 홀수만 출력하시오. (for, while, do~while)
+1. `1~50`까지 역순으로 홀수만 출력하시오. (for, while, do~while)
    `예시)49 47 45`
 1. 구구단 8단 역순으로 출력하시오. (for, while, do~while)
 1. 구구단 7단부터 3단까지 역순으로 출력하시오. (for, while, do~while)
