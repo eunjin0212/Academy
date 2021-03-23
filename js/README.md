@@ -62,5 +62,7 @@
 5678910(숫자10)
 ```
 
+1. 응용문제 switch문으로 2단, 4단 출력, 변수에 문자로 '2단', '4단' 입력시 구구딘 출력
+
 [for문](https://www.acmicpc.net/step/3)
 [while문](https://www.acmicpc.net/step/2)
