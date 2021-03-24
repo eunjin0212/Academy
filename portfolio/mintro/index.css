@@ -58,7 +58,7 @@ p {
     width: 100%;
     height: auto;
     z-index: 10;
-    top: 130px;
+    top: 70px;
     text-align: center;
 }
 .logo > img {
@@ -74,7 +74,7 @@ p {
 .text {
     position: absolute;
     width: 100%;
-    top: 340px;
+    top: 280px;
     z-index: 10;
     color: goldenrod;
     text-align: center;
@@ -118,7 +118,7 @@ p {
     position: absolute;
     z-index: 5;
     left: 50%;
-    top: 675px;
+    top: 600px;
     margin-left: -300px;
     text-align: center;
 }
