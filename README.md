@@ -16,4 +16,4 @@
 4. 최식 프론트엔드 스크립트 언어의 동작 패턴 및 원리를 이해하고 콘텐츠 제작 및 서비스에 적용하는 능력을 함양한다.
 
 [shop](http://eunjin9639.dothome.co.kr/shop/index.html)
-[event page](http://eunjin9639.dothome.co.kr/portfolio/index.html)
+[event page](https://game-event.netlify.app/)
