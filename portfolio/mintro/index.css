@@ -98,7 +98,7 @@ p {
     color: red;
 }
 .text > ul > li:nth-child(2) {
-    font-size: 40px;
+    font-size: 30px;
     height: auto;
     font-weight: 900;
     color: black;
