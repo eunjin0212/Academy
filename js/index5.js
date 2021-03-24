@@ -41,8 +41,8 @@ switch (level) {
   //case 20개 이상은 사용하지 않습니다.
 }
 
-let payment = "CARD";
-switch (payment) {
+let payment1 = "CARD";
+switch (payment1) {
   case "CARD":
     document.write("신용카드로 결제를 선택했습니다.");
     break;
@@ -72,9 +72,9 @@ switch (num) {
 const samsung = "삼성";
 const lotte = "롯데";
 const hyundai = "현대";
-let pay = "dd";
+let pay1 = "dd";
 const payment = () => {};
-switch (pay) {
+switch (pay1) {
   case "card":
     if (samsung || lotte) {
       document.write("결제 진행하겠습니까?");
@@ -98,9 +98,9 @@ switch (pay) {
 // 롯데, 삼성을 선택할 경우 "결제 진행 하겠습니까?"라는 메세지를 출력 하십시오.
 // 단, card외에 다른 단어를 사용할 경우 "올바른 값이 아닙니다." 라고 메세지를 출력합니다.
 
-let pay = "card1";
+let pay2 = "card1";
 let part = "롯데";
-switch (pay) {
+switch (pay2) {
   case "card":
     if (part != "롯데" || part != "신한") {
       document.write("결제 진행 하시겠습니까?");
