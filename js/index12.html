@@ -22,13 +22,15 @@
     <br />
     <p>이메일</p>
     <input type="email" /> @
-    <input type="email" id="email" />
-    <select id="emailSel" onchange="emailFunc()">
+    <input type="email" id="email" readonly />
+    <!-- readonly를 쓰면 입력창이 잠기는데, js에서 true, false로 핸들링 가능  -->
+    <select id="emailSel" onchange="emailFunc(this.value)">
       <option value="">메일주소 선택</option>
       <option value="nate.com">nate.com</option>
       <option value="never.com">never.com</option>
       <option value="gmail.com">gmail.com</option>
       <option value="daum.net">daum.net</option>
+      <option value="my">직접입력</option>
     </select>
   </body>
   <script src="./index12.js"></script>
