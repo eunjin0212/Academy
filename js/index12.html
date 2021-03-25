@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select onchange</title>
+  </head>
+  <body>
+    <!-- onchange : 해당 항목을 선탁해게 되면 변경된 값을 바로 적용시킴 -->
+    <select id="cp" onchange="telP()">
+      <!-- option에는 무조건 value가 들어가야함 안그러면 통신사 선택도 들어가버림 -->
+      <option value="">[통신사 선택]</option>
+      <option value="KT">KT</option>
+      <option value="SKT">SKT</option>
+      <option value="LG">LG</option>
+      <option value="알뜰폰">알뜰폰</option>
+    </select>
+    <input type="tel" id="tel" />
+    <!-- <input type="button" value="적용" onclick="telP()" /> -->
+    <br />
+    <br />
+    <p>이메일</p>
+    <input type="email" /> @
+    <input type="email" id="email" />
+    <select id="emailSel" onchange="emailFunc()">
+      <option value="">메일주소 선택</option>
+      <option value="nate.com">nate.com</option>
+      <option value="never.com">never.com</option>
+      <option value="gmail.com">gmail.com</option>
+      <option value="daum.net">daum.net</option>
+    </select>
+  </body>
+  <script src="./index12.js"></script>
+</html>
