@@ -40,7 +40,7 @@ do {
 
 // 3번
 for (let k = 7; k >= 3; k--) {
-  7단부터 3단
+  // 7단부터 3단
   for (let f = 9; f > 0; f--) {
     console.log("for" + k + "*" + f + "=" + k * f);
   }
@@ -67,3 +67,33 @@ do {
 } while (m > 2);
 
 // 4번 별찍기
+
+for (let star = 1; star < 6; star++) {
+  for (let line = 0; line < star; line++) {
+    document.write("*");
+  }
+  document.write("<br>");
+}
+
+let star1 = 1;
+while (star1 < 6) {
+  let line1 = 0;
+  while (line1 < star1) {
+    document.write("*");
+    line1++;
+  }
+  document.write("<br>");
+  star1++;
+}
+
+document.write("⭐" + "<br>");
+let line2 = 1;
+do {
+  let star2 = 0;
+  do {
+    document.write("*");
+    star2++;
+  } while (star2 < line2);
+  document.write("<br>");
+  line2++;
+} while (line2 < 6);
