@@ -8,7 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="content-language" content="ko" />
-    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <link rel="stylesheet" href="./CSS/index.css" />
+    <link
+      href="./CSS/media1125.css"
+      media="screen and (min-width: 768px) and (max-width: 1200px)"
+      rel="stylesheet"
+    />
+    <link
+      href="./CSS/media767.css"
+      media="screen and (max-width: 767px)"
+      rel="stylesheet"
+    />
     <!--?v=<?php echo $date?>" -->
 
     <title>Portfolio</title>
@@ -16,46 +26,53 @@
   <body>
     <!-- <?php include "./mintro/index.html"; ?> -->
     <section class="mv_page">
-      <label class="logo">
-        <img src="./mintro/logo.png" />
-      </label>
-      <div class="text">
-        <div>2021 New Season<span>YOUTUBE LIVE</span>Event</div>
-      </div>
-      <div class="info">
-        <dl>
-          <dt>2021 New Season LIVE Event 참여하기</dt>
-          <dt>Saturday 9th January 00.00am</dt>
-          <dt>
-            생방송을 보고 댓글을 남기면 추첨을 통해 게임 스킨(랜덤)을 드립니다.
-            <br />1/11 당첨자 발표
-          </dt>
-          <dd>
-            <input
-              type="text"
-              class="info_w"
-              placeholder="YouTube account ID"
-            />
-          </dd>
-          <dd>
-            <input
-              type="text"
-              class="info_w"
-              placeholder="League of Legends ID"
-            />
-          </dd>
-        </dl>
-        <label id="info_check" class="info_check">
-          <input type="checkbox" id="info_check" />
-          <span id="info_check">개인정보 제공 동의</span>
-        </label>
-        <label class="info_btn"
-          ><input type="button" value="이벤트참여하기" class="info_btn"
-        /></label>
-      </div>
       <video class="mv" muted autoplay loop>
         <source src="./mintro/trailer_Trim.mp4" type="video/mp4" />
       </video>
+      <div class="grid_left">
+        <label class="logo">
+          <img src="./mintro/logo.png" />
+        </label>
+        <div class="text">
+          2021 New Season
+          <span>YOUTUBE LIVE</span>
+          Event
+        </div>
+      </div>
+      <div class="grid_right">
+        <div class="info">
+          <dl>
+            <dt>2021 New Season LIVE Event 참여하기</dt>
+            <dt>Saturday 9th January 00.00am</dt>
+            <dt>
+              생방송을 보고 댓글을 남기면 추첨을 통해 게임 스킨(랜덤)을
+              드립니다.
+              <br />1/11 당첨자 발표
+            </dt>
+            <dd>
+              <input
+                type="text"
+                class="info_w"
+                placeholder="YouTube account ID"
+              />
+            </dd>
+            <dd>
+              <input
+                type="text"
+                class="info_w"
+                placeholder="League of Legends ID"
+              />
+            </dd>
+          </dl>
+          <label id="info_check" class="info_check">
+            <input type="checkbox" id="info_check" />
+            <span id="info_check">개인정보 제공 동의</span>
+          </label>
+          <label class="info_btn"
+            ><input type="button" value="이벤트참여하기" class="info_btn"
+          /></label>
+        </div>
+      </div>
     </section>
   </body>
 </html>

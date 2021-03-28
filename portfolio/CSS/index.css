@@ -14,10 +14,10 @@ font-family: 'Noto Sans', sans-serif;
 }
 
 body {
+    background-color: black;
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: black;
     height: auto;
     width: auto;
 }
@@ -56,14 +56,21 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.grid_left,
+.grid_right {
+    z-index: 1;
 }
 
 .logo {
     width: 100%;
     height: auto;
     text-align: center;
-    z-index: 1;
     margin-top: 20px;
+    z-index: 2;
 }
 
 .logo>img {
@@ -76,29 +83,24 @@ p {
     height: 100%;
     position: absolute;
     top: 0;
+    z-index: 0;
 }
 
 .text {
-    width: 85%;
+    width: 100%;
+    height: auto;
     z-index: 1;
     color: goldenrod;
     text-align: center;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
     margin-bottom: 20px;
-}
-
-.text>div {
-    width: 100%;
-    height: auto;
     font-size: 60px;
-    font-weight: 900;
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-family: 'Rubik', sans-serif;
+    font-weight: 900;
 }
 
-.text>div>span {
+.text>span {
     color: red;
 }
 
@@ -163,7 +165,6 @@ p {
 
 .info_check>span {
     text-align: center;
-
 }
 
 .info_check>input {

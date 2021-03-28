@@ -1,0 +1,62 @@
+/* 반응형*/
+
+@media screen and (max-width: 767px) {
+    .mv {
+        width: 100%;
+        height: auto;
+    }
+
+    .grid_left,
+    .grid_right {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 250px;
+    }
+
+    .logo>img {
+        height: 100px;
+    }
+
+    .text {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+
+    .info {
+        width: 90%;
+    }
+
+    .info>dl>dt {
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .info>dl>dt:nth-child(2) {
+        font-size: 15px;
+    }
+
+    .info>dl>dd {
+        margin: 10px 0;
+    }
+
+    .info>dl>dd>input {
+        height: 30px;
+        font-size: 15px;
+    }
+
+    .info_check {
+        margin-bottom: 10px;
+    }
+
+    .info_check>input {
+        width: 10px;
+        height: 10px;
+    }
+
+}
