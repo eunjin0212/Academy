@@ -97,3 +97,53 @@ do {
   document.write("<br>");
   line2++;
 } while (line2 < 6);
+
+// 5번
+for (let line3 = 1; line3 < 6; line3++) {
+  for (let star3 = 6; star3 > line3; star3--) {
+    document.write("*");
+  }
+  document.write("<br>");
+}
+
+let star4 = 6;
+while (star4 > 0) {
+  let line4 = 0;
+  while (line4 < star4) {
+    document.write("*");
+    line4++;
+  }
+  document.write("<br>");
+  star4--;
+}
+
+let star5 = 5;
+do {
+  let line5 = 0;
+  do {
+    document.write("*");
+    line5++;
+  } while (line5 < star5);
+  document.write("<br>");
+  star5--;
+} while (star5 > 0);
+
+// 6번
+
+let num6 = 6;
+
+for (let num = 1; num < 10; num++) {
+  console.log(num6 * num);
+}
+
+let numW = 1;
+while (numW < 10) {
+  console.log(num6 * numW);
+  numW++;
+}
+
+let numD = 1;
+do {
+  console.log(num6 * numD);
+  numD++;
+} while (numD < 10);
