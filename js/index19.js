@@ -15,12 +15,12 @@ function abc() {
   // isNaN 많이 쓰임. 중요!
 
   if (isNaN(aa) == true) {
-    alert("숫자만 입력하셈");
+    alert("숫자만 입력하세요.");
     document.getElementById("bb").value = ""; // 값을 초기화 시킴
   } else if (aa == "") {
-    alert("숫자를 입력하셈");
+    alert("숫자를 입력하세요.");
     document.getElementById("bb").focus();
   } else {
-    alert("정상적인 숫자를 입력하셨셈!");
+    alert("정상적인 숫자를 입력하셨습니다.");
   }
 }
