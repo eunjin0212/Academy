@@ -6,56 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2번</title>
     <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 13px;
+        font-weight: bold;
+        box-sizing: border-box;
+      }
       .box {
         width: 300px;
         height: 200px;
         border: 1px solid black;
-        font-size: 13px;
-        font-weight: bold;
-        display: flex;
-        flex-direction: column;
+        text-align: center;
+        padding: 20px 25px 25px;
+        box-sizing: border-box;
       }
-      .id,
-      .pass {
-        border-radius: 5px;
+      input {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent;
       }
-      .name {
-        width: 80px;
+
+      .div {
+        margin-bottom: 10px;
+      }
+      .div1 {
+        width: 250px;
         height: 40px;
         line-height: 40px;
-        background-color: gray;
         text-align: center;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+        display: flex;
+      }
+      .div1 > input {
+        text-indent: 8px;
+      }
+      .div1 > span {
+        display: block;
+        width: 80px;
+        height: 100%;
+        line-height: 40px;
+        text-align: center;
+        background-color: lightgray;
+        box-sizing: border-box;
+        border-radius: 3px 0 0 3px;
+      }
+      .div > input {
+        width: 170px;
+        height: 100%;
+      }
+      .div2 {
+        width: 250px;
+        display: flex;
+        height: 40px;
+        margin-top: 20px;
+      }
+      .div2 > input {
+        width: 100px;
+        height: 100%;
+        line-height: 40px;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .div2 > input:first-of-type {
+        background-color: blue;
+        margin-right: 25px;
+      }
+      .div2 > input:last-of-type {
+        background-color: gray;
+        margin-left: 25px;
       }
     </style>
   </head>
   <body>
     <div class="box">
-      <div class="id">
-        <div class="name">아이디</div>
-        <div class="input"></div>
+      <div class="div1 div">
+        <span>아이디</span>
+        <input type="text" />
       </div>
-      <div class="pass">
-        <span class="name">패스워드</spn>
-        <div class="input"></div>
+      <div class="div1">
+        <span>패스워드</span>
+        <input type="password" />
       </div>
-      <div class="btn">
-        <span>로그인</span>
-        <span>회원가입</span>
+      <div class="div2">
+        <input type="button" value="로그인" />
+        <input type="button" value="회원가입" />
       </div>
     </div>
   </body>
 </html>
-<table>
-  <tr class="tr1">
-    <td>아이디</td>
-    <td><input type="text" /></td>
-  </tr>
-  <tr class="tr1">
-    <td>패스워드</td>
-    <td><input type="password" /></td>
-  </tr>
-  <tr class="tr2">
-    <td>로그인</td>
-    <td>회원가입</td>
-  </tr>
-</table>

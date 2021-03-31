@@ -5,13 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5번</title>
-    <style></style>
+    <style>
+      input {
+        border: none;
+        text-align: center;
+        box-sizing: border-box;
+        width: 135px;
+        height: 40px;
+        border-radius: 3px;
+        color: #ffffff;
+        cursor: pointer;
+        padding: 0;
+      }
+      .container {
+        width: 300px;
+        height: 140px;
+        border-radius: 5px;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 15px;
+        text-align: center;
+        background-color: #c9c9c9;
+      }
+      .text {
+        font-weight: bold;
+        padding: 30px 0;
+      }
+      input:first-of-type {
+        background-color: #c7c7c7;
+      }
+      input:last-of-type {
+        background-color: #3d75c2;
+      }
+    </style>
   </head>
   <body>
-    <div>
-      <div></div>
-      <div>확인</div>
-      <div>닫기</div>
+    <div class="container">
+      <div class="text">해당 이벤트에 참여 하시겠습니까?</div>
+      <input value="Cancel" />
+      <input value="OK" />
     </div>
   </body>
 </html>
