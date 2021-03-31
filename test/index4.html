@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4번</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+        box-sizing: border-box;
+      }
+
+      #licss {
+        background-color: #bfbfbf;
+        cursor: pointer;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+      }
+      .somenu1 {
+        display: none;
+        width: 200px;
+        height: 120px;
+        line-height: 40px;
+        background-color: #eaeaea;
+      }
+      #licss:hover .somenu1 {
+        display: block;
+      }
+
+      .soli {
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li id="licss">
+        계열사 목록
+        <ul class="somenu1">
+          <li class="soli">K엔터테인먼트</li>
+          <li class="soli">K필름</li>
+          <li class="soli">K-IT인프라넷</li>
+          <li class="soli">K AI개발연구소</li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>
