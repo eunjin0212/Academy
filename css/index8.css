@@ -1,19 +1,25 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
-nav{
+
+nav {
     height: 50px;
     background-color: yellowgreen;
 }
-div{
+
+.menu_wrapper {
     width: 100%;
 }
-ol, ul, li{
+
+ol,
+ul,
+li {
     list-style: none;
     text-align: center;
 }
-ol{
+
+ol {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -23,28 +29,33 @@ ol{
     justify-content: center;
     align-items: center;
 }
-.menu{
+
+.licss {
     float: left;
     width: 200px;
     height: 50px;
     font-size: 13px;
     font-family: "돋움체";
-    background-color: green;text-align: center;
+    background-color: green;
+    text-align: center;
     line-height: 50px;
     color: white;
 }
-.smallUl{
+
+.smallUl {
     width: 100%;
     background-color: green;
     display: none;
 }
-.smallLi{
+
+.smallLi {
     width: 200px;
     color: white;
     line-height: 40px;
     height: 40px;
     text-align: center;
 }
-.menu:hover .smallUl{
+
+.licss:hover .smallUl {
     display: block;
 }
