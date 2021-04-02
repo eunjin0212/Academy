@@ -11,8 +11,8 @@ function abc() {
     sel.innerHTML += selText;
   }
 }
-function link(k) {
-  switch (k) {
+function link(value) {
+  switch (value) {
     case "브랜드바로가기":
       console.log("브랜드바로가기");
       break;
