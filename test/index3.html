@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제3</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        height: 1000vh;
+      }
+
+      .container {
+        width: 600px;
+        height: 270px;
+        margin: 0 auto;
+        padding: 25px;
+      }
+      .info {
+        width: 280px;
+        height: 40px;
+        line-height: 40px;
+        display: flex;
+      }
+      .info > div:first-child {
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        background-color: darkblue;
+        color: white;
+        text-align: center;
+      }
+      .info > div:last-child {
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        background-color: gray;
+        color: black;
+        text-align: center;
+      }
+      .line {
+        border: 1px solid black;
+        padding: 25px;
+      }
+      .line > div {
+        border-bottom: 1px dashed black;
+        height: 30px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="info">
+        <div>공지사항</div>
+        <div>자유게시판</div>
+      </div>
+      <div class="line">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>

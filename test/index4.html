@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제4</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+      input {
+        border: none;
+      }
+      ol,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      span {
+        display: block;
+        padding-left: 10px;
+      }
+      .container {
+        margin: auto auto;
+        width: 800px;
+        height: 160px;
+      }
+      .email,
+      .mem {
+        width: 800px;
+        height: 100px;
+        border: 1px solid black;
+      }
+      .inner,
+      .inner2 {
+        width: 800px;
+        text-align: end;
+      }
+      .inner {
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="email">
+        <span> [이메일 정책]</span>
+      </div>
+      <div class="inner">
+        <input type="radio" id="r1" name="a" /><label for="r1">동의함</label>
+        <input type="radio" id="r2" name="a" /><label for="r2   "
+          >동의안함</label
+        >
+      </div>
+      <div class="mem">
+        <span> [회원가입 약관</span>
+      </div>
+      <div class="inner2">
+        <input type="radio" id="r3" name="b" /><label for="r3">동의함</label>
+        <input type="radio" id="r4" name="b" /><label for="r4">동의안함</label>
+      </div>
+    </div>
+  </body>
+</html>

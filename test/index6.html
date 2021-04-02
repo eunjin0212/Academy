@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1번</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 1000px;
+        overflow: hidden;
+        height: 400px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .container > div:first-of-type {
+        display: flex;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .btnBox {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        line-height: 50px;
+        position: absolute;
+        top: 175px;
+      }
+      .btn {
+        display: block;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        border-radius: 100%;
+      }
+      .btn:hover {
+        background-color: gray;
+      }
+      .left {
+        margin-left: 0px;
+      }
+      .right {
+        margin-right: 0px;
+      }
+      .disc {
+        position: absolute;
+        width: 90px;
+        bottom: 20px;
+        left: 455px;
+        display: flex;
+      }
+      .disc > div {
+        width: 15px;
+        height: 15px;
+        background-color: black;
+        margin-right: 10px;
+        border-radius: 100%;
+      }
+      .disc > div:nth-of-type(2) {
+        background-color: blue;
+      }
+      .disc > div:last-of-type {
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <img src="./img/background.png" />
+        <img src="./img/background.png" />
+      </div>
+      <div class="btnBox">
+        <span class="btn left"><img src="./img/left.png" /></span
+        ><span class="btn right"><img src="./img/right.png" /></span>
+      </div>
+      <div class="disc">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>

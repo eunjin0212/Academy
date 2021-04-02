@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제5</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    table {
+      border-collapse: separate;
+      border-spacing: 0;
+      height: 45px;
+      width: 1000px;
+      font-size: 13px;
+    }
+    tbody {
+      width: 100px;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+    }
+    td,
+    tr {
+      border-collapse: separate;
+      padding: 0;
+      margin: 0;
+      border: 1px solid gray;
+      box-sizing: border-box;
+    }
+    .container {
+      margin: 0 auto;
+      width: 1000px;
+    }
+    .box {
+      width: 1000px;
+      height: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 15px;
+      line-height: 30px;
+    }
+    .box > div {
+      width: 100px;
+      height: 30px;
+      text-align: center;
+      color: white;
+    }
+    .box > div:first-of-type {
+      margin-right: 10px;
+      background-color: blue;
+    }
+    .box > div:last-of-type {
+      background-color: black;
+    }
+    .color > td {
+      background-color: yellow;
+      width: 200px;
+      height: 15px;
+    }
+    .color > td:first-of-type {
+      background-color: blue;
+      color: white;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div>게시판 생성</div>
+        <div>리스트 다운로드</div>
+      </div>
+      <table>
+        <tbody>
+          <tr class="color">
+            <td rowspan="3">게시판 글/댓글 리스트</td>
+            <td>공지사항</td>
+            <td>자유게시판</td>
+            <td>자료실</td>
+            <td>FAQ</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>55</td>
+            <td>5</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>105</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
