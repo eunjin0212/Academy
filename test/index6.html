@@ -15,7 +15,6 @@
       }
       .container {
         width: 1000px;
-        overflow: hidden;
         height: 400px;
         margin: 0 auto;
         position: relative;
@@ -28,23 +27,15 @@
         height: 100%;
       }
       .btnBox {
-        height: 50px;
+        height: 400px;
         width: 100%;
-        display: flex;
         justify-content: space-between;
-        line-height: 50px;
+        line-height: 400px;
         position: absolute;
-        top: 175px;
       }
       .btn {
-        display: block;
-        width: 50px;
         height: 50px;
-        cursor: pointer;
-        border-radius: 100%;
-      }
-      .btn:hover {
-        background-color: gray;
+        width: 50px;
       }
       .left {
         margin-left: 0px;
@@ -54,7 +45,6 @@
       }
       .disc {
         position: absolute;
-        width: 90px;
         bottom: 20px;
         left: 455px;
         display: flex;
@@ -76,10 +66,6 @@
   </head>
   <body>
     <div class="container">
-      <div>
-        <img src="./img/background.png" />
-        <img src="./img/background.png" />
-      </div>
       <div class="btnBox">
         <span class="btn left"><img src="./img/left.png" /></span
         ><span class="btn right"><img src="./img/right.png" /></span>
@@ -89,6 +75,9 @@
         <div></div>
         <div></div>
         <div></div>
+      </div>
+      <div>
+        <img src="./img/background.png" />
       </div>
     </div>
   </body>
