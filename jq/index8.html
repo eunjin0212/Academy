@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배너 응용</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .section {
+        height: 500px;
+      }
+      .banner {
+        width: 1000px;
+        height: 500px;
+        background-color: black;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+      span {
+        display: block;
+      }
+      .s20 {
+        width: 800px;
+        position: absolute;
+        right: 0;
+        margin-right: -150px;
+        bottom: 0;
+        display: none;
+      }
+      .s20 > img {
+        width: 100%;
+      }
+      .text1 {
+        font-family: "고딕체";
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+        display: inline;
+        position: relative;
+        top: 155px;
+        left: -1000px;
+        z-index: 10;
+      }
+      .text2 {
+        width: 150px;
+        height: 40px;
+        text-align: center;
+        border-radius: 20px;
+        background-color: white;
+        color: black;
+        font-family: "고딕체";
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 40px;
+        position: relative;
+        top: 100px;
+        left: 55px;
+        z-index: 11;
+        cursor: pointer;
+        opacity: 0;
+      }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#s20").fadeIn(1500);
+        $("#text1").delay(500).animate({ left: "55px" }, 1500);
+        $("#btn").delay(800).animate({ top: "200px", opacity: "1" }, 1000);
+        $("#btn").click(function () {
+          location.href = "http://samsung.com";
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="banner">
+        <!--문구-->
+        <span class="text1" id="text1">Galaxy S21 | S21+5G</span>
+        <span class="text2" id="btn">구매혜택보기</span>
+        <!--이미지 부분-->
+        <span class="s20" id="s20"><img src="./s20.jpg" /></span>
+      </div>
+    </section>
+  </body>
+</html>
