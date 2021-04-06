@@ -12,33 +12,36 @@
           console.log("animate");
           let $del = 500;
           let $wid = ["220px", "140px", "100px", "55px", "180px"];
-          for (let $i = 1; $i < 6; $i++) {
+          for (let $i = 0; $i < 5; $i++) {
             let $v = "#g" + $i;
             let $dl = $del * $i;
-            $($v)
-              .delay($dl)
-              .animate(
-                {
-                  height: $wid[$i - 1],
-                },
-                1000
-              );
+            $($v).delay($dl).animate(
+              {
+                height: $wid[$i],
+              },
+              1000
+            );
           }
         });
       });
     </script>
     <style>
       body {
-        width: 400px;
+        box-sizing: border-box;
+        display: inline-block;
+        text-align: center;
       }
       .container {
-        display: flex;
-        align-items: flex-end;
+        height: 224px;
+        width: 252.5px;
       }
       .g1 {
         height: 0px;
         width: 30px;
         margin-left: 20px;
+      }
+      .g1:first-of-type {
+        margin-left: 0;
       }
       #btn {
         width: 100px;
@@ -46,16 +49,17 @@
         background-color: gray;
         border: none;
         color: white;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="g1" style="background-color: blue" id="g1"></div>
-      <div class="g1" style="background-color: orange" id="g2"></div>
-      <div class="g1" style="background-color: red" id="g3"></div>
-      <div class="g1" style="background-color: purple" id="g4"></div>
-      <div class="g1" style="background-color: black" id="g5"></div>
+      <span class="g1" style="background-color: blue" id="g0"></span>
+      <span class="g1" style="background-color: orange" id="g1"></span>
+      <span class="g1" style="background-color: red" id="g2"></span>
+      <span class="g1" style="background-color: purple" id="g3"></span>
+      <span class="g1" style="background-color: black" id="g4"></span>
     </div>
     <input type="button" value="result" id="btn" />
   </body>
