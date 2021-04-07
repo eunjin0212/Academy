@@ -8,18 +8,16 @@
     <script src="./jquery.js"></script>
     <script>
       $(document).ready(function () {
-        var $a = $("#ulcss>li").length;
+        var $len = $("#ulcss>li").length;
         var $node = 0;
         $("#ulcss>li").eq($node).animate({ width: "80px" }, 500);
 
-        $("#left").click(function () {});
+        $(".left").click(function () {});
         //animate : "background-color" 사용안됨
-        $("#right").click(function () {
-          $w = 0;
-          while ($w < $a) {
+        $(".right").click(function () {
+          for (let $i = 0; $i < $len; $i++) {
             $("#ulcss>li").eq($w).css("background-color", "black");
             $("#ulcss>li").eq($w).css("width", "30px");
-            $w++;
           }
           $node = $node + 1;
           $("#ulcss>li").eq($node).css("background-color", "red");
@@ -34,7 +32,6 @@
         margin: 0;
         padding: 0;
       }
-      span,
       label {
         display: block;
       }
@@ -54,24 +51,22 @@
         background-color: red;
       }
       .babobox {
-        width: 150px;
+        width: 300px;
         height: 50px;
         text-align: center;
-        line-height: 50px;
-        color: white;
-        font-size: 30px;
-        font-weight: bolder;
-        margin-top: 10px;
-        position: relative;
       }
       .left,
       .right {
         width: 50px;
         height: 50px;
-        background-color: royalblue;
+        border: none;
+        display: inline-block;
+        color: white;
+        margin-right: 44px;
+        font-size: 30px;
+        background-color: cornflowerblue;
         cursor: pointer;
-        line-height: 50px;
-        text-align: center;
+        position: relative;
       }
       .right {
         position: absolute;
@@ -100,10 +95,10 @@
       <li></li>
       <li></li>
     </ul>
-    <div class="babobox">
-      <span class="left" id="left">&#60;</span>
-      <span class="right" id="right">&#62;</span>
-    </div>
+    <label class="babobox">
+      <input type="button" value="<" class="left" />
+      <input type="button" value=">" class="right" />
+    </label>
 
     <br /><br /><br />
     <ul class="bbox">
