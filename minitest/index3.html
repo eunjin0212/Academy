@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3번</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+      ul,
+      li {
+        list-style: none;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        font-size: 14px;
+        font-weight: bold;
+        box-sizing: border-box;
+        width: 1000px;
+        height: 60px;
+        color: #2b2b2b;
+        background-color: #afafaf;
+        text-align: center;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+      }
+      .ul {
+        height: 100%;
+        line-height: 60px;
+      }
+      .ul > li {
+        width: 100px;
+        height: 100%;
+      }
+      .ul > li:hover {
+        background-color: #4f4f4f;
+        color: white;
+      }
+      .ul1 > li:nth-child(3) {
+        color: #f20707;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul class="ul ul1">
+        <li>HOME</li>
+        <li>NEWS</li>
+        <li>PRODUCT</li>
+        <li>BEST</li>
+        <li>EVENT</li>
+      </ul>
+      <ul class="ul">
+        <li>리빙</li>
+        <li>건강정보</li>
+      </ul>
+    </div>
+  </body>
+</html>
