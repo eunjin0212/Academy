@@ -18,19 +18,22 @@
         let $node = 0;
         $(".left").click(function () {
           $node--;
-          if ($node < 0) {
-            $node = 2;
-          }
+          //disc
           for (let $i = 2; $i > -1; $i--) {
             $(".disc_ul>li").eq($i).css("background-color", "black");
-            console.log($i);
           }
           $(".disc_ul>li").eq($node).css("background-color", "red");
 
-          $right = $node / $banner_wid;
+          // banner
+          let $right = $node * $banner_wid;
+          if ($node === -1) {
+            // 그림 0번째에서 왼쪽 버튼을 누르면 node는 2가 되고 세번째 그림으로 가려면 왼쪽으로 땡겨줘야한다.
+            $node = 2;
+            $right = $node * $banner_wid;
+          }
           $(".img_ol").animate(
             {
-              right: -$right + "px",
+              left: -$right + "px",
             },
             500
           );
@@ -44,9 +47,11 @@
           for (let $j = 0; $j < $bannerL; $j++) {
             $(".disc_ul>li").eq($j).css("background-color", "black");
           }
-
           $(".disc_ul>li").eq($node).css("background-color", "red");
-          $left = $node * $banner_wid;
+
+          let $left = $node * $banner_wid;
+          console.log("left", $node, "-", $left, $banner_wid);
+
           $(".img_ol").animate(
             {
               left: -$left + "px",
@@ -116,10 +121,12 @@
       .btn {
         width: 50px;
         height: 50px;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.4);
         font-size: 20px;
         font-weight: bold;
         text-align: center;
+        border: none;
+        border-radius: 100%;
         cursor: pointer;
         position: absolute;
         top: 220px;
@@ -142,9 +149,9 @@
         <li></li>
         <li></li>
       </ul>
+      <button class="btn left">&#60;</button>
+      <button class="btn right">&#62;</button>
     </div>
-    <div class="btn left">&#60;</div>
-    <div class="btn right">&#62;</div>
   </body>
 </html>
 <!-- $("#wrapper").mouseenter(function () {
