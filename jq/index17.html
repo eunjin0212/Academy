@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배너 만들기</title>
+
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(() => {
+        let $bannerL = $(".img_ol>li").length;
+        let $banner_wid = $(".img_ol").width();
+        let $total_width = $bannerL * $banner_wid;
+
+        $(".img_ol").css("width", $total_width + "px");
+
+        let $node = 0;
+        $(".left").click(function () {
+          $node--;
+          if ($node < 0) {
+            $node = 2;
+          }
+          for (let $i = 2; $i > -1; $i--) {
+            $(".disc_ul>li").eq($i).css("background-color", "black");
+            console.log($i);
+          }
+          $(".disc_ul>li").eq($node).css("background-color", "red");
+
+          $right = $node / $banner_wid;
+          $(".img_ol").animate(
+            {
+              right: -$right + "px",
+            },
+            500
+          );
+        });
+
+        $(".right").click(function () {
+          $node++;
+          if ($node > 2) {
+            $node = 0;
+          }
+          for (let $j = 0; $j < $bannerL; $j++) {
+            $(".disc_ul>li").eq($j).css("background-color", "black");
+          }
+
+          $(".disc_ul>li").eq($node).css("background-color", "red");
+          $left = $node * $banner_wid;
+          $(".img_ol").animate(
+            {
+              left: -$left + "px",
+            },
+            500
+          );
+        });
+      });
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      ol,
+      ul,
+      li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .banner {
+        margin: 0 auto;
+        width: 1000px;
+        height: 490px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .img_ol {
+        height: 490px;
+        position: absolute;
+      }
+
+      .img_ol > li {
+        width: 1000px;
+        height: 490px;
+        float: left;
+      }
+
+      .disc_ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        bottom: 10px;
+        left: 450px;
+        width: 100px;
+        box-sizing: border-box;
+      }
+
+      .disc_ul > li {
+        width: 25px;
+        height: 25px;
+        border-radius: 25px;
+        background-color: black;
+        display: inline-block;
+        margin-right: 4px;
+      }
+
+      .disc_ul > li:nth-child(1) {
+        background-color: red;
+      }
+
+      .btn {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.7);
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        top: 220px;
+      }
+
+      .right {
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <ol class="img_ol">
+        <li><img src="../img/banners/banner0.png" /></li>
+        <li><img src="../img/banners/banner1.png" /></li>
+        <li><img src="../img/banners/banner2.png" /></li>
+      </ol>
+      <ul class="disc_ul">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="btn left">&#60;</div>
+    <div class="btn right">&#62;</div>
+  </body>
+</html>
+<!-- $("#wrapper").mouseenter(function () {
+        stop 메소드는 이벤트 핸들링시 애니메이션 적용 여부를 확인 함
+       $(this).stop().animate(
+         {
+           width: "600px",
+         },
+         1000
+       );
+     });
+     $("#wrapper").mouseleave(function () {
+       $(this).stop().animate(
+         {
+           width: "100px",
+         },
+         1000
+       );
+     }); -->
+<!-- <style>
+        #wrapper {
+        width: 100px;
+        height: 30px;
+        background-color: blue;
+      }
+    </style> -->
