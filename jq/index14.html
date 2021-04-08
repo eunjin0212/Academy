@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>node</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#node_del").click(() => {
+          let $liLen = $("#menu>li").length;
+          let $node = 0;
+          $("#menu>li").eq(2).remove();
+        });
+
+        $("#node_add1").click(() => {
+          $("#menu").append("<li>메뉴5</li>");
+          // 부모 node 기준으로 맨 아래 추가
+        });
+
+        $("#node_add2").click(() => {
+          $("#menu").prepend("<li>메뉴5</li>");
+          // 부모 node 기준 맨 아래 추가
+        });
+
+        $("#node_add3").click(() => {
+          $("<li>메뉴5</li>").insertAfter("#menu>li:eq(1)");
+          // node 0과 1 사이에 추가
+        });
+        $("#node_add4").click(() => {
+          $("<li>메뉴5</li>").insertBefore("#menu>li:eq(1)");
+          // node 1과 2 사이에 추가
+        });
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>메뉴1</li>
+      <li>메뉴2</li>
+      <li>메뉴3</li>
+      <li>메뉴4</li>
+    </ul>
+    <input type="button" value="노드삭제" id="node_del" />
+    <input type="button" value="뒤에 노드추가" id="node_add1" />
+    <input type="button" value="앞에 노드추가" id="node_add2" />
+    <input type="button" value="사이에 노드추가" id="node_add3" />
+    <input type="button" value="사이에 노드추가" id="node_add4" />
+  </body>
+</html>
