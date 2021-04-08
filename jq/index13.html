@@ -11,13 +11,20 @@
         var $len = $("#ulcss>li").length;
         var $node = 0;
         $("#ulcss>li").eq($node).animate({ width: "80px" }, 500);
-
-        $(".left").click(function () {});
+        $(".left").click(function () {
+          for (let $j = $len; $j > -1; $j--) {
+            $("#ulcss>li").eq($j).css("background-color", "black");
+            $("#ulcss>li").eq($j).css("width", "30px");
+          }
+          $node = $node - 1;
+          $("#ulcss>li").eq($node).css("background-color", "red");
+          $("#ulcss>li").eq($node).animate({ width: "80px" }, 500);
+        });
         //animate : "background-color" 사용안됨
         $(".right").click(function () {
           for (let $i = 0; $i < $len; $i++) {
-            $("#ulcss>li").eq($w).css("background-color", "black");
-            $("#ulcss>li").eq($w).css("width", "30px");
+            $("#ulcss>li").eq($i).css("background-color", "black");
+            $("#ulcss>li").eq($i).css("width", "30px");
           }
           $node = $node + 1;
           $("#ulcss>li").eq($node).css("background-color", "red");
@@ -66,12 +73,11 @@
         font-size: 30px;
         background-color: cornflowerblue;
         cursor: pointer;
-        position: relative;
+        position: absolute;
       }
       .right {
         position: absolute;
         right: 0;
-        top: 0;
       }
 
       /* 높이관련 사항 */
