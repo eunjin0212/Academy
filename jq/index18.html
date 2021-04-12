@@ -20,8 +20,8 @@
             사용할 경우 "글을 입력해야 합니다." 라는 메세지를 출력
             하시오. 글 입력시에만 view에 출력 됩니다.
             */
-          var $a = $("#chat_text").val();
-          if ($a == "") {
+          let $chat_text = $("#chat_text").val();
+          if ($chat_text == "") {
             alert("글을 입력해야 합니다.");
           } else {
             //submit 이벤트 핸들링이며, id값을 form id값으로 해야만
