@@ -29,37 +29,32 @@ li {
 }
 
 .banner_ol {
-    width: 2400px;
     height: 500px;
     float: left;
+    position: absolute;
 }
 
 .banner_ol>li {
     width: 1200px;
     height: 500px;
-}
-
-.btns {
-    width: 100%;
-    height: 74px;
-    position: absolute;
-    top: 213px;
+    float: left;
 }
 
 .on {
+    position: absolute;
     width: 37px;
     height: 74px;
     cursor: pointer;
-    position: absolute;
-}
-
-.on>img {
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 1;
     display: none;
-    width: 37px;
-    height: 74px;
+    outline: none;
+    border: none;
+    top: 50%;
+    margin-top: -37px;
 }
 
-.on:last-child {
+.on:last-of-type {
     right: 0;
 }
 
