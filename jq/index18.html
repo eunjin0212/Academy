@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>submit</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#f").submit(function () {
+          if ($a == "") {
+            alert("글을 입력해야 합니다.");
+          } else {
+            //submit 이벤트 핸들링이며, id값을 form id값으로 해야만
+            //정상적으로 submit 이벤트가 적용됩니다.
+            $(".view").append("<li>" + $("#chat_text").val() + "</li>");
+            $("#chat_text").val("");
+            $("#chat_text").focus();
+          }
+          return false;
+          //submit을 사용시 return false를 사용하지 않으면
+          //해당 페이지가 이동 또는 새로고침 됩니다.
+        });
+      });
+    </script>
+    <style>
+      li,
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .chat {
+        width: 400px;
+        height: 600px;
+        border: 1px solid darkblue;
+      }
+      .view {
+        height: auto;
+        width: 100px;
+      }
+      .view > li {
+        height: 30px;
+        width: 100%;
+        color: orange;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="f" method="POST" action="http://naver.com">
+      <div class="chat">
+        <p>건전한 채팅문화를 선도합니다</p>
+        <ul class="view"></ul>
+      </div>
+      <br />
+      <input type="text" id="chat_text" />
+      <input type="submit" id="chat_btn" value="전송" />
+    </form>
+  </body>
+</html>

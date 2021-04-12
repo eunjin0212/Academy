@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jq banner</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".btns").mouseenter(() => {
+          $(".on>img").css("display", "block");
+        });
+        $(".btns").mouseleave(() => {
+          $(".on>img").css("display", "none");
+        });
+
+        let $bannerL = $(".banner_ol>li").length;
+        let $banner_wid = $(".banner_ol>li").width();
+        let $total_wid = $bannerL * $banner_wid;
+
+        console.log($total_wid);
+
+        let $node = 0;
+        $(".leftBtn").click(() => {
+          $node++;
+          // disc
+          if ($node >= 2 || $node <= -1) {
+            $node = 0;
+            console.log($node);
+          }
+          $(".disc>li")
+            .eq($node)
+            .css({ "background-color": "lightcoral", width: "60px" });
+          $(".disc>li")
+            .eq($node - 1)
+            .css({ "background-color": "lightblue", width: "20px" });
+          console.log($node);
+
+          //banner
+          $(".banner_ol>li")
+            .eq($node)
+            .css({
+              position: "absolute",
+              left: $banner_wid * $node,
+            });
+          console.log($node);
+        });
+
+        $(".rightBtn").click(() => {
+          $node++;
+          // disc
+          if ($node >= 2 || $node <= -1) {
+            $node = 0;
+            console.log($node);
+          }
+          $(".disc>li")
+            .eq($node)
+            .css({ "background-color": "lightcoral", width: "60px" });
+          $(".disc>li")
+            .eq($node - 1)
+            .css({ "background-color": "lightblue", width: "20px" });
+          console.log($node);
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="./banner.css" />
+  </head>
+  <body>
+    <div class="banners">
+      <div class="btns">
+        <div class="on">
+          <img src="./image/leftbtn.png" class="leftBtn" />
+        </div>
+        <div class="on">
+          <img src="./image/rightbtn.png" class="rightBtn" />
+        </div>
+      </div>
+      <ol class="banner_ol">
+        <li><img src="./image/banner.png" /></li>
+        <li><img src="../jq/s20.jpg" /></li>
+      </ol>
+      <ul class="disc">
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

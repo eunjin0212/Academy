@@ -1,42 +1,87 @@
-.banners{
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+ol,
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.banners {
     width: 1200px;
     height: 500px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
 }
-.banner_ol{
+
+.banner_ol {
     width: 2400px;
     height: 500px;
+    float: left;
 }
-.banner_ol > li {
+
+.banner_ol>li {
     width: 1200px;
     height: 500px;
-    float: left;
+}
 
+.btns {
+    width: 100%;
+    height: 74px;
+    position: absolute;
+    top: 213px;
 }
-.banners:hover > .on{
-    display: block ;
+
+.on {
+    width: 37px;
+    height: 74px;
+    cursor: pointer;
+    position: absolute;
 }
-.on{
+
+.on>img {
     display: none;
-}
-.leftBtn{
-    position: absolute;
     width: 37px;
     height: 74px;
-    cursor: pointer;
-    left: 10px;
-    top:50%;
-    margin-top: -37px;
+}
 
+.on:last-child {
+    right: 0;
 }
-.rightBtn{
+
+.disc {
+    width: auto;
+    height: 20px;
     position: absolute;
-    width: 37px;
-    height: 74px;
-    cursor: pointer;
-    right: 10px;
-    top:50%;
-    margin-top: -37px;
+    bottom: 30px;
+    left: 585px;
+}
+
+.disc>li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: lightcoral;
+    border-radius: 50px;
+    margin-left: 10px;
+}
+
+.disc>li:first-child {
+    width: 60px;
+    margin: 0;
+    background-color: lightblue;
 }
