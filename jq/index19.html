@@ -8,26 +8,26 @@
     <script src="./jquery.js"></script>
     <script>
       $(document).ready(function () {
-        var $node = $("#u>li").length; //대메뉴 개수를 가져옴
-        var $width = $(".smenu > li").width(); //소메뉴 한개의 가로크기
+        let $node = $("#u>li").length; //대메뉴 개수를 가져옴
+        let $width = $(".smenu > li").width(); //소메뉴 한개의 가로크기
 
-        var $w = 0;
+        let $w = 0;
         while ($w < $node) {
           //해당 대메뉴에 소메뉴 개수를 가져옴
-          var $snode = $("#u > li:eq(" + $w + ") > ol > li").length;
+          let $snode = $("#u > li:eq(" + $w + ") > ol > li").length;
           //해당 소메뉴 개수 * 소메뉴 한개의 가로크기 + 소메뉴 개수 * border 2px 입니다.
-          var $olwidth = $snode * $width + $snode * 2;
+          let $olwidth = $snode * $width + $snode * 2;
 
           //소메뉴 전체 크기를 ol에 적용하여 가로 크기를 잡아줌
           $("#u > li:eq(" + $w + ") > ol").css("width", $olwidth + "px");
           $w++;
         }
         $("#u>li").mouseenter(function () {
-          var $index = $(this).index();
+          let $index = $(this).index();
           $("#u>li:eq(" + $index + ")>ol").fadeIn();
         });
         $("#u>li").mouseleave(function () {
-          var $index = $(this).index();
+          let $index = $(this).index();
           $("#u>li:eq(" + $index + ")>ol").fadeOut();
         });
       });
