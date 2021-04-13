@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1:1문의하기(메일전송)</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#form").submit(function () {
+          let $mname = $("#mname").val();
+          let $memail = $("#memail").val();
+          let $mselect = $("#mselect").val();
+          let $mtext = $("#mtext").val();
+          let $mkey = $("#mkey").val();
+          let $mastermail = $("#mastermail").val();
+          if ($mname == "") {
+            alert("성함을 입력해 주시길 바랍니다.");
+            $("#mname").focus();
+          } else if ($memail == "") {
+            alert("회신받을 이메일 주소를 입력해 주세요");
+            $("#memail").focus();
+          } else if ($mselect == "") {
+            alert("문의하실 유형을 선택해 주시길 바랍니다.");
+          } else if ($mtext == "") {
+            alert("최소 10자 이상 입력해 주시길 바랍니다.");
+            $("#mtext").focus();
+          } else {
+            return true;
+          }
+          return false;
+        });
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      p {
+        text-align: center;
+      }
+      .box {
+        width: 600px;
+        margin: 0 auto 20px;
+      }
+      #mname {
+        width: 145px;
+        height: 30px;
+        margin-right: 5px;
+      }
+      #memail {
+        width: 245px;
+        height: 30px;
+        margin-right: 5px;
+      }
+      #mselect {
+        width: 200px;
+        height: 30px;
+      }
+      .text {
+        width: 600px;
+        height: 150px;
+        margin: 0 auto 10px;
+      }
+      #mtext {
+        width: 600px;
+        height: 150px;
+      }
+      .btnDiv {
+        width: 100px;
+        height: 30px;
+        margin: 0 auto;
+      }
+      #submit {
+        width: 100%;
+        height: 100%;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+enctype="application/x-www-form-urlencoded"
+해당 form을 사용시 name에 대한 모든 정보값을 암호화 하여 
+action에 있는 url로 전달하게 됩니다.
+해당 암호화 코드를 사용하지 않을 경우 특히 한글을 인식하지
+못하여 오류나는 현상이 빈번합니다.
+-->
+    <form
+      id="form"
+      name="f"
+      method="POST"
+      action="http://mekeyace.dothome.co.kr/tomail.php"
+    >
+      <p>[1:1 문의 고객센터]</p>
+      <div class="box">
+        <input
+          id="mname"
+          type="text"
+          placeholder="성함을 입력해주세요."
+          name="mname"
+        /><input
+          id="memail"
+          name="memail"
+          type="text"
+          placeholder="이메일 주소를 입력해주세요"
+        /><select id="mselect" name="mselect">
+          <option value="">문의항목을 선택하세요.</option>
+          <option value="가입/탈퇴">가입/탈퇴</option>
+          <option value="상품문의">상품문의</option>
+          <option value="결제오류">결제오류</option>
+          <option value="반송/반품">반송/반품</option>
+          <option value="기타">기타</option>
+        </select>
+      </div>
+      <div class="text">
+        <textarea
+          id="mtext"
+          name="mtext"
+          placeholder="문의사항을 남겨주세요."
+        ></textarea>
+        <input type="hidden" value="eunjin9639@naver.com" name="mastermail" />
+        <input
+          name="mkey"
+          value="http://eunjin9639.dothome.co.kr/jq/index24.html"
+          type="hidden"
+        />
+      </div>
+      <div class="btnDiv">
+        <input id="submit" type="submit" value="문의하기" />
+      </div>
+    </form>
+  </body>
+</html>
