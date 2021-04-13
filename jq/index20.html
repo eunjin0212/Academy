@@ -11,7 +11,7 @@
         //window, document 차이?
         $(window).scroll(function () {
           //마우스에 스크롤 기능을 가져오는 함수 입니다.
-          //var $sc = $(this).scrollTop(); //scrollTop : 상단 스크롤바 높이 값
+          //let $sc = $(this).scrollTop(); //scrollTop : 상단 스크롤바 높이 값
           //scrollLeft() : 하단 스크롤바 가로 값
 
           /* 연습
@@ -27,9 +27,9 @@
                 */
 
           /* 응용 */
-          var $sct = $(this).scrollTop();
-          var $fm = $("#up").offset().top;
-          var $mv = 0;
+          let $sct = $(this).scrollTop();
+          let $fm = $("#up").offset().top;
+          let $mv = 0;
           if ($sct == 0) {
             $mv = 130;
           } else {
@@ -48,9 +48,9 @@
         });
 
         $("#menu>li").click(function () {
-          var $node = $(this).index();
+          let $node = $(this).index();
           //console.log($node);
-          var $id = $("#a" + $node).offset().top; //상단정보만 가져옴
+          let $id = $("#a" + $node).offset().top; //상단정보만 가져옴
           //offset : top(상단 위치), left(좌,우 위치)
           $("html,body").animate(
             {
@@ -61,7 +61,7 @@
         });
 
         $("#up>li").click(function () {
-          var $node = $(this).index();
+          let $node = $(this).index();
           if ($node == 0) {
             $("html,body").animate(
               {
@@ -70,7 +70,7 @@
               1000
             );
           } else {
-            var $top = $("#a3").offset().top;
+            let $top = $("#a3").offset().top;
             $("html,body").animate(
               {
                 scrollTop: $top + "px",
