@@ -17,3 +17,5 @@
 
 [shop](http://eunjin9639.dothome.co.kr/shop/index.html)
 [event page](https://game-event.netlify.app/)
+
+[https://www.netlify.com/img/deploy/button.svg](https://app.netlify.com/start/deploy?repository=https://github.com/netlify/netlify-statuskit)
