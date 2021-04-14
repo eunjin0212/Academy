@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node사용법</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <script>
+      $(document).ready(function () {
+        let $node = 0;
+        $(".span")
+          .draggable()
+          .mouseenter(function () {
+            $node = Number($(this).attr("data"));
+            console.log($node);
+          });
+        $("#box").droppable({
+          drop: function () {
+            let $color = $(".span").eq($node).css("background-color");
+            $(this).css("background-color", $color);
+          },
+          out: function () {
+            $(this).css("background-color", "");
+          },
+        });
+      });
+    </script>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      }
+      .span {
+        width: 50px;
+        height: 50px;
+        display: block;
+      }
+      .span:nth-of-type(1) {
+        background-color: red;
+      }
+      .span:nth-of-type(2) {
+        background-color: blue;
+      }
+      .span:nth-of-type(3) {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box"></div>
+    <span class="span" data="0"></span>
+    <!--data : html에 임의속성을 말합니다. (javascript, Jquery)
+임의속성은 사용하고자 하는 단어를 입력하면 됩니다.
+-->
+    <span class="span" data="1"></span>
+    <span class="span" data="2"></span>
+  </body>
+</html>
