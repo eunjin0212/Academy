@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery-Ui 응용</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js?v=11"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=1" />
+    <!-- 이미지가 있습니다. jquery-ui에서 제공하는 부분-->
+    <script>
+      $(document).ready(function () {
+        $("#cal").datepicker(); //달력 제공하는 ui 입니다.
+
+        $.fn.color_hex = function ($color, $node) {
+          $("#ol>li").eq($node).css("background-color", $color);
+        };
+
+        $.fn.color_word = function ($color, $node) {
+          $("#ol>li").eq($node).css("background-color", $color);
+          let $ck = $("#box>li").eq($node).css("background-color");
+          let $ck2 = $ck.match(/rgba/g);
+          if ($ck2 != null) {
+            alert("올바른 컬러 단어가 아닙니다.");
+            $("#colors").val("");
+          }
+        };
+      });
+
+      function bgcolor(node) {
+        let col = document.getElementById("colors").value;
+        if (col == "") {
+          alert("색상코드를 입력하셔야만 합니다.");
+          document.getElementById("colors").focus();
+        } else {
+          let mat = col.match(/#/g);
+          if (mat != null) {
+            //헥사코드
+            $.fn.color_hex(col, node);
+          } else {
+            //컬러단어
+            $.fn.color_word(col, node);
+          }
+        }
+      }
+      function wn() {
+        document.getElementById("colors").value = "#";
+      }
+    </script>
+    <style>
+      ol,
+      ul,
+      li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      #ol > li {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="색상코드입력" id="colors" onclick="wn()" />
+    <select id="boxselect" onchange="bgcolor(this.value)">
+      <option value="">상자선택</option>
+      <option value="0">box1</option>
+      <option value="1">box2</option>
+      <option value="2">box3</option>
+    </select>
+    <ol id="ol">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+    <p>달력에 표시할 색상을 선택 하시면 됩니다.</p>
+    <span>예시달력 : <input type="text" id="cal" /></span>
+  </body>
+</html>
