@@ -9,19 +9,19 @@
     <script>
       $(document).ready(function () {
         $("#btn").click(function () {
-          var $a = 200;
-          var $b = 400;
+          let $a = 200;
+          let $b = 400;
           $.fn.abc($a, $b);
           $.fn.bbb($a, $b);
         });
         //회원가입,게시판
 
         $.fn.abc = function ($aa, $bb) {
-          var $c = $aa + $bb;
+          let $c = $aa + $bb;
           console.log($c);
         };
         $.fn.bbb = function ($aa, $bb) {
-          var $c = $aa * $bb;
+          let $c = $aa * $bb;
           console.log($c);
         };
       });
