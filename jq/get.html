@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>휴대폰 번호 입력하기</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js?v=25"></script>
+    <script>
+      $(document).ready(function () {
+        let $comValue = $("#company").change($(this).val());
+        let $firstNum = $("#num1").change($(this).val());
+        $("#cForm").submit(function () {
+          let $phoneNum2 = Number($("#num2").val());
+          let $phoneNum3 = Number($("#num3").val());
+          if ($phoneNum2 == "" || $phoneNum3 == "") {
+            alert("휴대폰 번호를 입력해주세요.");
+          } else if (isNaN($phoneNum2) == true || isNaN($phoneNum3) == true) {
+            alert("숫자만 입력하세요.");
+            $("#num2").val("");
+            $("#num2").focus();
+            $("#num3").val("");
+            $("#num3").focus();
+          } else if ($comValue.val() == "") {
+            alert("통신사를 선택하세요.");
+          } else if ($firstNum.val() == "") {
+            alert("휴대폰 번호 앞자리를 선택해주세요.");
+          } else {
+            $("#timer").animate({
+              width: "100px",
+              height: "30px",
+            });
+            $.fn.time();
+            if (confirm("인증번호를 발송합니다.")) {
+              return true;
+            } else {
+              alert("휴대폰 인증 취소");
+              return false;
+            }
+            return false;
+          }
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form id="cForm" name="cForm" method="GET" action="./get2.html">
+      <select name="company" id="company" style="margin-right: 10px">
+        <option value="">통신사 선택</option>
+        <option value="KT">KT</option>
+        <option value="U+">U+</option>
+        <option value="SKT">SKT</option></select
+      ><select name="num1" id="num1">
+        <option value="">번호선택</option>
+        <option value="010">010</option>
+        <option value="011">011</option>
+        <option value="017">017</option>
+        <option value="018">018</option></select
+      >-<input name="num2" type="tel" id="num2" maxlength="4" />-<input
+        type="tel"
+        id="num3"
+        maxlength="4"
+        name="num3"
+      />
+      <input name="submitBtn" type="submit" id="submitBtn" value="인증발송" />
+    </form>
+  </body>
+</html>
