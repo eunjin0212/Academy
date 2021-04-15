@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GET, value</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#f").submit(function () {
+          let $2018 = Number($(".input").eq(0).val());
+          let $2019 = Number($(".input").eq(1).val());
+          let $2020 = Number($(".input").eq(2).val());
+          console.log($2018, $2019, $2020);
+          if (
+            isNaN($2018) == true ||
+            isNaN($2019) == true ||
+            isNaN($2020) == true
+          ) {
+            alert("숫자만 입력하세요.");
+            return false;
+          } else if (
+            $2018 < 100 ||
+            $2018 > 9999 ||
+            $2019 < 100 ||
+            $2019 > 9999 ||
+            $2020 < 100 ||
+            $2020 > 9999
+          ) {
+            alert("최소 100이상, 9999이하 숫자를 입력하세요.");
+            return false;
+          } else {
+            if (confirm("데이터를 전송하시겠습니까?")) {
+              return true;
+            } else {
+              $(".input").eq(0).val("");
+              $(".input").eq(1).val("");
+              $(".input").eq(2).val("");
+              return false;
+            }
+          }
+          return false;
+        });
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      span {
+        display: inline;
+      }
+      p {
+        background-color: black;
+      }
+      .wrapper {
+        width: auto;
+        height: 300px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .container > span {
+        margin-right: 20px;
+      }
+      #btn {
+        width: 200px;
+        height: 40px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <p>[보이스피싱 현황 년도별 데이터 입력]</p>
+      <form
+        id="f"
+        method="GET"
+        action="http://jnh1207.dothome.co.kr/jq/data2.html"
+      >
+        <div class="container">
+          <span>2018년도 사고건수</span>
+          <input
+            type="text"
+            class="input"
+            placeholder="최대 4자까지 입력"
+            maxlength="4"
+            name="c1"
+          />
+        </div>
+        <div class="container">
+          <span>2019년도 사고건수</span>
+          <input
+            type="text"
+            class="input"
+            placeholder="최대 4자까지 입력"
+            maxlength="4"
+            name="c2"
+          />
+        </div>
+        <div class="container">
+          <span>2020년도 사고건수</span>
+          <input
+            type="text"
+            class="input"
+            placeholder="최대 4자까지 입력"
+            maxlength="4"
+            name="c3"
+          />
+        </div>
+        <p>숫자만 입력하세요. 숫자 단위는 천 단위까지 입니다. (100~9999)</p>
+        <input type="submit" value="데이터 입력완료" id="btn" />
+      </form>
+    </div>
+  </body>
+</html>
