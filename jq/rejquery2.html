@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery 복습 시간 + 배너</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css" />
+    <script>
+      $(document).ready(function () {
+        // ol 넓이 구하기
+        let $bannerWid = $(".banner_ol>li").eq(0).width();
+        let $liLen = $(".banner_ol>li").length;
+        let $olTotal = $bannerWid * $liLen;
+        $(".banner_ol").css("width", $olTotal + "px");
+
+        let $node = 1;
+        let $discNode = 0;
+        let $timer;
+
+        $.fn.banner = function () {
+          let $right = $node * $banner_wid;
+
+          $(".banner_ol")
+            .stop()
+            .animate(
+              {
+                left: -$bannerWid * $node + "PX",
+              },
+              1000
+            );
+          $node += 1;
+          $discNode++;
+          for (let $i = 0; $i < $liLen; $i++) {
+            $(".disc_ul>li").eq($i).css("background-color", "lightblue");
+          }
+          $(".disc_ul>li").eq($discNode).css("background-color", "lightcoral");
+          $timer = setTimeout($.fn.banner, 1000);
+        };
+        $timer = setTimeout($.fn.banner, 1000);
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      ol,
+      li,
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .banner {
+        width: 1000px;
+        height: 490px;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+      }
+      .banner_ol {
+        position: absolute;
+      }
+      .banner_ol > li {
+        float: left;
+      }
+      .btn {
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 195px;
+      }
+      .left {
+        left: 0;
+      }
+      .right {
+        right: 0;
+      }
+      .disc_ul {
+        position: absolute;
+        bottom: 30px;
+        height: auto;
+        left: 445px;
+      }
+      .disc_ul > li {
+        float: left;
+        width: 20px;
+        height: 20px;
+        background-color: lightblue;
+        margin-left: 10px;
+        border-radius: 100%;
+      }
+      .disc_ul > li:first-of-type {
+        margin-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <ol class="banner_ol">
+        <li><img src="../img/banners/banner0.png" /></li>
+        <li><img src="../img/banners/banner1.png" /></li>
+        <li><img src="../img/banners/banner2.png" /></li>
+      </ol>
+      <div class="btn left"></div>
+      <div class="btn right"></div>
+      <ul class="disc_ul">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>
