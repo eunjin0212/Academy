@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jquery 복습 시간 + 배너</title>
+    <title>Jquery setTimeout + banner</title>
     <script src="./jquery.js"></script>
     <script src="./jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="./jquery-ui.css" />
@@ -16,30 +16,44 @@
         let $olTotal = $bannerWid * $liLen;
         $(".banner_ol").css("width", $olTotal + "px");
 
-        let $node = 1;
+        let $node = 0;
         let $discNode = 0;
         let $timer;
+        // 마우스 올리면 멈주기
+        $(".banner").mouseover(function () {
+          clearTimeout($timer);
+        });
 
+        // 마우스 내리면 다시 작동
+        $(".banner").mouseout(function () {
+          setTimeout($.fn.banner, 3000);
+        });
+
+        // 베너 + 디스크 함수
         $.fn.banner = function () {
-          let $right = $node * $banner_wid;
+          $node++;
+          if ($node > 2) {
+            $node = 0;
+          }
+          //disc
+          for (let $i = 0; $i < $liLen; $i++) {
+            $(".disc_ul>li").eq($i).css("background-color", "lightblue");
+          }
+          $(".disc_ul>li").eq($node).css("background-color", "lightcoral");
 
+          //banner
+          let $right = $node * $bannerWid;
           $(".banner_ol")
             .stop()
             .animate(
               {
-                left: -$bannerWid * $node + "PX",
+                left: -$right + "PX",
               },
               1000
             );
-          $node += 1;
-          $discNode++;
-          for (let $i = 0; $i < $liLen; $i++) {
-            $(".disc_ul>li").eq($i).css("background-color", "lightblue");
-          }
-          $(".disc_ul>li").eq($discNode).css("background-color", "lightcoral");
-          $timer = setTimeout($.fn.banner, 1000);
+          $timer = setTimeout($.fn.banner, 2000);
         };
-        $timer = setTimeout($.fn.banner, 1000);
+        $timer = setTimeout($.fn.banner, 2000);
       });
     </script>
     <style>
@@ -74,19 +88,6 @@
       .banner_ol > li {
         float: left;
       }
-      .btn {
-        border: 1px solid black;
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        top: 195px;
-      }
-      .left {
-        left: 0;
-      }
-      .right {
-        right: 0;
-      }
       .disc_ul {
         position: absolute;
         bottom: 30px;
@@ -103,6 +104,7 @@
       }
       .disc_ul > li:first-of-type {
         margin-left: 0;
+        background-color: lightcoral;
       }
     </style>
   </head>
@@ -113,8 +115,6 @@
         <li><img src="../img/banners/banner1.png" /></li>
         <li><img src="../img/banners/banner2.png" /></li>
       </ol>
-      <div class="btn left"></div>
-      <div class="btn right"></div>
       <ul class="disc_ul">
         <li></li>
         <li></li>
