@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery 복습 recall page</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css" />
+    <script>
+      $(document).ready(function () {
+        let $url = location.search;
+        if ($url !== "") {
+          // search
+          let $sData = $url.split("?data=");
+          $("#data").val($sData[1]);
+
+          // color box
+          let $colorData = $url.split("?colorData=");
+          let $color = $colorData[1];
+          $("#colorBox").css("background-color", $color);
+          $("#colorBox").text($color);
+        }
+        $("#btn").click(function () {
+          $("#form").submit();
+        });
+        $("#nBtn").click(function () {
+          $("#ff").submit();
+        });
+        $("#colorBtn").click(function () {
+          $("#colorForm").submit();
+        });
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #colorBox {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p>내 값 내가 받기</p>
+    <form id="form" method="GET" action="./rejquery3.html">
+      <input type="text" name="data" id="data" />
+      <input type="button" value="Search" id="btn" />
+    </form>
+    <p>네이버 검색</p>
+    <form id="ff" method="GET" action="https://search.naver.com/search.naver">
+      <input type="text" name="query" id="q" />
+      <input type="button" value="네이버 검색" id="nBtn" />
+    </form>
+    <p>응용문제</p>
+    <div id="colorBox">투명상자</div>
+    <form id="colorForm" method="GET" action="./rejquery3.html">
+      <input type="text" name="colorData" id="colorData" />
+      <input type="button" value="color" id="colorBtn" />
+    </form>
+  </body>
+</html>
