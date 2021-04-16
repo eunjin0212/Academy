@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery Payment confirmation</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css" />
+    <script>
+      $(document).ready(function () {
+        // 하영님 주소 http://khy4018.dothome.co.kr/jq/rejquery4.html
+        let $url = location.search;
+
+        // 상품수량
+        let $urlEa = $url.split("?ea=");
+        let $eaSplit = $urlEa[1].split("&");
+        let $ea = $eaSplit[0];
+
+        // 쿠폰 유무 쿠폰을 쓰면 true
+        let $urlCoupon = $url.split("&coupon=");
+        let $couponSplit = $urlCoupon[1].split("&");
+        let $coupon = $couponSplit[0];
+
+        // 소비자 금액 30000
+        let $urlPrice = $url.split("&price=");
+        let $price = $urlPrice[1];
+
+        $.fn.sale = function (sale) {
+          $("#wrapper").html(
+            "<span>고객님이 결제하실 최종 금액은 </span>" +
+              "<span id='totalPrice'>" +
+              sale +
+              "</span>" +
+              "<span> 원 입니다.</span>"
+          );
+        };
+
+        let $consumerPrice = Number($ea) * Number($price);
+        if ($coupon == "true") {
+          $.fn.sale(($consumerPrice *= 0.8));
+        } else {
+          $.fn.sale($consumerPrice);
+        }
+        $("#cal").datepicker();
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      span {
+        font-size: 20px;
+      }
+      #totalPrice {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <div>
+      배송일자 선택 :
+      <input id="cal" type="text" />
+    </div>
+  </body>
+</html>
