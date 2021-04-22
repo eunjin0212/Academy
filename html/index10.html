@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>important, direction</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 200px;
+        height: 30px;
+        border: 1px solid black;
+      }
+      .box:nth-of-type(1) {
+        background-color: red !important;
+      }
+      /* important : 우선적용 할 때 사용함 코드의 우선순위는 밑에가 더 우선이지만 !important를 써서 red로 할 수 있게 함*/
+      .box:nth-of-type(1) {
+        background-color: blue;
+      }
+      .box:nth-of-type(2) {
+        direction: rtl;
+        /* right to left */
+      }
+      .box:nth-of-type(3) {
+        direction: ltr;
+        /* left to right */
+      }
+      /* direction : 글자의 방향을 지정할 수 있습니다.*/
+      .box:nth-of-type(4) {
+        width: 700px;
+        height: 100px;
+        background: linear-gradient(to right, orange, pink);
+      }
+      .box:nth-of-type(5) {
+        width: 700px;
+        height: 100px;
+        background: linear-gradient(90deg, blue, yellow);
+        /* deg = degree */
+      }
+      .box:nth-of-type(6) {
+        width: 700px;
+        height: 100px;
+        background: linear-gradient(blue 40px, yellow 60px);
+      }
+      .box:nth-of-type(7) {
+        /* transparent 투명하게 표현할 때 사용합니다. */
+        width: 1000px;
+        height: 490px;
+        background: linear-gradient(45deg, transparent 95%, brown 5%),
+          url("../img/banners/banner0.png");
+        position: relative;
+      }
+      .box:nth-of-type(7):hover {
+        background: linear-gradient(45deg, transparent 95%, pink 5%),
+          url("../img/banners/banner0.png");
+      }
+      .more {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: white;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .box:nth-of-type(8) {
+        width: 1000px;
+        height: 490px;
+        /* background: radial-gradient(blue 5%,yellow 95%); */
+        /* background: radial-gradient(circle, red, blue,yellow); */
+        /* background: radial-gradient(at -5% 0%,blue,yellow); */
+        background: repeating-radial-gradient(red 10%, yellow 20%, blue 20%);
+        /* at x축 y축 원형을 움직일 때 사용합니다. */
+        /* radial-gradient : 원형 그래디언트 
+        circle : 완전 동그라미 형태로 출력
+        repeating : 반복 원을 사용할 때 이용합니다.
+        */
+      }
+      .box:nth-of-type(9) {
+        /* background (image,repeat,color,position,size) */
+        background-image: url("../img/banners/banner0.png"),
+          url("../img/banners/banner0.png"), url("../img/banners/banner1.png");
+        background-repeat: no-repeat;
+        background-size: 30%, 30%, 100%;
+        background-position: 0 0, 300px 0;
+        /* 
+        background-image는 여러개의 이미지를 사용할 수 있습니다.
+        background-size 배경 이미지 크기를 조정할 수 있음
+        background-position 배경 위치조정 x축 y축 구분합니다.
+         */
+        width: 1000px;
+        height: 490px;
+        border: 1px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">important</div>
+    <div class="box">direction - rtl</div>
+    <div class="box">direction - ltr</div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"><span class="more">+more</span></div>
+    <div class="box">repeating-radial-gradient</div>
+    <div class="box"></div>
+  </body>
+</html>
