@@ -121,5 +121,18 @@
       </div>
     </div>
   </body>
-  <script src="./index2.js"></script>
+  <script>
+    function clickHandle() {
+      let name = document.getElementById("m_name");
+      let mail1 = document.getElementById("mail1");
+      let mail2 = document.getElementById("mail2");
+      if (name.value === "") {
+        alert("이름을 입력해주세요.");
+      } else if (mail1.value === "" || mail2.value === "") {
+        alert("이메일을 입력해주세요.");
+      } else {
+        document.getElementById("id").style.display = "table-row";
+      }
+    }
+  </script>
 </html>
