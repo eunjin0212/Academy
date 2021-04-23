@@ -6,16 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event</title>
-    <link href="./event.css?v=<?php echo $v?>" rel="stylesheet" />
     <script src="../js/jquery.js"></script>
-    <script>
-      $(document).ready(function () {});
-    </script>
-    <style></style>
+    <script src="./event.js?v=20210423155954"></script>
+    <link href="./event.css?v=20210423155954" rel="stylesheet" />
   </head>
   <body>
-    <span style="font-family: 'Noto Sans KR', sans-serif; font-size: 40px"
-      >홍길동</span
-    >
+    <header class="title">
+      <p>[이벤트 룰렛 페이지]</p>
+    </header>
+    <div class="msg" id="alert"></div>
+    <section class="container">
+      <div class="game_bg">
+        <label class="game_pan"><img src="./img/event_view.png" /></label>
+        <label class="game_marker"><img src="./img/event_pt.png" /></label>
+        <label class="game_btn" id="game_btn"
+          ><img src="./img/event_start_off.png"
+        /></label>
+      </div>
+    </section>
   </body>
 </html>
