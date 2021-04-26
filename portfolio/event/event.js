@@ -13,18 +13,23 @@ $(document).ready(function () {
   let $location = 0; //오브젝트 최초 위치
 
   $("#game_btn").click(function () {
-    $("#msg").slideUp(800);
-    let $randomNum = Math.ceil(Math.random() * 360);
-    $location = $location + 1800; //도는 횟수 5바퀴
-    let $msg = $.fn.rotate($location, $randomNum);
-    setTimeout(function () {
-      $("#alert").slideDown(800);
-      $("#alert").html("당첨 " + $data[$msg] + " 마일리지");
-      console.log("msg", $msg, "data", $data);
-    }, 5500);
+    Number($("#ct").val()) - 1;
+    if (Number($("#ct").val()) == 0) {
+      $(".game_pan").css("display", "none");
+      alert("아쉽지만 기회 끝!");
+    } else {
+      $("#msg").slideUp(800);
+      let $randomNum = Math.ceil(Math.random() * 360);
+      $location = $location + 1800; //도는 횟수 5바퀴
+      let $msg = $.fn.rotate($location, $randomNum);
+      setTimeout(function () {
+        $("#alert").slideDown(800);
+        $("#alert").html("당첨 " + $data[$msg] + " 마일리지");
+        console.log("msg", $msg, "data", $data);
+      }, 5500);
+    }
   });
 
-  // 각도 다시 잴것
   $.fn.rotate = function ($location, $randomNum) {
     let $node = 0;
     if ($randomNum > 24 && $randomNum <= 65) {
@@ -41,10 +46,9 @@ $(document).ready(function () {
       $node = 5;
     } else if ($randomNum >= 295 && $randomNum <= 335) {
       $node = 6;
-    } else if (
-      ($randomNum >= 340 && $randomNum <= 360) ||
-      ($randomNum == 0 && $randomNum < 25)
-    ) {
+    } else if ($randomNum >= 340 && $randomNum <= 360) {
+      $node = 7;
+    } else if ($randomNum == 0 && $randomNum < 25) {
       $node = 0;
     } else {
       $node = 0;
