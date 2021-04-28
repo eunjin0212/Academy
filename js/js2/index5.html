@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>appendChild</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+      .s {
+        width: 10px;
+        height: 10px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box" class="box"></div>
+    <br /><br /><br />
+    <input type="button" value="인증메일 발송" onclick="clickHandle()" />
+    <div id="sc"></div>
+  </body>
+  <script>
+    let div = document.createElement("div");
+    div.id = "span_box"; //태그에 id를 생성
+    div.className = "s"; //태그에 class를 생성
+    div.setAttribute("name", "box"); //태그에 name을 생성
+    //setAttribute(javascript) = attr(Jquery)
+    document.getElementById("box").append(a);
+    //input 추가하기
+    let input = document.createElement("input");
+    input.type = "text"; //input 속성에 type을 정할 때 사용합니다.
+    document.getElementById("span_box").append(b);
+
+    // 응용문제
+    // 버튼 클릭시 input "text" 와 button이 생성 되도록 하며,
+    // input 입력 값의 name="sc_mail" 입니다.
+
+    function clickHandle() {
+      let input2 = document.createElement("input");
+      let button = document.createElement("button");
+      input2.type = "text";
+      input2.setAttribute("name", "sc_mail");
+      button.innerText = "인증완료";
+      button.className = "btn";
+      document.getElementById("sc").appendChild(input2);
+      document.getElementById("sc").appendChild(button);
+    }
+  </script>
+</html>
