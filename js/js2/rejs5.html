@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input + js, jq</title>
+    <script src="../../jq/jquery.js"></script>
+    <script>
+      //Jquery로 작성
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          if ($("#mids").val() == "") {
+            alert("사원명을 입력해 주시길 바랍니다.");
+            $("#mids").focus();
+          } else if ($("#mpart").val() == "") {
+            alert("부서를 선택해 주시길 바랍니다.");
+          } else {
+            $("#f").attr("method", "GET");
+            $("#f").attr("action", "rejs5.php");
+            $("#f").submit();
+          }
+        });
+      });
+
+      //Javascript로 작성
+      function btn() {
+        let mids = document.getElementById("mids");
+        let mpart = document.getElementById("mpart");
+
+        if (mids.value == "") {
+          alert("사원명을 입력해 주시길 바랍니다.");
+          mids.focus();
+        } else if (mpart.value == "") {
+          alert("부서를 선택해 주시길 바랍니다.");
+          mpart.focus();
+        } else {
+          document.getElementById("f").method = "GET";
+          document.getElementById("f").action = "./rejs5.php";
+          document.getElementById("f").submit();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!--응용문제 
+내부시스템 인트라넷이며, 해당 사원명과 부서를 선택후 검색 버튼을 클릭시
+해당 사원이 해당 부서 근무하는 유/무를 검토하는 프로그램 코드를 제작하시오.
+정상데이터 : 사원명 : 홍길동, 부서 : IT 
+
+부서 데이터 값은 : IT,DESIGN,MD,MT
+name값은 : 사원명(mids), 부서선택(mpart)
+전송경로 : rejs5.php 이며, GET으로 전송합니다.
+-->
+    <!--
+    <form id="f" enctype="application/x-www-form-urlencoded">
+    <p>[검색할 사원명과 부서를 선택하십시오!]</p>
+    사원명 : <input type="text" name="mids" id="mids">
+    부서명 : 
+    <select name="mpart" id="mpart">
+    <option value="">[부서선택]</option>
+    <option value="IT">IT팀</option>
+    <option value="DESIGN">Design팀</option>
+    <option value="MD">MD팀</option>
+    <option value="MT">MT팀</option>
+    </select>
+    <input type="button" value="검색" onclick="btn();">
+    </form>
+    -->
+    <!-- jquery -->
+    <form id="f" enctype="application/x-www-form-urlencoded">
+      <p>[검색할 사원명과 부서를 선택하십시오!]</p>
+      사원명 : <input type="text" name="mids" id="mids" />
+      부서명 :
+      <select name="mpart" id="mpart">
+        <option value="">[부서선택]</option>
+        <option value="IT">IT팀</option>
+        <option value="DESIGN">Design팀</option>
+        <option value="MD">MD팀</option>
+        <option value="MT">MT팀</option>
+      </select>
+      <input type="button" value="검색" id="btn" />
+    </form>
+  </body>
+</html>
