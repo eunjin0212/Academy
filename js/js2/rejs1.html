@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>submit</title>
+    <script src="../../jq/jquery.js"></script>
+  </head>
+  <body>
+    <form
+      id="box"
+      method="GET"
+      action="http://www.naver.com"
+      onsubmit="return subFunc()"
+    >
+      <input type="submit" value="ok" />
+    </form>
+  </body>
+  <script>
+    let input = document.createElement("input");
+    document.getElementById("box").append(input);
+    input.setAttribute("type", "text");
+    function subFunc() {
+      if (input.value == "") {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  </script>
+</html>
