@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>join</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      span,
+      label {
+        display: block;
+      }
+
+      p {
+        padding: 0;
+        word-break: break-all;
+        font-weight: bold;
+      }
+
+      input {
+        border: none;
+        text-indent: 5px;
+        height: 35px;
+        padding: 0;
+        margin: 5px 0;
+        outline: none;
+        border-bottom: 1px solid black;
+      }
+
+      .container,
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #member_id,
+      #member_user,
+      #member_pw {
+        width: 350px;
+      }
+
+      #member_id:focus,
+      #member_user:focus,
+      #member_pw:focus,
+      #member_email:focus,
+      #member_address:focus {
+        animation-name: border_focus;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        outline: none;
+      }
+
+      #member_email {
+        width: 190px;
+      }
+
+      #member_address {
+        width: 140px;
+      }
+
+      #btn {
+        width: 150px;
+        border: none;
+        cursor: pointer;
+        line-height: 35px;
+        border-radius: 5px;
+        background-color: #f1c40f;
+        box-shadow: 3px 3px 3px #b8960d;
+      }
+
+      #btn:focus {
+        animation-name: btn_animate;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+      }
+
+      #member_agree {
+        margin-right: 10px;
+      }
+
+      .agree {
+        width: 350px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+      }
+
+      @keyframes border_focus {
+        to {
+          border-bottom: 1px solid #f1c40f;
+        }
+      }
+
+      @keyframes btn_animate {
+        to {
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>간편회원가입</p>
+      <form
+        id="fm"
+        enctype="application/x-www-form-urlencoded"
+        autocomplete="off"
+        method="POST"
+        action="./join.php"
+      >
+        <input type="hidden" name="member_email" id="iHidden" value="" />
+        <input
+          type="text"
+          id="member_id"
+          name="member_id"
+          placeholder="아이디를 입력해주세요"
+        />
+        <input
+          type="text"
+          id="member_user"
+          name="member_user"
+          placeholder="사용자명을 입력하세요"
+        />
+        <input
+          type="password"
+          id="member_pw"
+          name="member_pw"
+          placeholder="패스워드를 입력하세요"
+        />
+        <div>
+          <input
+            type="text"
+            id="member_email"
+            placeholder="이메일 아이디"
+          />@<input type="text" id="member_address" placeholder="이메일 주소" />
+        </div>
+        <div class="agree">
+          <input
+            type="checkbox"
+            id="member_agree"
+            name="member_agree"
+            value="Y"
+          />
+          <label for="member_agree">회원 이용약관에 동의</label>
+        </div>
+        <input
+          type="button"
+          id="btn"
+          onclick="clickHandle()"
+          value="간편회원가입"
+        />
+      </form>
+    </div>
+  </body>
+  <script>
+    function clickHandle() {
+      let id = document.getElementById("member_id").value;
+      let user = document.getElementById("member_user").value;
+      let pass = document.getElementById("member_pw").value;
+      let email = document.getElementById("member_email").value;
+      let addr = document.getElementById("member_address").value;
+      let agree = document.getElementById("member_agree").checked;
+
+      if (id == "") {
+        console.log("id");
+      } else if (user == "") {
+        console.log("user");
+      } else if (pass == "") {
+        console.log("pass");
+      } else if (email == "" || addr == "") {
+        console.log("email");
+      } else if (agree == false) {
+        console.log("agree");
+      } else {
+        document.getElementById("iHidden").value = email + "@" + addr;
+        fm.submit();
+      }
+    }
+  </script>
+</html>
