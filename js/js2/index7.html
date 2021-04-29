@@ -92,19 +92,21 @@
     </form>
   </body>
   <script>
-    let email = document.getElementById("log_email").value;
-    let addr = document.getElementById("log_address").value;
-    let pass = document.getElementById("log_pw").value;
+    function clickHandle() {
+      let email = document.getElementById("log_email").value;
+      let addr = document.getElementById("log_address").value;
+      let pass = document.getElementById("log_pw").value;
 
-    if (email == "" || addr == "") {
-      console.log("email");
-      return false;
-    } else if (pass == "") {
-      console.log("pass");
-      return false;
-    } else {
-      document.getElementById("eHidden").value = email + "@" + addr;
-      return true;
+      if (email == "" || addr == "") {
+        console.log("email");
+        return false;
+      } else if (pass == "") {
+        console.log("pass");
+        return false;
+      } else {
+        document.getElementById("eHidden").value = email + "@" + addr;
+        return true;
+      }
     }
   </script>
 </html>
