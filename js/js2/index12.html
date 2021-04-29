@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>값 넘기기</title>
+    <script src="http://lswhobby.dothome.co.kr/JS/middle12.js"></script>
+    <!-- <script src="./index12.js"></script> -->
+
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .container > div {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        합계금액 : <input type="text" id="money" value="56000" readonly />
+      </div>
+      <div>
+        할인율 : <input type="text" id="sale" value="20" readonly /> % 할인
+      </div>
+      <div>
+        적립금 사용 : <input type="text" id="reserve" value="1500" readonly />
+      </div>
+      <div>남은 적립금 : <span id="get_reserve"></span></div>
+      <div>
+        <input type="button" value="결제확인" onclick="dataFunc()" />
+      </div>
+      <div>
+        최종결제 금액 :
+        <span style="color: red; font-weight: bold" id="result"></span>
+      </div>
+    </div>
+  </body>
+  <script>
+    function dataFunc() {
+      const money = Number(document.getElementById("money").value);
+      const sale = Number(document.getElementById("sale").value);
+      const reserve = Number(document.getElementById("reserve").value);
+      const value = send.data(money, sale, reserve);
+
+      let result = document.getElementById("result");
+      let resultReserve = document.getElementById("get_reserve");
+
+      result.innerText = value[0];
+      resultReserve.innerText = value[1];
+    }
+  </script>
+</html>
