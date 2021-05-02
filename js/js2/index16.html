@@ -95,14 +95,41 @@
         "010-1588-1588",
       ],
     ];
+    [];
     function clickHandle() {
-      let member = document.getElementById("member");
-
-      for (let i = 0; i < array[0].length; i++) {
+      //   let member = document.getElementById("member");
+      //   for (let i = 0; i < array[0].length; i++) {
+      //     let label = document.createElement("label");
+      //     for (let j = 0; j < array.length; j++) {
+      //       let span = document.createElement("span");
+      //       let data = document.createTextNode(array[j][i]);
+      //       span.appendChild(data);
+      //       label.appendChild(span);
+      //       member.append(label);
+      //     }
+      //   }
+      // forEach;
+      // array[0].forEach((k, l, arr) => {
+      //   // k : 요소
+      //   // l : index
+      //   // arr : array
+      //   let label = document.createElement("label");
+      //   array.forEach((a, b, c) => {
+      //     let span = document.createElement("span");
+      //     let data = document.createTextNode(a[l]);
+      //     span.appendChild(data);
+      //     label.appendChild(span);
+      //     member.append(label);
+      //   });
+      // });
+      // for-in
+      for (const i in array[0]) {
         let label = document.createElement("label");
-        for (let j = 0; j < array.length; j++) {
+        console.log(i);
+        for (const j in array) {
           let span = document.createElement("span");
           let data = document.createTextNode(array[j][i]);
+          console.log(array[j][i]);
           span.appendChild(data);
           label.appendChild(span);
           member.append(label);
