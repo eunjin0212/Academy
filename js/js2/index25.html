@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array, Animation</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+        position: relative;
+      }
+      .sbox {
+        width: 50px;
+        height: 50px;
+        background-color: purple;
+        display: block;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <span class="sbox" id="sbox" onclick="animateFunc()"></span>
+    </div>
+  </body>
+  <script>
+    //setTimeout : 1회만 반복함 = clearTimeout
+    //setInterval : 계속 작동함 = clearInterval
+    let timer;
+    function animateFunc() {
+      let sbox = document.getElementById("sbox");
+      timer = setInterval(styleFunc, 1);
+      let count = 0;
+      let num = 1;
+      function styleFunc() {
+        //console.log("test");
+        //clearInterval(timer);
+        count++;
+        if (count == 450) {
+          clearInterval(timer);
+        } else {
+          num = num - 0.0025;
+          sbox.style.top = count + "px";
+          sbox.style.left = count + "px";
+          sbox.style.opacity = num;
+        }
+      }
+    }
+  </script>
+</html>
