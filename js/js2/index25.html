@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Array, Animation</title>
+    <title>Js Animation, setInterval</title>
     <style>
       .box {
         width: 500px;
@@ -33,18 +33,18 @@
     function animateFunc() {
       let sbox = document.getElementById("sbox");
       timer = setInterval(styleFunc, 1);
-      let count = 0;
+      let px = 0;
       let num = 1;
       function styleFunc() {
         //console.log("test");
         //clearInterval(timer);
-        count++;
-        if (count == 450) {
+        px++;
+        if (px == 450) {
           clearInterval(timer);
         } else {
           num = num - 0.0025;
-          sbox.style.top = count + "px";
-          sbox.style.left = count + "px";
+          sbox.style.top = px + "px";
+          sbox.style.left = px + "px";
           sbox.style.opacity = num;
         }
       }
