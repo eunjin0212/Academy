@@ -3,68 +3,124 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1" />
-    <title>Javascript 문제3</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>문제3 - Jquery</title>
+    <!--
+        문제3 
+        메뉴에 마우스 오버시 드롭메뉴 형태로 나오도록 합니다.
+    -->
     <style>
-      body {
+      body,
+      ul,
+      li {
         margin: 0;
         padding: 0;
+        list-style: none;
       }
-      .member_div {
-        width: 250px;
-        height: 150px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+
+      .top-menu ul ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+      }
+
+      .top-menu > ul > li {
+        float: left;
+      }
+
+      .top-menu {
         text-align: center;
-        margin: 0 auto;
-        margin-top: 25px;
       }
-      p {
-        font-size: 14px;
-        font-weight: bold;
+
+      .top-menu > ul {
+        display: inline-block;
+        padding: 0 10px;
+        border-radius: 10px;
       }
-      .selcss {
-        width: 200px;
-        height: 30px;
-        border: 1px solid #ccc;
-        font-size: 12px;
-        text-indent: 5px;
+
+      .top-menu li > a {
+        display: block;
+        padding: 10px;
       }
-      .member_btn {
-        border: 0;
-        width: 100px;
-        height: 30px;
-        border-radius: 5px;
-        background-color: darkblue;
+
+      .top-menu li:hover > a {
+        background-color: black;
         color: white;
-        font-size: 12px;
-        margin-top: 20px;
+      }
+
+      .top-menu li {
+        position: relative;
+      }
+
+      .top-menu ul {
+        background-color: #dfdfdf;
       }
     </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        let $liLen = $("#top_menu>ul>li").length;
+        for (let $i = 0; $i < $liLen; $i++) {
+          $("#top_menu>ul>li")
+            .eq($i)
+            .mouseover(function () {
+              $("#somenu" + $i).css("display", "block");
+            });
+          $("#top_menu>ul>li")
+            .eq($i)
+            .mouseout(function () {
+              $("#somenu" + $i).css("display", "none");
+            });
+        }
+      });
+    </script>
   </head>
-  <!-- 
-      문제3. 
-      select안에 그룹이 나오도록 합니다.
-      해당 그룹이 나오도록 합니다.
-      숫자 1~5까지는 option에 대한 value 값 입니다.
-      
-      일반회원,1
-      사업자회원(개인),2
-      사업자회원(법인),3
-      자선단체회원,4
-      자회사직원,5
-    -->
+
   <body>
-    <div class="member_div">
-      <p>회원그룹 선정 부분</p>
-      <select id="select" class="selcss"></select>
-      <label
-        ><input type="button" value="회원그룹설정" class="member_btn"
-      /></label>
-    </div>
+    <nav class="top-menu" id="top_menu">
+      <ul>
+        <li>
+          <a href="#">메뉴아이템1</a>
+          <ul id="somenu0">
+            <li><a href="#">메뉴아이템1</a></li>
+            <li><a href="#">메뉴아이템2</a></li>
+            <li><a href="#">메뉴아이템3</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">메뉴아이템2</a>
+          <ul id="somenu1">
+            <li><a href="#">메뉴아이템1</a></li>
+            <li><a href="#">메뉴아이템2</a></li>
+            <li><a href="#">메뉴아이템4</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">메뉴아이템3</a>
+          <ul id="somenu2">
+            <li><a href="#">메뉴아이템1</a></li>
+            <li><a href="#">메뉴아이템2</a></li>
+            <li><a href="#">메뉴아이템3</a></li>
+            <li><a href="#">메뉴아이템4</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">메뉴아이템4</a>
+          <ul id="somenu3">
+            <li><a href="#">메뉴아이템1</a></li>
+            <li><a href="#">메뉴아이템2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </body>
-  <script>
-    let select = document.getElementById("select");
-    select.innerHTML =
-      "<option class='op' value='1'>일반회원</option><option class='op' value='2'>사업자회원(개인)</option><option class='op' value='3'>사업자회원(법인)</option><option class='op' value='4'>자선단체회원</option><option class='op' value='5'>자회사직원</option>";
-  </script>
 </html>

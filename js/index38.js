@@ -12,3 +12,4 @@ function startFunc() {
 function stopFunc() {
   clearTimeout(timer);
 }
+// setTimeout

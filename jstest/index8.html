@@ -1,98 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jquery 문제4</title>
-    <script src="../jq/jquery.js"></script>
-    <script>
-      $(document).ready(function () {
-        let $timer;
-        let $conut = 0;
-        $("#start").click(function () {
-          $.fn.timeFunc();
-          //  $timer = setTimeout($.fn.timeFunc,0);
-        });
-
-        $("#stop").click(function () {
-          clearTimeout($timer);
-          $("#sbox").stop();
-        });
-
-        $("#restart").click(function () {
-          if ($conut == 0) {
-            $timer = setTimeout($.fn.timeFunc, 0);
-          } else {
-            $timer = setTimeout($.fn.bbb, 0);
-          }
-        });
-        /* 
-            $("#sbox").stop().animate({
-                    "left":"950px"
-                },1000,function(){
-                $("#sbox").stop().animate({
-                    "left":"-0px"
-                },1000);
-            });
-
-            */
-
-        $.fn.timeFunc = function () {
-          let $ts = $("#sbox").offset().left;
-          $("#sbox").stop().animate(
-            {
-              left: "950px",
-            },
-            1000
-          );
-          $conut = 0;
-          $timer = setTimeout($.fn.bbb, 1000);
-        };
-        $.fn.bbb = function () {
-          $("#sbox").stop().animate(
-            {
-              left: "-0px",
-            },
-            1000
-          );
-          $conut = 1;
-          $timer = setTimeout($.fn.timeFunc, 1000);
-        };
-      });
-    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>문제8 - Javascript</title>
+    <!-- 문제8
+    해당 게시글 작성 폼입니다.
+    모든 필수 항목을 검사하며, 완료 되었을 경우
+    post로 전송되도록 하면됩니다. 전송 페이지는 index8.html로 이동되도록 하면 됩니다.
+    단, 등록 버튼 클릭시에만 이동되며, 다시 작성하기 클릭시 모든 내용은
+    초기화 됩니다.
+    취소 버튼 클릭시 이전 페이지로 이동 되도록 제작하세요
+    -->
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
         margin: 0;
         padding: 0;
       }
-      .box {
-        width: 1000px;
-        height: 50px;
-        border: 1px solid black;
-        position: relative;
-      }
-      .sbox {
-        width: 50px;
-        height: 50px;
-        background-color: blue;
-        position: absolute;
+      .btn {
+        margin-top: 15px;
+        width: 120px;
+        height: 35px;
+        font-size: 17px;
       }
     </style>
+    <script>
+      function subFunc() {
+        let title = document.getElementById("title");
+        let names = document.getElementById("name");
+        let pass = document.getElementById("pass");
+        let content = document.getElementById("content");
+        if (
+          title.value === "" &&
+          names.value === "" &&
+          pass.value === "" &&
+          content.value === ""
+        ) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+      function resetFunc() {
+        document.getElementById("title").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("pass").value = "";
+        document.getElementById("content").value = "";
+      }
+      function cancleFunc() {
+        location.href = "./index8.html";
+      }
+    </script>
   </head>
-  <!-- 문제4. 
-    start 버튼을 클릭시 .box 안에
-    sbox박스가 좌, 우로 계속 왕복 되도록 합니다.
-    단, stop를 누를 경우 정지되며, restart를 누르면 다시
-    계속 왕복이 되도록 합니다.
--->
+
   <body>
-    <div class="box">
-      <div class="sbox" id="sbox"></div>
+    <div id="wrap">
+      <h2>게시글 작성</h2>
+      <form method="post" action="./index8.html" onsubmit="return subFunc()">
+        <input type="hidden" value="board_write" name="command" />
+        <table>
+          <tr>
+            <th>제목 *</th>
+            <td><input type="text" name="title" id="title" /></td>
+          </tr>
+          <tr>
+            <th>아이디 *</th>
+            <td><input type="text" name="name" id="name" /></td>
+          </tr>
+          <tr>
+            <th>비밀번호 *</th>
+            <td><input type="password" name="pass" id="pass" /></td>
+          </tr>
+          <tr>
+            <th>내용 *</th>
+            <td>
+              <textarea
+                cols="100"
+                rows="30"
+                name="content"
+                id="content"
+              ></textarea>
+            </td>
+          </tr>
+        </table>
+        <input class="btn" type="submit" value="등록" />
+        <input
+          class="btn"
+          type="reset"
+          value="다시작성하기"
+          onclick="resetFunc()"
+        />
+        <input class="btn" type="button" value="취소" onclick="cancleFunc()" />
+      </form>
     </div>
-    <br /><br /><br />
-    <input type="button" value="start" id="start" />
-    <input type="button" value="stop" id="stop" />
-    <input type="button" value="restart" id="restart" />
   </body>
 </html>

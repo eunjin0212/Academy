@@ -22,3 +22,4 @@ function btnHandle2() {
     alert("휴대폰번호 11자리를 입력해주세요.");
   }
 }
+// 단어 바꾸기

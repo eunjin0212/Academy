@@ -37,3 +37,5 @@ function gugu(c, d) {
 function jj() {
   gugu(4, 12);
 }
+
+// function + function

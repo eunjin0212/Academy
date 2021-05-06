@@ -12,3 +12,4 @@ function reFunc() {
     }
   }
 }
+// random

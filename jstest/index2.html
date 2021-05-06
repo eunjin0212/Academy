@@ -3,138 +3,78 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1" />
-    <title>Javascript 문제2</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>문제2 - Jquery</title>
+    <!-- 문제2
+    close를 누르면 아래에서 위로 사라지도록 합니다.
+    단, menu_part 또한 자동으로 위로 올라가도록 합니다.
+    -->
     <style>
-      * {
-        box-sizing: border-box;
+      body {
+        margin: 0;
         padding: 0;
       }
-      #mem_pop {
-        background: url("./img/pop_bg.gif") left top repeat-y;
+      .top {
+        height: 100px;
       }
-      #mem_pop > .searhc_box {
-        width: 450px;
-        height: 200px;
-        font-size: 11px;
-        text-align: center;
-        background: url("./img/pop_bott.gif") left bottom no-repeat;
-        color: #666;
-      }
-      #mem_pop > .searhc_box table {
-        width: 350px;
-        text-align: center;
+      .topbanner {
+        width: 700px;
+        height: 100px;
         margin: 0 auto;
-        margin-bottom: 10px;
-        border: 1px solid #dadcde;
+        position: relative;
+        cursor: pointer;
       }
-      .td_bg {
-        background: #eaedef;
-        border-right: 1px solid #dadcde;
+      .menu_part {
+        height: 160px;
       }
-      #mem_pop > .searhc_box > table > td {
+      .menus {
+        width: 700px;
+        height: 160px;
+        background-color: darkblue;
+        margin: 0 auto;
+      }
+      .close {
+        width: 30px;
         height: 30px;
-        font-size: 11px;
-        padding: 1px 0 0 5px;
-        text-align: left;
-        border-bottom: 1px solid #dadcde;
-        color: #666;
-      }
-      #mem_pop > .searhc_box > p {
-        width: 348px;
-        height: 18px;
-        padding-top: 6px;
+        background-color: black;
+        color: white;
+        font-size: 25px;
         text-align: center;
-        margin: 0 auto;
-        margin-bottom: 5px;
-        background: #eaedef;
-        border: 1px solid #dadcde;
-      }
-      #mem_pop > .searhc_box > p > label {
-        padding: 0 5px;
+        font-weight: bolder;
+        display: block;
+        line-height: 30px;
+        position: absolute;
+        right: 0;
       }
     </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#close").click(function () {
+          $("#topbanner").slideUp();
+          $("#menu_part").animate(
+            {
+              "margin-top": "-100px",
+            },
+            500
+          );
+        });
+      });
+    </script>
   </head>
-  <!--
-문제2. 이름과 이메일을 모두 입력해야만 아이디/비밀번호 찾기가 되도록 합니다.
--->
+
   <body>
-    <div id="mem_pop">
-      <h2>
-        <img src="./img/pop_search.gif" alt="아이디비번찾기" />
-      </h2>
-      <div class="searhc_box" id="form">
-        <table>
-          <colgroup>
-            <col width="100" />
-            <col width="*" />
-          </colgroup>
-          <tr id="id" style="display: none">
-            <td class="td_bg">아이디</td>
-            <td>
-              <input
-                class="dInput"
-                name="m_id"
-                id="m_id"
-                type="text"
-                style="width: 147px"
-                value=""
-              />
-            </td>
-          </tr>
-          <tr>
-            <td class="td_bg">이름</td>
-            <td>
-              <input
-                class="dInput"
-                name="m_name"
-                id="m_name"
-                type="text"
-                style="width: 147px"
-                value=""
-              />
-            </td>
-          </tr>
-          <tr>
-            <td class="td_bg">이메일</td>
-            <td>
-              <input
-                class="dInput"
-                name="mail1"
-                id="mail1"
-                type="text"
-                style="width: 65px"
-                value=""
-              />
-              @
-              <input
-                class="dInput"
-                name="mail2"
-                id="mail2"
-                type="text"
-                style="width: 65px"
-                value=""
-              />
-            </td>
-          </tr>
-        </table>
-        <span onclick="clickHandle()"
-          ><img src="./img/btn_confirm1.gif" alt="확인"
-        /></span>
+    <header class="top">
+      <div class="topbanner" id="topbanner">
+        <span class="close" id="close">X</span>
+        <img src="./image/top_banner.png" />
       </div>
-    </div>
+    </header>
+    <section class="menu_part" id="menu_part">
+      <div class="menus"></div>
+    </section>
   </body>
-  <script>
-    function clickHandle() {
-      let name = document.getElementById("m_name");
-      let mail1 = document.getElementById("mail1");
-      let mail2 = document.getElementById("mail2");
-      if (name.value === "") {
-        alert("이름을 입력해주세요.");
-      } else if (mail1.value === "" || mail2.value === "") {
-        alert("이메일을 입력해주세요.");
-      } else {
-        document.getElementById("id").style.display = "table-row";
-      }
-    }
-  </script>
 </html>

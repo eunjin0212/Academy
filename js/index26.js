@@ -7,8 +7,8 @@ function time() {
   document.getElementById("box").style.left = num + "px";
   if (num >= 1000) {
     num += 1;
-        clearTimeout(timeOut);}
-} 
+    clearTimeout(timeOut);
+  }
 }
-function stopFunc() {
-}
+
+function stopFunc() {}

@@ -1,46 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jquery 문제1</title>
-    <script src="../jq/jquery.js"></script>
-    <script>
-      $(document).ready(function () {
-        $("#start").click(function () {
-          $("#box").css("transform", "");
-
-          $("#box").stop().animate(
-            {
-              width: "495px",
-            },
-            1000
-          );
-        });
-      });
-    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>문제5 - Jquery</title>
+    <!--
+    문제5번
+    sdate, edate 클릭시 달력이 나와야 하며 달력 표기는
+    2021-05-04 형태로 표기가 되어야 합니다.
+    단 검색 버튼 클릭시 시작날짜 보다 종료날짜가 많을 경우 조회가 되지 않도록 합니다.
+    -->
     <style>
       body {
         margin: 0;
         padding: 0;
       }
-      .box {
-        width: 0px;
-        height: 50px;
-        background-color: black;
-        transition: all 3s;
+      .search_div {
+        width: 450px;
+        height: 100px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 50px;
+      }
+      p {
+        width: 100%;
+        text-align: center;
+      }
+      .inputs {
+        width: 130px;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-indent: 5px;
+      }
+      .search_btns {
+        width: 100px;
+        height: 35px;
+        border: 0;
+        background-color: cornflowerblue;
+        color: darkblue;
+        font-size: 14px;
+        border-radius: 5px;
+        font-weight: bold;
       }
     </style>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-ui.js?=v2"></script>
+    <link rel="stylesheet" type="text/css" href="./js/jquery-ui.css" />
+    <script>
+      $(document).ready(function () {
+        $("#date0").datepicker();
+        $("#date1").datepicker();
+        $("#search_btns").click(function () {
+          let $data0 = $("#date0").val();
+          let $data1 = $("#date1").val();
+
+          let $d1 = $data0.split("-");
+          let $d2 = $data1.split("-");
+
+          let $realDate = $d1[0] + $d1[1] + $d1[2];
+          let $realDate2 = $d2[0] + $d2[1] + $d2[2];
+
+          if (Number($realDate) > Number($realDate2)) {
+            alert("날짜를 다시 선택해주세요.");
+            return false;
+          } else {
+            alert("조회를 시작합니다. 잠시만 기다려주세요.");
+          }
+        });
+      });
+    </script>
   </head>
-  <!--
-    문제5.
-    해당 box 부분이 데이터에 맞춰서 가로px로 늘어나야 합니다.
-    가로 px로 늘어나야 하는 길이값은 495px 입니다.
-    start를 눌렀을때 서서히 늘어나야함 (jquery)
--->
+
   <body>
-    <div class="box" id="box"></div>
-    <input type="button" value="start" id="start" />
+    <div class="search_div">
+      <p>결제내역 조회하기</p>
+      <input
+        type="text"
+        name="sdate"
+        id="date0"
+        class="inputs"
+        placeholder="시작일자를 선택해 주세요"
+        readonly
+      />
+      -
+      <input
+        type="text"
+        name="edate"
+        id="date1"
+        class="inputs"
+        placeholder="종료일자를 선택해 주세요"
+        readonly
+      />
+      <input type="button" value="검색" id="search_btns" class="search_btns" />
+    </div>
   </body>
 </html>
