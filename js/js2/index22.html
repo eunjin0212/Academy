@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부모, 자식창에 대한 통신2</title>
+  </head>
+  <!--
+    index23.html 공통사용
+    팝업크기는 600 * 600
+    -->
+  <body>
+    <input type="hidden" name="idx" id="idx" />
+    <input
+      type="text"
+      name="product"
+      id="product"
+      placeholder="상품을 선택해 주세요!"
+      onclick="popup();"
+      readonly
+    />
+    <input
+      type="text"
+      name="money"
+      id="money"
+      placeholder="상품금액"
+      readonly
+    />
+    <select onchange="total(this.value);">
+      <option value="">갯수</option>
+      <option value="1">1EA</option>
+      <option value="2">2EA</option>
+      <option value="3">3EA</option>
+    </select>
+    <input
+      type="text"
+      name="totalmoney"
+      id="totalmoney"
+      value="최종금액"
+      readonly
+    />
+    <input type="button" value="결제하기" />
+  </body>
+  <script>
+    function popup() {
+      window.open("./index23.html", "", "width=600,height=600");
+    }
+    function total(m) {
+      let moneyVal = document.getElementById("money").value;
+      moneyVal = moneyVal.replace(",", "");
+      console.log(Number(moneyVal));
+      console.log(m);
+      let last = Number(moneyVal) * Number(m);
+      document.getElementById("totalmoney").value = last.toLocaleString("ko");
+      //toLocaleString : 천단위당 ,를 생성하여 출력시켜 줍니다.
+      //단, 숫자로 인식 되었을때만 사용됩니다.
+    }
+  </script>
+</html>

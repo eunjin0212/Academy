@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window.opener.document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .table {
+        background-color: black;
+        height: auto;
+        width: 500px;
+        font-size: 12px;
+        text-align: center;
+      }
+      .table th,
+      td {
+        background-color: white;
+        box-sizing: border-box;
+        height: 30px;
+        cursor: pointer;
+      }
+      .table th:nth-child(1),
+      td:nth-child(1) {
+        width: 50px;
+      }
+      .table th:nth-child(3),
+      td:nth-child(3) {
+        width: 150px;
+      }
+      .close {
+        width: 500px;
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0 auto;
+      }
+      .close > button {
+        width: 100px;
+        height: 40px;
+        background-color: black;
+        border: 0;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      border="0"
+      cellpadding="1"
+      cellspacing="1"
+      class="table"
+      align="center"
+    >
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>상품명</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="t3" onclick="test(3);">
+          <td>3</td>
+          <td>제주 삼다수 500ml 40개</td>
+          <td>13,760</td>
+        </tr>
+        <tr id="t2" onclick="test(2);">
+          <td>2</td>
+          <td>오션블루향 핸드워시 300ml 3개</td>
+          <td>11,070</td>
+        </tr>
+        <tr id="t1" onclick="test(1);">
+          <td>1</td>
+          <td>닥터방기원 데미지 케어 샴푸</td>
+          <td>10,320</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="close">
+      <button type="button">창닫기</button>
+    </div>
+  </body>
+  <script>
+    function test(a) {
+      let data = document.getElementById("t" + a).childNodes;
+      //해당 아이디 중에 자식노드를 확인합니다.
+      console.log(data[2].nextSibling.innerText);
+      window.opener.document.getElementById("idx").value =
+        data[1].nextSibling.innerText;
+      window.opener.document.getElementById("product").value =
+        data[2].nextSibling.innerText;
+      window.opener.document.getElementById("money").value =
+        data[4].nextSibling.innerText;
+      window.opener.document.getElementById("totalmoney").value =
+        "갯수를 선택해주세요";
+      self.close();
+    }
+  </script>
+</html>
