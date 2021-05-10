@@ -10286,7 +10286,7 @@
       // +/-number for offset from today, null for today
       appendText: "", // Display text following the input box, e.g. showing the format
       buttonText: "일정표시", // Text for trigger button
-      buttonImage: "./cal.svg", // URL for trigger button image
+      buttonImage: "../cal.svg", // URL for trigger button image
       buttonImageOnly: true, // True if the image appears alone, false if it appears on a button
       hideIfNoPrevNext: false, // True to hide next/previous month links
       // if not applicable, false to just disable them
