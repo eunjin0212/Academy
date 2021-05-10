@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setInterval</title>
+    <script src="../jquery.js"></script>
+    <script>
+      $(function () {
+        //setInterval은 더블로 사용하지 않습니다. 더블사용시 두개의 setInterval이
+        //작동되어 집니다.
+        //단, setTimeout은 더블로 사용하는 경우도 있습니다.
+        //배너 제작시 최초로 tiem이 작동할 경우는 setTimeout으로 적용하며,
+        //그외에 반복 구간은 setInterval로 적용합니다.
+        let $timer;
+        let $node = 0;
+        $.fn.btime = function () {
+          $timer = setInterval(function () {
+            $("#disc>div").css("background-color", "black");
+            $node++;
+            if ($node > 3) {
+              $node = 0;
+            }
+            $("#disc>div").eq($node).css("background-color", "blue");
+          }, 2000);
+        };
+
+        setTimeout($.fn.btime, 2000);
+
+        $("#disc>div").bind({
+          click: function () {
+            let $n = $(this).index();
+            console.log($n);
+            clearInterval($timer); //setInterval 정지
+            $("#disc>div").css("background-color", "black");
+            $("#disc>div").eq($n).css("background-color", "blue");
+            $node = $n; //사용자 클릭 후 전역변수 노드값에 반영을 시킴
+          },
+          mouseleave: function () {
+            setTimeout($.fn.btime, 2000);
+          },
+        });
+      });
+    </script>
+    <style>
+      #disc {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      #disc > div {
+        background-color: black;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        margin-left: 5px;
+        text-align: center;
+      }
+      #disc > div:nth-child(1) {
+        background-color: blue;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="disc">
+      <div>0</div>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+  </body>
+</html>
