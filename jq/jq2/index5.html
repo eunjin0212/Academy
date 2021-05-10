@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery-mobile(tap)</title>
+    <script src="../jquery-2.0.js"></script>
+    <script src="../jquery-ui.js?v=1"></script>
+    <script src="../jquery.mobile.js"></script>
+    <link rel="stylesheet" type="text/css" href="../jquery-ui.css" />
+    <script>
+      $(function () {
+        //tap : click핸들링과 동일한 기능을 가지고 있으며, mobile에서 정확한
+        //핑거 클릭을 사용할때 이용됩니다.
+        /*
+        $("li").tap(function(){
+           // $(this).hide();
+           $(this).addClass("bg");
+        });
+        */
+        $("li").taphold(function () {
+          //taphold : tap과 다르게 시간 타임(1초)을 자동으로 가지게 됩니다.
+          $(this).addClass("bg");
+        });
+        //scrollstart : 페이지에서 스크롤 스왑을 시작할때
+        //scrollstop : 페이지에서 스크롤을 자동으로 드롭될때 중지하는 이벤트 입니다.
+        $("html,body").scrollstop(function () {
+          //응용 tabs-3 세로위치를 출력시키시오.
+          /*
+            let $auto = $("#tabs-2").offset().top;
+            $(this).stop().animate({
+                "scrollTop":$auto+"px"
+            });
+            */
+          $(this).stop().animate(
+            {
+              scrollTop: "1200px",
+            },
+            500
+          );
+        });
+      });
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .ulcss {
+        width: 100%;
+        max-width: 620px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 40px;
+      }
+      .ulcss > li {
+        display: inline-block;
+        width: calc(100% / 3.1);
+        background-color: blue;
+        height: inherit;
+        max-width: 200px;
+      }
+      .bg {
+        background-color: pink !important;
+      }
+      /* calc : 해당 속성값을 계산하는 계산식 입니다. (+,-,*,/)*/
+      #tabs-1 {
+        width: 200px;
+        height: 800px;
+        background-color: pink;
+      }
+      #tabs-2 {
+        width: 200px;
+        height: 800px;
+        background-color: blue;
+      }
+      #tabs-3 {
+        width: 200px;
+        height: 800px;
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="ulcss" id="ulcss">
+      <li>box1</li>
+      <li>box2</li>
+      <li>box3</li>
+    </ul>
+    <div id="tabs-1"></div>
+    <div id="tabs-2"></div>
+    <div id="tabs-3"></div>
+  </body>
+</html>
