@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>security code</title>
+    <script src="../jquery-2.0.js"></script>
+    <script src="../jquery.mobile.js?v=1"></script>
+    <script>
+      $(function () {
+        //난수작업
+        //응용 : 0~9까지 중 한가지 숫자가 나오도록 콘솔로 출력하시오
+
+        $.fn.reloads = function () {
+          for (let $i = 0; $i < 4; $i++) {
+            let $random = Math.floor(Math.random() * 10);
+            let $src = "./number/no" + $random + ".png";
+            $("#ulcss>li:eq(" + $i + ")>img").attr("src", $src);
+          }
+        };
+        $.fn.reloads();
+        $("#reload").click(function () {
+          $.fn.reloads();
+        });
+
+        $("#f").submit(function () {
+          let $scnum = $("#scnum").val();
+          if ($scnum == "") {
+            alert("보안코드 4자리를 입력하세요");
+            return false;
+          }
+        });
+      });
+    </script>
+  </head>
+  <!--
+응용 : 보안코드 4자리를 아무것도 입력하지 않고 enter키를 사용할 경우
+"보안코드 4자리를 입력하세요" 라는 경고 메세지를 출력하시오
+
+-->
+  <style>
+    .security {
+      width: 200px;
+      height: 80px;
+      background: url("./number/security_back.png");
+    }
+    .security > ul {
+      width: inherit;
+      height: inherit;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .security > ul > li {
+      width: 50px;
+      height: inherit;
+      float: left;
+    }
+  </style>
+  <body>
+    <form id="f" name="f">
+      <div class="security">
+        <ul id="ulcss">
+          <li><img src="" /></li>
+          <li><img src="" /></li>
+          <li><img src="" /></li>
+          <li><img src="" /></li>
+        </ul>
+      </div>
+      <input type="tel" id="scnum" maxlength="4" placeholder="보안코드 4자리" />
+      <input type="submit" value="확인" />
+      <input type="button" id="reload" value="새로고침" />
+    </form>
+  </body>
+</html>
