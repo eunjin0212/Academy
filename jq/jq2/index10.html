@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>apply</title>
+    <script src="../jquery.js"></script>
+    <script>
+      $(function () {
+        const $array = [3, 11, 16, 7, 9];
+        $("#maximum").click(function () {
+          let $max = Math.max.apply("", $array);
+          //Math.max.apply : 배열값을 비교하여 최대치 값을 가져옴
+          console.log($max);
+        });
+        $("#minimum").click(function () {
+          let $min = Math.min.apply("", $array);
+          //Math.min.apply : 배열값을 비교하여 최소치 값을 가져옴
+          console.log($min);
+        });
+        //응용문제. 장바구니에 담겨있는 상품가격을 모두 합산하여
+        //총 금액을 console.log로 출력하시오. (products 함수)
+        /*
+    $.fn.aaa = function(){
+        let $c = abc();
+        console.log($c);
+    }
+    $.fn.aaa();
+    */
+        $("#sum").click(function () {
+          let $z = k;
+          console.log($z);
+          let $objData =
+            "<div>" +
+            $z["product_nm"] +
+            "</div>" +
+            "<div>" +
+            $z["money"] +
+            "</div>";
+          $("body").append($objData);
+        });
+      });
+      /*
+    function abc(){ 
+    //직접 front-end가 제작하였을 경우 return을 이용해서 주고 받을 수 있음
+    let bb = "test";
+    return bb;  //값을 태워서 보내는 형태
+    }
+    */
+      let k = "";
+      function products(data) {
+        //back-end함수는 재호출시 데이터가 삭제
+        k = data;
+        return k;
+        console.log(k);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="최대값" id="maximum" />
+    <input type="button" value="최소값" id="minimum" />
+    <input type="button" value="합계" id="sum" />
+  </body>
+  <script src="http://lovertvtest.dothome.co.kr/jq/array.php"></script>
+</html>
