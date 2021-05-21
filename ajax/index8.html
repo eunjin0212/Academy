@@ -39,7 +39,7 @@
         text-align: end;
       }
       .span {
-        background-color: blue;
+        background-color: pink;
         height: 30px;
         display: block;
       }
@@ -132,7 +132,7 @@
 
       function inner(area, gnum, text, num) {
         document.getElementById(area).innerText = text + "(" + num + ")명";
-        document.getElementById(gnum).style.width = 10 * num + "px";
+        document.getElementById(gnum).style.width = 100 * num + "px";
       }
 
       // 지역별 인원 뽑기
@@ -172,21 +172,20 @@
           inner("span5", "graph5", "대구", num5);
         } else if (list[j]["user_area"] == "울산") {
           num6++;
-          inner("span6", "graph6", "부산", num6);
+          inner("span6", "graph6", "울산", num6);
         } else if (list[j]["user_area"] == "부산") {
           num7++;
           inner("span7", "graph7", "부산", num7);
         } else if (list[j]["user_area"] == "경기도") {
           num8++;
           inner("span8", "graph8", "경기도", num8);
-        } else if (list[j]["user_area"] == "경기도") {
+        } else if (list[j]["user_area"] == "강원도") {
           num9++;
           inner("span9", "graph9", "강원도", num9);
         } else if (list[j]["user_area"] == "충정도") {
           num10++;
           inner("span10", "graph10", "충정도", num10);
         } else if (list[j]["user_area"] == "경상도") {
-          console.log(list[j]["user_area"] == "경상도");
           num11++;
           inner("span11", "graph11", "경상도", num11);
         } else if (list[j]["user_area"] == "전라도") {
