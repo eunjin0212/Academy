@@ -1,0 +1,12 @@
+@charset "utf-8";
+body{margin: 0; padding: 0; position: relative;  overflow-x: hidden;}
+a{text-decoration: none; color: inherit;}
+ul,ol{list-style: none; margin: 0; padding: 0;}
+span,label,main{display: block;}
+header, nav, main ,footer{height: auto;}
+
+.side_box{position: absolute; right: -200px;}
+.ch{background-image: url("./logo_channel.png"); width: 200px; height: 946px; background-color: #303030;}
+.ch>li{width: 200px; height: 35px;}
+.chanel{width: 90px; height: 35px; transform: rotate(270deg);background-color: #303030; font-family: 'Noto Sans KR';
+font-weight: 700; text-align: center; line-height: 35px; color: #fff; position: absolute; left: -62px; top: 45px; }
