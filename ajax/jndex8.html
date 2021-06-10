@@ -8,62 +8,55 @@
     <script src="./jquery.js"></script>
     <script>
       $(function () {
-        //news.json, myinfo.json
-        // $("#btn1").click(function () {
-        //   $.get("news.json", function ($data) {});
-        // });
-        // $("#btn2").click(function () {
-        //   $.ajax({
-        //     url: "http://kj980928.dothome.co.kr/ajax/notice_number.php",
-        //     cache: false,
-        //     // dataType: "json",
-        //     contentType: "jsonp",
-        //     type: "GET",
-        //     success: function ($data2) {
-        //       $("#box").append($data2);
-        //     },
-        //     error: function () {
-        //       console.log("DATA Error");
-        //     },
-        //   });
-        // });
-        //news.json, myinfo.json
+        //news.json myinfo.json
         $("#btn1").click(function () {
-          //.get, .getJSON (CORS에서는 작동 안합니다.)
-          /*
-         $.get("news.json",function($data){
+          //ajax 보다 getJSON이 빠르다
+          /* $.getJSON("news.json",function($data){ 
+              //파일을 가져올때는 이렇게 작성하고 
+            console.log($data); 
+        });*/
+          //get,getJSON (CORS에서는 작동안합니다)
+          /*$.get("http://kj980928.dothome.co.kr/ajax/notice_number.php?callback=1?",function($data){
+              //xml파일,json 부르는 법
             console.log($data);
-         });
-         */
-
-          $.getJSON(
-            "http://kj980928.dothome.co.kr/ajax/notice_number.php?call=1",
-            function ($data) {
-              console.log($data);
-            }
-          );
-        });
-
-        let $urls = "http://kj980928.dothome.co.kr/ajax/data.php";
-
-        $("#btn2").click(function () {
+        });*/
           $.ajax({
-            url: $urls,
-            type: "GET",
+            //비동기식 CORS 데이터가져오기 //실제 비동기 통신
+            url: "http://kj980928.dothome.co.kr/ajax/data.php",
+            cache: false,
             dataType: "jsonp",
-            contentType: "javascript/jsonp; charset=utf-8",
-            data: {
-              mname: "hong",
+            //외부도메인에서 가져올때는 jsonp를 사용 json은 자신의 도메인
+            type: "GET",
+            jsonpCallback: "test", //백엔드가 통산키를 말함
+            success: function ($data) {
+              console.log($data);
             },
-            async: false,
-            jsonp: "callback",
+          });
+        });
+        let $urls = "http://kj980928.dothome.co.kr/ajax/data.php";
+        $("#btn2").click(function () {
+          //ajax는 POST할때 사용
+          //POST는 꼭 ajax로 작성
+          $.ajax({
+            url: "http://kj980928.dothome.co.kr/ajax/data.php",
+            //url:$urls,
+            type: "GET",
+            dataType: "jsonp", //CROS 도메인 오류를 없애기 위해서
+            //contentType:"application/json",
+            contentType: "javascript/jsonp; charset:utf-8",
+            /*date:{//통신코드 백엔드에서 요청한 통신코드
+            "mname":"homg"
+        },*/
+            async: false, //async true비동기식 false동기식 //기본이 true
+            jsonp: "callback", //동기식으로 값을 요청하였을때 다시 되받는 형태의 함수
             success: function ($data2) {
               let $a = $data2;
               console.log($a);
+              // console.log($data2);
               // $("#box").append($data2);
             },
             error: function () {
-              console.log("DATA Error");
+              console.log("error");
             },
           });
         });
