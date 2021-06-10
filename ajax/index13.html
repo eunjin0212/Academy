@@ -7,10 +7,10 @@
     <title>AJAX POST통신3 - 인증번호 발송 및 검토</title>
     <script>
       function abc() {
-        var tel1 = document.getElementById("tel1").value;
-        var tel2 = document.getElementById("tel2").value;
-        var tel3 = document.getElementById("tel3").value;
-        var tel = "phone=" + tel1 + tel2 + tel3;
+        let tel1 = document.getElementById("tel1").value;
+        let tel2 = document.getElementById("tel2").value;
+        let tel3 = document.getElementById("tel3").value;
+        let tel = "phone=" + tel1 + tel2 + tel3;
         ajaxpost(tel);
       }
 
@@ -26,7 +26,7 @@
           if (d.readyState == XMLHttpRequest.DONE && d.status == 200) {
             //console.log(this.response);
             //코드번호 : error(데이터오류), number_error(전화번호 오류), 난수(4자리)
-            var code = this.response;
+            let code = this.response;
             if (code == "number_error") {
               alert("올바른 전화번호가 아닙니다.");
             } else if (code == "error") {
