@@ -1,0 +1,39 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    border: 1px solid black;
+}
+div:nth-of-type(2){
+    background-color: blue;
+}
+div div:nth-child(1){
+    background-color: coral;
+    width: 50px;
+    height: 50px;
+}
+div div div:nth-child(1){
+    background-color:rebeccapurple;
+    width: 30px;
+    height: 30px;
+}
+input{
+    text-indent: 5px;
+}
+.span1 > span {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: brown;
+}
+.span3 > .span4 {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: darkcyan;
+}
+table{
+    border: 1px;
+    width: 300px;
+    height: 300px;
+}
