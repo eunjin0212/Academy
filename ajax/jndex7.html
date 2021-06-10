@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax 배열 POST</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("#member").click(function () {
+          //익명함수
+          member = function ($data1, $data2, $data3, $data4) {
+            //배열함수
+            //this는 배열을 배치하는 것
+            //member{"mname":""}
+            this.mname = $data1;
+            this.mid = $data2;
+            this.memail = $data3;
+            this.mtel = $data4;
+          };
+          let $name = $("#mname").val();
+          let $data = new member(
+            $name,
+            "hong",
+            "hong@gmail.com",
+            "010-1234-5678"
+          ); //member는 기본키값 (기본키값을 설정하는 것)
+          //console.log($data);//배열로 출력
+          //배열값으로 데이터를 보낼경우 무조건 POST
+        });
+      });
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <input type="text" id="mname" value="" />
+    <input type="button" value="회원가입" id="member" />
+  </body>
+</html>
