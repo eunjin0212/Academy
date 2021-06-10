@@ -8,231 +8,215 @@
     <link rel="stylesheet" href="./index7.css" />
   </head>
   <body>
-    <div class="login">
-      <p>건강 보험 회원가입</p>
-      <form name="f" id="f" enctye="application/x-www-form-urlencoded">
-        <ol class="ol">
-          <li>아이디</li>
-          <li>
-            <input
-              type="text"
-              class="input"
-              id="user_id"
-              name="user_id"
-              placeholder="아이디를 입력해주세요"
-            />
-          </li>
-        </ol>
-        <ol class="ol">
-          <li>패스워드</li>
-          <li>
-            <input
-              type="password"
-              class="input"
-              id="user_pw"
-              name="user_pw"
-              placeholder="패스워드를 입력해주세요"
-            />
-          </li>
-        </ol>
-        <ol class="ol">
-          <li>이메일</li>
-          <li>
-            <input
-              type="text"
-              class="input"
-              id="user_email"
-              name="user_email"
-              placeholder="이메일을 입력해주세요"
-            />
-          </li>
-        </ol>
-        <ol class="ol">
-          <li>전화번호</li>
-          <li>
-            <input
-              type="text"
-              class="input"
-              id="user_tel"
-              name="user_tel"
-              placeholder="숫자로만 적어주세요"
-              minlength="10"
-              maxlength="11"
-            />
-          </li>
-        </ol>
-        <ol class="ol">
-          <li>거주지역</li>
-          <li>
-            <select name="user_area" id="user_area" class="sel">
-              <option value="">지역을 선택해주세요</option>
-              <option value="서울특별시">서울특별시</option>
-              <option value="세종">세종</option>
-              <option value="인천">인천</option>
-              <option value="대전">대전</option>
-              <option value="광주">광주</option>
-              <option value="대구">대구</option>
-              <option value="울산">울산</option>
-              <option value="부산">부산</option>
-              <option value="경기도">경기도</option>
-              <option value="강원도">강원도</option>
-              <option value="충청도">충청도</option>
-              <option value="경상도">경상도</option>
-              <option value="전라도">전라도</option>
-              <option value="제주도">제주도</option>
-            </select>
-          </li>
-        </ol>
-        <ol class="olcheck">
-          <li>관심분야 <br />(한가지만선택)</li>
-          <li>
-            <ul class="ckbox" id="user_field">
-              <li>
-                <label for="ck0"
-                  ><input
-                    type="checkbox"
-                    id="ck0"
-                    name="user_field"
-                    value="악성신생물(각종 암)"
-                  />악성신생물 (각종 암)</label
-                >
-              </li>
-              <li>
-                <label for="ck1"
-                  ><input
-                    type="checkbox"
-                    id="ck1"
-                    name="user_field"
-                    value="정신 및 행동장애"
-                  />정신 및 행동장애</label
-                >
-              </li>
-              <li>
-                <label for="ck2"
-                  ><input
-                    type="checkbox"
-                    id="ck2"
-                    name="user_field"
-                    value="순환계통 질환"
-                  />순환계통 질환</label
-                >
-              </li>
-              <li>
-                <label for="ck3"
-                  ><input
-                    type="checkbox"
-                    id="ck3"
-                    name="user_field"
-                    value="소화계통 질환"
-                  />소화계통 질환</label
-                >
-              </li>
-              <li>
-                <label for="ck4"
-                  ><input
-                    type="checkbox"
-                    id="ck4"
-                    name="user_field"
-                    value="호흡계통 질환"
-                  />호흡계통 질환</label
-                >
-              </li>
-            </ul>
-          </li>
-        </ol>
-        <ol class="ol">
-          <li>현재연령</li>
-          <li>
-            <select name="user_age" id="user_age" class="sel">
-              <option value="">나이를 선택해주세요.</option>
-              <option value="10대">10대</option>
-              <option value="20대">20대</option>
-              <option value="30대">30대</option>
-              <option value="40대">40대</option>
-              <option value="50대">50대</option>
-              <option value="60대">60대</option>
-              <option value="70대이상">70대이상</option>
-            </select>
-          </li>
-        </ol>
-      </form>
-      <ul class="btnbox">
-        <li>
-          <input
-            type="button"
-            value="회원가입"
-            class="btn"
-            onclick="joinBtn()"
-          />
-        </li>
-        <li>
-          <input
-            type="button"
-            value="가입취소"
-            class="btn cancle"
-            onclick="cancleBtn()"
-          />
-        </li>
-      </ul>
-    </div>
+    <form id="fm" name="fm" enctype="application/x-www-form-urlencoded">
+      <section class="sbody">
+        <div class="member_view">
+          <table cellpadding="0" cellspacing="0">
+            <thead>
+              <tr class="thead_tr">
+                <td colspan="2" align="center">건강보험 회원가입</td>
+              </tr>
+            </thead>
+            <tbody class="tbody_tr">
+              <tr>
+                <td>아이디</td>
+                <td>
+                  <input
+                    type="text"
+                    name="user_id"
+                    id="user_id"
+                    class="input1"
+                  />
+                  <input type="button" value="중복확인" class="idbtn" />
+                </td>
+              </tr>
+              <tr>
+                <td>패스워드</td>
+                <td>
+                  <input
+                    type="password"
+                    name="user_pw"
+                    id="user_pw"
+                    class="input1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>이메일</td>
+                <td>
+                  <input
+                    type="email"
+                    name="user_email"
+                    id="user_email"
+                    class="input2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>전화번호</td>
+                <td>
+                  <input
+                    type="tel"
+                    name="user_tel"
+                    id="user_tel"
+                    class="input2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>거주지역</td>
+                <td>
+                  <select
+                    name="user_area"
+                    id="user_area"
+                    class="input3"
+                  ></select>
+                </td>
+              </tr>
+              <tr>
+                <td>관심분야<br />(한가지만 선택)</td>
+                <td class="td_flex">
+                  <span>
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="user_field"
+                        id="field0"
+                        value="악성신생물 (각종 암)"
+                      />악성신생물 (각종 암)</label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="user_field"
+                        id="field1"
+                        value="정신 및 행동장애"
+                      />정신 및 행동장애</label
+                    >
+                  </span>
+                  <span style="margin-top: 10px">
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="user_field"
+                        id="field2"
+                        value="순환계통 질환"
+                      />순환계통 질환</label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="user_field"
+                        id="field3"
+                        value="소화계통 질환"
+                      />소화계통 질환</label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="user_field"
+                        id="field4"
+                        value="호흡계통 질환"
+                      />호흡계통 질환</label
+                    >
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>현재연령</td>
+                <td>
+                  <select name="user_age" id="user_age" class="input3"></select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <span style="margin-top: 20px">
+            <button type="button" class="btn" onclick="member_ship();">
+              회원가입
+            </button>
+            <button type="reset" class="btn">가입취소</button>
+          </span>
+        </div>
+      </section>
+    </form>
   </body>
   <script>
-    function cancleBtn() {
-      location.href = "http://eunjin9639.dothome.co.kr/ajax/index7.html";
-    }
-    function joinBtn() {
-      let id = document.getElementById("user_id");
-      let pw = document.getElementById("user_pw");
-      let email = document.getElementById("user_email");
-      let tel = document.getElementById("user_tel");
-      let area = document.getElementById("user_area");
-      let age = document.getElementById("user_age");
-      let check = 0;
-
-      for (let i = 0; i < 5; i++) {
-        let ck = document.getElementById("ck" + i).checked;
-        if (ck == true) {
-          check++;
-        }
+    let m;
+    function windowck() {
+      if (window.XMLHttpRequest) {
+        return new XMLHttpRequest();
       }
+    }
+    function optionget() {
+      if (m.readyState == XMLHttpRequest.DONE && m.status == 200) {
+        html_write(this);
+      }
+    }
+    m = windowck();
+    m.onreadystatechange = optionget;
+    m.open("GET", "./member_ship.json", true);
+    m.send();
 
-      if (id.value == "") {
-        alert("아이디를 입력해주세요.");
-        return false;
-      } else if (pw.value == "") {
-        alert("비밀번호를 입력해주세요.");
-        return false;
-      } else if (email.value == "") {
-        alert("비밀번호를 입력해주세요.");
-        return false;
-      } else if (tel.value == "") {
-        alert("전화번호를 입력해주세요.");
-        return false;
-      } else if (isNaN(Number(tel.value)) == true) {
-        alert("전화번호는 숫자만 적어주세요.");
-        return false;
-      } else if (tel.value.length < 10 || tel.value.length > 11) {
-        alert("전화번호의 넘버수를 확인해주세요.");
-        return false;
-      } else if (area.value == "") {
-        alert("지역을 선택해주세요.");
-        return false;
-      } else if (check == 0) {
-        alert("관심분야를 체크해주세요.");
-        return false;
-      } else if (check > 1) {
-        alert("관심분야는 1개만 선택하실수 있습니다.");
-        return false;
-      } else if (age.value == "") {
-        alert("연령을 선택해주세요.");
-        return false;
+    function html_write(data) {
+      const json = JSON.parse(data.response);
+      let html1 = "";
+      let html2 = "";
+      //createElement 사용해야만 append, appendChild
+      json["area"].forEach(function (d1, d2, d3) {
+        html1 += "<option value='" + d1 + "'>" + d1 + "</option>";
+      });
+      document.getElementById("user_area").innerHTML = html1;
+
+      json["age"].forEach(function (d1, d2, d3) {
+        html2 += "<option value='" + d1 + "'>" + d1 + "</option>";
+      });
+      document.getElementById("user_age").innerHTML = html2;
+    }
+
+    /*입력검토*/
+    function member_ship() {
+      if (fm.user_id.value == "") {
+        alert("아이디를 입력하세요");
+      } else if (fm.user_pw.value == "") {
+        alert("패스워드를 입력하세요");
+      } else if (fm.user_tel.value == "") {
+        alert("전화번호를 입력하세요");
       } else {
-        f.method = "POST";
-        //  f.method="GET"
-        f.action = "http://eunjin9639.dothome.co.kr/ajax/nhiss_memberok.php";
-        // f.action="./index7.html"
+        //전화번호 입력상태를 확인 하는 2차 작업
+        let tels = Number(fm.user_tel.value);
+        let tels_length = fm.user_tel.value.length;
 
-        f.submit();
+        if (isNaN(tels) == true) {
+          alert("올바른 전화번호를 입력하세요");
+        } else if (isNaN(tels) == false) {
+          if (tels_length < 10) {
+            alert("올바른 전화번호를 입력하세요");
+          } else {
+            //관심분야 체크
+            let ea = fm.user_field.length;
+            let w = 0;
+            do {
+              //전체 체크 유/무를 확인
+              let ck = document.getElementById("field" + w).checked;
+              if (ck == true) {
+                //체크 확인시 조건문이 실행
+                let ff;
+                for (ff = w + 1; ff < ea; ff++) {
+                  //해당 노드숫자외 보다 큰 값들을 반복함
+                  document.getElementById("field" + ff).checked = false;
+                }
+                break;
+                //break : 반복문 실행시 조건에 맞을 경우 더 이상 반복하지 않고
+                //반복문을 강제종료함
+              }
+              w++;
+            } while (w < ea);
+
+            fm.method = "POST";
+            fm.action = "./nhiss_memberok.php";
+            fm.submit();
+          }
+        }
       }
     }
   </script>
