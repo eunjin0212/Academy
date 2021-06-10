@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax CORS + ajax</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        //news.json, myinfo.json
+        // $("#btn1").click(function () {
+        //   $.get("news.json", function ($data) {});
+        // });
+        // $("#btn2").click(function () {
+        //   $.ajax({
+        //     url: "http://kj980928.dothome.co.kr/ajax/notice_number.php",
+        //     cache: false,
+        //     // dataType: "json",
+        //     contentType: "jsonp",
+        //     type: "GET",
+        //     success: function ($data2) {
+        //       $("#box").append($data2);
+        //     },
+        //     error: function () {
+        //       console.log("DATA Error");
+        //     },
+        //   });
+        // });
+        //news.json, myinfo.json
+        $("#btn1").click(function () {
+          //.get, .getJSON (CORS에서는 작동 안합니다.)
+          /*
+         $.get("news.json",function($data){
+            console.log($data);
+         });
+         */
+
+          $.getJSON(
+            "http://kj980928.dothome.co.kr/ajax/notice_number.php?call=1",
+            function ($data) {
+              console.log($data);
+            }
+          );
+        });
+
+        let $urls = "http://kj980928.dothome.co.kr/ajax/data.php";
+
+        $("#btn2").click(function () {
+          $.ajax({
+            url: $urls,
+            type: "GET",
+            dataType: "jsonp",
+            contentType: "javascript/jsonp; charset=utf-8",
+            data: {
+              mname: "hong",
+            },
+            async: false,
+            jsonp: "callback",
+            success: function ($data2) {
+              let $a = $data2;
+              console.log($a);
+              // $("#box").append($data2);
+            },
+            error: function () {
+              console.log("DATA Error");
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box"></div>
+    <input type="button" value="데이터1" id="btn1" />
+    <input type="button" value="데이터2" id="btn2" />
+  </body>
+</html>
