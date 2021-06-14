@@ -1,7 +1,6 @@
 function info_ok() {
   let cpno = document.getElementById("info_cpno").value;
   let companyNumber = cpno.replaceAll("-", "");
-  console.log(companyNumber.length);
   if (companyNumber.length < 10 || companyNumber.length > 12) {
     alert("사업자 번호를 확인해주세요.");
     return false;
@@ -10,20 +9,23 @@ function info_ok() {
   }
   return false;
 }
-// 593-85-00737
 
+let checkNum = 0;
 function use_point() {
   const pointUseCB = document.getElementById("info_point_use");
-  if (pointUseCB.checked === true) {
+  if (checkNum === 0) {
     pointUseCB.value = "Y";
-    document.getElementById("info_point").disabled = false;
+    document.getElementById("info_point").readonly = true;
+    checkNum++;
   } else {
     pointUseCB.value = "N";
-    document.getElementById("info_point").disabled = true;
+    document.getElementById("info_point").readonly = false;
+    checkNum = 0;
   }
 }
 
 // json 파일 받아서 폼 채우기
+
 function configData(getData) {
   let cpname = document.getElementById("cpname");
   let cpno = document.getElementById("cpno");
@@ -51,35 +53,32 @@ function configData(getData) {
   let iUrl = getData[0]["info_site_ico"];
   for (let i in getData[0]) {
     for (let j in getData) {
-      if (i === "info_cpname") {
-        cpname.value = getData[j]["info_cpname"];
-      } else if (i === "info_cpno") {
-        cpno.value = getData[j]["info_cpno"];
-      } else if (i === "info_ceo") {
-        ceo.value = getData[j]["info_ceo"];
-      } else if (i === "info_tel") {
-        tel.value = getData[j]["info_tel"];
-      } else if (i === "info_fax" && getData[j]["info_fax"] !== "") {
+      cpname.value = getData[j]["info_cpname"];
+      cpno.value = getData[j]["info_cpno"];
+      ceo.value = getData[j]["info_ceo"];
+      tel.value = getData[j]["info_tel"];
+      cn.value = getData[j]["info_cn"];
+      addr.value = getData[j]["info_addr"];
+      addrdtc.value = getData[j]["info_addrdtc"];
+      manager.value = getData[j]["info_manager"];
+      managerEmail.value = getData[j]["info_manager_email"];
+      siteNm.value = getData[j]["info_site_nm"];
+      siteEmail.value = getData[j]["info_site_email"];
+      siteEmailnm.value = getData[j]["info_site_emailnm"];
+
+      if (i === "info_fax" && getData[j]["info_fax"] !== "") {
         fax.value = getData[j]["info_fax"];
       } else if (i === "info_fax" && getData[j]["info_fax"] === "") {
         fax.value = noData;
-      } else if (i === "info_cn") {
-        cn.value = getData[j]["info_cn"];
-      } else if (i === "info_cnetc" && getData[j]["info_cnetc"] !== "") {
+      }
+
+      if (i === "info_cnetc" && getData[j]["info_cnetc"] !== "") {
         cnetc.value = getData[j]["info_cnetc"];
       } else if (i === "info_cnetc" && getData[j]["info_cnetc"] === "") {
         cnetc.value = noData;
-      } else if (i === "info_addr") {
-        addr.value = getData[j]["info_addr"];
-      } else if (i === "info_addrdtc") {
-        addrdtc.value = getData[j]["info_addrdtc"];
-      } else if (i === "info_manager") {
-        manager.value = getData[j]["info_manager"];
-      } else if (i === "info_manager_email") {
-        managerEmail.value = getData[j]["info_manager_email"];
-      } else if (i === "info_site_nm") {
-        siteNm.value = getData[j]["info_site_nm"];
-      } else if (i === "info_site_ico" && getData[j]["info_site_ico"] !== "") {
+      }
+
+      if (i === "info_site_ico" && getData[j]["info_site_ico"] !== "") {
         // console.log(getData[j]["info_site_ico"]);
         fimg_on.style.display = "flex";
         fimg.style.background = "url(" + getData[j]["info_site_ico"] + ")";
@@ -92,21 +91,18 @@ function configData(getData) {
       } else if (i === "info_site_ico" && getData[j]["info_site_ico"] === "") {
         fimg_on.style.display = "none";
         fimg_off.style.display = "flex";
-      } else if (i === "info_site_email") {
-        siteEmail.value = getData[j]["info_site_email"];
-      } else if (i === "info_site_emailnm") {
-        siteEmailnm.value = getData[j]["info_site_emailnm"];
-      } else if (
-        i === "info_point_use" &&
-        getData[j]["info_point_use"] === "Y"
-      ) {
+      }
+
+      if (i === "info_point_use" && getData[j]["info_point_use"] === "Y") {
         pointUse.checked = true;
       } else if (
         i === "info_point_use" &&
         getData[j]["info_point_use"] === "N"
       ) {
         pointUse.checked = false;
-      } else if (i === "info_point" && getData[j]["info_point"] !== "") {
+      }
+
+      if (i === "info_point" && getData[j]["info_point"] !== "") {
         point.value = getData[j]["info_point"];
       } else if (i === "info_point" && getData[j]["info_point"] === "") {
         point.value = noData;
@@ -120,7 +116,6 @@ function openImg() {
   let bg = fimgBg.split("..");
   const url = "http://eunjin9639.dothome.co.kr/portfolio/shop" + bg[1];
   //http://eunjin9639.dothome.co.kr/portfolio/shop/ico/20210610010533.png
-  console.log(url);
   document.open(url, "img", "width=400 height=400");
 }
 
