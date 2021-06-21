@@ -1,0 +1,100 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+$font_ng: "Nanum Gothic", sans-serif;
+@mixin base {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@mixin object($w, $h, $display) {
+  width: $w;
+  height: $h;
+  display: $display;
+}
+%margin0 {
+  margin: 0;
+  padding: 0;
+}
+body {
+  @extend %margin0;
+}
+$mobile: 340px;
+$note: 561px;
+$tablet: 1025px;
+$pc: 1201px;
+/*
+media쿼리 종류 및 범위
+세가지로 사용할 경우 : 480px, 768px, 1200px
+다섯가지 로 사용할 경우 : 320px, 640px, 1024px, 1230px, 1920px
+
+예시)
+1000px = font-size:40px;
+420px = font-size:16px;
+*/
+$query: 340px, 560px, 1024px, 1200px;
+$ws: 1;
+@while ($ws < 5) {
+  @if ($ws==1) {
+    $wws: 2;
+    @media screen and (min-width: nth($query,$ws)) and (max-width: nth($query,$wws)) {
+      .headercss {
+        border: 1px solid red;
+      }
+    }
+  } @else if ($ws==2) {
+    $wws: 3;
+    @media screen and (min-width: nth($query,$ws)+1) and (max-width: nth($query,$wws)) {
+      .headercss {
+        border: 1px solid red;
+      }
+    }
+  } @else if ($ws==3) {
+    $wws: 4;
+    @media screen and (min-width: nth($query,$ws)+1) and (max-width: nth($query,$wws)) {
+      .headercss {
+        border: 1px solid red;
+      }
+    }
+  } @else {
+    @media screen and (min-width: nth($query,$ws)+1) {
+      .headercss {
+        border: 1px solid red;
+      }
+    }
+  }
+  $ws: $ws + 1;
+}
+
+@mixin mobile {
+  //mixin을 이용하여 media쿼리를 사용함
+  @media screen and (min-width:#{$mobile}) and (max-width:#{$note - 1px}) {
+    @content; //사용자가 직접 모든것을 컨트롤 함
+  }
+}
+
+@mixin pc {
+  @media screen and (min-width:#{$pc}) {
+    @content; //사용자가 직접 모든것을 컨트롤 함
+  }
+}
+
+.headercss {
+  max-width: 1200px;
+  height: 60px;
+}
+
+@include mobile {
+  //mixin 미디어 쿼리를 가져와서 사용자가 직접 오브젝트를 설정함
+  .headercss {
+    max-width: 100%;
+    background-color: red;
+    height: 30px;
+  }
+}
+//* pc를 제작할 경우 include로 제작하지 않고 기본 css 형태로 제작할 경우
+//@include mobile 모다 상위에 코드가 적용 되어야만 mobile 부분이 적용됨
+@include pc {
+  .headercss {
+    background-color: purple;
+  }
+}
