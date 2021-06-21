@@ -1,0 +1,190 @@
+ @charset "UTF-8";
+
+// @mixin base {
+//     margin: 0;
+//     padding: 0;
+//     line-height: 1;
+//     box-sizing: border-box;
+// }
+
+// @mixin display($h, $d) {
+//     display: $d;
+//     line-height: $h;
+// }
+// @mixin object ($w, $h, $color){
+//     width: $w;
+//     height: $h;
+//     background-color: $color;
+// }
+// body {
+//     @include base;
+// }
+// section {
+//     @include object(99.99%, auto,'');
+// }
+// header, footer{
+//     @include object(99.99%, 75px, black)
+// }
+
+// $i:1;
+
+// @while($i<5) {
+//     $bgImg: unquote('./product/product'+$i+'.gif');
+//     .product>span:nth-of-type(#{$i})>label{
+//         background: top/cover url($bgImg);
+//     }
+//     $i:$i+1;
+// }
+
+// .product {
+//     @include object(430px, auto, '');
+//     @include display(870px, flex);
+//     flex-wrap: wrap;
+//     margin: 0 auto;
+//     justify-content: center;
+//     &>span{
+//         @include object(200px, 420px, '');
+//         @include display(420px, block);
+//         margin: 5px 5px;
+
+//         &>label {
+//             @include object(100%, 360px, '');
+//             @include display(360px, block);
+//         }
+        
+//         & div {
+//             @include object(100%, 30px, '');
+//             @include display(30px, block);
+//             text-align: center;
+//         }
+//     }
+// }
+// @media screen and (min-width: 300px) and (max-width: 420px) {
+//     .product {
+//         width: 90%;
+//         &>span {
+//             width: 90%;
+//             justify-content: center;
+//             align-items: center;
+//             display: flex;
+//             flex-direction: column;
+//         }
+//     }
+// }
+// .popup{
+//     @include object(30px, 30px, white);
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     text-align: center;
+//     line-height: 30px;
+//     cursor: pointer;
+// }
+
+@media screen and (min-width:340px) and (max-width:420px) {
+    .product { min-width: 90%; }
+    .product > .p_ul { min-width: 100%; }
+    .product > .p_ul > li { min-width: 100%;  }
+}
+@mixin base{
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    list-style: none;
+    box-sizing: border-box;
+}
+@mixin object($w,$h){
+    display: block;
+    width:$w;
+    height:$h;
+}
+@mixin flexs($wrap,$direction,$j,$items,$content,$p){
+    display: flex;
+    flex-wrap:$wrap;
+    flex-direction:$direction;
+    justify-content:$j;
+    align-items:$items;
+    @if($p > 1){
+    align-content:$content;
+    }
+}
+body{
+    @include base;
+    position: relative;
+}
+header{
+    @include object(99.99%,75px);
+    background-color: black;
+}
+
+$imgs:"./product/product1.gif","./product/product2.gif","./product/product3.gif","./product/product4.gif";
+section{
+    @include object(99.99%,auto);
+    @include flexs(wrap,row,space-evenly,center,center,2);
+    padding-top: 20px;
+    box-sizing: border-box;
+    & > .product{
+        @include object(200px,420px);
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        & > .p_ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: inherit;
+            height: auto;
+            & > li{
+               width: inherit; 
+            }
+        }
+    }
+    $i:1;
+    @while($i<=4){
+       & > .product:nth-of-type(#{$i}) > .p_ul > li:nth-of-type(1){
+            height: 280px;
+            background:center / cover no-repeat url(nth($imgs,$i));
+        }
+        & > .product:nth-of-type(#{$i}) > .p_ul > li:nth-of-type(2){
+            text-align: center;
+            font-family: "굴림체";
+            font-size: 12px;
+            height:70px;
+            @include flexs(wrap,row,space-around,center,center,2);
+            line-height: 24px;
+        }
+        & > .product:nth-of-type(#{$i}) > .p_ul > li:nth-of-type(3){
+            text-align: center;
+            font-family: "굴림체";
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 70px;
+            height: 70px;
+        }
+        $i:$i+1;
+    }
+}
+.zoom, .popup{
+    width: 99.99%;
+    height: 99.99%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popup{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    background-color: rgba(0,0,0,0.1);
+}
+.zoom{
+    position: absolute;
+}
+
+
+footer{
+    @include object(99.99%,75px);
+    background-color: black;
+}
