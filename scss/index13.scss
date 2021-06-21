@@ -1,0 +1,71 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+$font_ng: "Nanum Gothic", sans-serif;
+
+@mixin base {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@mixin object($w, $h, $display) {
+  width: $w;
+  height: $h;
+  display: $display;
+}
+.box {
+  font: {
+    family: "돋움체";
+    size: 20px;
+    weight: bold;
+  }
+}
+.sbox {
+  &1 {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    display: block;
+  }
+  &2 {
+    width: 70px;
+    height: 30px;
+    background-color: blue;
+    display: block;
+  }
+}
+
+.lbox {
+  display: block;
+  width: 300px;
+  height: 30px;
+  & > .input1 {
+    width: 100px;
+    height: 30px;
+  }
+  & > .btn1 {
+    background-color: pink;
+  }
+  @at-root .btn1 {
+    //해당 부모 오브젝트에 포함되지 않고 별도로 클래스를 사용할때 단 & 기호는 사용하지 않음
+    width: 100px;
+    height: 30px;
+    background-color: greenyellow;
+  }
+}
+%box {
+  //%사용시 빈 선택자 이며, 오브젝트 extend를 이용하여 빈선택자를 가져 옵니다.
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  display: block;
+}
+%box_hover {
+  background-color: pink;
+}
+
+.bbox {
+  @extend %box;
+  &:hover {
+    @extend %box_hover;
+  }
+}
