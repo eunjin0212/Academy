@@ -7,108 +7,104 @@
     <title>슬라이드 메뉴</title>
     <script src="./jquery.js"></script>
     <script>
-      $(document).ready(() => {
-        let $manuL = $(".manu_ul>li").length; // 대메뉴 갯수
-        let $somenuLi_wid = $(".somanu>li").width(); // 소메뉴 하나당 가로
+      $(document).ready(function () {
+        let $node = $("#u>li").length; //대메뉴 개수를 가져옴
+        let $width = $(".smenu > li").width(); //소메뉴 한개의 가로크기
 
-        for (let $i = 0; $i < $manuL; $i++) {
-          // 대메뉴에서 소메뉴 갯수 가져오기
-          let $somanuL = $(".manu_ul > li:eq(" + $i + ") > ul > li").length;
+        let $w = 0;
+        while ($w < $node) {
+          //해당 대메뉴에 소메뉴 개수를 가져옴
+          let $snode = $("#u > li:eq(" + $w + ") > ol > li").length;
           //해당 소메뉴 개수 * 소메뉴 한개의 가로크기 + 소메뉴 개수 * border 2px 입니다.
-          let $somanuUl_wid = $somanuL * $somenuLi_wid + $somanuL * 2;
-          //소메뉴 전체 크기를 ol에 적용하여 가로 크기를 잡아줌
-          $(".manu_ul > li:eq(" + $i + ") > ul").css(
-            "width",
-            $somanuUl_wid + "px"
-          );
-        }
+          let $olwidth = $snode * $width + $snode * 2;
 
-        $(".manu_ul > li").mouseenter(function () {
+          //소메뉴 전체 크기를 ol에 적용하여 가로 크기를 잡아줌
+          $("#u > li:eq(" + $w + ") > ol").css("width", $olwidth + "px");
+          $w++;
+        }
+        $("#u>li").mouseenter(function () {
           let $index = $(this).index();
-          $(".manu_ul>li:eq(" + $index + ")>ul").fadeIn();
+          $("#u>li:eq(" + $index + ")>ol").fadeIn();
         });
-        $(".manu_ul > li").mouseleave(function () {
+        $("#u>li").mouseleave(function () {
           let $index = $(this).index();
-          $(".manu_ul > li:eq(" + $index + ")>ul").fadeOut();
+          $("#u>li:eq(" + $index + ")>ol").fadeOut();
         });
       });
     </script>
     <style>
-      * {
-        box-sizing: border-box;
-      }
       body {
         margin: 0;
         padding: 0;
       }
-      li,
-      ol,
-      ul {
+      .box {
+        width: 100%;
+        height: auto;
+      }
+      .u {
+        width: 150px;
+        height: auto;
         list-style: none;
         margin: 0;
         padding: 0;
       }
-      .container {
-        height: auto;
-        width: 100%;
-      }
-      .manu_ul {
+      .u > li {
         width: 150px;
-        height: auto;
-      }
-      .manu_ul > li {
         height: 40px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
         line-height: 40px;
-        text-align: center;
-        border: 1px solid gray;
         cursor: pointer;
+        text-align: center;
         position: relative;
       }
-      .somanu {
+      .smenu {
+        list-style: none;
+        margin: -1px;
+        padding: 0;
         height: 40px;
-        line-height: 40px;
         position: absolute;
-        margin-top: -1px;
-        left: 149px;
         top: 0px;
+        left: 150px;
         display: none;
       }
-      .somanu > li {
-        float: left;
+      .smenu > li {
         width: 150px;
         height: 40px;
-        background-color: pink;
         border: 1px solid plum;
+        box-sizing: border-box;
+        background-color: pink;
         line-height: 40px;
+        float: left;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <ul class="manu_ul">
+    <div class="box">
+      <ul class="u" id="u">
         <li>
-          manu
-          <ul class="somanu">
-            <li>somanu</li>
-            <li>somanu</li>
-            <li>somanu</li>
-          </ul>
+          menu1
+          <ol class="smenu" id="smenu0">
+            <li>smenu1</li>
+            <li>smenu2</li>
+            <li>smenu3</li>
+          </ol>
         </li>
         <li>
-          manu
-          <ul class="somanu">
-            <li>somanu</li>
-            <li>somanu</li>
-          </ul>
+          menu2
+          <ol class="smenu" id="smenu1">
+            <li>smenu1</li>
+            <li>smenu2</li>
+          </ol>
         </li>
         <li>
-          manu
-          <ul class="somanu">
-            <li>somanu</li>
-            <li>somanu</li>
-            <li>somanu</li>
-            <li>somanu</li>
-          </ul>
+          menu3
+          <ol class="smenu" id="smenu2">
+            <li>smenu1</li>
+            <li>smenu2</li>
+            <li>smenu3</li>
+            <li>smenu4</li>
+          </ol>
         </li>
       </ul>
     </div>

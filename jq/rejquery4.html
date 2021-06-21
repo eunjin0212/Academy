@@ -13,9 +13,9 @@
         Number($("#price").val(30000));
 
         $("#btn").click(function () {
-          var $s = $("#sel").val();
-          var $r = $("#r1").is(":checked");
-          var $rr = $("#r2").is(":checked");
+          let $s = $("#sel").val();
+          let $r = $("#r1").is(":checked");
+          let $rr = $("#r2").is(":checked");
           console.log($r, $rr);
           if ($s == "") {
             alert("개수를 선택해주세요");
