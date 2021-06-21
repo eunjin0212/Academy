@@ -1,0 +1,38 @@
+@mixin base {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span,
+label {
+  display: block;
+}
+@mixin object($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+body {
+  @include base;
+}
+.quick {
+  @include object(auto, 165px);
+  font-size: 0;
+}
+.quickIcon {
+  display: inline-block;
+  @include object(190px, 165px);
+  text-align: center;
+  background-color: lightblue;
+  font-size: 13px;
+  & > span:first-of-type {
+    margin-top: 10px;
+  }
+}
