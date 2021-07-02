@@ -51,3 +51,38 @@ _2021. 06. 30 Middle Test_
  > **Search Bar**
  > - 겁색창에 엔터키를 누르면 alert 메세지 출력.
 
+### SCSS
+ > **Basic.scss** 
+ > - 기본 세팅, 또는 자주 쓰는 속성들을 `placeholder 선택자`와 `@mixin`으로 묶음.
+ > **index.css**
+ > - 파일 나누기를 통해 코드 가독성을 높임.
+
+
+✔ Scss 수정사항
+1. 중첩된 속성 써서 바꾸기
+font-, margin- 등과 같이 동일한 네임 스페이스를 가지는 속성들을 다음과 같이 사용할 수 있습니다.
+```css
+.box {
+  font: {
+    weight: bold;
+    size: 10px;
+    family: sans-serif;
+  };
+  margin: {
+    top: 10px;
+    left: 20px;
+  };
+  padding: {
+    bottom: 40px;
+    right: 30px;
+  };
+}
+```
+2. 자주 쓰는 속성 $변수로 만들기
+3. 파일 분할 이용 [참고]('https://heropy.blog/2018/01/31/sass/)
+
+## ✅ 이후에 시도해 볼 것
+
+1. 회원가입 페이지 (StoryBoard 필요)
+2. Jquery > Javascript 변환
+3. Javascript > Typescript or ReactJs or Vue.Js 변환⭐
