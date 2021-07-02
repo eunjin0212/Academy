@@ -5,7 +5,7 @@ _2021. 06. 30 Middle Test_
 * * *
 ## Making
 
-### 만든 방법 및 스크립트 언어
+> ### 만든 방법 및 스크립트 언어
 > - JavaScript : 1%
 > - Html : 33%
 > - Scss : 30%
