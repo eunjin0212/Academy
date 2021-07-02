@@ -2,7 +2,7 @@
 _2021. 06. 30 Middle Test_
 👉 [Hello Pet 기획서]('https://github.com/eunjin0212/Academy/tree/master/m_hellopet/proposal')
 
-## Making
+## ✅ Making
 
 ### 만든 방법 및 스크립트 언어
 > - JavaScript : 1%
@@ -19,7 +19,7 @@ _2021. 06. 30 Middle Test_
  > - Publising 70%
  > - script 30%
 
-## Function
+## ✅ Function
 
 ### Jquery
  > **Side Menu**
