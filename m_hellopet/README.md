@@ -4,17 +4,17 @@ _2021. 06. 30 Middle Test_
 
 ## ✅ Making
 
-### 만든 방법 및 스크립트 언어
+> ### 만든 방법 및 스크립트 언어
 > - JavaScript : 1%
 > - Html : 33%
 > - Scss : 30%
 > - Jquery : 30% (+ AJAX)
 > - JSON : 2% 
 
-### 참여도
+> ### 참여도
 > - Image, Design, StoryBoard, JSON Data 를 제외한 나머지 참여
 
-### 걸린 시간 
+> ### 걸린 시간 
 > * 정확한 시간 체크 X, 대략 12시간 정도
  > - Publising 70%
  > - script 30%
