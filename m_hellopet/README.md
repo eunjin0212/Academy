@@ -16,8 +16,8 @@ _2021. 06. 30 Middle Test_
 
 > ### 걸린 시간 
 > * 정확한 시간 체크 X, 대략 12시간 정도
- > - Publising 70%
- > - script 30%
+> > - Publising 70%
+> > - script 30%
 
 ## ✅ Function
 
