@@ -1,0 +1,49 @@
+@charset "UTF-8";
+@mixin base {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@mixin object($w, $h, $bgcolor) {
+  width: $w;
+  height: $h;
+  background-color: $bgcolor;
+}
+@mixin list_base {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body,
+* {
+  @include base;
+}
+.tlist {
+  @include list_base();
+  @include object(500px, 30px, lightblue);
+  & > li {
+    float: left;
+    @include object(33.3%, 30px, "");
+    text-align: center;
+    line-height: 30px;
+    position: relative;
+  }
+  & > li:after {
+    content: "|";
+    position: absolute;
+    right: 0;
+  }
+  & > li:last-of-type:after {
+    content: "";
+  }
+}
+.tlist2 {
+  @include list_base();
+  @include object(500px, 30px, lightyellow);
+  & > li {
+    float: left;
+    @include object(33.3%, 30px, "");
+    text-align: center;
+    line-height: 30px;
+  }
+}
