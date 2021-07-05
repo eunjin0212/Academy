@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@mixin base {
+  margin: 0;
+  padding: 0;
+  // line-height: 0;
+}
+@mixin objectsize($w, $h, $display, $position) {
+  width: $w;
+  height: $h;
+  display: $display;
+  position: $position;
+}
+body {
+  @include base;
+}
+$color: blue, green, yellowgreen, purple, orange, pink;
+@mixin trans($part, $deg, $z, $number) {
+  @include objectsize(100px, 100px, block, absolute);
+  background-color: nth($color, $number);
+  @if ($part== "x") {
+    transform: rotateX($deg + deg) translateZ($z + px);
+  } @else if($part== "y") {
+    transform: rotateY($deg + deg) translateZ($z + px);
+  } @else {
+    transform: translateZ($z + px);
+  }
+}
+.divbox {
+  @include objectsize(200px, 200px, block, relative);
+  border: 1px solid black;
+  top: 200px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  perspective: 900px;
+  perspective-origin: 150% 150%;
+  & > .front:hover {
+    transition: 2s all ease;
+    @include trans("y", 90, 100, 1);
+  }
+  & > label {
+    @include objectsize(100px, 100px, block, absolute);
+  }
+  & > .front {
+    @include trans("z", "", 50, 1);
+    z-index: 10;
+  }
+  & > .back {
+    @include trans("y", 180, 50, 2);
+  }
+  & > .right {
+    @include trans("y", 90, 50, 3);
+  }
+  & > .left {
+    @include trans("y", -90, 50, 4);
+  }
+  & > .top {
+    @include trans("x", 90, 50, 5);
+  }
+  & > .bottom {
+    @include trans("x", -90, 50, 6);
+  }
+}
