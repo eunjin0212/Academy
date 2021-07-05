@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue 상품 구매 페이지 응용</title>
+  </head>
+  <body>
+    <!-- 1. -->
+    <section id="product1">
+      <div>
+        <span>상품 분류선택 : </span>
+        <select v-model="p">
+          <option value="167000">모니터 - 167,000</option>
+          <option value="18000">키보드 - 18,000</option>
+          <option value="37000">마우스 - 37,000</option>
+        </select>
+      </div>
+      <div>
+        <span>상품 갯수: </span>
+        <select v-model="ea">
+          <option value="1">1EA</option>
+          <option value="2">2EA</option>
+          <option value="3">3EA</option>
+        </select>
+      </div>
+      <div>
+        <span>총 결제 금액 : </span>
+        <span>{{p * ea}}원</span>
+      </div>
+    </section>
+    <!-- 2. -->
+    <section id="product2">
+      <div>
+        <span>상품 분류선택 : </span>
+        <select v-on:change="abc1" v-model="pds">
+          <option value="167000">모니터 - 167,000</option>
+          <option value="18000">키보드 - 18,000</option>
+          <option value="37000">마우스 - 37,000</option>
+        </select>
+      </div>
+      <div>
+        <span>상품 갯수: </span>
+        <select v-on:change="abc1" v-model="ea">
+          <option value="1">1EA</option>
+          <option value="2">2EA</option>
+          <option value="3">3EA</option>
+        </select>
+      </div>
+      <div>
+        <span>총 결제 금액 : </span>
+        <span>{{total}}원</span>
+      </div>
+    </section>
+    <!-- 3. -->
+    <section id="product3">
+      <div>
+        상품 선택 :
+        <select v-model="p" v-on:change="abc">
+          <option value="">상품선택</option>
+          <option value="167000">모니터-167,000원</option>
+          <option value="18000">키보드-18,000원</option>
+          <option value="37000">마우스-37,000원</option>
+        </select>
+      </div>
+      <div>
+        수량 선택 :
+        <select v-model="ea" v-on:change="abc2">
+          <option value="">수량 선택</option>
+          <option value="1">1ea</option>
+          <option value="2">2ea</option>
+          <option value="3">3ea</option>
+        </select>
+      </div>
+      <div>{{price}}원</div>
+    </section>
+  </body>
+  <script>
+    // 1
+    let a = new Vue({
+      el: "#product1",
+      data: {
+        total: "",
+        p: "",
+        ea: "1",
+      },
+    });
+    // 2
+    let b = new Vue({
+      el: "#product2",
+      data: {
+        total: 0,
+        pds: null,
+        ea: null,
+      },
+      methods: {
+        abc1: function () {
+          //select에 대한 핸들링 이벤트.
+          // 최종 금액 출력시 사용자가 보기 편하게 천단위 ,로 적용해줌.
+          this.total = (Number(this.pds) * Number(this.ea)).toLocaleString();
+        },
+      },
+    });
+    // 3
+    let c = new Vue({
+      el: "#product3",
+      data: {
+        price: "",
+        ea: "",
+        p: "",
+      },
+      methods: {
+        abc2: function () {
+          this.price = Number(this.p) * Number(this.ea);
+        },
+      },
+    });
+  </script>
+</html>
