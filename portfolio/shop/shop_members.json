@@ -1,0 +1,38 @@
+[
+  {
+    "midx": "4",
+    "user_id": "leedo",
+    "user_name": "\uc815\uc870",
+    "user_nick": "\uc99d\uc870\ud560\uc544\ubc84\uc9c0",
+    "user_email": "leedo@seoul.com",
+    "user_tel": "",
+    "user_hp": "01025250505",
+    "user_level": "3",
+    "user_point": "1000",
+    "mail_agree": "N",
+    "sms_agree": "Y",
+    "mail_accept": "N",
+    "user_group": "N",
+    "user_indate": "2021-06-29 15:13:42",
+    "user_lastlog": "2021-06-29 15:13:42",
+    "user_reset": "N"
+  },
+  {
+    "midx": "3",
+    "user_id": "hong",
+    "user_name": "\ud64d\uae38\ub3d9",
+    "user_nick": "",
+    "user_email": "hong@gmail.com",
+    "user_tel": "",
+    "user_hp": "01012345678",
+    "user_level": "1",
+    "user_point": "1000",
+    "mail_agree": "N",
+    "sms_agree": "N",
+    "mail_accept": "N",
+    "user_group": "N",
+    "user_indate": "2021-06-18 16:21:30",
+    "user_lastlog": "2021-06-18 16:21:30",
+    "user_reset": "N"
+  }
+]
