@@ -1,0 +1,214 @@
+<?php
+    $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="./index.css?v=<?php echo $v?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/jquery.js"></script>
+    <script src="./index.js?v=<?php echo $v?>"></script>
+    <title>Hello Pet</title>
+  </head>
+  <body onresize="size()">
+    <div id="mobile">
+      <p>Hello Pet Mobile</p>
+      모바일 화면에서 봐주세요😀
+    </div>
+    <section class="categoryMenu" id="categoryMenu">
+      <div id="black"></div>
+      <div class="slideMenu">
+        <label class="joinBtn"><span>로그인</span><span>회원가입</span></label>
+        <label class="boardBtn">
+          <ul>
+            <li><img src="./btn/mic.svg" alt="" /><span>공지</span></li>
+            <li><img src="./btn/help.svg" alt="" /><span>문의</span></li>
+            <li><img src="./btn/review.svg" alt="" /><span>후기</span></li>
+            <li><img src="./btn/faq.svg" alt="" /><span>FAQ</span></li>
+          </ul>
+        </label>
+        <article class="board">
+          <div class="boardList">
+            <span class="boardTitle">질문내역</span>
+            <ul id="boardList"></ul>
+          </div>
+        </article>
+        <label class="account">
+          <div>
+            <span>ACCOUNT NO.</span>
+            <span>예금주 : </span>
+          </div>
+        </label>
+        <label class="csCenter">
+          <ul>
+            <li>CS CENTER</li>
+            <li>070-2021-0630</li>
+            <li>MON-FRI AM09:00~13:00</li>
+            <li>LUNCH 12:00~13:00</li>
+            <li>SAT,SUN,HOLIDAY OFF</li>
+            <li>
+              <button type="button">
+                <a href="tel:02-0000-0101"><img src="./btn/headset.svg" alt="CS" />고객센터 연결</a>
+              </button>
+            </li>
+          </ul>
+        </label>
+      </div>
+    </section>
+    <header>
+      <section class="topLogo">
+        <img src="./images/category.png" alt="category" id="categoryIcon" />
+        <img src="./logo/hellopet_logo_en.png" alt="enlogo" />
+        <img src="./images/search.png" alt="search" id="searchIcon" />
+      </section>
+      <section class="topMenu">
+        <ul>
+          <li>강아지</li>
+          <li>고양이</li>
+          <li>장난감</li>
+        </ul>
+        <ul>
+          <li>펫사료</li>
+          <li>미용제품</li>
+          <li>기획전</li>
+        </ul>
+      </section>
+      <section class="topSearch" id="topSearch">
+        <div class="searchWrapper">
+          <span><img src="./images/search.png" alt="" /></span>
+          <input type="search" id="search" onKeypress="enterFunc()" />
+        </div>
+      </section>
+      <section class="banner">
+        <article class="bannerWrapper" id="bannerWrapper">
+          <span><img src="./banner/mbanner_01.jpg" alt="banner1" /></span>
+          <span><img src="./banner/mbanner_02.jpg" alt="banner2" /></span>
+          <span><img src="./banner/mbanner_03.jpg" alt="banner3" /></span>
+        </article>
+      </section>
+    </header>
+    <main>
+      <section class="eventBanner">
+        <label><img src="./banner/event_banner01.jpg" alt="eventbanner" /><img src="./banner/event_banner02.jpg" alt="eventbanner" /></label
+        ><label><img src="./banner/event_banner03.jpg" alt="eventbanner" /><img src="./banner/event_banner04.jpg" alt="eventbanner" /></label
+        ><label><img src="./banner/event_banner05.jpg" alt="eventbanner" /></label><label><img src="./banner/event_banner06.jpg" alt="eventbanner" /></label>
+      </section>
+      <section class="newpet">
+        <label class="newPetTitle">
+          <span>NEW PETS</span>
+          <span>신규분양중인 귀여운 아가펫 입니다.</span>
+        </label>
+        <label class="new">
+          <div class="dog">
+            <label class="dogTitle" id="dogTitle">DOG</label>
+            <div class="dogProducts" id="dogProducts">
+              <ul id="dog"></ul>
+            </div>
+          </div>
+          <div class="cat">
+            <label class="catTitle" id="catTitle">CAT</label>
+            <div class="catProducts" id="catProducts">
+              <ul id="cat"></ul>
+            </div>
+          </div>
+        </label>
+      </section>
+      <section class="bestproduct">
+        <label class="bestProductTitle">
+          <span>BEST PRODUCT</span>
+          <span>맛과 영양이 가득한 사료 입니다.</span>
+        </label>
+        <div id="bestProductWrapper"></div>
+      </section>
+      <section class="productBtn">
+        <div>&lt; pev</div>
+        <div>next &gt;</div>
+      </section>
+      <section class="intro">
+        <img src="./intro/intro_01.jpg" alt="intro1" />
+      </section>
+    </main>
+    <footer>
+      <section class="introIcon">
+        <div>
+          <a href="#"><img src="./intro/intro_02.png" alt="intro2" /></a>
+        </div>
+        <div>
+          <a href="#"><img src="./intro/intro_03.png" alt="intro3" /></a>
+        </div>
+        <div>
+          <a href="#"><img src="./intro/intro_04.png" alt="intro4" /></a>
+        </div>
+        <div>
+          <a href="#"><img src="./intro/intro_05.png" alt="intro5" /></a>
+        </div>
+        <div>
+          <a href="#"><img src="./intro/intro_06.png" alt="intro6" /></a>
+        </div>
+      </section>
+      <section class="review">
+        <div>
+          <label>REVIEW</label>
+          <label id="review"></label>
+          <label><img src="./intro/more.svg" /></label>
+        </div>
+      </section>
+      <section class="quickMenu">
+        <ul>
+          <li>회원가입</li>
+          <li>주문조회</li>
+          <li>쿠폰</li>
+        </ul>
+        <ul>
+          <li>공지사항</li>
+          <li>문의/답변</li>
+          <li>상품후기</li>
+        </ul>
+      </section>
+      <section class="bottom">
+        <div class="policy">
+          <ul>
+            <li>이용안내</li>
+            <li>이용약관</li>
+            <li>개인정보처리방침</li>
+            <li>PC화면</li>
+          </ul>
+        </div>
+        <div class="koLogo"><img src="./logo/hellopet_logo_ko.png" alt="kologo" /></div>
+        <div class="copyright">
+          <ul>
+            <li>(주) 헬로우 펫 | 대표 : 홍길동</li>
+            <li>사업자번호 : 123-21-12345</li>
+            <li>통신판매업신고 : 제21호 223-11-24545</li>
+            <li>대표번호 : 070-3301-1004</li>
+            <li>Copyright ⓒ hellopet.co.kr. All right reserved.</li>
+          </ul>
+        </div>
+      </section>
+      <section class="floorBtnSection">
+        <div id="scrollTop"><img src="./images/scrolltop.png" alt="scrollTop" /></div>
+      </section>
+    </footer>
+  </body>
+  <script>
+    function size() {
+      if (document.body.clientWidth > 480) {
+        document.getElementById("mobile").style.display = "block";
+        document.getElementById("categoryMenu").style.display = "none";
+        document.querySelector("section").style.display = "none";
+      } else {
+        document.getElementById("mobile").style.display = "none";
+        document.getElementById("categoryMenu").style.display = "block";
+        document.querySelector("section").style.display = "block";
+      }
+    }
+    size();
+    function enterFunc() {
+      if (event.keyCode == 13) {
+        alert("검색 결과가 없습니다.");
+      }
+    }
+  </script>
+</html>
