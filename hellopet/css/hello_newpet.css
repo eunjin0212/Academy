@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+.newpet_title {
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 250px;
+    height: 150px;
+    text-align: center;
+}
+.newpet_title > span {
+    width: inherit;
+    height: 35px;
+    line-height: 35px;
+}
+.newpet_title > span:nth-child(1) {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+.newpet_title > span:nth-child(2) {
+    font-size: 13px;
+}
+.newpet_menu {
+    width: 490px;
+    height: 40px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+.newpet_menu > span {
+    width: 150px;
+    height: 40px;
+    font-size: 13px;
+    border-radius: 20px;
+    border: 1px solid black;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.newpet_menu > span:last-child {
+    margin: 0;
+}
+.newpet_menu > span:hover {
+    background-color: black;
+    color: #fff;
+}
+.newpet_gallery {
+    width: 1200px;
+    height: 470px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-bottom: 40px;
+}
+
+.newpet_gallery > span {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    cursor: pointer;
+    /*float: left; margin-left: 10px; margin-bottom: 10px;*/
+}
+.newpet_gallery > span > span {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.newpet_gallery_icon {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: none;
+}
+.newpet_gallery_icon > span {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.newpet_gallery_title {
+    width: 210px;
+    height: auto;
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.newpet_gallery_title > span {
+    width: inherit;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+}
+.newpet_gallery_title > span:nth-child(1) {
+    font-size: 12px;
+}
+.newpet_gallery_title > span:nth-child(2) {
+    font-size: 14px;
+}
