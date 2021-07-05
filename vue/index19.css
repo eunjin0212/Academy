@@ -1,0 +1,55 @@
+body,
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.tlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  height: 30px;
+  background-color: lightblue;
+}
+
+.tlist > li {
+  float: left;
+  width: 33.3%;
+  height: 30px;
+  background-color: "";
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+}
+
+.tlist > li:after {
+  content: "|";
+  position: absolute;
+  right: 0;
+}
+
+.tlist > li:last-of-type:after {
+  content: "";
+}
+
+.tlist2 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  height: 30px;
+  background-color: lightyellow;
+}
+
+.tlist2 > li {
+  float: left;
+  width: 33.3%;
+  height: 30px;
+  background-color: "";
+  text-align: center;
+  line-height: 30px;
+}
+/*# sourceMappingURL=index19.css.map */
