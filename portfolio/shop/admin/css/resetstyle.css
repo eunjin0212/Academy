@@ -28,7 +28,7 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     /* 모바일 폰트 크기 조정에 따른 관련 부분 (모바일 사이즈와 관계없이 동일한 크기) */
     -ms-text-size-adjust: 100%;
     /* IE */
@@ -85,7 +85,6 @@ textarea {
 }
 
 table {
-    /* border-collapse: collapse; */
     border-spacing: 0;
 }
 
