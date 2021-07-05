@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Vue 핸들링</title>
+  </head>
+  <body>
+    <div id="vuebox">
+      <span id="msg">{{ dataview }}</span>
+      <button v-on:click="aaa">{{btn}}</button>
+    </div>
+  </body>
+  <script>
+    let data1 = 60;
+    let data2 = 222;
+    let a = new Vue({
+      el: "#vuebox",
+      data: {
+        // dataview: "",
+        dataview: null,
+        // 최초 값에는 빈 값(null) 적용
+        btn: "출력 클릭",
+        // val1: 5,
+        // val2: 6,
+        val1: data1,
+        val2: data2,
+      },
+      methods: {
+        aaa: function () {
+          console.log("test");
+          //   this.dataview = data1 * data2;
+          // 전역변수를 vue애 data 인스턴스 값으로 변환하여 사용
+          this.dataview = this.val1 + this.val2;
+          //   this.dataview = "출력 연습";
+        },
+      },
+    });
+  </script>
+</html>
