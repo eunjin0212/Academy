@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 응용(데이터 나눠서 출력하기, 페이지 부분)</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" type="text/css" href="./index19.css" />
+  </head>
+  <body>
+    <section id="box">
+      <p>현재 고속도로 교통상황</p>
+      <ol class="tlist">
+        <li>출발</li>
+        <li>도착</li>
+        <li>시간</li>
+      </ol>
+      <!--응용문제1. "현재 도로상황" 버튼 클릭시 해당 배열 값을 출력하시오.-->
+      <ol class="tlist tlist2" v-for="(z,index) in array">
+        <li>서울</li>
+        <li>{{z.city}}</li>
+        <li>{{z.distance}}</li>
+      </ol>
+      <button type="button" v-text="prev" v-if="p" v-on:click="prev_btn"></button>
+      <button type="button" v-text="next" v-if="n" v-on:click="next_btn"></button>
+    </section>
+  </body>
+  <script>
+    // null은 그 값을 모른다는 의미
+    // null은 숫자 0이나 문자 공백이랑은 다른 것!!!
+    const travel = {
+      travel_list: [
+        { city: "수원", distance: "차로 1시간" },
+        { city: "대전", distance: "차로 1시간 40분" },
+        { city: "광주", distance: "차로 3시간 40분" },
+        { city: "강릉", distance: "차로 2시간 30분" },
+        { city: "부산", distance: "차로 5시간" },
+        { city: "여수", distance: "차로 7시간" },
+        { city: "전주", distance: "차로 2시간 30분" },
+      ],
+    };
+    let startData = 0;
+    let endData = 3;
+    let a = new Vue({
+      el: "#box",
+      data: {
+        btn: "현재 도로교통 상황",
+        times: false,
+        array: travel.travel_list.slice(startData, endData),
+        ea: travel.travel_list.length,
+        prev: "이전",
+        next: "다음",
+        p: false,
+        n: true,
+      },
+      methods: {
+        /*
+            lists : function(){
+                this.times=true;
+            },
+            */
+        prev_btn: function () {
+          //이전 버튼
+          this.n = true; //이전버튼 한번이라도 클릭시 다음 버튼을 출력시키는 부분
+          startData = startData - 3;
+          endData = endData - 3;
+          if (startData == 0) {
+            //배열값이 처음값일 경우 이전 버튼을 출력하지 않음
+            this.p = false;
+          }
+          this.array = travel.travel_list.slice(startData, endData);
+        },
+        next_btn: function () {
+          //다음 버튼
+          this.p = true; //다음버튼 한번이라도 클릭시 이전버튼 block
+          startData = startData + 3;
+          endData = endData + 3;
+          if (endData >= this.ea) {
+            //배열에 마지막 데이터 일 경우
+            this.n = false; //다음버튼을 출력하지 않음
+          }
+          this.array = travel.travel_list.slice(startData, endData);
+        },
+      },
+    });
+  </script>
+</html>
