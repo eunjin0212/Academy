@@ -10,6 +10,6 @@ for($i=0;$i<sizeof($agent);$i++){
 }
 
 if($checkmobile == true){
-    echo ("<script>location.href='mindex.html';</script>");
+    echo ("<script>location.href='./mindex.html';</script>");
 }
 ?>

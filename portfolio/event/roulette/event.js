@@ -1,3 +1,7 @@
+$(window).ready(function () {
+  let $htmlBody = $("html, body").width();
+  console.log($htmlBody);
+});
 $(document).ready(function () {
   let $img;
   let $data = [5000, 100, 200, 2000, 1000, 500, 300];
@@ -25,14 +29,14 @@ $(document).ready(function () {
       let $msg = $.fn.rotate($location, $randomNum);
 
       setTimeout(function () {
-        $("#alert").slideDown(800);
-        $("#alert").html("당첨 " + $data[$msg] + " 마일리지!!");
+        $("#msg").slideDown(800);
+        $("#msg").html("당첨 " + $data[$msg] + " 마일리지!!");
         console.log($data[$msg]);
       }, 5500);
     } else {
       alert("아쉽지만 기회 끝!");
       $(".container").css("display", "none");
-      $("#alert").slideUp(800);
+      $("#msg").slideUp(800);
     }
   });
 

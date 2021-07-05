@@ -1,0 +1,157 @@
+@charset "UTF-8";
+@import url("../css/font.css"); //css를 가져올때는 url을 사용함
+@import "../css/basic.scss"; //url을 scss에는 사용하지 않음
+@keyframes texts {
+  from {
+    word-spacing: -50px;
+  }
+  to {
+    word-spacing: 0px;
+  }
+}
+body {
+  width: 100%;
+}
+
+header,
+main,
+footer {
+  width: 70%;
+  height: auto;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  & > span {
+    @include font("noto", 900, 40px, black);
+    width: 700px;
+    height: 60px;
+    line-height: 60px;
+    margin: 30px auto;
+    animation: texts 3s 3 linear;
+    animation-direction: alternate;
+    animation-timing-function: 4s;
+  }
+}
+.main {
+  border: 1px solid black;
+  & > label {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    & > #count {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      background-color: rgb(202, 199, 199);
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      margin-top: -40px;
+      margin-left: -40px;
+      display: none;
+    }
+  }
+}
+.imgBox {
+  @extend %pointer;
+  width: 90%;
+  height: inherit;
+  display: flex;
+  justify-content: space-evenly;
+  & > .lImg {
+    @include div(inherit, inherit, block, "");
+    margin: 10px 20px 10px 0px;
+    & > img {
+      width: 100%;
+    }
+  }
+  & > .rImg {
+    @include div(inherit, inherit, block, "");
+    position: relative;
+    margin: 10px 0px 10px 20px;
+    & > img {
+      width: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    & > .aw {
+      position: absolute;
+      z-index: 10;
+      width: 13.5%;
+      height: 10%;
+
+      &:nth-of-type(1) {
+        left: 5%;
+        top: 27%;
+      }
+      &:nth-of-type(2) {
+        left: 68%;
+        top: 17%;
+      }
+      &:nth-of-type(3) {
+        left: 10%;
+        top: 37%;
+      }
+      &:nth-of-type(4) {
+        left: 57%;
+        top: 30%;
+      }
+      &:nth-of-type(5) {
+        left: 62%;
+        top: 79%;
+      }
+      // js로 상대위치 구해서 넣기
+    }
+  }
+}
+
+.dark {
+  width: 100%;
+  top: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 10;
+  & > .start {
+    @include div(200px, 60px, block, "");
+    position: absolute;
+    background-color: rosybrown;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    right: 50%;
+    margin-right: -100px;
+    bottom: 50%;
+    font-size: 24px;
+    @extend %pointer;
+    &:hover {
+      background-color: rgb(245, 200, 200);
+      box-shadow: 0 0 30px rgb(70, 70, 70);
+    }
+  }
+}
+footer {
+  margin: 20px auto 60px;
+  text-align: end;
+  & > ul > li {
+    margin: 5px 0;
+  }
+  & > ul > li:nth-of-type(3),
+  & > ul > li:last-of-type {
+    color: cornflowerblue;
+  }
+}
+#evForm {
+  display: none;
+}

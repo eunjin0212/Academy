@@ -1,0 +1,256 @@
+@import url("../css/font.css");
+@import url("./font.css");
+*,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 100%;
+  height: auto;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.imgBox, .dark > .start {
+  cursor: pointer;
+}
+
+section,
+label,
+span,
+footer,
+main,
+aside,
+nav,
+header {
+  display: block;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@-webkit-keyframes texts {
+  from {
+    word-spacing: -50px;
+  }
+  to {
+    word-spacing: 0px;
+  }
+}
+
+@keyframes texts {
+  from {
+    word-spacing: -50px;
+  }
+  to {
+    word-spacing: 0px;
+  }
+}
+
+body {
+  width: 100%;
+}
+
+header,
+main,
+footer {
+  width: 70%;
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+}
+
+header > span {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  color: black;
+  width: 700px;
+  height: 60px;
+  line-height: 60px;
+  margin: 30px auto;
+  -webkit-animation: texts 3s 3 linear;
+          animation: texts 3s 3 linear;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: 4s;
+          animation-timing-function: 4s;
+}
+
+.main {
+  border: 1px solid black;
+}
+
+.main > label {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 0;
+}
+
+.main > label > #count {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: #cac7c7;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-top: -40px;
+  margin-left: -40px;
+  display: none;
+}
+
+.imgBox {
+  width: 90%;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.imgBox > .lImg {
+  width: inherit;
+  height: inherit;
+  display: block;
+  margin: 10px 20px 10px 0px;
+}
+
+.imgBox > .lImg > img {
+  width: 100%;
+}
+
+.imgBox > .rImg {
+  width: inherit;
+  height: inherit;
+  display: block;
+  position: relative;
+  margin: 10px 0px 10px 20px;
+}
+
+.imgBox > .rImg > img {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.imgBox > .rImg > .aw {
+  position: absolute;
+  z-index: 10;
+  width: 13.5%;
+  height: 10%;
+}
+
+.imgBox > .rImg > .aw:nth-of-type(1) {
+  left: 5%;
+  top: 27%;
+}
+
+.imgBox > .rImg > .aw:nth-of-type(2) {
+  left: 68%;
+  top: 17%;
+}
+
+.imgBox > .rImg > .aw:nth-of-type(3) {
+  left: 10%;
+  top: 37%;
+}
+
+.imgBox > .rImg > .aw:nth-of-type(4) {
+  left: 57%;
+  top: 30%;
+}
+
+.imgBox > .rImg > .aw:nth-of-type(5) {
+  left: 62%;
+  top: 79%;
+}
+
+.dark {
+  width: 100%;
+  top: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 10;
+}
+
+.dark > .start {
+  width: 200px;
+  height: 60px;
+  display: block;
+  position: absolute;
+  background-color: rosybrown;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  right: 50%;
+  margin-right: -100px;
+  bottom: 50%;
+  font-size: 24px;
+}
+
+.dark > .start:hover {
+  background-color: #f5c8c8;
+  -webkit-box-shadow: 0 0 30px #464646;
+          box-shadow: 0 0 30px #464646;
+}
+
+footer {
+  margin: 20px auto 60px;
+  text-align: end;
+}
+
+footer > ul > li {
+  margin: 5px 0;
+}
+
+footer > ul > li:nth-of-type(3),
+footer > ul > li:last-of-type {
+  color: cornflowerblue;
+}
+
+#evForm {
+  display: none;
+}
+/*# sourceMappingURL=index.css.map */
