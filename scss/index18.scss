@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@mixin base {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+@mixin objectsize($w, $h, $display) {
+  width: $w;
+  height: $h;
+  display: $display;
+}
+.box {
+  @include objectsize(300px, 400px, flex);
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid #ccc;
+  &:hover > span {
+    left: 250px;
+    background-color: black;
+  }
+  & > span {
+    @include objectsize(25px, 25px, block);
+    border-radius: 25px;
+    position: relative;
+  }
+}
+@mixin trans($times) {
+  transition-duration: $times + s;
+  transition-timing-function: ease;
+  transition-property: all;
+}
+$color: skyblue, darkblue, green, orange, pink;
+$i: 0;
+
+@while ($i<=4) {
+  .c#{$i} {
+    @include trans($i + 1);
+    left: 0;
+    background-color: nth($color, $i + 1);
+  }
+  $i: $i + 1;
+}
