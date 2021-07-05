@@ -1,0 +1,153 @@
+@charset "UTF-8";
+@import "../../event/css/basic.scss";
+
+.sc {
+  width: 150px;
+  height: 50px;
+  border: 1px solid #ccc;
+  display: block;
+  overflow: hidden;
+  & > img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+#mfrm {
+  width: 100%;
+  height: auto;
+  font-weight: 300;
+  text-align: center;
+  & section {
+    @include div(90%, auto, block, "");
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  & table {
+    @include div(100%, auto, table, "");
+    text-align: left;
+    border-spacing: 0;
+    border: 1px solid #cccccc;
+  }
+  & > input[type="button"] {
+    width: 180px;
+    height: 60px;
+    background-color: dimgray;
+    color: white;
+    margin: 20px 0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+td {
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
+
+.title {
+  @include flex(left, 50px, "", "", center, "");
+  line-height: 50px;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #cccccc;
+  border-bottom: none;
+  & > li {
+    &:nth-of-type(1) {
+      @include div(50px, 50px, inherit, "");
+
+      & > img {
+        @include div(20px, 20px, block, "");
+        margin: auto;
+      }
+    }
+    &:nth-of-type(2) {
+      text-align: left;
+      & > span {
+        @include div(100%, 50px, block, "");
+        @include font("note", 500, 16px, black);
+      }
+    }
+  }
+}
+table > .table_body tr {
+  width: 300px;
+  & > td:nth-of-type(1),
+  & > .passCheck {
+    @include div(120px, 50px, table-cell, "");
+    text-align: right;
+    font-weight: bold;
+  }
+
+  & > td:nth-of-type(2) {
+    padding-left: 10px;
+    font-size: 13px;
+    width: 300px;
+    & > input {
+      height: 30px;
+    }
+    & > input:nth-of-type(2) {
+      background-color: dimgray;
+      outline: none;
+      border: none;
+      color: white;
+      width: 100px;
+    }
+    & > input[type="email"] {
+      width: 60%;
+    }
+    & > .inputs {
+      width: 280px;
+    }
+    & > #M_post {
+      width: 100px;
+    }
+    & > .addr {
+      width: 80%;
+    }
+  }
+  & > td:nth-of-type(4) {
+    & > .passipck {
+      margin-left: 10px;
+      width: 280px;
+      height: 30px;
+    }
+  }
+  & > .notice {
+    vertical-align: top;
+    font-size: 12px;
+    color: gray;
+    position: relative;
+    top: -7px;
+  }
+}
+.setting_table > .table_body {
+  & tr > td:nth-of-type(2) {
+    @include div(inherit, 50px, table-cell, "");
+    & > div {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      & > input {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+      }
+      & > img:last-child {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  }
+  & tr > td:nth-of-type(3) > input {
+    width: 180px;
+    height: 30px;
+    text-indent: 5px;
+  }
+  & > tr:nth-of-type(4) > .notice {
+    top: -13px;
+  }
+  & > tr:last-of-type > .notice {
+    top: 0;
+  }
+}
