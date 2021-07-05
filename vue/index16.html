@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue 더블 반복문 (for in)과 이차 배열</title>
+  </head>
+  <body>
+    <section id="box">
+      <!-- <span v-for="data,index in array">{{data}}</span>-->
+      <!-- <span v-for="data,index in  array">{{ data.text1 }}</span>-->
+      <fieldset v-for="i, j in array">
+        <!--👆 키 값 확인-->
+        <!-- <span v-for="data, index in array">{{data}} </span> -->
+        <span v-for="data, key, index in i.members">{{data}}</span>
+        <!--👆 키 값 확인 후 데이터 갯수만큼 출력-->
+        <!-- <span v-for="data, index, key in array">{{ data.members[index] }} </span> -->
+      </fieldset>
+    </section>
+  </body>
+  <script>
+    const json1 = ["test1", "test2", "test3"];
+    const json2 = [{ test1: "Vue 데이터 확인" }, { test2: "Vue 출력확인" }];
+    const arrayIs = [{ key1: "value" }, { key2: "value" }]; // 이런식으로 되어 있는 애는 key 이름을 뽑아야함
+    const json3 = [{ members: ["에핑", "신곡확인"] }]; // 키값이 있는 배열
+    const json4 = {
+      members: [{ names: "손나은" }, { names: "박초롱" }, { names: "정은지" }, { names: "오하영" }, { names: "윤보미" }, { names: "김남주" }],
+    }; // 2차 배열
+
+    let a = new Vue({
+      el: "#box",
+      data: { array: json3, op: "홍길동" },
+      // data: { array: json1, op: "홍길동" },
+    });
+    //자바스크립에 결합하여 vue의 값을 자바스크립트가 이용함
+    if (a.op == "홍길동") {
+      console.log(`"${a.op}"은(는) 동일한 사용자 입니다.`);
+    } else {
+      console.log("가입되지 않은 사용자 입니다.");
+    }
+    console.log("op's value", a.op);
+    // a Vue 전체의 값, array는 data 안에 있는 vue 변수,
+    console.log("array's length", a.array.length);
+    // length를 이용해서 배열의 총 개수를 확인!
+  </script>
+</html>

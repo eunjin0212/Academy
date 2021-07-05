@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue 반복문(for in)</title>
+  </head>
+  <body>
+    <section id="box">
+      <ul>
+        <!-- 반복을 하고자 하는 태그에 v-for를 이용하게 됨 
+        -->
+        js ==> for in과 같은 역할
+        <li v-for="(user,index) in abc">{{user.names}}{{index}}</li>
+      </ul>
+    </section>
+    <section id="box2">
+      <ol>
+        <li v-for="test in abc">{{test}}</li>
+        <!-- <li v-for="(test,key,index) in abc">{{test}}{{key}}{{index}}</li> -->
+        <!-- test : abc 배열 key : 배열에 등록된 각각의 key index : 배열의 키 번호  -->
+        <!-- 자리는 정해져 있음 하나만 뽑고 싶다고 하면 세 개를 다 가져와서 한 개만 출력 시키는 방법을 써야함 -->
+        jquery ==> each()와 비슷함
+      </ol>
+    </section>
+  </body>
+  <script>
+    let a = new Vue({
+      el: "#box",
+      data: {
+        abc: [
+          // 배열로 인식 ({} 그룹 형태의 names란 키를 갖고 있음 ) - 1차 배열
+          { names: "홍길동" },
+          { names: "강감찬" },
+          { names: "유관순" },
+        ],
+      },
+    });
+
+    let b = new Vue({
+      el: "#box2",
+      data: {
+        abc: {
+          // 배열로 인식 (각각의 키로 구분하는 형태) - 1차 배열
+          user_name: "김은진",
+          user_test: "정보처리기사",
+          user_score: "100점 합격",
+        },
+      },
+    });
+  </script>
+</html>
