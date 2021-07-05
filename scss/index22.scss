@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@mixin base {
+  margin: 0;
+  padding: 0;
+  // line-height: 0;
+}
+@mixin objectsize($w, $h, $display, $position) {
+  width: $w;
+  height: $h;
+  display: $display;
+  position: $position;
+}
+body {
+  @include base;
+}
+.webmain {
+  width: 1200px;
+  display: grid;
+  margin: 0 auto;
+  //grid-template-columns:1200px;
+  grid-template:
+    "h" 100px //각각의 템플릿에 높이를 설정하는 부분
+    "s1" 100px
+    "s2" 200px
+    "s3" 250px
+    "f" 100px;
+  & > header {
+    grid-area: h;
+    background-color: blue;
+  }
+  & > section {
+    background-color: green;
+  }
+  & > section:nth-of-type(1) {
+    grid-area: s1;
+    display: flex;
+    flex-direction: row;
+    & > aside {
+      @include objectsize(100%, 100px, block, relative);
+    }
+    & > aside:nth-of-type(1) {
+      background-color: pink;
+    }
+    & > aside:nth-of-type(2) {
+      background-color: skyblue;
+    }
+    & > aside:nth-of-type(3) {
+      background-color: yellow;
+    }
+  }
+  & > section:nth-of-type(2) {
+    grid-area: s2;
+    display: flex;
+    flex-direction: row;
+    & > article {
+      height: 200px;
+      //@include objectsize(100%,200px,block,relative);
+    }
+    & > article:nth-of-type(1) {
+      width: 35%;
+      background-color: purple;
+    }
+    & > article:nth-of-type(2) {
+      width: 65%;
+      background-color: orange;
+    }
+  }
+  & > section:nth-of-type(3) {
+    grid-area: s3;
+    display: flex;
+    flex-direction: row;
+    & > aside {
+      height: 250px;
+      //@include objectsize(100%,250px,block,relative);
+    }
+    & > aside:nth-of-type(1) {
+      width: 35%;
+      background-color: palegreen;
+    }
+    & > aside:nth-of-type(2) {
+      width: 65%;
+      background-color: brown;
+    }
+  }
+  & > footer {
+    grid-area: f;
+    background-color: black;
+  }
+}
