@@ -56,6 +56,7 @@
       },
       methods: {
         /*
+<<<<<<< HEAD
           lists : function(){
               this.times=true;
           },
@@ -68,11 +69,25 @@
           endData = endData - 3;
           if (startData == 0) {
             // 배열값이 0번째일 경우 이전 버튼 출력X
+=======
+            lists : function(){
+                this.times=true;
+            },
+            */
+        prev_btn: function () {
+          //이전 버튼
+          this.n = true; //이전버튼 한번이라도 클릭시 다음 버튼을 출력시키는 부분
+          startData = startData - 3;
+          endData = endData - 3;
+          if (startData == 0) {
+            //배열값이 처음값일 경우 이전 버튼을 출력하지 않음
+>>>>>>> 7fea2ec7898cf8cab2843a0014221734cb12e5d1
             this.p = false;
           }
           this.array = travel.travel_list.slice(startData, endData);
         },
         next_btn: function () {
+<<<<<<< HEAD
           // 다음 버튼
           this.p = true;
           // 다음 버튼 클릭시 이전버튼 block
@@ -82,6 +97,15 @@
             // 배열에 마지막 데이터면?
             this.n = false;
             // 다음버튼을 출력X
+=======
+          //다음 버튼
+          this.p = true; //다음버튼 한번이라도 클릭시 이전버튼 block
+          startData = startData + 3;
+          endData = endData + 3;
+          if (endData >= this.ea) {
+            //배열에 마지막 데이터 일 경우
+            this.n = false; //다음버튼을 출력하지 않음
+>>>>>>> 7fea2ec7898cf8cab2843a0014221734cb12e5d1
           }
           this.array = travel.travel_list.slice(startData, endData);
         },
