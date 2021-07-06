@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue components(template 내장)</title>
+    <style>
+      .spancss {
+        display: block;
+        width: 200px;
+        height: 40px;
+        background-color: mediumseagreen;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="box">
+      <snow v-text="text1"></snow>
+      <apple ref="mid"></apple>
+      <front v-text="btn" @click="abc"></front>
+      <calls></calls>
+      <ol>
+        <olli></olli>
+        <olli></olli>
+        <olli></olli>
+        <olli></olli>
+        <olli></olli>
+      </ol>
+    </section>
+  </body>
+  <script>
+    let a = new Vue({
+      el: "#box",
+      data: {
+        text1: "연습",
+        btn: "로그인",
+        aa: "",
+      },
+      components: {
+        //html 재사용 태그를 보다 쉽게 적용하기 위한 사용자 지정 엘리먼트.
+        snow: { template: "<span class='spancss'></span>" },
+        // 해당 태그 기준으로 template를 이용하여 정규화 태그명으로 변화시킴.
+        apple: { template: "<input type='text' name='mid' id='mid' class='spancss' value='' />" },
+        // ref, value 를 여기다 쓰면 값을 갖고오지 못함, html보다 늦게 읽히기 때문에.
+        front: { template: "<button onclick='a.abc()'></button>" },
+        calls: { template: "<ul><li>test</li></ul>" },
+        olli: { template: "<li></li>" },
+      },
+      methods: {
+        abc: function () {
+          console.log(this.$refs);
+          this.aa = this.$refs.mid.value;
+          let mid = document.querySelector("#mid").value;
+          if (mid == "") {
+            alert("아이디를 입력하세요");
+          } else {
+            location.href = "http://naver.com";
+          }
+        },
+      },
+    });
+  </script>
+</html>
