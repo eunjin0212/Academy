@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue components(template 외장)</title>
+  </head>
+  <body>
+    <div id="box">
+      <abc v-bind:aaa="msg"></abc>
+      <!-- 👆abc 얘가 -->
+      <input type="button" value="연습" @click="ck" />
+      <in v-on:cc="test"></in>
+      <!-- cc가  @click='zzz' 로 연결해줌 -->
+    </div>
+  </body>
+  <script>
+    // 외부 컴퍼넌트
+    Vue.component("abc", {
+      // 여기서 불러옴👆
+      props: ["aaa"], // data msg 에서 가져온 애를
+      // new Vue 의 data에서 msg를 찾음
+      template: "<button @click='z'>{{aaa}}</button>", // 👈여기다가 출력한다
+      methods: {
+        //외부 컴포넌트에 사용할 수 있는 핸들링 부분
+        z: function () {
+          alert("외부 test");
+        },
+      },
+    });
+    Vue.component("in", {
+      template: "<input type='button' @click='zzz' v-model='btn_nm' />",
+      data() {
+        // 실제 data는 내부 Vue에서 사용, component에는 data가 없음.
+        return { btn_nm: "클릭2" };
+        // return 으로 값을 반환하는 그냥 함수 일 뿐! return은 한 개만!
+      },
+      methods: {
+        zzz: function () {
+          this.$emit("cc");
+          // emit : cc 의 이름을 가져옴 (본 이름 test) @click='zzz' = @click='test'
+        },
+      },
+    });
+    let a = new Vue({
+      el: "#box",
+      data: {
+        msg: "테스트",
+        // 얘가 없으면 오류
+      },
+      components: {
+        //내부 컴포넌트
+      },
+      methods: {
+        ck: function () {
+          alert("내부 Test");
+        },
+        test: function () {
+          alert("외부 component 연계");
+        },
+      },
+    });
+  </script>
+</html>
