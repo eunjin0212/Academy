@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="./editor/build/ckeditor.js?v=<?php echo $v?>"></script>
+    <script src="./editor/ckeditor.js?v=<?php echo $v?>"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- build폴더의 js가져올 것. src는 오류남 -->
     <!-- 웹보드 editor 종류 : Naver, CKEditor, 다음 오픈에디터, 스마트에디터 -->
@@ -17,15 +17,15 @@
     <form name="frm" id="frm">
       <section id="notice">
         <textarea class="editor" name="editor" id="editor"></textarea>
-        <!-- <div class="editor"></div> CKEditor 4.0 버전은 사용 X-->
+
         <button type="button" v-text="btn" @click="boardok"></button>
       </section>
     </form>
   </body>
   <script>
-    //form method,action 숨길 때
-    //1. v-bind:method,v-bind:action 사용하기
-    //2. function에서 설정해서 보내기
+    // form method,action 숨길 때
+    // 1. v-bind:method,v-bind:action 사용하기
+    // 2. function에서 설정해서 보내기
     let a = new Vue({
       el: "#notice",
       data: {
@@ -49,13 +49,8 @@
       },
     });
     // editor JS로 열기
-    // 1. textarea를 만들어서 class 생성함 (id도 상관 없음).
-    // div,span,label등등을 써도 됨
-    // 2. ClassicEditor.create(document.querySelector(".editor"),{})
-    // 여기까지 쓰면 네모창에 글씨가 쓸 수 있는 창이 생김.
-    // 3. {} 안의 값은 에디터 속성
-    // "|"는 페이지화면에서 구간 나누는 역활 | 모양을 만듬.
-    // 4. 업로드 기능은 백엔드 파일이 필요
-    CHEDITOR.replace("editor", { height: 260 });
+    // textarea를 만들어서 class 생성함 (id도 상관 없음, name 필요).
+    // div,span,label등등을 써도 됨(4.0 버전은 사용 X)
+    CKEDITOR.replace("editor", { height: 260 });
   </script>
 </html>
