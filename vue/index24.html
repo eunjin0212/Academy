@@ -17,10 +17,12 @@
     </div>
   </body>
   <script>
-    // 외부 컴퍼넌트
+    // 전역 컴포넌트 Vue.component(tagName, options)
     Vue.component("abc", {
+      // 외부 컴퍼넌트
       // 여기서 불러옴👆
-      props: ["aaa"], // data msg 에서 가져온 애를
+      props: ["aaa"], //props : 속성값 가져오는 부분
+      // data msg 에서 가져온 애를
       // new Vue 의 data에서 msg를 찾음
       template: "<button @click='z'>{{aaa}}</button>", // 👈여기다가 출력한다
       methods: {
@@ -33,14 +35,15 @@
     Vue.component("in", {
       template: "<input type='button' @click='zzz' v-model='btn_nm' />",
       data() {
-        // 실제 data는 내부 Vue에서 사용, component에는 data가 없음.
-        return { btn_nm: "클릭2" };
+        // 실제 data는 내부 Vue에서 사용, component에는 data가 없음. data 이름 못바꿈
+        return { btn_nm: "클릭2", aaa: "체크" };
         // return 으로 값을 반환하는 그냥 함수 일 뿐! return은 한 개만!
       },
       methods: {
         zzz: function () {
           this.$emit("cc");
           // emit : cc 의 이름을 가져옴 (본 이름 test) @click='zzz' = @click='test'
+          // 기존 Vue이벤트(v-on:cc)의 이름(test)
         },
       },
     });
