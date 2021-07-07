@@ -10,7 +10,10 @@
   <body>
     <!-- body에는 vue를 쓰지 못 함 -->
     <section id="box">
+      클릭해서 input에 값 출력하세요.
+      <br />
       <button @click="[abc(),bbb()]">{{btn}}</button>
+      <!-- Vue 함수 두 개를 사용할 때는 []대괄호 안에 쓰되, ()를 붙인다. -->
       <input type="text" id="mid" v-model="mid" />
       <div>{{msg}}</div>
 
