@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 복습</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <!-- body에는 vue를 쓰지 못 함 -->
+    <section id="box">
+      <button @click="[abc(),bbb()]">{{btn}}</button>
+      <input type="text" id="mid" v-model="mid" />
+      <div>{{msg}}</div>
+
+      <br />
+      click이라는 버튼 클릭시 0에서 시작하여 10까지 찍히는 Vue 를 작성하세요.
+      <br />
+      <input type="button" @click="ccc" value="click" />
+      <span>{{count}}</span>
+    </section>
+    <section id="box2">
+      <br />
+      다음 항목을 선택시 해당 값이 출력 되도록 하시오.
+      <br />
+      <select v-model="sel" v-on:change="changeFunc()" multiple>
+        <!-- this.value는 vue에서는 사용 안 됨  -->
+        <!-- v-model은 select이나 option 둘 중에 하나만 쓸 수 있음 -->
+        <!-- multiple : select의 값을 한 번에 보여줌 -->
+        <option value="">[선택항목을 지정하세요]</option>
+        <!-- 👆얘는 value 값이 있으면 안 됨 왜냐면 Vue가 값을 읽기 때문! -->
+        <option value="반품/취소">반품/취소</option>
+        <option value="결제오류">결제오류</option>
+        <option value="배송안내">배송안내</option>
+        <option value="상품안내">상품안내</option>
+        <option value="상품가격">상품가격</option>
+        <option value="이벤트">이벤트</option>
+      </select>
+      <br />
+      <input type="text" readonly v-model="options" />
+    </section>
+  </body>
+  <script>
+    let data = "회원등록현황";
+    let num = 0;
+    let a = new Vue({
+      //뷰 생성자
+      el: "#box",
+      data: {
+        // vue data 정의
+        btn: "클릭",
+        mid: "",
+        msg: data, // 전역변수를 가져올 땐 this 쓰지 않음
+        count: num,
+      },
+      methods: {
+        // 핸들링 내장 함수
+        // abc: function () {
+        //   alert("^^");
+        // },
+        abc() {
+          alert("^^");
+        },
+        bbb() {
+          return (this.mid = "test");
+        },
+        ccc() {
+          if (this.count < 10) {
+            this.count += 1;
+          } else {
+            this.count = 10;
+          }
+        },
+      },
+      components: {
+        // 지역 컴포넌트 (객체를 만듦)
+      },
+      computed: {
+        // 확장 함수
+      },
+    });
+    let b = new Vue({
+      el: "#box2",
+      data: {
+        options: "",
+        sel: "",
+      },
+      methods: {
+        changeFunc() {
+          if (this.sel == "") {
+            this.options = "";
+          } else {
+            this.options = this.sel;
+          }
+        },
+      },
+    });
+  </script>
+</html>
