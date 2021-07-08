@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue + AJAX 2</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      span,
+      label {
+        display: block;
+      }
+      ul,
+      li {
+        margin: 0;
+      }
+      .notice {
+        margin: 0 auto;
+        width: 600px;
+        height: 200px;
+        border: 1px solid black;
+        margin-top: 80px;
+        position: relative;
+      }
+      .title {
+        width: 130px;
+        height: 40px;
+        border: 1px solid black;
+        background-color: white;
+        text-align: center;
+        line-height: 40px;
+        position: absolute;
+        top: -40px;
+        left: -1px;
+        border-bottom: none;
+      }
+      .textBox {
+        width: 100%;
+        position: absolute;
+        height: inherit;
+      }
+      .textBox > ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: inherit;
+        justify-content: space-evenly;
+      }
+      .textBox > ul > li {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="box">
+      {{jsonData}}
+      <label class="notice">
+        <span class="title">{{title}}</span>
+        <span class="textBox">
+          <ul>
+            <li v-for="list in textArray">{{list.no}}</li>
+          </ul>
+        </span>
+      </label>
+    </section>
+  </body>
+  <script>
+    let vue = new Vue({
+      el: "#box",
+      data: {
+        textArray: [],
+        title: "공지사항",
+      },
+      methods: {
+        noticeFunc(ajax) {
+          for (let i in ajax) {
+            for (let j in ajax[i]) {
+              this.textArray.push({
+                no: ajax[i][j][0],
+              });
+            }
+          }
+        },
+      },
+      computed: {
+        jsonData() {
+          fetch("./notice.json")
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              vue.noticeFunc(data);
+            })
+            .catch((error) => {
+              console.log("Data Error!!");
+            });
+        },
+      },
+    });
+  </script>
+</html>
