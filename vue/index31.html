@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue computed</title>
+  </head>
+  <body>
+    <section id="box">
+      <input type="button" value="클릭" @click="abc" />
+      <span>{{ccc}}</span>
+      {{ddd}}
+      <!-- computed를 작동하기 위한 함수호출 data(X) -->
+    </section>
+    <section id="box2">{{zzz}}</section>
+  </body>
+  <script>
+    let a = new Vue({
+      el: "#box",
+      data: {},
+      methods: {
+        abc() {
+          alert("abc");
+          // b.hhh(); // 에러 b가 밑에 있기 때문에
+        },
+      },
+      components: {},
+      computed: {
+        //즉시 실행 함수가 적용 되는 파트
+        ccc: function () {
+          window.open("./index30.html", "", "width=500 height=300");
+        },
+        ddd: function () {
+          // this.abc();
+          console.log("ddd");
+        },
+      },
+    });
+    let b = new Vue({
+      el: "#box2",
+      data: {},
+      methods: {
+        hhh: function () {
+          alert("hhh");
+        },
+      },
+      computed: {
+        zzz: function () {
+          a.abc(); //let a의 뷰 변수값(함수) 가져옴.
+          // 호출하는 함수가 위에 있어야함
+        },
+      },
+    });
+  </script>
+</html>
