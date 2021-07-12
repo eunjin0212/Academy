@@ -39,10 +39,7 @@
       .arrayBox {
         border: 1px solid black;
         width: inherit;
-        height: 250px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+        height: auto;
       }
       .arrayBox > ul > li {
         display: flex;
@@ -72,33 +69,39 @@
   <script>
     function handle() {
       let board = [
-        { subject: "졸려여..", write: "장남혁", upvotes: 1 },
-        { subject: "다음주 금요일에 시험..", write: "김은진", upvotes: 71 },
-        { subject: "다음주에 학원오면 안돼요!", write: "김하영", upvotes: 37 },
-        { subject: "학원 계단에서 수업 들을까요??", write: "김주리", upvotes: 11 },
-        { subject: "스크립트랑 제이쿼리랑 뷰랑 다 어려워요ㅜㅜ", write: "민서현", upvotes: 16 },
-        { subject: "다음엔 김은진님 셀카로 하시죠?", write: "장남혁", upvotes: 1 },
-      ];
-      return board;
+        { subject: '졸려여..', write: '장남혁', upvotes: 1 },
+        { subject: '다음주 금요일에 시험..', write: '김은진', upvotes: 71 },
+        { subject: '다음주에 학원오면 안돼요!', write: '김하영', upvotes: 37 },
+        { subject: '학원 계단에서 수업 들을까요??', write: '김주리', upvotes: 11 },
+        { subject: '스크립트랑 제이쿼리랑 뷰랑 다 어려워요ㅜㅜ', write: '민서현', upvotes: 16 },
+        { subject: '다음엔 김은진님 셀카로 하시죠?', write: '장남혁', upvotes: 1 },
+      ]
+      return board
     }
-    $(function () {});
+    $(function () {
+      $.fn.effect = function () {
+        $('.board_css').fadeIn()
+      }
+    })
   </script>
   <body>
     <section id="box">
       {{jsDataFunc}}
       <div class="wrapper">
-        <select @change="selFunc">
-          <option value="all">All</option>
-          <option value="write">Write</option>
-          <option value="upvotes">Upvotes</option>
-          <option value="subject">Subject</option>
+        <select v-model="search" @change="selFunc">
+          <!-- v-model을 안썼을땐 @change="sh($event.target.value)"이렇게 넣고 밑에 함수 sh(data)값 받아주면 됌 -->
+          <option value="">All</option>
+          <option v-for="wr in list2" v-model:value="wr.write">{{wr.write}}</option>
         </select>
         <div class="arrayBox">
           <ul>
-            <li v-for="i in list" v-if="">
-              <span class="subject">⦁ &nbsp;{{i.sub}}</span><span class="write">{{i.wr}} <label class="upvotes">👍{{i.uv}}</label></span>
+            <li v-for="i in list" v-if="bool && part == 1">
+              <span class="subject">⦁ &nbsp;{{i.subject}}</span><span class="write">{{i.write}} <label class="upvotes">👍{{i.upvotes}}</label></span>
             </li>
-            <!-- <li class="writer" v-for="j in list2" v-if="">
+            <li v-for="i in searchList" v-if="part == 2" class="board_css">
+              <span class="subject">⦁ &nbsp;{{i.subject}}</span><span class="write">{{i.write}} <label class="upvotes">👍{{i.upvotes}}</label></span>
+            </li>
+            <!-- <li class="writer" v-for="j in searchList" v-if="">
               <span class="subject">⦁ &nbsp;{{j.sub}}</span><span class="write">{{j.wr}} <label class="upvotes">👍{{j.uv}}</label></span>
             </li> -->
           </ul>
@@ -108,36 +111,50 @@
   </body>
   <script>
     let vue = new Vue({
-      el: "#box",
+      el: '#box',
       data: {
-        allList: "",
-        list: [],
-        list2: [],
+        search: '',
+        allList: '', // this.arrays
+        list: [], // free
+        list2: [], // free2
+        searchList: [], // sfree
+        bool: true,
+        part: 1,
       },
       methods: {
-        dataFunc(data) {
-          for (let i in data) {
-            this.list.push({
-              sub: data[i]["subject"],
-              wr: data[i]["write"],
-              uv: data[i]["upvotes"],
-            });
-          }
-          for (let j in data) {
-            this.list2.push({
-              wr: data[j]["write"],
-            });
+        selFunc() {
+          if (this.search != '') {
+            this.bool = false
+            this.part = 2
+            if (this.searchList != '') {
+              //기존에 검색했던 데이터 push값을 초기화 함
+              this.searchList = []
+            }
+            for (let i in this.allList) {
+              if (this.allList[i]['write'] == this.search) {
+                this.searchList.push({
+                  subject: this.allList[i]['subject'],
+                  upvotes: this.allList[i]['upvotes'],
+                  write: this.allList[i]['write'],
+                })
+              }
+            }
+          } else {
+            this.bool = true
+            this.part = 1
           }
         },
-        selFunc() {},
+        dataFunc(data) {
+          this.list = this.allList
+          this.list2 = _.uniqBy(data, 'write')
+        },
       },
-      components: {},
       computed: {
         jsDataFunc() {
-          this.allList = handle();
-          this.dataFunc(this.allList);
+          this.allList = handle()
+          this.dataFunc(this.allList)
         },
       },
-    });
+    })
   </script>
 </html>

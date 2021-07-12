@@ -1,0 +1,35 @@
+<?php
+    $v = date("YmdHis");
+    include "check.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>admin_member</title>
+    <link rel="stylesheet" href="./css/resetstyle.css?v=<?=$v?>" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css?v=<?=$v?>" />
+    <link rel="stylesheet" type="text/css" href="./css/member.css?v=<?=$v?>" />
+
+    <script src="../../../jq/jquery.js"></script>
+    <script src="./js/admin.js?v=<?=$v?>"></script>
+    <script src="./js/fontSize.js?v=<?=$v?>"></script>
+  </head>
+  <body>
+    <header class="header">
+      <?php include "admin_top.html";?>
+    </header>
+    <section class="section" id="listView">
+      <article class="titleContainer">
+        <div class="mainTitle">회원리스트</div>
+        <?php include "font_size.html";?>
+      </article>
+      <?php include "member.html";?>
+    </section>
+    <footer class="footer">
+      <?php include "admin_bottom.html";?>
+    </footer>
+  </body>
+</html>

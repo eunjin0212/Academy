@@ -5,23 +5,146 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="../jq/jquery.js"></script>
     <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Javascript + Jquery + Vue</title>
+    <title>Javascript + Jquery + Vue filter</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        padding: 0 20px;
+      }
+      #box {
+        width: 600px;
+        height: 250px;
+        margin: 0 auto;
+      }
+      .wrapper {
+        width: inherit;
+        height: inherit;
+      }
+      .wrapper > select {
+        width: 150px;
+        height: 40px;
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-indent: 10px;
+      }
+      .arrayBox {
+        border: 1px solid black;
+        width: inherit;
+        height: auto;
+      }
+      .arrayBox > ul > li {
+        display: flex;
+        height: 40px;
+        line-height: 40px;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+      }
+      .arrayBox > ul > li:last-of-type {
+        border-bottom: none;
+      }
+      .arrayBox > ul > li > span {
+        display: block;
+      }
+      .write {
+        width: 100px;
+        text-align: left;
+      }
+      .upvotes {
+        font-weight: bold;
+      }
+      .writer {
+        display: none;
+      }
+    </style>
   </head>
   <script>
-    function handle() {}
-    $(function () {});
+    function handle() {
+      let board = [
+        { subject: '졸려여..', write: '장남혁', upvotes: 1 },
+        { subject: '다음주 금요일에 시험..', write: '김은진', upvotes: 71 },
+        { subject: '다음주에 학원오면 안돼요!', write: '김하영', upvotes: 37 },
+        { subject: '학원 계단에서 수업 들을까요??', write: '김주리', upvotes: 11 },
+        { subject: '스크립트랑 제이쿼리랑 뷰랑 다 어려워요ㅜㅜ', write: '민서현', upvotes: 16 },
+        { subject: '다음엔 김은진님 셀카로 하시죠?', write: '장남혁', upvotes: 1 },
+      ]
+      return board
+    }
+    $(function () {
+      $.fn.effect = function () {
+        $('.board_css').fadeIn()
+      }
+    })
   </script>
   <body>
-    <section id="box"></section>
+    <section id="box">
+      {{jsDataFunc}}
+      <div class="wrapper">
+        <select v-model="search" @change="selFunc">
+          <option value="">All</option>
+          <option v-for="wr in optionArray" v-bind:value="wr.write">{{wr.write}}</option>
+        </select>
+        <div class="arrayBox">
+          <ul>
+            <li v-for="i in allList" v-if="part == 1">
+              <span class="subject">⦁ &nbsp;{{i.subject}}</span><span class="write">{{i.write}} <label class="upvotes">👍{{i.upvotes}}</label></span>
+            </li>
+            <li v-for="i in searchList" v-if="part == 2" class="board_css">
+              <span class="subject">⦁ &nbsp;{{i.subject}}</span><span class="write">{{i.write}} <label class="upvotes">👍{{i.upvotes}}</label></span>
+            </li>
+            <!-- <li class="writer" v-for="j in searchList" v-if="">
+              <span class="subject">⦁ &nbsp;{{j.sub}}</span><span class="write">{{j.wr}} <label class="upvotes">👍{{j.uv}}</label></span>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </section>
   </body>
   <script>
     let vue = new Vue({
-      el: "#box",
-      data: {},
-      methods: {},
-      components: {},
-      computed: {},
-    });
+      el: '#box',
+      data: {
+        search: '',
+        allList: '', // this.arrays
+        optionArray: [], // free2
+        searchList: [], // sfree
+        part: 1,
+      },
+      methods: {
+        selFunc() {
+          if (this.search != '') {
+            this.part = 2
+            let searchFilter = this.search
+            // searchFilter란?? filter에서는 vue의 가상 변수값은 인식하지 않음
+            this.searchList = this.allList.filter(function (a, b, c) {
+              // a:각각의 배열 그룹을 출력
+              // b:배열 그룹의 노드값을 출력
+              // c:전체 배열을 출력함
+              return a.write == searchFilter
+              //filter는 무조건 return을 사용하게 됩니다.
+            })
+          } else {
+            this.part = 1
+          }
+        },
+        dataFunc(data) {
+          this.optionArray = _.uniqBy(data, 'write')
+        },
+      },
+      computed: {
+        jsDataFunc() {
+          this.allList = handle()
+          this.dataFunc(this.allList)
+        },
+      },
+    })
   </script>
 </html>
