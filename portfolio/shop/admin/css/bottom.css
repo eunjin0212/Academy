@@ -5,7 +5,7 @@
     color: gray;
 }
 
-.copyright>span,
+.copyright > span,
 .copyright li label span {
     display: block;
     font-size: 15px;
@@ -17,10 +17,9 @@
     margin-bottom: 5px;
 }
 
-.copyright>ul {
+.copyright > ul {
     font-size: 0;
 }
-
 
 .bottom li {
     display: inline-block;
