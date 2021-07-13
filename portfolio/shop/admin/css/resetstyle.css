@@ -1,0 +1,133 @@
+/* basic setting */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body,
+html,
+div,
+span,
+label,
+section,
+aside,
+footer,
+header,
+nav,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+  /* 모바일 폰트 크기 조정에 따른 관련 부분 (모바일 사이즈와 관계없이 동일한 크기) */
+  -ms-text-size-adjust: 100%;
+  /* IE */
+  -webkit-text-size-adjust: 100%;
+  /* 크롬, 사파리 */
+  -o-text-size-adjust: 100%;
+  /* 오페라 */
+  -moz-text-size-adjust: 100%;
+  /* 파이어폭스 */
+}
+
+a {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+input,
+textarea {
+  outline: 0;
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+input[type='checkbox'],
+input[type='radio'] {
+  cursor: pointer;
+}
+button,
+input[type='button'] {
+  border: none;
+  outline: none;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+}
+
+table {
+  /* border-collapse: collapse; */
+  border-spacing: 0;
+}
+
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clear {
+  clear: both;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+/* 섹션 */
+.header {
+  height: 100px;
+  background-color: rgb(70, 70, 70);
+  position: relative;
+}
+
+.section {
+  height: 800px;
+}
+
+.footer {
+  height: 100px;
+  border-top: 1px solid rgb(70, 70, 70);
+}
