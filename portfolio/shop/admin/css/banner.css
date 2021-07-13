@@ -46,11 +46,11 @@
   margin-right: 20px;
 }
 
-.banner_subTitle > label:nth-of-type(2) > input[type='radio'], .banner_subTitle > label:nth-of-type(3) > input[type='radio'] {
+.banner_subTitle > label:nth-of-type(2) > input[type="radio"], .banner_subTitle > label:nth-of-type(3) > input[type="radio"] {
   margin-right: 10px;
 }
 
-.banner_subTitle > label:nth-of-type(4) > input[type='button'] {
+.banner_subTitle > label:nth-of-type(4) > input[type="button"] {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #708c84;
@@ -65,6 +65,31 @@
 .banner_table {
   width: 1200px;
   margin: 0 auto;
+  margin-bottom: 10px;
+  height: auto;
+}
+
+.banner_table > .banner_thead > tr {
+  height: 30px;
+}
+
+.banner_table > .banner_thead > tr > td {
+  height: inherit;
+  vertical-align: initial;
+  font-size: 115%;
+  font-weight: 400;
+  border-right: 1px solid white;
+  background-color: #a6a6a6;
+  color: white;
+}
+
+.banner_table > .banner_thead > tr > td:last-of-type {
+  border-right: none;
+}
+
+.banner_table > .banner_tbody > tr > td {
+  border: 1px solid #a6a6a6;
+  line-height: 26px;
 }
 
 .list_none {
