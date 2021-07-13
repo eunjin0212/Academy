@@ -19,32 +19,6 @@ modify = function (part) {
   }
 }
 
-// 전체 체크
-let checked = 'N'
-function allCheck(ck) {
-  let all_check = document.querySelectorAll('.all_check').length
-  if (ck == true) {
-    for (let i = 1; i < all_check + 1; i++) {
-      let class_all = document.getElementById('user_select' + i + '')
-      class_all.checked = true
-    }
-    checked = 'Y'
-  } else if (ck == false && checked == 'Y') {
-    for (let i = 1; i < all_check + 1; i++) {
-      let class_all = document.getElementById('user_select' + i + '')
-      class_all.checked = false
-    }
-    checked = 'N'
-  }
-}
-
-// 부분체크
-function check(ck) {
-  if (ck == false && checked == 'Y') {
-    document.getElementById('allCheck').checked = false
-  }
-}
-
 // json data 받기
 let data
 let plus = 0
@@ -79,26 +53,30 @@ function dataFunc(datas) {
       let tr1 = document.createElement('tr')
       let tr2 = document.createElement('tr')
       let memTbody = document.getElementById('member_tableList')
-      Object.keys(
-        dataArr.map((k, l) => {
-          //고객그룹
-          let sl = 'selected'
-          let select1, select2, select3, select4
-          switch (datas[j]['user_group']) {
-            case 'N':
-              select4 = sl
-              break
-            case 'S':
-              select3 = sl
-              break
-            case 'G':
-              select2 = sl
-              break
-            case 'V':
-              select1 = sl
-              break
-          }
-          tr1.innerHTML = `<td rowspan='2'><input type='checkbox' id='user_select${idx}' class='all_check' onchange='check(this.checked)' /></td>\
+      // Object.keys(
+      //   dataArr.map((k, l) => {
+      //고객그룹
+      // console.log(l)
+      let sl = 'selected'
+      let select1, select2, select3, select4
+      switch (datas[j]['user_group']) {
+        case 'N':
+          select4 = sl
+          break
+        case 'S':
+          select3 = sl
+          break
+        case 'G':
+          select2 = sl
+          break
+        case 'V':
+          select1 = sl
+          break
+      }
+      tr1.innerHTML =
+        `<td rowspan='2'><input type='checkbox' name='midx[` +
+        [j] +
+        `]' class='all_check' onchange='checkFunc(this.checked)' /></td>\
           <td rowspan=2' id='user_id${idx}'>${dataArr[j]['user_id']}</td>\
           <td class='member_name' id='user_name${idx}'>${dataArr[j]['user_name']}</td>\
           <td colspan='6'><label for='member_identify1${idx}'><input type='radio' name='identify' id='member_identify1${idx}' /> 아이핀</label><label for='member_identify2${idx}'><input type='radio' name='identify' id='member_identify2${idx}' /> 휴대폰</label></td>\
@@ -113,15 +91,15 @@ function dataFunc(datas) {
           <td rowspan='2' id='user_group${idx}'>${dataArr[j]['user_group']}</td>\
           <td rowspan='2' class='user_modify' id='user_modify${idx}'><button>수정</button><button>그룹</button></td>`
 
-          tr2.innerHTML = `<tr><td class='member_nick' id='user_nick${idx}'>${dataArr[j]['user_nick']}</td><td class='member_mailVerify' id='mail_accept${idx}'>${
-            dataArr[j]['mail_accept']
-          }</td><td><input type='checkbox' /></td><td><input type='checkbox' id='mail_agree${idx}' /></td><td><input type='checkbox' id='sms_agree${idx}' /></td><td><input type='checkbox' /></td><td><input type='checkbox' /></td><td id='user_tel${idx}'>${
-            dataArr[j]['user_tel']
-          }</td><td id='user_point${idx}'>${dataArr[j]['user_point']}</td><td id='user_indate${idx}'>${dataArr[j]['user_indate'].split(' ')[0]}</td></tr>`
-          memTbody.appendChild(tr1)
-          memTbody.appendChild(tr2)
-        })
-      )
+      tr2.innerHTML = `<tr><td class='member_nick' id='user_nick${idx}'>${dataArr[j]['user_nick']}</td><td class='member_mailVerify' id='mail_accept${idx}'>${
+        dataArr[j]['mail_accept']
+      }</td><td><input type='checkbox' /></td><td><input type='checkbox' id='mail_agree${idx}' /></td><td><input type='checkbox' id='sms_agree${idx}' /></td><td><input type='checkbox' /></td><td><input type='checkbox' /></td><td id='user_tel${idx}'>${
+        dataArr[j]['user_tel']
+      }</td><td id='user_point${idx}'>${dataArr[j]['user_point']}</td><td id='user_indate${idx}'>${dataArr[j]['user_indate'].split(' ')[0]}</td></tr>`
+      memTbody.appendChild(tr1)
+      memTbody.appendChild(tr2)
+      // })
+      // )
       if (dataArr[j]['mail_agree'] === 'Y') {
         document.getElementById('mail_agree' + idx + '').checked = true
       } else {
@@ -135,7 +113,28 @@ function dataFunc(datas) {
     })
   )
 }
+// 전체 체크
+let checkBool
+function allCheckFunc(ck) {
+  let all_check = document.querySelectorAll('.all_check').length
+  if (ck == true) {
+    checkBool = true
+  } else if (ck == false) {
+    checkBool = false
+  }
+  for (let i = 0; i < all_check - 1 + 1; i++) {
+    let class_all = document.getElementsByName('midx[' + i + ']')
+    console.log(class_all[0])
+    class_all[0].checked = checkBool
+  }
+}
 
+// 부분체크
+function checkFunc(ck) {
+  if (ck == false && checkBool == true) {
+    document.getElementById('allCheck').checked = false
+  }
+}
 // 팝업 띄우기
 $(function () {
   $('#add_member').click(function () {

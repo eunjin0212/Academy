@@ -34,7 +34,7 @@
       <thead>
         <tr>
           <th rowspan="2">
-            <input type="checkbox" id="allCheck" onchange="allCheck(this.checked)" />
+            <input type="checkbox" id="allCheck" onchange="allCheckFunc(this.checked)" />
           </th>
           <th rowspan="2">아이디</th>
           <th>이름</th>
@@ -110,7 +110,7 @@
   </span>
 </article>
 
-<script src="./js/member.js"></script>
+<script src="./js/member.js?v=<?=$v?>"></script>
 <script>
   filters()
 </script>
