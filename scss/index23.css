@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  width: 300px;
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  border: 1px solid black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-grid-rows: 50px 100px 100px 150px;
+      grid-template-rows: 50px 100px 100px 150px;
+  -ms-grid-columns: 100px 200px;
+      grid-template-columns: 100px 200px;
+      grid-template-areas: "h1 h1" "h2 ." "h3 h4" "h5 h5";
+}
+
+.box > label {
+  display: block;
+}
+
+.box > .label1 {
+  background-color: skyblue;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: h1;
+}
+
+.box > .label2 {
+  background-color: yellow;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: h2;
+}
+
+.box > .label3 {
+  background-color: green;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: h3;
+}
+
+.box > .label4 {
+  background-color: black;
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: h4;
+}
+
+.box > .label5 {
+  background-color: purple;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: h5;
+}
+
+.box2 {
+  display: -ms-grid;
+  display: grid;
+  max-width: 560px;
+  height: auto;
+  -ms-grid-rows: 80px 300px 100px;
+      grid-template-rows: 80px 300px 100px;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: "g1 g2 g2" "g3 g3 g3" "s1 s2 s3";
+}
+
+.box2 > label {
+  display: block;
+}
+
+.box2 > span {
+  display: block;
+}
+
+.box2 > label:nth-of-type(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: g1;
+  background-color: skyblue;
+}
+
+.box2 > label:nth-of-type(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: g2;
+  background-color: yellow;
+}
+
+.box2 > label:nth-of-type(3) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: g3;
+  background-color: green;
+}
+
+.box2 > span:nth-of-type(1) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: s1;
+  background-color: red;
+}
+
+.box2 > span:nth-of-type(2) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: s2;
+  background-color: darkblue;
+}
+
+.box2 > span:nth-of-type(3) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: s3;
+  background-color: pink;
+}
+/*# sourceMappingURL=index23.css.map */
