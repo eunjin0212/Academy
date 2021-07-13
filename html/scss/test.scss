@@ -1,0 +1,8 @@
+$box: 300px;
+$boxcolor: green;
+
+.box3 {
+    width: $box;
+    height: $box;
+    background-color: $boxcolor;
+}

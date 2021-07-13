@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>width, max-width, min-width</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        height: 50px;
+        text-align: right;
+        line-height: 50px;
+        padding: 0 10px;
+      }
+      .box:nth-of-type(1) {
+        width: 700px;
+        background-color: aquamarine;
+      }
+      .box:nth-of-type(2) {
+        background-color: tan;
+        max-width: 700px;
+      }
+      .box:nth-of-type(3) {
+        background-color: slateblue;
+        min-width: 400px;
+      }
+      .box:nth-of-type(4) {
+        max-width: 700px;
+        min-width: 400px;
+        background-color: seagreen;
+      }
+      .container {
+        background-color: black;
+        height: 50px;
+        min-width: 350px;
+        max-width: 560px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5px;
+      }
+      .div1,
+      .div2 {
+        background-color: yellow;
+        height: 40px;
+        width: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">TEST</div>
+    <div class="box">TEST max-width</div>
+    <div class="box">TEST min-width</div>
+    <div class="box">TEST min-width, max-width</div>
+    <div>크기를 변경해보세요</div>
+    <div class="container">
+      <div class="div1"></div>
+      <div class="div2"></div>
+    </div>
+  </body>
+</html>

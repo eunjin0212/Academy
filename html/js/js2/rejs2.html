@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>select + jq</title>
+    <script src="../../jq/jquery.js"></script>
+    <!-- <script>
+      $(document).ready(function () {
+        $("#mailsel").change(function () {
+          if ($("#mailsel").val() == "self") {
+            $("#bemail").attr("readonly", false);
+            $("#bemail").focus();
+          } else {
+            $("#bemail").val($(this).val());
+            $("#bemail").attr("readonly", true);
+          }
+        });
+        /*
+        let $aa = $("#test").attr("name");
+        console.log($aa);
+        $("#test").attr("name","bbb");
+        */
+      });
+    </script> -->
+    <script>
+      function changeHandle(domain) {
+        let bemail = document.getElementById("bemail");
+        if (domain == "self") {
+          bemail.readOnly = false;
+          bemail.focus();
+        } else {
+          bemail.readOnly = true;
+          bemail.value = domain;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="femail" />@<input type="text" id="bemail" readonly />
+    <select id="mailsel" onchange="changeHandle(this.value)">
+      <option value="">[메일주소 선택]</option>
+      <option value="naver.com">naver.com</option>
+      <option value="nate.com">nate.com</option>
+      <option value="gmail.com">gmail.com</option>
+      <option value="hotmail.com">hotmail.com</option>
+      <option value="self">직접입력</option>
+    </select>
+  </body>
+</html>

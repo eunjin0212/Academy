@@ -1,0 +1,39 @@
+ul,
+li,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+span,
+label {
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.quick {
+  width: auto;
+  height: 165px;
+  font-size: 0;
+}
+
+.quickIcon {
+  display: inline-block;
+  width: 190px;
+  height: 165px;
+  text-align: center;
+  background-color: lightblue;
+  font-size: 13px;
+}
+
+.quickIcon > span:first-of-type {
+  margin-top: 10px;
+}
+/*# sourceMappingURL=index15.css.map */

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jq banner</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".banners").mouseenter(() => {
+          $(".on").css("display", "block");
+        });
+        $(".banners").mouseleave(() => {
+          $(".on").css("display", "none");
+        });
+
+        let $bannerL = $(".banner_ol>li").length;
+        let $banner_wid = $(".banner_ol").width();
+        let $total_wid = $bannerL * $banner_wid;
+
+        $(".banner_ol").css("width", $total_wid + "px");
+        let $node = 0;
+
+        $(".leftBtn").click(() => {
+          $node--;
+          // disc
+
+          let $i = 2;
+          while ($i > -1) {
+            $(".disc>li")
+              .eq($i)
+              .css({ "background-color": "lightblue", width: "20px" });
+            $i--;
+          }
+          $(".disc>li")
+            .eq($node)
+            .css({ "background-color": "lightcoral", width: "60px" });
+
+          //banner
+          let $left = $node * $banner_wid;
+          if ($node === -1) {
+            $node = 1;
+            $left = $node * $banner_wid;
+          }
+
+          $(".banner_ol").animate(
+            {
+              left: -$left + "px",
+            },
+            500
+          );
+        });
+
+        $(".rightBtn").click(() => {
+          $node++;
+          if ($node > 1) {
+            $node = 0;
+          }
+          // disc
+          let $j = 2;
+          while ($j > -1) {
+            $(".disc>li")
+              .eq($j)
+              .css({ "background-color": "lightblue", width: "20px" });
+            $j--;
+          }
+          $(".disc>li")
+            .eq($node)
+            .css({ "background-color": "lightcoral", width: "60px" });
+
+          //banner
+          let $left = $node * $banner_wid;
+
+          $(".banner_ol").animate(
+            {
+              left: -$left + "px",
+            },
+            500
+          );
+          console.log("banner", $node);
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="./banner.css" />
+  </head>
+  <body>
+    <div class="banners">
+      <ol class="banner_ol">
+        <li><img src="./image/banner.png" /></li>
+        <li><img src="./image/background.png" /></li>
+      </ol>
+      <ul class="disc">
+        <li></li>
+        <li></li>
+      </ul>
+      <button class="leftBtn on">
+        <img src="./image/leftbtn.png" />
+      </button>
+      <button class="rightBtn on">
+        <img src="./image/rightbtn.png" />
+      </button>
+    </div>
+  </body>
+</html>

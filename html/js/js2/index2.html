@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>appendChild</title>
+  </head>
+  <body>
+    <div id="box"></div>
+  </body>
+  <script>
+    /* append = appendChild (해당 아이디 기준으로 노드를 추가함) */
+
+    let a = document.getElementById("box");
+    let b = document.createElement("button");
+    //b.innerHTML = "로그인";
+    //a.append(b);
+    //a.prepend(b);
+    //a.appendChild(b);
+    //a.prepend(b); /* IE (X) */
+    let c = document.createTextNode("로그인");
+    /* 텍스트 매개값을 넣을 때 사용합니다. */
+    b.appendChild(c);
+    //a.appendChild(b);
+
+    a.insertBefore(b, a.childNodes[0]);
+    /* 삽입할 노드 id값에 맨앞에 기준으로 입력되도록 함 
+    (b는 생성할 태그,삽입할 노드 위치번호)*/
+  </script>
+</html>

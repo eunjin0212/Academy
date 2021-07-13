@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkbox + js, jq</title>
+    <script src="../../jq/jquery.js"></script>
+    <script>
+      /* JS */
+      function submitHandle() {
+        let valueArray = [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "JQuery",
+          "Ajax",
+          "Vue",
+          "ES9",
+          "TS",
+          "SCSS",
+        ];
+        let ck = 0;
+        let fm = document.getElementById("fm");
+        for (let i = 0; i < valueArray.length; i++) {
+          let subject = document.getElementById("subject" + i);
+          if (subject.checked) {
+            ck += 1;
+          }
+        }
+        if (ck < 2) {
+          alert("2개의 과목을 선택해주세요!");
+          console.log(ck);
+          return false;
+        } else {
+          for (let j = 0; j < valueArray.length; j++) {
+            let subject = document.getElementById("subject" + j);
+            let addValue = (subject.value = valueArray[j]);
+          }
+          fm.submit();
+        }
+      }
+
+      /* JQuery */
+      //   $(document).ready(function () {
+      //     let $valueArray = [
+      //       "HTML",
+      //       "CSS",
+      //       "JavaScript",
+      //       "JQuery",
+      //       "Ajax",
+      //       "Vue",
+      //       "ES9",
+      //       "TS",
+      //       "SCSS",
+      //     ];
+      //     $("#btn").click(function () {
+      //       let $ck = 0;
+      //       for (let $i = 0; $i < $valueArray.length; $i++) {
+      //         if ($("#subject" + $i).is(":checked")) {
+      //           $ck += 1;
+      //         }
+      //       }
+
+      //       if ($ck < 2) {
+      //         alert("2개의 과목을 선택해주세요!");
+      //       } else {
+      //         for (let $j = 0; $j < $valueArray.length; $j++) {
+      //           let $subject = $("#subject" + $j);
+      //           let $addValue = $subject.val($valueArray[$j]);
+      //         }
+      //         $("#fm").submit();
+      //       }
+      //     });
+      //   });
+    </script>
+  </head>
+  <body>
+    <!-- 응용문제 
+해당 과목중 온라인 설문조사로 2가지를 선택하는 설문조사 프로그램입니다.
+데이터 전송 url은 rejs6.php 이며, POST로 전송합니다.
+무조건 2가지가 선택 되어야 하며, 해당 value값은 checkbox에 있는 텍스트 과목
+명과 동일합니다. name은 subject0~subject8까지 입니다.
+jquery로 작성 합니다.
+-->
+    <form
+      id="fm"
+      method="POST"
+      action="./rejs6.php"
+      enctype="multipart/form-data"
+    >
+      <p>[선호하는 2개의 과목을 선택해주세요]</p>
+      <input type="checkbox" id="subject0" name="subject0" />HTML
+      <input type="checkbox" id="subject1" name="subject1" />CSS
+      <input type="checkbox" id="subject2" name="subject2" />JavaScript
+      <input type="checkbox" id="subject3" name="subject3" />JQuery
+      <input type="checkbox" id="subject4" name="subject4" />Ajax
+      <input type="checkbox" id="subject5" name="subject5" />Vue
+      <input type="checkbox" id="subject6" name="subject6" />ES9
+      <input type="checkbox" id="subject7" name="subject7" />TS
+      <input type="checkbox" id="subject8" name="subject8" />SCSS
+      <br />
+      <input type="button" id="btn" value="참여하기" onclick="submitHandle()" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+@charset "UTF-8";
+li,
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+span,
+label {
+  display: block;
+}
+@mixin baseSize($w, $h, $unit) {
+  @if ($unit == "px") {
+    @if ($h == auto) {
+      width: $w + px;
+      height: $h;
+    } @else {
+      width: $w + px;
+      height: $h + px;
+    }
+  } @else if($unit == "%") {
+    @if ($h == auto) {
+      width: $w + unquote("%");
+      height: $h;
+    } @else {
+      width: $w + unquote("%");
+      height: $h + px;
+    }
+  } @else {
+    width: $w;
+    height: $h;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  @include baseSize(100, auto, "%");
+}
+.product {
+  @include baseSize(300, 500, "px");
+  margin: 0 auto;
+  font-size: 0;
+  & > li {
+    width: inherit;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  & > li:nth-of-type(2),
+  li:nth-of-type(3) {
+    @include baseSize(100, 50, "%");
+    line-height: 50px;
+  }
+}
+.imgLi {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.imgWrapper {
+  @include baseSize(inherit, 400, "%");
+  position: relative;
+  perspective: 600px; // width 값의 두 배 정도 사용해야 너무 뒤집히지 않음
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  & > .product_view {
+    @include baseSize(300, 400, "px");
+    backface-visibility: hidden;
+    position: absolute;
+    & > img {
+      @include baseSize(100, 400, "%");
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  & > .product_view:nth-of-type(2) {
+    transform: rotateY(180deg);
+    & > label,
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+.imgLi:hover .imgWrapper {
+  transform: rotateY(180deg);
+}
+.blackscreen {
+  @include baseSize(100, 400, "%");
+  position: absolute;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & > .btn {
+    @include baseSize(100, 40, "px");
+    padding: 0;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+  & > #prompt {
+    margin-bottom: 20px;
+  }
+}

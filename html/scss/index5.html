@@ -1,0 +1,150 @@
+<?php
+    $data = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="index5.css?v=<?=$data?>" />
+        <title>scss mixin 활용</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            $(function () {
+                $("#frm").submit(function () {
+                    if ($("#mid").val() == "") {
+                        alert("로그인 정보를 입력하세요");
+                        return false;
+                    } else if ($("#mpass").val() == "") {
+                        alert("패스워드 정보를 입력하세요");
+                        return false;
+                    } else {
+                        let $pt = $("#login_select").val();
+                        let $mid = $("#mid").val();
+                        let $mpass = $("#mpass").val();
+                        if ($pt == "id_login") {
+                            $.fn.lgck($mid, $mpass, $pt);
+                            return false;
+                        } else {
+                            $.fn.lgck($mid, $mpass, $pt);
+                            return false;
+                        }
+                    }
+                });
+
+                $.fn.lgck = function ($m, $p, $pt) {
+                    //확장함수 1개 내부함수 2개
+                    //내부함수
+                    let $aa = function () {
+                        //console.log("12345");
+                        if ($p.length < 5) {
+                            alert("정확한 패스워드를 입력하세요");
+                        } else {
+                            $("#frm")[0].submit();
+                        }
+                    };
+                    let $bb = function () {
+                        console.log("45678");
+                    };
+                    if ($pt == "id_login") {
+                        $aa(); //$aa라는 내부함수를 호출
+                    } else {
+                        $bb(); //$bb라는 내부함수를 호출
+                    }
+                };
+            });
+
+            // function loginck() {
+            //     if (!frm.mid) {
+            //         alert("로그인 정보를 입력하세요");
+            //         return false;
+            //     } else if (!frm.mpass) {
+            //         alert("패스워드 정보를 입력하세요");
+            //         return false;
+            //     }
+            //     let login = document.getElementById("login_select").value;
+            //     let ck = "";
+            //     let mid = document.getElementById("mid").value;
+            //     let mpass = document.getElementById("mpass").value;
+            //     if (login == "id_login") {
+            //         ck = idcheck(mid, mpass);
+            //         if (ck == "ok") {
+            //             return;
+            //         } else {
+            //             return false;
+            //         }
+            //     } else {
+            //         ck = emailcheck(mid, mpass);
+            //         if (ck == "ok") {
+            //             return;
+            //         } else {
+            //             return false;
+            //         }
+            //     }
+            //     function idcheck(i, p) {
+            //         if (p.length > 5) {
+            //             alert("올바른 패스워드를 입력하세요");
+            //             return "no";
+            //         } else {
+            //             return "ok";
+            //         }
+            //     }
+            //     function emailcheck(i, p) {
+            //         let oksign = i.match("@");
+            //         // console.log(oksign);
+            //         if (oksign == null) {
+            //             // match 배열 형태로 확인해야하니까 null로 확인
+            //             alert("정확한 이메일을 입력하세요");
+            //             return "no";
+            //         } else {
+            //             return "ok";
+            //         }
+            //     }
+
+            // }
+        </script>
+    </head>
+    <body>
+        <!--자바스크립트-->
+        <!-- <form name="frm" id="frm" method="POST" onsubmit="return loginck();" enctype="application/x-www-form-urlencoded">
+            <ol class="olcss">
+                <li>
+                    <select id="login_select">
+                        <option value="id_login" selected>아이디</option>
+                        <option value="email_login">이메일</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="text" name="mid" id="mid" class="m" />
+                </li>
+                <li>
+                    <input type="password" name="mpass" id="mpass" class="m" />
+                </li>
+                <li>
+                    <button type="submit" class="m btn">로그인</button>
+                </li>
+            </ol>
+        </form> -->
+        <!--제이쿼리-->
+        <form name="frm" id="frm" method="POST" enctype="application/x-www-form-urlencoded">
+            <ol class="olcss">
+                <li>
+                    <select id="lodin_select">
+                        <option value="id_login" selected>아이디</option>
+                        <option value="email_login">이메일</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="text" name="mid" id="mid" class="m" placeholder="로그인 정보를 입력하세요" />
+                </li>
+                <li>
+                    <input type="password" name="mpass" id="mpass" class="m" placeholder="비밀번호를 입력하세요" />
+                </li>
+                <li>
+                    <button type="submit" class="m btn" id="btn">로그인</button>
+                </li>
+            </ol>
+        </form>
+    </body>
+</html>

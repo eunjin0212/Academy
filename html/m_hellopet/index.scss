@@ -1,0 +1,646 @@
+@charset "UTF-8";
+@import "./basic.scss";
+
+// Not a Mobile
+#mobile {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include size(100%, "", none);
+  background-color: #eceaea;
+  z-index: 1000;
+  text-align: center;
+  line-height: 300px;
+}
+
+// Side Menu
+.categoryMenu {
+  min-width: 320px;
+  max-width: 480px;
+  z-index: 30;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1000%;
+  & #black {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: #0000004d;
+    z-index: 10;
+  }
+  & .slideMenu {
+    @include size(90%, 700px, block);
+    background-color: white;
+    position: relative;
+    z-index: 20;
+  }
+}
+
+.joinBtn {
+  @include flex(100%, auto, space-between, center);
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  & > span {
+    @include size(100px, 30px, block);
+    background-color: #eceaea;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+.boardBtn {
+  margin-bottom: 20px;
+  height: 60px;
+  & > ul {
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: -4px;
+    display: inline-flex;
+    justify-content: space-around;
+    & > li {
+      letter-spacing: normal;
+      border: 1px solid black;
+      line-height: normal;
+      cursor: pointer;
+      text-align: center;
+      @include flex(60px, 60px, space-around, center);
+      flex-direction: column;
+      & > img {
+        @include size(20px, 20px, block);
+      }
+      & span {
+        @include font("noto", "", 14px, black);
+      }
+    }
+  }
+}
+
+.board {
+  padding: 0 10px;
+  height: auto;
+  @include size(100%, auto, block);
+  & > .boardList {
+    border: 1px solid black;
+    @include size(100%, auto, "");
+    position: relative;
+    margin-top: 40px;
+    padding: 0 10px;
+    & > .boardTitle {
+      position: absolute;
+      border: 1px solid black;
+      @include size(30%, 40px, block);
+      line-height: 40px;
+      top: -20px;
+      text-align: center;
+      background-color: white;
+    }
+    & > ul {
+      margin: 30px 0 20px;
+      & > li {
+        padding: 0 10px;
+        list-style: inside;
+        font-size: 14px;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        display: -webkit-box;
+        align-items: center;
+        justify-content: space-between;
+        & > span {
+          &:nth-of-type(1) {
+            margin-right: 10px;
+            width: 55%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.account {
+  padding: 0 10px;
+  margin: 20px 0;
+  @include size(100%, 60px, block);
+  & > div {
+    @include size(inherit, 60px, block);
+    border: 1px solid black;
+    & > span {
+      font-size: 16px;
+      width: auto;
+      margin-left: 20px;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+}
+
+.csCenter {
+  padding: 0 10px;
+  @include size(100%, 190px, block);
+  text-align: center;
+  & > ul {
+    border: 1px solid black;
+    height: 210px;
+    padding-left: 20px;
+    & > li {
+      height: 20px;
+      text-align: left;
+      font-size: 13px;
+      &:nth-of-type(1) {
+        margin: 10px 0;
+      }
+      &:nth-of-type(2) {
+        margin-bottom: 10px;
+        font-size: 17px;
+        font-weight: bold;
+      }
+      &:nth-of-type(5) {
+        margin: 10px 0;
+      }
+      &:nth-of-type(6) {
+        width: 100%;
+        margin: 0 -20px 20px 0;
+        height: 40px;
+        text-align: center;
+        & > button {
+          width: 200px;
+          height: 40px;
+          margin: 0 auto;
+          outline: none;
+          border: none;
+          background-color: #eceaea;
+          & > a {
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & > img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Header
+.topLogo {
+  @include size(99.99%, 50px, inline-flex);
+  align-items: center;
+  justify-content: space-between;
+  & > img {
+    &:nth-of-type(1) {
+      @include size(30px, 30px, block);
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    &:nth-of-type(2) {
+      @include size(auto, 40px, block);
+    }
+    &:nth-of-type(3) {
+      @include size(30px, 30px, block);
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.topMenu {
+  height: auto;
+  & > ul {
+    text-align: center;
+    @include size(inherit, 40px, block);
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: -4px;
+    & > li {
+      display: inline-block;
+      letter-spacing: normal;
+      @include font("noto", "", 14px, black);
+      line-height: 40px;
+      width: 33.3333333%;
+      border: 1px solid #bebebe;
+    }
+  }
+}
+
+.topSearch {
+  margin-bottom: -2px;
+  @include size(100%, 50px, none);
+  & > .searchWrapper {
+    @include flex(100%, 50px, center, center);
+    background-color: rgba(0, 0, 0, 0.3);
+    & > input {
+      @include size(85%, 40px, block);
+      border: 1px solid gray;
+      border-radius: 10px;
+      outline: none;
+      text-indent: 50px;
+    }
+    & > span {
+      @include size(50px, 40px, block);
+      position: absolute;
+      left: 30px;
+      background-color: #b2b2b2;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border: 1px solid gray;
+      & > img {
+        margin: 5px 10px;
+        transform: rotateY(180deg);
+        @include size(30px, 30px, block);
+      }
+    }
+  }
+}
+
+.banner {
+  height: 350px;
+  & > .bannerWrapper {
+    @include size(100%, 350px, flex);
+    margin-top: 1px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    position: relative;
+    & > span {
+      @include size(100%, 350px, block);
+      & > img {
+        height: 350px;
+        width: 100%;
+      }
+      &:nth-of-type(1) {
+        position: relative;
+        top: 1px;
+        left: 0;
+      }
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        position: absolute;
+        top: 1px;
+        left: 0;
+      }
+    }
+  }
+}
+
+// Main
+.eventBanner {
+  height: 720px;
+  padding: 0;
+  & > label {
+    width: 99.99%;
+    height: 180px;
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      width: 100%;
+      height: 180px;
+      & > img {
+        width: 50%;
+        height: 180px;
+      }
+    }
+    &:nth-of-type(3),
+    &:nth-of-type(4) {
+      height: 180px;
+      width: 100%;
+      & > img {
+        width: 100%;
+        height: 180px;
+      }
+    }
+  }
+}
+
+.newpet {
+  margin: 20px auto;
+  height: 280px;
+  & > .newPetTitle {
+    height: 80px;
+    text-align: center;
+    & > span {
+      margin: 0 auto;
+      width: 200px;
+      height: 40px;
+      &:nth-of-type(1) {
+        font-size: 18px;
+        border: 1px solid black;
+        border-bottom: 2px solid black;
+        line-height: 40px;
+      }
+      &:nth-of-type(2) {
+        font-size: 14px;
+        word-spacing: -3px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .new {
+    position: relative;
+    top: 50px;
+    height: 152px;
+  }
+  .dog {
+    position: absolute;
+    top: 0;
+    height: 152px;
+  }
+  .cat {
+    position: absolute;
+    top: 0;
+    height: 302px;
+  }
+  .dog,
+  .cat {
+    @include size(100%, auto, block);
+    & > .dogTitle,
+    & > .catTitle {
+      position: absolute;
+      text-align: center;
+      @include size(140px, 50px, block);
+      line-height: 50px;
+      top: -49px;
+      border: 1px solid black;
+      border-bottom: none;
+      cursor: pointer;
+    }
+    & > .dogTitle {
+      left: 0;
+      background-color: white;
+    }
+    & > .catTitle {
+      left: 140px;
+      background-color: transparent;
+    }
+    & > .dogProducts {
+      display: inline-flex;
+    }
+    & > .catProducts {
+      display: none;
+    }
+    & > .dogProducts,
+    & > .catProducts {
+      @include size(100%, auto, "");
+      border: 1px solid black;
+      flex-direction: column;
+      background-color: white;
+      & > ul {
+        text-align: center;
+        @include size(100%, auto, block);
+        font-size: 0;
+        line-height: 0;
+        letter-spacing: -4px;
+        & > li {
+          @include size(33.3333333333%, 150px, inline-flex);
+          letter-spacing: normal;
+          justify-content: center;
+          align-items: center;
+          line-height: normal;
+          @include font("noto", "", 14px, black);
+          & > label {
+            height: 130px;
+            width: 100%;
+            margin: auto 0;
+            & > img {
+              width: 100px;
+              height: 100px;
+            }
+            & > span {
+              width: 100%;
+              height: 20px;
+              line-height: 20px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.bestproduct {
+  margin-bottom: 20px;
+  & > .bestProductTitle {
+    text-align: center;
+    margin-bottom: 20px;
+    & > span {
+      @include size(200px, 40px, block);
+      margin: 0 auto;
+      &:nth-of-type(1) {
+        font-size: 18px;
+        border: 1px solid black;
+        border-bottom: 2px solid black;
+        line-height: 40px;
+      }
+      &:nth-of-type(2) {
+        font-size: 14px;
+        word-spacing: -3px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  & > div {
+    @include flex(100%, auto, "", center);
+    background-color: rgb(236, 234, 234);
+    flex-direction: column;
+    .bestProductWrapper {
+      @include flex(100%, 170px, "", center);
+      padding: 10px 20px;
+      & span > img {
+        width: 150px;
+        height: 150px;
+      }
+      & > div {
+        @include flex(inherit, auto, center, "");
+        flex-direction: column;
+        padding-left: 10px;
+        & > span {
+          &:nth-of-type(1) {
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &:nth-of-type(2) {
+            font-size: 11px;
+          }
+          &:nth-of-type(3) {
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.productBtn {
+  @include flex(auto, auto, space-between, center);
+  padding: 0 10px 10px;
+  & > div {
+    width: 100%;
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      @include size(90px, 40px, "");
+      text-align: center;
+      font-size: 14px;
+      line-height: 40px;
+      background-color: rgb(230, 230, 230);
+      border-radius: 30px;
+      cursor: pointer;
+    }
+  }
+}
+.intro {
+  width: 100%;
+  height: 188px;
+  & > img {
+    width: 100%;
+  }
+}
+
+// Footer
+.introIcon {
+  @include flex(auto, 50px, space-around, center);
+  flex-wrap: nowrap;
+  margin-top: 20px;
+  & > div {
+    width: 50px;
+    height: 50px;
+    & > a {
+      cursor: pointer;
+    }
+  }
+}
+
+.review {
+  margin: 20px 0;
+  & > div {
+    background-color: rgb(230, 230, 230);
+    line-height: 40px;
+    position: relative;
+    overflow: hidden;
+    padding: 0 20px;
+    @include flex(100%, 40px, "", "");
+
+    & > label:nth-of-type(1) {
+      height: 40px;
+      width: 20%;
+      padding-right: 10px;
+    }
+    & > label:nth-of-type(2) {
+      width: 60%;
+      & > span {
+        font-size: 14px;
+      }
+    }
+    & > label:nth-of-type(3) {
+      @include size(45px, 20px, "");
+      background-color: rgb(127, 127, 127);
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      right: 20px;
+      line-height: 20px;
+      border-radius: 30px;
+      text-align: center;
+      cursor: pointer;
+      & > img {
+        @include size(60%, inherit, "");
+      }
+    }
+  }
+}
+
+.quickMenu {
+  & > ul {
+    text-align: center;
+    @include size(inherit, 40px, "");
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: -4px;
+    & > li {
+      display: inline-block;
+      letter-spacing: normal;
+      @include font("noto", "", 14px, black);
+      line-height: 40px;
+      width: 33.3333333%;
+      border: 1px solid #bebebe;
+    }
+  }
+}
+
+.bottom {
+  padding: 20px 0;
+  .policy {
+    margin-bottom: 20px;
+    & > ul {
+      text-align: center;
+      @include size(100%, 30px, "");
+      font-size: 0;
+      line-height: 0;
+      letter-spacing: -4px;
+      & > li {
+        display: contents;
+        letter-spacing: normal;
+        @include font("noto", "", 12px, black);
+        line-height: 30px;
+        cursor: pointer;
+        height: 30px;
+        &:nth-of-type(1)::after {
+          content: "\00a0\00a0|\00a0\00a0";
+        }
+        &:nth-of-type(2)::after {
+          content: "\00a0\00a0|\00a0\00a0";
+        }
+        &:nth-of-type(3)::after {
+          content: "\00a0\00a0|\00a0\00a0";
+        }
+      }
+    }
+  }
+}
+
+.koLogo {
+  @include size(100%, 30px, "");
+  margin-bottom: 20px;
+  text-align: center;
+  & > img {
+    @include size(auto, 30px, block);
+    margin: 0 auto;
+  }
+}
+.copyright {
+  margin-bottom: 20px;
+  & > ul {
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+  }
+}
+
+.floorBtnSection {
+  @include size(99.99%, 40px, block);
+  & > #scrollTop {
+    @include size(40px, 40px, block);
+    border-radius: 100%;
+    position: absolute;
+    right: 10px;
+    & > img {
+      @include size(40px, 40px, block);
+      border-radius: 100%;
+    }
+  }
+}

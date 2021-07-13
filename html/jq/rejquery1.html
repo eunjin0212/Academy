@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery 복습 offset</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css" />
+    <script>
+      $(document).ready(function () {
+        let $click = 0;
+        const $right = 500;
+        $("#btn").click(function () {
+          $click++;
+          let $box = $("#box");
+          $box.animate(
+            {
+              left: $right + "px",
+            },
+            100
+          );
+          if ($click > 1) {
+            if (confirm("추가로 더 이동하시겠습니까?")) {
+              let $off = $box.offset();
+              console.log($off.left);
+              $box.animate(
+                {
+                  left: $off.left + $right + "px",
+                },
+                100
+              );
+            } else {
+              return false;
+            }
+          }
+        });
+      });
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <input type="button" id="btn" value="실행" />
+  </body>
+</html>

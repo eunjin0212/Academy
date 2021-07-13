@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수 이용하기</title>
+  </head>
+  <body>
+    <input type="button" value="실행" onclick="aaa()" />
+    <input type="button" value="실행" onclick="ccc()" />
+    <br /><br />
+    <!--응용
+    반복문이라는 버튼을 클릭하면 1~10까지 모두 합을 출력하시오.
+    단, return 함수를 이용합니다.
+    -->
+    <input type="button" value="반복문" onclick="oksign()" />
+  </body>
+  <script>
+    function aaa() {
+      let r = bbb(); //bbb라는 확장함수를 호출함 (1번)
+      console.log(r); //변수 r로 bbb함수에서 return된 값을 받아 출력(5번)
+    }
+
+    function bbb() {
+      //bbb함수가 실행(2번)
+      let a = "테스트"; //변수 a에 테스트라는 문자를 실행시킴(3번)
+      return a; //return 을 이용하여 자신을 호출한 함수로 다시 재호출시킴(4번)
+    }
+
+    function ccc() {
+      let a = ddd(2, 3);
+      console.log(a);
+    }
+    function ddd(zz, xx) {
+      let c = zz * xx;
+      return c;
+    }
+
+    function oksign() {
+      let f = ggg(1, 10);
+      console.log(f);
+    }
+    function ggg(ff, tt) {
+      let h = 0;
+      do {
+        h = h + ff;
+        ff++;
+      } while (ff <= tt);
+      return h;
+    }
+  </script>
+</html>

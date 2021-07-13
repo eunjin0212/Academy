@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>disc 응용</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        var $len = $("#ulcss>li").length;
+        var $node = 0;
+        $("#ulcss>li").eq($node).animate({ width: "80px" }, 500);
+        $(".left").click(function () {
+          for (let $j = $len; $j > -1; $j--) {
+            $("#ulcss>li").eq($j).css("background-color", "black");
+            $("#ulcss>li").eq($j).css("width", "30px");
+          }
+          $node = $node - 1;
+          $("#ulcss>li").eq($node).css("background-color", "red");
+          $("#ulcss>li").eq($node).animate({ width: "80px" }, 500);
+        });
+        //animate : "background-color" 사용안됨
+        $(".right").click(function () {
+          for (let $i = 0; $i < $len; $i++) {
+            $("#ulcss>li").eq($i).css("background-color", "black");
+            $("#ulcss>li").eq($i).css("width", "30px");
+          }
+          $node = $node + 1;
+          $("#ulcss>li").eq($node).css("background-color", "red");
+          $("#ulcss>li").eq($node).animate({ width: "80px" }, 500);
+        });
+      });
+    </script>
+    <style>
+      ul,
+      ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      label {
+        display: block;
+      }
+      .ulcss {
+        width: auto;
+        height: 30px;
+        text-align: center;
+      }
+      .ulcss > li {
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        border-radius: 30px;
+        display: inline-block;
+      }
+      .ulcss > li:first-child {
+        background-color: red;
+      }
+      .babobox {
+        width: 300px;
+        height: 50px;
+        text-align: center;
+      }
+      .left,
+      .right {
+        width: 50px;
+        height: 50px;
+        border: none;
+        display: inline-block;
+        color: white;
+        margin-right: 44px;
+        font-size: 30px;
+        background-color: cornflowerblue;
+        cursor: pointer;
+        position: absolute;
+      }
+      .right {
+        position: absolute;
+        right: 0;
+      }
+
+      /* 높이관련 사항 */
+      .bbox {
+        display: inline-block;
+        height: 30px;
+        border: 1px solid red;
+      }
+      .bbox > li {
+        width: 100px;
+        height: 30px;
+        display: inline-block;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="ulcss" id="ulcss">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <label class="babobox">
+      <input type="button" value="<" class="left" />
+      <input type="button" value=">" class="right" />
+    </label>
+
+    <br /><br /><br />
+    <ul class="bbox">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </body>
+</html>

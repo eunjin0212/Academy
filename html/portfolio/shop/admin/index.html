@@ -1,0 +1,35 @@
+<?php
+    $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="./css/resetstyle.css?v=<?=$v?>" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css?v=<?=$v?>" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css?v=<?=$v?>" />
+    <script src="../../js/jquery.js"></script>
+  </head>
+  <body>
+    <form method="POST" id="adm" name="adm" enctype="application/x-www-form-urlencoded" onsubmit="return checks();">
+      <input type="hidden" name="adm_login" value="1" />
+      <input type="hidden" name="returnurl" value="eunjin9639.dothome.co.kr" />
+      <div class="loginContainer">
+        <input id="a_id" class="a_id" name="a_id" type="text" placeholder="아이디를 입력해주세요." autocomplete="off" />
+        <input id="a_pw" class="a_pw" name="a_pw" type="password" placeholder="패스워드를 입력해주세요." />
+        <input type="submit" value="로그인" class="loginBtn" />
+        <div class="checkBox">
+          <div><input type="checkbox" id="a_save" name="a_save" onclick="id_save();" /><label for="a_save">아이디저장</label></div>
+          <span>아이디/비밀번호찾기</span>
+        </div>
+        <div>※관리자의 로그인 기록은 모드 저장 됩니다.</div>
+      </div>
+    </form>
+  </body>
+  <script src="./js/admin.js?v=<?=$v?>"></script>
+  <script src="./js/cookie.js?v=<?=$v?>"></script>
+</html>

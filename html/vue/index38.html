@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="../jq/jquery.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript(Array) + Vue(orderBy)</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        margin: 0;
+      }
+      #box {
+        width: 600px;
+        height: 200px;
+        margin: 0 auto;
+      }
+      .wrapper {
+        width: inherit;
+        height: inherit;
+      }
+      .titlebox {
+        width: inherit;
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
+      .titlebox > span {
+        display: block;
+        width: 100px;
+        height: inherit;
+        border: 1px solid black;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        border-bottom: none;
+      }
+      .product {
+        border: 1px solid black;
+        width: inherit;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+    </style>
+  </head>
+  <script>
+    let arr;
+    function handle() {
+      arr = [
+        { seq: 0, product: "삼성 모니터 27인치 60Hz", price: 195000, vote: 119 },
+        { seq: 1, product: "LG 모니터 27인치 144Hz", price: 270000, vote: 709 },
+        { seq: 2, product: "esys 모니터 27인치 와이드 144Hz", price: 228000, vote: 870 },
+        { seq: 3, product: "삼성 모니터 27인치 70Hz", price: 190000, vote: 99 },
+        { seq: 4, product: "한성 모니터 32인치 60Hz QHD", price: 315000, vote: 221 },
+      ];
+      return arr; // 안에다가 변수를 쓸땐 무조건 return을 값을 보내줘야함 전역 변수일땐 값 잘 넘어감
+    }
+    $(function () {});
+  </script>
+  <body>
+    <section id="box">
+      {{arrFunc}}
+      <label class="wrapper">
+        <div class="titlebox">
+          <span @click="btn_default">{{def}}</span>
+          <span @click="btn_best">{{best}}</span>
+          <span @click="btn_desc">{{desc}}</span>
+          <span @click="btn_asc">{{asc}}</span>
+        </div>
+        <ul class="product">
+          <li v-for="i in arr" v-if="all && part==1">{{i.product}}: {{Number(i.price).toLocaleString()}}원 [ 추천수 : {{i.vote}} ]</li>
+          <!-- default : 기본 -->
+          <li v-for="j in rearr" v-if="part==2">{{j.product}}: {{Number(j.price).toLocaleString()}}원 [ 추천수 : {{j.vote}} ]</li>
+          <!-- 인기 ~ 높은 순 -->
+        </ul>
+      </label>
+    </section>
+  </body>
+  <script>
+    let vue = new Vue({
+      el: "#box",
+      data: {
+        def: "등록순",
+        best: "인기상품순",
+        desc: "낮은가격순",
+        asc: "높은가격순",
+        arr: "",
+        allproduct: [],
+        part: 1,
+        all: true,
+        order: "", // desc 내림차순, asc 오름차순
+        rearr: [],
+      },
+      methods: {
+        btn_default: function () {
+          this.part = 1;
+        },
+        btn_best: function () {
+          // 추천순
+          this.order = "desc";
+          this.part = 2;
+          // orderBy : lodash 엔진을 가져와야함, 하지만 문자로 들어오면 제대로 안됨
+          // orderBy(배열변수, 배열키값, desc|| asc)
+          this.rearr = _.orderBy(this.arr, ["vote"], this.order);
+        },
+        btn_desc: function () {
+          // 내림
+          this.order = "asc";
+          this.part = 2;
+          this.rearr = _.orderBy(this.arr, ["price"], this.order);
+        },
+        btn_asc: function () {
+          // 오름
+          this.order = "desc";
+          this.part = 2;
+          this.rearr = _.orderBy(this.arr, ["price"], this.order);
+        },
+        productFunc: function (data) {
+          for (let j in data) {
+            this.allproduct.push({
+              product: data[j]["product"],
+              price: data[j]["price"],
+              vote: data[j]["vote"],
+            });
+          }
+          console.log(this.allproduct);
+        },
+      },
+      components: {},
+      computed: {
+        arrFunc() {
+          this.arr = handle(); // arr라는 js를 호출시키기 위한 data를 만듦
+          this.order = "desc";
+          this.productFunc(this.arr);
+        },
+        // 여기서 화살표 함수를 쓰게 되면 즉시 실행이 됨
+        // this 바인딩이 자기 함수 안(여기서는 computed 안)에 있는 변수, 함수를 불러옴 타겟을 잡아놓고 들어가야함
+        // 일반함수에서 this 로드할 객체, 전역객체
+        // 화살표함수는 상위 스코프에 있는 애를 찾음, return 자동장착
+      },
+    });
+  </script>
+</html>

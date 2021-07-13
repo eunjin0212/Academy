@@ -1,0 +1,90 @@
+@charset "UTF-8";
+.menu_box { width: 1200px; height: auto;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    left: 50%;
+    margin-left: -600px;
+    z-index: 100;
+}
+.burger {cursor: pointer;}
+.user_ct {height: 20px; line-height: 20px;}
+.menu_box > span {display: inline-block;
+    box-sizing: border-box;
+}
+.user_ct > label {
+    text-align: center;
+    display: block;
+    float: left;
+    cursor: pointer;
+}
+.user_ct > label:first-child { width: 80px;
+    margin-left: 165px;
+}
+.user_ct > label > img { width: 20px; height: 20px;
+    cursor: pointer;
+}
+.list {position: absolute; 
+    right: 20px;
+}
+.main_text {
+    margin-top: 35px;
+    text-align: center;
+}
+.main_text > span > img {width: 275px;
+    cursor: pointer;
+}
+.main_text > span:last-child {display: none;
+}
+
+/* 대메뉴 */
+.b_menu { height: 70px; 
+    margin: 0 auto;
+    text-align: center;
+}
+.b_menu > span { width: 115px; height: 70px; 
+    line-height: 70px;
+    display: inline-block;
+    cursor: pointer;
+}
+.b_menu > span > img { width: 10px;}
+.b_menu > span > ul { position: absolute;
+    display: none;
+    border: 2px solid rgb(202, 198, 173);
+    background-color: white;
+}
+.b_menu > span > ul > li { width: 115px; height: 70px;
+}
+/* 블랙스크린 */
+.blackscreen { width: 100%; color: white; 
+    font-size: 16px;
+    position: absolute;
+    top: 0; 
+    box-shadow: 0 0 0 9000px rgba(0,0,0,0.8);
+    z-index: 400; 
+    display: none;
+}
+.blackscreen > label { width: 150px; height: auto;
+    position: absolute;
+    top: 170px;
+    cursor: pointer;
+}
+.blackscreen > label:nth-of-type(1) {left: 15%;}
+.blackscreen > label:nth-of-type(2) {left: 45%;}
+.blackscreen > label:nth-of-type(3) {left: 75%;}
+.blackscreen > span { width: 50px; height: 50px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 40px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    margin-left: 25px;
+}
+.bk_ul > li {margin-bottom: 2px;
+}
+.bk_ul > li:first-child {
+    margin-bottom: 20px;
+}

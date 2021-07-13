@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>each</title>
+    <script src="../jquery.js"></script>
+    <script>
+      $(function () {
+        const $array = {
+          members: [
+            {
+              id: "ravi",
+              name: "박예준",
+              email: "ravi@gmail.com",
+              area: "서울",
+              phone: "010-1234-5678",
+            },
+          ],
+        };
+        //console.log($array["members"][0]["name"]);
+        /*   
+       //기본키가 있는 배열에서 세부키가 있을 경우는 다음과 같이 출력하지 못함
+        $($array["members"]).each(function($a,$b){
+            $("#mid").append($array["members"][0]["id"]);
+            $("#mname").append($array["members"][0]["name"]);
+            $("#memail").append($array["members"][0]["email"]);
+            $("#marea").append($array["members"][0]["area"]);
+            $("#mtel").append($array["members"][0]["phone"]);
+        });
+      */
+        //기본키가 있고, 세부키가 있을 경우 each 함수 문구는 다음과 같이 수정됩니다.
+        $.each($array["members"][0], function ($a, $b) {
+          //$a : 세부키 $b: 데이터 출력
+          let $ids = "#" + $a;
+          $($ids).append($b);
+        });
+      });
+    </script>
+    <style>
+      .datas {
+        width: 500px;
+        height: auto;
+      }
+      .data_title {
+        display: inline;
+        height: 30px;
+        line-height: 30px;
+      }
+      .data_title > label {
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        background-color: black;
+        color: white;
+        text-align: center;
+      }
+      .datas > span {
+        display: block;
+        width: 100%;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- fieldset : 여러label을 묶어서 그룹하는 하는 형태의 태그 -->
+    <fieldset class="datas">
+      <legend class="data_title">
+        <label>MY INFO</label>
+        <label>MY Service</label>
+      </legend>
+      <!--legend : filedset 타이틀 파트 입니다. 해당 태그는 한번만 사용 가능함-->
+      아이디 : <span id="id"></span> 이름 : <span id="name"></span> 이메일 :
+      <span id="email"></span> 지역 : <span id="area"></span> 전화번호 :
+      <span id="phone"></span>
+    </fieldset>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery setTimeout + banner</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css" />
+    <script>
+      $(document).ready(function () {
+        // ol 넓이 구하기
+        let $bannerWid = $(".banner_ol>li").eq(0).width();
+        let $liLen = $(".banner_ol>li").length;
+        let $olTotal = $bannerWid * $liLen;
+        $(".banner_ol").css("width", $olTotal + "px");
+
+        let $node = 0;
+        let $discNode = 0;
+        let $timer;
+        // 마우스 올리면 멈주기
+        $(".banner").mouseover(function () {
+          clearTimeout($timer);
+        });
+
+        // 마우스 내리면 다시 작동
+        $(".banner").mouseout(function () {
+          setTimeout($.fn.banner, 3000);
+        });
+
+        // 베너 + 디스크 함수
+        $.fn.banner = function () {
+          $node++;
+          if ($node > 2) {
+            $node = 0;
+          }
+          //disc
+          for (let $i = 0; $i < $liLen; $i++) {
+            $(".disc_ul>li").eq($i).css("background-color", "lightblue");
+          }
+          $(".disc_ul>li").eq($node).css("background-color", "lightcoral");
+
+          //banner
+          let $right = $node * $bannerWid;
+          $(".banner_ol")
+            .stop()
+            .animate(
+              {
+                left: -$right + "PX",
+              },
+              1000
+            );
+          $timer = setTimeout($.fn.banner, 2000);
+        };
+        $timer = setTimeout($.fn.banner, 2000);
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      ol,
+      li,
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .banner {
+        width: 1000px;
+        height: 490px;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+      }
+      .banner_ol {
+        position: absolute;
+      }
+      .banner_ol > li {
+        float: left;
+      }
+      .disc_ul {
+        position: absolute;
+        bottom: 30px;
+        height: auto;
+        left: 445px;
+      }
+      .disc_ul > li {
+        float: left;
+        width: 20px;
+        height: 20px;
+        background-color: lightblue;
+        margin-left: 10px;
+        border-radius: 100%;
+      }
+      .disc_ul > li:first-of-type {
+        margin-left: 0;
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <ol class="banner_ol">
+        <li><img src="../img/banners/banner0.png" /></li>
+        <li><img src="../img/banners/banner1.png" /></li>
+        <li><img src="../img/banners/banner2.png" /></li>
+      </ol>
+      <ul class="disc_ul">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제2</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      ol,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        float: left;
+      }
+      span {
+        display: block;
+      }
+      .container {
+        margin: 0 auto;
+        width: 1000px;
+      }
+      .blue {
+        background-color: blue;
+        width: 1000px;
+        height: 70px;
+        position: relative;
+      }
+      .gray {
+        width: 200px;
+        height: 40px;
+        position: absolute;
+        left: 20px;
+        background-color: gray;
+        top: 15px;
+      }
+
+      ul {
+        top: 15px;
+        width: 400px;
+        height: 40px;
+        position: absolute;
+        right: 20px;
+      }
+      ul > li:nth-child(even) {
+        width: 100px;
+        height: 40px;
+        background-color: black;
+      }
+      ul > li:nth-child(odd) {
+        width: 100px;
+        height: 40px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="blue">
+        <div class="gray"></div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

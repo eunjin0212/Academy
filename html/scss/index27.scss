@@ -1,0 +1,78 @@
+@charset "UTF-8";
+@mixin base {
+  margin: 0;
+  padding: 0;
+  // line-height: 0;
+}
+@mixin objectsize($w, $h, $display, $position) {
+  width: $w;
+  height: $h;
+  display: $display;
+  position: $position;
+}
+body {
+  @include base;
+}
+.divbox {
+  @include objectsize(200px, 200px, block, relative);
+  border: 1px solid black;
+  box-sizing: border-box;
+  transition: all 1s ease;
+  & > .spanbox {
+    @include objectsize(100%, 50px, block, absolute);
+    background-color: blue;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+  }
+}
+@mixin trans($time) {
+  transition: $time all ease;
+}
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span {
+  display: block;
+  width: 100%;
+  height: inherit;
+}
+.menu {
+  box-sizing: border-box;
+  @include objectsize(100%, 30px, block, relative);
+  & > div {
+    @include objectsize(800px, 30px, flex, relative);
+    background-color: darkorange;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.menuUl {
+  @include objectsize(inherit, inherit, flex, relative);
+  flex-direction: row;
+  justify-content: space-between;
+  & > li {
+    @include objectsize(160px, inherit, block, relative);
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    transition: all 0.8s ease;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    & > .menuSpan {
+      position: absolute;
+      transition: all 0.8s ease;
+      box-sizing: border-box;
+    }
+  }
+  & > li:first-of-type {
+    border-left: 0px;
+  }
+  & > li:last-of-type {
+    border-right: 0px;
+  }
+}

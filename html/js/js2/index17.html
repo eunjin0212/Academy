@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="Ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array 응용</title>
+    <style>
+      .ulcss {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        clear: both;
+      }
+      .ulcss > li {
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        border: 1px solid black;
+        text-align: center;
+      }
+      .ulcss > li:nth-child(1) {
+        width: 100px;
+      }
+      .ulcss > li:nth-child(2) {
+        width: 100px;
+      }
+      .ulcss > li:nth-child(3) {
+        width: 200px;
+      }
+      .list {
+        display: block;
+        width: 408px;
+        height: auto;
+      }
+      .nodata {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        clear: both;
+        display: none;
+      }
+      .nodata > li {
+        width: 99.5%;
+        height: inherit;
+        text-align: center;
+        border: 1px solid black;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="ulcss">
+      <li>아이디</li>
+      <li>고객명</li>
+      <li>전화번호</li>
+    </ul>
+    <span id="list" class="list" id="list">
+      <ul class="nodata" id="nodata">
+        <li>검색된 고객이 없습니다.</li>
+      </ul>
+    </span>
+    <form
+      id="f"
+      onsubmit="return check()"
+      enctype="application/x-www-form-urlencoded"
+      method="GET"
+    >
+      <span style="clear: both"></span>
+      아이디 검색 : <input type="text" name="search" id="search" />
+      <input type="submit" value="검색" />
+      <input type="button" value="전체리스트" onclick="gopage();" />
+    </form>
+  </body>
+  <script>
+    const array = {
+      mid: ["hong", "lee", "kims", "yiking", "yiks"],
+      mname: [
+        "Hong Gil Dong",
+        "Lee Jin Me",
+        "Kim You Shin",
+        "Kim Eun Jin",
+        "Janny Park",
+      ],
+      mtel: [
+        "010-1234-5555",
+        "010-0909-0001",
+        "010-9999-0486",
+        "010-3949-5949",
+        "010-1588-1588",
+      ],
+    };
+    //출력형태는 다음과 같음 2가지 방식
+    //console.log(array.mid[3]);
+    //console.log(array["mid"][3]);
+
+    //console.log(array);
+    // for (let i in array) {
+    //   //array에서 key기준으로 3바퀴 반복됩니다.
+    //   for (let j in array[i]) {
+    //     //array기준으로 key에 포함된 데이터 숫자만큼 반복됩니다.
+    //     console.log(array[i][j]);
+    //   }
+    // }
+    //응용문제2.(숙제) foreach를 이용하여 다음 배열을 콘솔로 출력시키시오.
+    // Object.keys(array).forEach((v) => {
+    //   console.log(array[v]);
+    // });
+
+    let list = document.getElementById("list");
+    // Object.keys(array).forEach((k) => {
+    //   let ul = document.createElement("ul");
+    //   ul.setAttribute("class", "ulcss");
+    //   Object.keys(array[k]).forEach((l) => {
+    //     let li = document.createElement("li");
+    //     console.log(array[k][l]);
+    //     let data = document.createTextNode(array[k][l]);
+    //     li.appendChild(data);
+    //     span.append(li);
+    //     list.append(span);
+    //   });
+    // });
+
+    function gopage() {
+      //전체리스트 버튼 클릭시 해당 페이지 reload
+      location.href = "./index17.html";
+    }
+    //검색된 사항 입력값에 출력 시키기
+    let search = location.search;
+    let searchWord = "";
+    if (search !== "") {
+      searchWord = search.split("?search=");
+      console.log(searchWord[1]);
+      //document.getElementById("search").value = searchWord[1];
+    }
+
+    let no = "no";
+    for (let i in array.mid) {
+      if (searchWord[1] === array.mid[i]) {
+        //검색한 단어를 비교하여 같은 데이터 단어만 출력함
+        let ul = document.createElement("ul");
+        ul.setAttribute("class", "ulcss");
+        for (let j in array) {
+          let li = document.createElement("li");
+          let data = document.createTextNode(array[j][i]);
+          li.appendChild(data);
+          ul.appendChild(li);
+          list.appendChild(ul);
+        }
+        no = "ok";
+      } else if (search === "") {
+        let ul = document.createElement("ul");
+        ul.setAttribute("class", "ulcss");
+        for (let j in array) {
+          let li = document.createElement("li");
+          li.innerText = array[j][i];
+          ul.appendChild(li);
+          list.appendChild(ul);
+        }
+        no = "ok";
+      }
+    }
+    if (no === "no") {
+      document.getElementById("nodata").style.display = "block";
+    }
+
+    function check() {
+      let search = document.getElementById("search").value;
+      if (search === "") {
+        alert("검색할 아이디를 입력하세요");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  </script>
+</html>

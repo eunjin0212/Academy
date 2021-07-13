@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지도 API 연결하기</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css" />
+
+    <style>
+      .map {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <p>[지도 API 연습하기]</p>
+    <div class="map" id="map"></div>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fea9fe6b2e484d9e4060185f3d14b3b"
+    >
+      let container = document.getElementById('map');
+      let options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+      };
+      let map = new kakao.maps.Map(container, options);
+    </script>
+  </body>
+</html>
+<!-- $(document).ready(function () {
+  let $a = document.getElementById("map");
+  let $b = {
+    center: new kakao.maps.LatLng(37.569729, 126.989712),
+    //좌표값 (구글 맵 이용하여 출력함)
+    level: 3,
+  };
+  let $c = new kakao.maps.Map($a, $b);
+  //마크업 출력
+  let $d = new kakao.maps.LatLng(37.569729, 126.989712);
+  let $e = new kakao.maps.Marker({
+    position: $d,
+  });
+  $e.setMap($c);
+
+  //인포정보
+  let $info =
+      '<div class="info">국일빌딩 5F <br>[그린아트컴퓨터학원]</div>',
+    $infomap = new kakao.maps.LatLng(37.569729, 126.989712);
+
+  let $infowindow = new kakao.maps.InfoWindow({
+    position: $infomap,
+    content: $info,
+  });
+  $infowindow.open($c, $e);
+}); -->

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue 사용자 입력 값을 실시간 출력 [응용파트2]</title>
+  </head>
+  <body>
+    <section id="box">
+      같은 항목에 여러개를 사용시 v-model은 같아야 함.
+      <input type="checkbox" value="HTML5" v-model="checks" />HTML <input type="checkbox" value="CSS" v-model="checks" />CSS <input type="checkbox" value="Vue" v-model="checks" />Vue
+      <span>{{checks}}</span>
+    </section>
+    <section id="box2">
+      Vue checkbox radio는 value와 v-model 함께 사용! checkbox, radio 모두 v-model과 value 함께 사용해야함. checkbox, radio 얘네 외에는 v-model만 단독 사용하는 경우 多.
+      <input type="radio" name="agree" value="Y" v-model="agrees" />동의함 <input type="radio" name="agree" value="N" v-model="agrees" />동의안함
+      <input type="button" v-model="btn" v-on:click="abc" />
+      <span>{{agrees}}</span>
+    </section>
+    <section id="box3">
+      click 핸들링 함수 사용 안해도, 해당 값을 증가, 또는 감소시킬 수 있음!
+      <input type="button" v-on:click="numbers--" v-model="btn1" />
+      <input type="button" v-on:click="numbers++" v-model="btn2" />
+      <span>{{numbers}}</span>
+    </section>
+  </body>
+  <script>
+    let c = new Vue({
+      el: "#box3",
+      data: {
+        btn1: "-",
+        btn2: "+",
+        numbers: 0,
+      },
+    });
+
+    let b = new Vue({
+      el: "#box2",
+      data: {
+        agrees: "N",
+        btn: "회원가입",
+      },
+      methods: {
+        abc: function () {
+          if (this.agrees == "N") {
+            alert("동의해주세요!");
+          }
+        },
+      },
+    });
+
+    let a = new Vue({
+      el: "#box",
+      data: {
+        checks: [],
+        // 배열 형태로 구성하여 사용자가 체크한 항목 모두를 입력받을 수 있음.
+      },
+      methods: {},
+    });
+  </script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX POST통신3 - 인증번호 발송 및 검토</title>
+    <script>
+      function abc() {
+        let tel1 = document.getElementById("tel1").value;
+        let tel2 = document.getElementById("tel2").value;
+        let tel3 = document.getElementById("tel3").value;
+        let tel = "phone=" + tel1 + tel2 + tel3;
+        ajaxpost(tel);
+      }
+
+      let d; //ajax 통신을 하고자 하는 변수 입니다.
+
+      function ajaxpost(data) {
+        function windowsck() {
+          if (window.XMLHttpRequest) {
+            return new XMLHttpRequest();
+          }
+        }
+        function phonepost() {
+          if (d.readyState == XMLHttpRequest.DONE && d.status == 200) {
+            //console.log(this.response);
+            //코드번호 : error(데이터오류), number_error(전화번호 오류), 난수(4자리)
+            let code = this.response;
+            if (code == "number_error") {
+              alert("올바른 전화번호가 아닙니다.");
+            } else if (code == "error") {
+              console.log("데이터 오류");
+            } else {
+              document.getElementById("security").style.display = "block";
+            }
+          }
+        }
+
+        d = windowsck();
+        d.onreadystatechange = phonepost;
+        d.open("POST", "./index13.php", true);
+        d.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        d.send(data);
+      }
+    </script>
+    <style>
+      .security {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    응용문제1. index13.php로 ajax  POST로 전화번호를 전송하여야 합니다.
+    단, 전송시 name값은 phone로 전송하시길 바랍니다. (숫자만 전송)
+
+-->
+
+    <input type="tel" id="tel1" maxlength="3" size="4" />
+    - <input type="tel" id="tel2" maxlength="4" size="5" /> -
+    <input type="tel" id="tel3" maxlength="4" size="5" />
+    <input type="button" value="인증발송" onclick="abc();" />
+    <div class="security" id="security">
+      <input type="text" name="se" id="se" maxlength="4" />
+      <input type="button" value="인증확인" />
+    </div>
+  </body>
+</html>

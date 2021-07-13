@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다차원 배열</title>
+
+    <style>
+      .list {
+        width: 500px;
+        height: 30px;
+        text-align: center;
+        background-color: wheat;
+        font-size: 12px;
+      }
+      .list > span {
+        display: block;
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        border-right: 1px solid rosybrown;
+        box-sizing: border-box;
+      }
+      .list > span:nth-of-type(1) {
+        width: 100px;
+      }
+      .list > span:nth-of-type(2) {
+        width: 100px;
+      }
+      .list > span:nth-of-type(3) {
+        width: 300px;
+        border: 0;
+      }
+
+      .member {
+        width: 500px;
+        height: auto;
+        text-align: center;
+        background-color: seashell;
+        font-size: 12px;
+      }
+      .member > label {
+        width: inherit;
+        height: 30px;
+        display: block;
+      }
+      .member > label > span {
+        display: block;
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        border-right: 1px solid rosybrown;
+        box-sizing: border-box;
+      }
+      .member > label > span:nth-of-type(1) {
+        width: 100px;
+      }
+      .member > label > span:nth-of-type(2) {
+        width: 100px;
+      }
+      .member > label > span:nth-of-type(3) {
+        width: 300px;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p>고객 리스트 및 전화번호</p>
+    <div class="list">
+      <span>아이디</span>
+      <span>고객명</span>
+      <span>연락처</span>
+    </div>
+    <div class="member" id="member">
+      <!-- 출력 샘플코드
+        <label>
+        <span>아이디</span>
+        <span>고객명</span>
+        <span>연락처</span>
+        </label>
+        -->
+    </div>
+    <input type="button" value="리스트 출력" onclick="clickHandle()" />
+  </body>
+  <script>
+    const array = [
+      ["hong", "lee", "kims", "yiking", "yiks"],
+      ["홍길동", "이순신", "김유신", "유리왕", "유관순"],
+      [
+        "010-1234-5555",
+        "010-0909-0001",
+        "010-9999-0486",
+        "010-3949-5949",
+        "010-1588-1588",
+      ],
+    ];
+    [];
+    function clickHandle() {
+      //   let member = document.getElementById("member");
+      //   for (let i = 0; i < array[0].length; i++) {
+      //     let label = document.createElement("label");
+      //     for (let j = 0; j < array.length; j++) {
+      //       let span = document.createElement("span");
+      //       let data = document.createTextNode(array[j][i]);
+      //       span.appendChild(data);
+      //       label.appendChild(span);
+      //       member.append(label);
+      //     }
+      //   }
+      // forEach;
+      // array[0].forEach((k, l, arr) => {
+      //   // k : 요소
+      //   // l : index
+      //   // arr : array
+      //   let label = document.createElement("label");
+      //   array.forEach((a, b, c) => {
+      //     let span = document.createElement("span");
+      //     let data = document.createTextNode(a[l]);
+      //     span.appendChild(data);
+      //     label.appendChild(span);
+      //     member.append(label);
+      //   });
+      // });
+      // for-in
+      for (const i in array[0]) {
+        let label = document.createElement("label");
+        console.log(i);
+        for (const j in array) {
+          let span = document.createElement("span");
+          let data = document.createTextNode(array[j][i]);
+          console.log(array[j][i]);
+          span.appendChild(data);
+          label.appendChild(span);
+          member.append(label);
+        }
+      }
+    }
+  </script>
+</html>

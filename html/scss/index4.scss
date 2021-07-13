@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.ulcss { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0;
+    width: 400px;
+    height: 30px;
+    
+    & > li { 
+        float: left;
+        width: 30px;
+        height: 30px; 
+        text-align: center;
+        line-height: 30px;
+    }
+}
+$li_color:red,orange,yellow,green,blue,navy,purple;
+@for $a from 1 through 7 { // for문 사용시 배열 변수를 제작해야 합니다. 단, 해당 for문 적용되는 배열 수와 동일 해야합니다.
+    // $a : 1~7반복하면서 받아주는 변수값 
+    // from 시작값, to 종료값을 말하게 됩니다.
+    // to : 7보다 작은 6까지 through : 7까지 반복함
+
+    .ulcss > li:nth-of-type(#{$a}){ 
+        // nth(배열변수값,반복 카운터값) : 배열형태
+        background-color: nth($li_color,$a);
+    }
+}
+
+/* 응용문제2
+label형태의 태그를 이용하여 대메뉴를 제작합니다.
+단, 폰트의 색상은 다음과 같습니다.
+skyblue,orange,springgreen,indigo,pink
+label 크기는 400 * 30px 입니다. 아웃라인 색상은 black으로 처리 합니다.
+*/
+
+label { 
+    display: block; 
+}
+
+.btn{
+    width: 200px;
+    height: 30px;
+    float: left;
+    border:1px solid black;
+    text-align: center;
+    line-height: 30px;
+    $font_color:skyblue,orange,springgreen,indigo,pink;
+    @for $b from 1 through 5 {
+        &:nth-of-type(#{$b}){
+            color:nth($font_color,$b);
+        }
+    }
+    &:hover{
+        background-color: gray;
+    }
+}

@@ -1,0 +1,48 @@
+<?php
+    $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./index.css?v=<?php echo $v?>" />
+    <script src="../../js/jquery.js"></script>
+    <title>틀린그림찾기</title>
+  </head>
+  <body>
+    <header><span>2021 Sale Coupon Event</span></header>
+    <main class="main">
+      <label>
+        <div id="dark" class="dark">
+          <input type="button" value="시작하기" id="start" class="start" />
+        </div>
+        <label id="count">
+          <img src="./image/no_5.png" id="countImg" />
+        </label>
+        <div class="imgBox">
+          <div class="lImg"><img src="./image/game_poto2.png" /></div>
+          <div class="rImg" id="rImg">
+            <div class="aw"><img src="" /></div>
+            <div class="aw"><img src="" /></div>
+            <div class="aw"><img src="" /></div>
+            <div class="aw"><img src="" /></div>
+            <div class="aw"><img src="" /></div>
+            <img src="./image/game_poto1.png" id="ca_aw" />
+          </div>
+        </div>
+      </label>
+    </main>
+    <footer>
+      <ul>
+        <li>※ 2021년 8월 1일 ~ 31일까지 이벤트가 진행 됩니다.</li>
+        <li>※ 숨은그림찾기 게임은 하루에 한번만 진행을 할 수 있습니다. 단, 회원에 한해서만 참여할 수 있습니다.</li>
+        <li>※ 총 5번의 기회가 있으며, 틀린 그림은 총 5곳 입니다.</li>
+        <li>※ 5번 모두 틀릴 경우 게임은 종료 됩니다.</li>
+        <li>※ 틀린그림 총 5곳을 모두 찾으신 고객님은 자동으로 입력 사항이 나오며, 해당 정보 입력시 소정의 상품을 발송 합니다.</li>
+      </ul>
+    </footer>
+  </body>
+  <script src="./index.js?v=<?php echo $v?>"></script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시간(SetTimeout)</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js?v=25"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=1" />
+    <script>
+      $(document).ready(function () {
+        let $timer;
+        let $number = 0;
+
+        let $node = $(".box>.span").length;
+        let $width = [350, 220, 290];
+
+        $("#start").click(function () {
+          $.fn.time();
+        });
+
+        $.fn.time = function () {
+          //   $number += 1;
+          //   $timer = setTimeout($.fn.time, 1000);
+          $(".box>.span").eq($number).animate({
+            width: $width[0],
+          });
+        };
+
+        $("#stop").click(function () {
+          $.fn.stop();
+        });
+
+        $.fn.stop = function () {
+          clearTimeout($timer);
+        };
+
+        $("#ok").click(function () {
+          $.fn.time();
+        });
+      });
+    </script>
+    <style>
+      #stop,
+      #start {
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+      }
+      .span {
+        width: 0;
+        height: 35px;
+        display: block;
+      }
+      .span:nth-of-type(1) {
+        background-color: blue;
+      }
+      .span:nth-of-type(2) {
+        background-color: orange;
+      }
+      .span:nth-of-type(3) {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin-bottom: 30px">
+      <input type="button" value="start" id="start" />
+      <input type="button" value="stop" id="stop" />
+    </div>
+
+    <div class="box">
+      <span class="span"></span>
+      <span class="span"></span>
+      <span class="span"></span>
+    </div>
+    <input type="button" value="확인" id="ok" />
+  </body>
+</html>

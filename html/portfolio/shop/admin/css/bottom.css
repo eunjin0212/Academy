@@ -1,0 +1,43 @@
+.copyright {
+    width: 1200px;
+    height: 100px;
+    margin: 15px auto 0;
+    color: gray;
+}
+
+.copyright > span,
+.copyright li label span {
+    display: block;
+    font-size: 15px;
+}
+
+.bottom {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.copyright > ul {
+    font-size: 0;
+}
+
+.bottom li {
+    display: inline-block;
+    border-right: 1px solid gray;
+    padding: 0 8px 0 6px;
+    font-size: 15px;
+}
+
+.copyright ul li:last-of-type {
+    border: none;
+}
+
+.bottom_cpCheck {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.bottom_cpCheck:hover {
+    color: white;
+    background-color: gray;
+}

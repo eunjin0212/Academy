@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <!--마우스 오버시 이미지 관련 툴바가 생성 되지 않도록 합니다.-->
+    <title>base, formaction</title>
+    <!--<base href="../images/">-->
+    <!-- base : 페이지내에 모든 상대 주소를 기본 URL로 지정할 때 
+    사용하는 태그 입니다. -->
+  </head>
+  <body>
+    <!--
+    <img src="logo_quick_01.png">
+    <img src="logo_quick_02.png">
+    <img src="logo_quick_03.png">
+    <img src="logo_quick_04.png">
+    <img src="../img/123.jpg">
+    -->
+    <br /><br />
+    <!--formaction : HTML5 from과 함께 사용하게 됩니다.
+    type button속성은 사용하지 못합니다. submit에만 사용되는 속성임
+    formmethod : GET, POST 형태로 데이터를 보내는 형식을 구성할 수 있습니다.
+    formtarget : _new, _blank, _self 형태로 사용할 수도 있음
+    -->
+    <form method="post" action="http://www.naver.com">
+      <input type="text" name="mid" />
+      <input type="submit" value="로그인2" />
+      <button
+        type="submit"
+        formtarget="_new"
+        formmethod="GET"
+        formaction="index3.html"
+      >
+        로그인
+      </button>
+    </form>
+  </body>
+</html>

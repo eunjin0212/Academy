@@ -1,0 +1,49 @@
+@charset "UTF-8";
+@mixin base {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+@mixin objectsize($w, $h, $display, $position) {
+  width: $w;
+  height: $h;
+  display: $display;
+  position: $position;
+}
+.circle {
+  @include objectsize(500px, 500px, block, relative);
+  border-radius: 500px;
+  border: 1px solid black;
+  & > span {
+    @include objectsize(50px, 50px, block, absolute);
+    border-radius: 0 50px 0 50px;
+    background-color: blue;
+    left: 50%;
+    top: 50%;
+    transition-property: all;
+    transition-timing-function: ease;
+    transition-duration: 3s;
+    transform-origin: left top;
+    //애니메이션 사용시 회전 형태의 포인트를 지정하는 속성
+    //움직이는 기준을잡아주는것 보통한가운데 중심점
+  }
+  &:hover > span {
+    transform: rotate(580deg);
+  }
+}
+
+$div: blue, green;
+$k: 1;
+@while ($k<=2) {
+  .box#{$k} {
+    @include objectsize(100px, 100px, block, absolute);
+    background-color: nth($div, $k);
+    @if ($k==2) {
+      transition: 0.8s all ease;
+      &:hover {
+        transform: translate(20px, 20px);
+      }
+    }
+  }
+  $k: $k + 1;
+}

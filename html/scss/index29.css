@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
+
+span,
+label,
+u {
+  display: block;
+}
+
+.section {
+  width: 800px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.section > u {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.join {
+  width: inherit;
+  height: 30px;
+}
+
+.join > label:first-of-type {
+  width: 150px;
+  height: 30px;
+  text-align: left;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.join > label:first-of-type > .allCheck {
+  margin-right: 20px;
+  width: 16px;
+  height: 16px;
+}
+
+.join > .title {
+  width: inherit;
+  height: 30px;
+}
+
+.join > .agreeText {
+  width: inherit;
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.join > .abox {
+  width: inherit;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.join > .abox > .agreeBox {
+  width: 16px;
+  height: 16px;
+  margin-right: 20px;
+}
+
+.join > div:last-of-type {
+  width: inherit;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.join > div:last-of-type > label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  height: 20px;
+  margin-bottom: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.join > div:last-of-type > label > input {
+  width: 16px;
+  height: 16px;
+  margin: 0 10px 0 20px;
+}
+
+.btnBox {
+  width: 100%;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+
+.btnBox > #btn {
+  width: 200px;
+  height: 40px;
+  border: none;
+  background-color: turquoise;
+  padding: 0;
+  cursor: pointer;
+}
+
+#block {
+  color: red;
+  margin-left: 10px;
+}
+/*# sourceMappingURL=index29.css.map */

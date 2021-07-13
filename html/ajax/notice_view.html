@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax (6일차) - 공지사항 내용확인</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        // 백엔드가 주는 코드명
+        //$.parseJSON : Jquery 1.X
+        //const $data = $.parseJSON('');
+        const $data = JSON.parse("");
+        //console.log($data);
+
+        $("#subject").html($data[0]["nsubject"]);
+        $("#wname").html($data[0]["nwriter"]);
+        $("#wtext").html($data[0]["ntext"]);
+
+        $("#delbtn").click(function () {
+          if (confirm("해당 게시물을 삭제 하시겠습니까?")) {
+            let $p = location.search;
+            let $split = $p.split("?nidx=");
+            location.href = "notice_del.php?nidx=" + $split[1];
+          }
+        });
+        $("#listbtn").click(function () {
+          location.href = "notice_list.html";
+        });
+        $("#okbtn").click(function () {
+          let $p = location.search;
+          let $split = $p.split("?nidx=");
+          location.href = "notice_modify.html?nidx=" + $split[1];
+        });
+      });
+    </script>
+    <style>
+      span {
+        display: block;
+      }
+      .spancss {
+        width: 500px;
+        height: 30px;
+        text-indent: 10px;
+        font-size: 12px;
+        font-family: "돋움체";
+        line-height: 30px;
+      }
+      .spancss2 {
+        width: 800px;
+        height: 500px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="hidden" name="domain" value="http://kj980928.dothome.co.kr" />
+    <table border="1">
+      <tbody>
+        <tr>
+          <td>제목</td>
+          <td>
+            <span id="subject" class="spancss"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>글쓴이</td>
+          <td>
+            <span id="wname" class="spancss"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>내용</td>
+          <td>
+            <!--게시글을 확인 시에는 textarea를 사용하지 않음-->
+            <span id="wtext" class="spancss2"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="button" value="글수정" id="okbtn" />
+    <input type="button" value="목록" id="listbtn" />
+    <input type="button" value="글삭제" id="delbtn" />
+  </body>
+</html>

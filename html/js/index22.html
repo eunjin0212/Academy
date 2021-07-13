@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 객체</title>
+    <style>
+      /* span {
+        width: 300px;
+        height: 100px;
+        border: 1px solid red;
+        display: block;
+      } */
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 1200px;
+        height: 40px;
+      }
+      #list > li {
+        width: 150px;
+        height: 40px;
+        float: left;
+      }
+      #list > li:nth-child(even) {
+        /* 짝수 */
+        background-color: pink;
+      }
+      #list > li:nth-child(odd) {
+        /* 홀수 */
+        background-color: darksalmon;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="a"></div> -->
+    <ul id="list"></ul>
+    <input type="button" value="클릭" onclick="abc()" />
+  </body>
+  <script src="./index22.js"></script>
+</html>

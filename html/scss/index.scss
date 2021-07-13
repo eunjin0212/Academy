@@ -1,0 +1,19 @@
+$a: blue; // 변수선언
+$b: red;
+$c: 100px;
+$d: 100px;
+@import "./test.scss";
+body {
+    margin: 0;
+    padding: 0;
+}
+.box {
+    width: $c;
+    height: $c;
+    background-color: $b;
+}
+.box2 {
+    width: $c;
+    height: $c;
+    background-color: $a;
+}

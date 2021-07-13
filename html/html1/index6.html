@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title>Netflix</title>
+    <link rel="stylesheet" type="text/css" href="./css/index6.css" />
+    <script src="../jq/jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#leftbtn").click(function () {
+          let $w = $("#m_menu").width();
+          if ($w == 0) {
+            $("#m_menu").stop().animate(
+              {
+                width: "95%",
+              },
+              800
+            );
+          } else {
+            $("#m_menu").stop().animate(
+              {
+                width: "0%",
+              },
+              800
+            );
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!--모바일 상단 로고 부분 -->
+    <header class="top">
+      <div class="m_top">
+        <label class="leftbtn">
+          <img src="./img/menu.svg" />
+        </label>
+        <label class="logobtn">
+          <img src="./img/netlogo.png" />
+        </label>
+        <label class="rightbtn">
+          <img src="./img/info.svg" />
+        </label>
+      </div>
+    </header>
+
+    <!--PC 상단-->
+    <header class="g_box">
+      <div class="m_box">
+        <ul class="topmenu">
+          <li>HOME</li>
+          <li>LOGIN</li>
+          <li>MEMBER</li>
+          <li>EVENT</li>
+        </ul>
+      </div>
+    </header>
+    <nav class="menus">
+      <div class="divlogo">
+        <span class="logo">
+          <img src="./img/netlogo.png" />
+        </span>
+      </div>
+    </nav>
+    <!-- 사이트 메인 -->
+    <section class="main">
+      <div class="m_menu" id="m_menu"></div>
+    </section>
+  </body>
+</html>

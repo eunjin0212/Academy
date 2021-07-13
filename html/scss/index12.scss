@@ -1,0 +1,85 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+$font_ng: "Nanum Gothic", sans-serif;
+
+@mixin base {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@mixin object($w, $h, $display) {
+  width: $w;
+  height: $h;
+  display: $display;
+}
+
+@function object-box($w) {
+  //scss function은 모두 다 return 함수를 사용합니다.
+  //함수 안에 조건문 또는 반복문을 통해서 값을 전달 하는 형태 입니다.
+  $width: $w + 100px;
+  @return $width;
+}
+@function object-text($size: 12) {
+  //함수 호출시 인자값이 없을 경우 기본 12값이 입력된
+  //단, 함수에 인자값을 넣을 경우 해당 인자값으로 함수가 실행됨
+  $fontsize: $size;
+  @return $fontsize + px;
+}
+
+.box {
+  width: object-box(0);
+  height: object-box(-70);
+  background-color: blue;
+}
+.sbox {
+  display: block;
+  width: object-box(-50);
+  height: object-box(-50);
+  background-color: yellow;
+  font-size: object-text(25);
+  //예시)object-text() 인자값이 없는 경우, object-text(25) 25라는 인자값이 있는 경우
+}
+
+//extend 사용법
+.boxs1 {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  text-align: center;
+  line-height: 100px;
+}
+.boxs2 {
+  @extend .boxs1; //가져오는 클래스 또는 아이디가 있으면 해당 속성을 복사함
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: green;
+}
+
+//응용문제
+@function bbox($size: 0) {
+  @return 100 - $size + px;
+}
+.pagebox {
+  width: bbox(50);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: bbox(-200);
+  display: flex;
+  border: 1px solid black;
+  flex-flow: nowrap column; //scss ,를 주의해야 합니다. calc는 작동하지 않음
+  // flex-wrap: wrap;
+  // flex-direction:column;
+  //justify-content: space-between;
+  align-content: space-between;
+  & > li {
+    width: bbox(50);
+    height: bbox(50);
+    background-color: black;
+  }
+  & > li:nth-child(1) {
+    background-color: red;
+  }
+}

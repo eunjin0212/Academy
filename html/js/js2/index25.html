@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Animation, setInterval</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+        position: relative;
+      }
+      .sbox {
+        width: 50px;
+        height: 50px;
+        background-color: purple;
+        display: block;
+        position: absolute;
+      }
+
+      .banner {
+        width: 400px;
+        height: 400px;
+        position: relative;
+      }
+      .b1 {
+        width: inherit;
+        height: inherit;
+        display: block;
+        position: absolute;
+        background-color: green;
+        z-index: 1;
+      }
+      .b2 {
+        width: inherit;
+        height: inherit;
+        display: block;
+        position: absolute;
+        background-color: orange;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <span class="sbox" id="sbox" onclick="animateFunc()"></span>
+    </div>
+    <div class="banner" onclick="banner();">
+      <span class="b1" id="b1"></span>
+      <span class="b2" id="b2"></span>
+    </div>
+  </body>
+  <script>
+    //setTimeout : 1회만 반복함 = clearTimeout
+    //setInterval : 계속 작동함 = clearInterval
+    let timer;
+    function animateFunc() {
+      let sbox = document.getElementById("sbox");
+      timer = setInterval(styleFunc, 1);
+      let px = 0;
+      let num = 1;
+      function styleFunc() {
+        //console.log("test");
+        //clearInterval(timer);
+        px++;
+        if (px == 450) {
+          clearInterval(timer);
+        } else {
+          num = num - 0.0025;
+          sbox.style.top = px + "px";
+          sbox.style.left = px + "px";
+          sbox.style.opacity = num;
+        }
+      }
+    }
+
+    let fade;
+    function banner() {
+      let bb = document.getElementById("b1");
+      let bb2 = document.getElementById("b2");
+      fade = setInterval(fadeFunc, 1);
+      let op = 1; //사라지게 하는 변수 초기값
+      let op2 = 0; //나타나게 하는 변수 초기값
+      function fadeFunc() {
+        //함수를 통해서 지속적으로 호출함
+        op = op - 0.0025;
+        op2 = op2 + 0.0025;
+        if (op == 0) {
+          clearInterval(fade);
+        } else {
+          bb.style.opacity = op;
+          bb2.style.opacity = op2;
+        }
+      }
+    }
+  </script>
+</html>

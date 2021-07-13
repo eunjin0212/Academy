@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이메일 로그인</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      p {
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+      ul,
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      #fm {
+        margin: 0 auto;
+        width: 500px;
+        height: 200px;
+        border: 1px solid black;
+      }
+      input {
+        margin: 0;
+        padding: 0;
+      }
+      #fm > ul {
+        text-align: center;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      ul > li {
+        line-height: 30px;
+        height: 30px;
+        width: 100%;
+      }
+      #fm > ul > li > input {
+        height: inherit;
+        box-sizing: border-box;
+      }
+      #fm > ul > li:nth-child(1) > input {
+        text-indent: 10px;
+      }
+      #fm > ul > li:nth-child(2) > input {
+        width: 74%;
+        text-indent: 10px;
+      }
+      #fm > ul > li:nth-child(3) > input {
+        width: 75%;
+        outline: none;
+        border: none;
+      }
+      #text {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- email name : memails 
+    passward name : mpass 
+    hidden input name : key 
+    hidden input value: admaster 
+    form setting : method="post" action="loginok.php"
+    default id : admin@gmail.com
+    default passward : a12345 -->
+
+    <section id="login">
+      <p>Login</p>
+      <form id="fm" ref="form">
+        <!-- name="fm" -->
+        <!-- ref="form" v-on:submit.prevent="loginok" v-bind:method="(vue에 data에서 세팅된 이름)" v-bind:action="(vue에 data에서 세팅된 이름)" v-bind:enctype="(vue에 data에서 세팅된 이름)" -->
+        <!-- v-on:submit.prevent submit이 중간에 액션이 되지 않도록 해주는 속성, submit 에 적용, return; 이 먹지 않음-->
+        <input type="hidden" name="memails" id="memails" />
+        <input type="hidden" name="key" v-model="ad" />
+        <ul>
+          <li>
+            <emailf v-model="value1" ref="email1"></emailf>
+            @
+            <emailb v-model="value2" ref="email2"></emailb>
+          </li>
+          <li><pass v-model="passVal" ref="passw"></pass></li>
+          <li><loginbtn v-model="btn" /></li>
+          <li id="text"></li>
+        </ul>
+      </form>
+    </section>
+  </body>
+  <script>
+    Vue.component("loginbtn", {
+      template: "<input type='button' @click='vueF' />",
+      methods: {
+        vueF: function () {
+          loginVue.loginFunc();
+        },
+      },
+    });
+
+    let loginVue = new Vue({
+      el: "#login",
+      data: {
+        ad: "admaster",
+        btn: "로그인",
+        method: "POST",
+        action: "./loginok.php",
+        etype: "application/x-www-form-urlencoded",
+        value1: "",
+        value2: "",
+        passVal: "",
+      },
+      components: {
+        emailf: { template: "<input type='text' value='' id='emailf' />" },
+        emailb: { template: "<input type='text' value='' id='emailb' />" },
+        pass: {
+          template: "<input type='password' value='' name='mpass' placeholder='비밀번호를 입력해주세요.' />",
+        },
+      },
+      methods: {
+        loginFunc: function () {
+          let memails = document.getElementById("memails");
+          let text = document.getElementById("text");
+
+          this.value1 = this.$refs.email1.$el.value;
+          this.value2 = this.$refs.email2.$el.value;
+          this.passVal = this.$refs.passw.$el.value;
+
+          if (this.value1 === "" || this.value2 === "") {
+            text.style.display = "list-item";
+            text.innerText = "이메일을 입력해주세요.";
+            return false;
+          } else if (this.passVal === "") {
+            console.log(this.passVal);
+            text.style.display = "list-item";
+            text.innerText = "비밀번호를 입력해주세요.";
+            return false;
+          } else {
+            if (this.value1 !== "admin" || this.value2 !== "gmail.com") {
+              text.style.display = "list-item";
+              text.innerText = "이메일이 틀립니다.";
+              return false;
+            } else if (this.passVal !== "a12345") {
+              text.style.display = "list-item";
+              text.innerText = "비밀번호가 틀립니다.";
+              return false;
+            } else {
+              text.style.display = "none";
+              memails.value = this.value1 + "@" + this.value2;
+              this.$refs.form.method = this.method;
+              this.$refs.form.action = this.action;
+              this.$refs.form.enctype = this.etype;
+              // fm.submit(); form의 name으로 하는 방법
+              this.$refs.form.submit(); // form에 ref 썼을 때!
+            }
+            return false;
+          }
+          return false;
+        },
+      },
+    });
+  </script>
+</html>

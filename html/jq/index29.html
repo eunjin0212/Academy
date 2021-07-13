@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html land="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1" />
+    <title>지도 API 연결하기</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js?v=25"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=1" />
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=67ec543fb12385cff341a2e981b0d108"
+    ></script>
+    <script>
+      //API 란 무슨뜻일까??
+      //67ec543fb12385cff341a2e981b0d108
+      $(document).ready(function () {
+        let $map = document.getElementById("map");
+        let $mapLat = {
+          //카카오에서 제공하는 맵 좌표 코드 입니다.
+          center: new kakao.maps.LatLng(37.569399, 126.989611),
+          //좌표코드는 구글맵에서 사용되는 좌표코드와 동일합니다.
+          level: 3, //1~10
+        };
+        let $maps = new kakao.maps.Map($map, $mapLat);
+        //해당위치에 맞는 지도맵을 출력함
+
+        let $lat = new kakao.maps.LatLng(37.569399, 126.989611);
+        let $mak = new kakao.maps.Marker({
+          //마커를 맵에 출력하게 됩니다.
+          position: $lat,
+        });
+        $mak.setMap($maps);
+
+        let $info = "<div class='info'>국일빌딩 5F (로린이)</div>";
+        let $infomap = new kakao.maps.InfoWindow({
+          //해당 코드를 작성 후 말머리를 출력할 수 있음
+          position: $lat,
+          content: $info,
+        });
+        $infomap.open($maps, $mak);
+      });
+    </script>
+    <style>
+      .map {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        position: relative;
+      }
+      .info {
+        width: 150px;
+        height: 40px;
+        position: absolute;
+        z-index: 10;
+        font-size: 12px;
+        text-align: center;
+      }
+      .btn {
+        width: 100px;
+        height: 30px;
+        background-color: darkblue;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        line-height: 30px;
+        position: absolute;
+        z-index: 10;
+        cursor: pointer;
+        bottom: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>[지도 API 연습하기]</p>
+    <div class="map" id="map"></div>
+    <span class="btn">버스노선 확인</span>
+  </body>
+</html>

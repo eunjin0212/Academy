@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NODE</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        let $num = 0;
+        $("#node_del").click(function () {
+          let $node = $(".labelcss").length;
+          $(".labelcss").eq($num).remove();
+          if ($node === 0) {
+            alert("더이상 삭제할 노드가 없습니다.");
+          }
+        });
+        $("#node_del1").click(function () {
+          let $node = $(".labelcss").length;
+          $(".labelcss").eq($num).fadeOut();
+          $num += 1;
+          if ($num > $node) {
+            alert("더이상 삭제할 노드가 없습니다.");
+          }
+        });
+        $("#node_res").click(function () {
+          let $node = $(".labelcss").length;
+          console.log("node_res");
+          $num -= 1;
+          $(".labelcss").eq($num).fadeIn();
+          console.log($node, $num);
+          if ($num < 0) {
+            alert("더이상 복원할 노드가 없습니다.");
+          }
+        });
+      });
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      span,
+      label {
+        display: block;
+      }
+      .labelcss {
+        width: 100px;
+        height: 40px;
+      }
+      .labelcss:nth-child(1) {
+        background-color: red;
+      }
+      .labelcss:nth-child(2) {
+        background-color: orange;
+      }
+      .labelcss:nth-child(3) {
+        background-color: yellow;
+      }
+      .labelcss:nth-child(4) {
+        background-color: green;
+      }
+      .labelcss:nth-child(5) {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <label class="labelcss" id="label0"></label>
+    <label class="labelcss" id="label1"></label>
+    <label class="labelcss" id="label2"></label>
+    <label class="labelcss" id="label3"></label>
+    <label class="labelcss" id="label4"></label>
+    <input type="button" value="노드삭제" id="node_del" />
+    <input type="button" value="Dom 노드삭제" id="node_del1" />
+    <input type="button" value="Dom 노드복원" id="node_res" />
+  </body>
+</html>

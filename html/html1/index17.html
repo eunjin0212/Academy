@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filter + transparent</title>
+    <script src="../jq/jquery.js"></script>
+    <style>
+      .img {
+        filter: hue-rotate(90deg);
+      }
+      /* filter효과 : blur(px), contrast(%),grayscale(%),hue-rotate(deg) 
+         단점 : IE에서 작동안됨
+        */
+      .box {
+        /* transparent : 색상을 투명하게 
+            삼각형 오브젝트를 제작할 때는 양쪽에 있는 border값을
+            이용하여 제작하게 됩니다. 맞은편에 있는 border는 none 또는
+            코드를 작성하지 않습니다.
+            */
+        width: 0px;
+        height: 0px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: none;
+        border-right: 10px solid orange;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../img/banners/banner0.png" class="img" />
+    <div class="box"></div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transform 응용</title>
+    <script src="../jq/jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          let $matrix = $("#box").css("transform");
+          console.log($matrix);
+          let $random = Number(Math.ceil(Math.random() * 10));
+          console.log($random);
+          let $rotation = (360 / $random) * 1800;
+          $("#box").rotate($rotation);
+        });
+
+        $.fn.rotate = function ($rotation) {
+          $(this).css({
+            transform: "rotate(" + $rotation + "deg)",
+          });
+        };
+      });
+    </script>
+    <style>
+      .box {
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(315deg, transparent 90%, red 10%);
+        background-color: black;
+        position: relative;
+        margin: 0 auto;
+        transition-duration: 5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box"></div>
+    <input type="button" value="start" id="btn" />
+  </body>
+</html>

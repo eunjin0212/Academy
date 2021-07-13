@@ -1,0 +1,64 @@
+@charset "UTF-8";
+.top_menu{
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+}
+.top1{
+    width: 100%;
+    height: 70px;
+}
+.top_banner{
+    height: 70px;
+}
+.top_banner > li{
+    float: left;
+    width: 490px;
+    height: 70px;
+    cursor: pointer;
+    position: relative;
+}
+.top_banner > li:last-child{
+    width: 220px;
+}
+.top2{
+    background-color: #cccccc;
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+.close{
+    position: absolute;
+    right: 0;
+    height: 70px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.topmenu_right{
+    float: right;
+    position: absolute;
+    font-size: 12px;
+    right: 0;
+}
+.topmenu_right > li{
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin-right: 10px;
+    font-family: 'Nanum Gothic', sans-serif; 
+    font-weight: bold;
+}
+.topmenu_left{
+    font-size: 12px;
+    float: left;
+    position: absolute;
+}
+.topmenu_left > li{
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin-left: 10px;
+    font-family: 'Nanum Gothic', sans-serif; 
+    font-weight: bold;
+}

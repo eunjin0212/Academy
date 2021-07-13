@@ -1,0 +1,86 @@
+<?php
+    $data = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>scss for</title>
+        <link rel="stylesheet" type="text/css" href="index4.css?v=<?=$data?>" />
+        <script src="../jq/jquery.js"></script>
+        <script>
+            $(function () {
+                //응용 해당 메뉴 클릭시
+                //메뉴1은 google.com으로 이동 메뉴5번 "서비스 준비중 입니다."라는
+                //메세지가 출력되는 핸들링 함수를 제작하시오. 단 확장함수 필수
+                $(".btn").click(function () {
+                    let $s = $(this).attr("id");
+                    let $r = $.fn.src($s);
+                    if ($r == "none") {
+                        alert("서비스 준비중 입니다.");
+                    } else {
+                        location.href = $r;
+                    }
+                });
+                $.fn.src = function ($ss) {
+                    let $data = "";
+                    switch ($ss) {
+                        case "menu0":
+                            $data = "http://google.com";
+                            break;
+
+                        case "menu4":
+                            $data = "none";
+                            break;
+                    }
+                    return $data;
+                };
+            });
+        </script>
+    </head>
+    <body>
+        <ul class="ulcss">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+        <span style="clear: both"></span>
+        <br /><br />
+        <label class="btn" id="menu0">메뉴1</label>
+        <label class="btn" id="menu1">메뉴2</label>
+        <label class="btn" id="menu2">메뉴3</label>
+        <label class="btn" id="menu3">메뉴4</label>
+        <label class="btn" id="menu4">메뉴5</label>
+    </body>
+    <script>
+        //let a = document.getElementById("menu0");
+        //a.addEventListener("click",ccc);
+
+        for (let i = 0; i < 5; i++) {
+            // document.getElementById("menu"+i).addEventListener("click",ccc);
+            //addEventListener는 확장함수를 이용하여 이벤트를 발생시키는 함수명이다 (ESMA) IE에서는 안된다
+        }
+        function ccc(c) {
+            let urls = "";
+            console.log(c.target.id);
+            switch (c.target.id) {
+                case "menu0":
+                    urls = "www.naver.com";
+                    break;
+                case "menu3":
+                    urls = "www.daum.net";
+                    break;
+                default:
+                    console.log("default");
+                    break;
+            }
+            location.href = urls;
+        }
+    </script>
+</html>

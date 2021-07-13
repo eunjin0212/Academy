@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>components(외장2)</title>
+  </head>
+  <body>
+    <section id="box">
+      <snack v-text="btn"></snack>
+    </section>
+  </body>
+  <script>
+    Vue.component("snack", {
+      //해당 태그 안에서만 작동함
+      template: "<button @click='abc'></button>", //컴포넌트에 있는 abc이벤트 핸들링 호출
+      methods: {
+        abc: function () {
+          //abc핸들링 호출 함수 단, data에 있는 각종 vue 변수가 없으므로 사용에 한계가 있음
+          vm.bbb("확장함수"); //확장함수로 실제 vue엔진에 있는 bbb라는 확장함수로 데이터를 이동시킴
+        },
+      },
+    });
+    let vm = new Vue({
+      el: "#box",
+      data: {
+        btn: "클릭",
+      },
+      methods: {
+        bbb: function (db) {
+          alert(db);
+        },
+      },
+    });
+  </script>
+</html>

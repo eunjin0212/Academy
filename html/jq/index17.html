@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배너 만들기</title>
+    <link rel="stylesheet" href="./css/index17.css" />
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(() => {
+        let $bannerL = $(".img_ol>li").length;
+        let $banner_wid = $(".img_ol").width();
+        let $total_width = $bannerL * $banner_wid;
+
+        $(".img_ol").css("width", $total_width + "px");
+        let $node = 0;
+
+        $(".left").click(function () {
+          $node--;
+          // disc
+          for (let $i = 2; $i > -1; $i--) {
+            $(".disc_ul>li").eq($i).css("background-color", "black");
+          }
+          $(".disc_ul>li").eq($node).css("background-color", "red");
+
+          // banner
+          let $right = $node * $banner_wid;
+          if ($node === -1) {
+            // 그림 0번째에서 왼쪽 버튼을 누르면 node는 2가 되고 세번째 그림으로 가려면 왼쪽으로 땡겨줘야한다.
+            $node = 2;
+            $right = $node * $banner_wid;
+          }
+          $(".img_ol").animate(
+            {
+              left: -$right + "px",
+            },
+            500
+          );
+        });
+
+        $(".right").click(function () {
+          $node++;
+          if ($node > 2) {
+            $node = 0;
+          }
+
+          // disc
+          for (let $j = 0; $j < $bannerL; $j++) {
+            $(".disc_ul>li").eq($j).css("background-color", "black");
+          }
+          $(".disc_ul>li").eq($node).css("background-color", "red");
+
+          // banner
+          let $left = $node * $banner_wid;
+
+          $(".img_ol").animate(
+            {
+              left: -$left + "px",
+            },
+            500
+          );
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="banner">
+      <ol class="img_ol">
+        <li><img src="../img/banners/banner0.png" /></li>
+        <li><img src="../img/banners/banner1.png" /></li>
+        <li><img src="../img/banners/banner2.png" /></li>
+      </ol>
+      <ul class="disc_ul">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <button class="btn left">&#60;</button>
+      <button class="btn right">&#62;</button>
+    </div>
+  </body>
+</html>
+
+<!-- $("#wrapper").mouseenter(function () {
+    stop 메소드는 이벤트 핸들링시 애니메이션 적용 여부를 확인 함
+    $(this).stop().animate(
+        {
+            width: "600px",
+        },
+        1000
+        );
+    });
+    $("#wrapper").mouseleave(function () {
+        $(this).stop().animate(
+            {
+                width: "100px",
+            },
+            1000
+            );
+        }); -->
+<!-- <style>
+        #wrapper {
+        width: 100px;
+        height: 30px;
+        background-color: blue;
+      }
+    </style> -->

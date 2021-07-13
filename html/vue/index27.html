@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>components(지역+내부) + 배열</title>
+  </head>
+  <body>
+    <section id="box">
+      <ul>
+        <gom v-bind:aaa="list" v-for="list in arrs"></gom>
+      </ul>
+    </section>
+    <section id="box2"><name v-bind:named="nm" v-for="nm in arrs"></name><br /></section>
+  </body>
+  <script>
+    // Vue 코드 순서 : 1. 배열 2. component 3. new Vue
+    const arr = [
+      ["이은미", "A형"],
+      ["안찬익", "B형"],
+      ["민서현", "AB형"],
+      ["이시우", "O형"],
+      ["정아름", "A형"],
+    ];
+    // 지역 컴포넌트
+    let area = {
+      props: ["aaa"],
+      template: "<li>{{aaa[0]}}-{{aaa[1]}}</li>",
+    };
+    let nArea = {
+      props: ["named"],
+      template: "<label>{{named[0]}}</label>",
+    };
+    let a = new Vue({
+      el: "#box",
+      data: {
+        arrs: arr,
+      },
+      components: {
+        // 내부 컴포넌트 (지역 컴포넌트와 함께 사용)
+        gom: area,
+        name: nArea,
+      },
+    });
+    let b = new Vue({
+      el: "#box2",
+      data: {
+        arrs: arr,
+      },
+      components: {
+        name: nArea,
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>submit</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        /*
+        $("#btn").click(function(){
+           $("#view").append("<li>"+$("#chat_text").val()+"</li>"); 
+           $("#chat_text").val("");
+        });
+        */
+        $("#form").submit(function () {
+          /* 응용  
+            채팅문구가 아무것도 입력되지 않은 상황에서 enter를
+            사용할 경우 "글을 입력해야 합니다." 라는 메세지를 출력
+            하시오. 글 입력시에만 view에 출력 됩니다.
+            */
+          let $chat_text = $("#chat_text").val();
+          if ($chat_text == "") {
+            alert("글을 입력해야 합니다.");
+          } else {
+            //submit 이벤트 핸들링이며, id값을 form id값으로 해야만
+            //정상적으로 submit 이벤트가 적용됩니다.
+            $(".view").append(
+              "<li>홍길동 : " + $("#chat_text").val() + "</li>"
+            );
+            $("#chat_text").val("");
+            $("#chat_text").focus(); //자동으로 해당 아이디에 커서가 가도록함
+            //submit을 사용시 return false를 사용하지 않으면
+            //해당 페이지가 이동 또는 새로고침 됩니다.
+          }
+          return false;
+        });
+      });
+    </script>
+    <style>
+      /* display:inline-block 사용시 position:absolute와 함께 사용하면
+      부모에 text-align:center를 넣어도 IE는 작동하지 않습니다. */
+      * {
+        box-sizing: border-box;
+      }
+      li,
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      form {
+        width: fit-content;
+        margin: 0 auto;
+      }
+      .chat {
+        margin: 0 auto;
+        width: 400px;
+        height: 600px;
+        border: 1px solid darkblue;
+      }
+      p {
+        text-align: center;
+      }
+      .view {
+        height: auto;
+        width: 100%;
+      }
+      .view > li {
+        height: 30px;
+        width: 100%;
+        color: orange;
+        font-size: 12px;
+      }
+      #chat_text {
+        width: 350px;
+        height: 30px;
+      }
+      #chat_btn {
+        border: none;
+        height: 30px;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form" method="POST">
+      <div class="chat">
+        <p>건전한 채팅문화를 선도합니다.</p>
+        <ul class="view"></ul>
+      </div>
+      <br />
+      <input type="text" id="chat_text" />
+      <input type="submit" id="chat_btn" value="전송" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../jq/jquery.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="http://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <title>Vue Single Page(Vue Router)</title>
+    <style>
+      .ulcss {
+        width: 300px;
+        height: 40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .ulcss li {
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid black;
+        box-sizing: border-box;
+        font-size: 12px;
+        float: left;
+      }
+      .login {
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+      }
+      .event {
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+      }
+      .divcss {
+        width: 600px;
+        height: 600px;
+        border: 1px solid red;
+      }
+      iframe {
+        width: inherit;
+        height: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="box">
+      <ul class="ulcss">
+        <!-- router-link 뷰 라우터 통신, router를 사용하면 페이지#/으로 주소가 바뀜 -->
+        <router-link to="/shop" v-html="menu1"></router-link>
+        <router-link to="/review" v-html="menu2"></router-link>
+        <router-link to="/page" v-html="menu3"></router-link>
+      </ul>
+      <!--
+        싱글페이지는 해당 메뉴를 클릭시 보여지는 view가 달라짐
+        사용하는 이유는 빠른 페이지 이동 및 출력을 위해서 사용하게 됩니다.
+    -->
+      <router-view name="single"></router-view>
+    </section>
+  </body>
+  <script src="index42.js"></script>
+  <!-- <script src="index43.html"></script> -->
+  <script>
+    let web = { template: login }
+    let web2 = { template: board }
+    let web3 = {
+      template: `
+    <div class='divcss'><iframe src='http://www.moel.go.kr'></iframe></div>`,
+    }
+
+    let routerVue = new VueRouter({
+      routes: [
+        // router-link사용시 path는 모두 배열형태로 적용해야함
+        {
+          // 배열로 작성해야한다
+          path: '/shop', // path "/"는 현재페이지라는 명칭
+          // "/"는 현재페이지에서  shop으로 이동
+          components: {
+            single: web,
+          },
+        },
+        {
+          path: '/review',
+          components: {
+            single: web2,
+          },
+        },
+        {
+          path: '/page',
+          components: {
+            single: web3,
+          },
+        },
+      ],
+    })
+
+    let vue = new Vue({
+      router: routerVue,
+      el: '#box',
+      data: {
+        menu1: '<li>로그인</li>',
+        menu2: '<li>이벤트 게시판</li>',
+        menu3: '<li>노동부 사이트</li>',
+      },
+    })
+  </script>
+</html>

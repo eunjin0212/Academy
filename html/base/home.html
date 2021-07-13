@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      body {
+        font-size: 13px;
+        font-family: "돋움체";
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        position: relative;
+      }
+      ul {
+        height: 30px;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        line-height: 30px;
+      }
+      li:not(.title) {
+        text-align: center;
+      }
+
+      ul:first-child {
+        background-color: #2651ff;
+        text-align: center;
+        color: white;
+        padding: 0;
+      }
+      ul:not(.top) {
+        border-bottom: 1px dashed black;
+      }
+      li {
+        list-style: none;
+      }
+      .number {
+        width: 35px;
+      }
+      .title {
+        width: 295px;
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+      }
+      span {
+        padding-left: 5px;
+      }
+      .name {
+        width: 120px;
+      }
+      .date {
+        width: 120px;
+      }
+      a {
+        position: absolute;
+        right: 0;
+        text-decoration: none;
+        font-size: 10px;
+        color: gray;
+        opacity: 0.3;
+      }
+      a:hover {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul class="top">
+        <li class="number">번호</li>
+        <li class="title">제목</li>
+        <li class="name">글쓴이</li>
+        <li class="date">등록일</li>
+      </ul>
+      <ul>
+        <li class="number">1</li>
+        <li class="title"><span>사이트 리뉴얼 중 입니다.</span></li>
+        <li class="name">관리자</li>
+        <li class="date">2021-03-10</li>
+      </ul>
+      <ul>
+        <li class="number">2</li>
+        <li class="title"><span>공지사항 입니다.</span></li>
+        <li class="name">홍길동</li>
+        <li class="date">2021-03-09</li>
+      </ul>
+      <a href="https://github.com/eunjin0212/Academy/blob/master/home.html"
+        >code</a
+      >
+      <!-- http://eunjin9639.dothome.co.kr/home.html -->
+    </div>
+  </body>
+</html>

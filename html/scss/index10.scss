@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+@mixin base {
+  margin: 0;
+  padding: 0;
+  line-height: 0; //img 태그 object-fit를 사용시 border에 대한 1px 틈을 정확하게 맞춰줍니다.
+  list-style: none;
+  box-sizing: border-box;
+}
+@mixin object($w, $h) {
+  width: $w;
+  height: $h;
+  display: block;
+}
+//ul li { } - 선택 모든 li를 적용함
+//ul > li { }   - ul에 ol태그에 포함된 li는 적용하지 않음
+//ul + li + ol { }  - ol태그를 컨트롤 하기 위해서는 ol에 부모태그인 li를 거쳐서 컨트롤 함
+//ul ~ ol { }   - li 부모태그를 인식하지 않고 바로 ol을 컨트롤 할 때 사용함
+
+.btn {
+  @include object(100px, 30px);
+  border: 1px solid black;
+  text-align: center;
+  line-height: 30px;
+  &:hover ~ .boxspan {
+    // +란 현재 태그 기준으로 하위 태그의 순서에 맞춰서 컨트롤할 태그를 설정할때 이용 됩니다.
+    // ~란 해당 오브젝트 기준으로 하위 태그에 순서와 관계없이 해당 오브젝트를 바로 컨트롤 가능함
+    @include object(100px, 100px);
+    background-color: pink;
+  }
+  &:active + .ck + .box + .boxspan {
+    //hover와 active의 순서를 변경하면 안됨
+    @include object(100px, 100px);
+    background-color: yellow;
+  }
+}
+.btn ~ .boxspan {
+  background-color: red;
+}
+.boxspan {
+  @include object(10px, 10px);
+}
+
+.ck:checked + .box {
+  background-color: pink;
+}
+.box {
+  @include object(200px, 200px);
+  background-color: darkblue;
+}
+
+.banner {
+  color: white;
+  position: relative;
+  width: 600px;
+  height: 100px;
+  background-color: black;
+  top: 0px;
+  left: 0%;
+  padding-left: 0px;
+  transition-duration: 2s;
+  transition-property: padding-left; //애니메이션이 적용되는 css 옵션을 선택하게 됩니다.
+  transition-timing-function: ease;
+  box-sizing: border-box;
+}
+.banner:target {
+  //target은 #태그를 이용할 때 사용되는 속성 입니다.
+  background-color: black;
+  width: 600px;
+  height: 100px;
+  top: 0px;
+  left: 0%;
+  padding-left: 400px;
+}

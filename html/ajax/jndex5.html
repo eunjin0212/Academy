@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>통계</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      span,
+      label {
+        display: inline-block;
+      }
+      .headercss {
+        height: auto;
+      }
+      legend {
+        text-align: center;
+        padding: 0 30px;
+        font-weight: bold;
+      }
+      .ymd {
+        text-align: center;
+      }
+      .sdate {
+        width: 100px;
+        height: 30px;
+        margin: 20px auto;
+        text-indent: 5px;
+      }
+      .list {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        text-align: left;
+        box-sizing: border-box;
+      }
+      .local,
+      .chart {
+        float: left;
+        margin-bottom: 30px;
+      }
+      .local {
+        display: block;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid red;
+        clear: both;
+        margin-right: 10px;
+      }
+      .chart {
+        display: block;
+        width: 500px;
+        height: 20px;
+        background-color: pink;
+        margin-top: 5px;
+      }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        let $y = 0; //1월달 value값이 0이므로 기본 전역변수 값은 0으로 처리함
+
+        $("#sdate").change(function () {
+          $y = $(this).val();
+          //console.log($y);
+          $.fn.graphs($y);
+        });
+
+        //확장함수 사용 해당 값을 ajax로 체크함
+        $.fn.graphs = function ($yy) {
+          $.ajax({
+            url: "front_data.json",
+            cache: false,
+            type: "GET",
+            dataType: "JSON",
+            success: function ($data) {
+              //each 한계
+              //$.map($data["datas"],function($node,$msg){
+              //console.log($data["datas"][$yy]["seoul"]);
+              $.fn.ani($data, $yy);
+              /*
+                            $("#list>.chart").eq(0).animate({
+                                    "width":$data["datas"][$yy]["seoul"]+"px"
+                            },500);
+                            */
+              //});
+              //console.log($yy);
+            },
+            error: function () {
+              console.log("Data error");
+            },
+          });
+        };
+
+        $.fn.graphs($y);
+
+        $.fn.ani = function ($data, $yy) {
+          //실제 데이터에서 10%만 적용되도록 함 (max 9999);
+          //max(999) 데이터 1 = 1px or 1 = 0.5px
+          let $s1 = $data["datas"][$yy]["seoul"];
+          let $s2 = $data["datas"][$yy]["gyeonggi"];
+          let $s3 = $data["datas"][$yy]["allcity"];
+
+          $("#list>.chart")
+            .eq(0)
+            .delay(1000)
+            .animate(
+              {
+                width: $s1 + "px",
+              },
+              500
+            );
+          $("#list>.chart")
+            .eq(1)
+            .delay(1000)
+            .animate(
+              {
+                width: $s2 + "px",
+              },
+              500
+            );
+          $("#list>.chart")
+            .eq(2)
+            .delay(1000)
+            .animate(
+              {
+                width: $s3 + "px",
+              },
+              500
+            );
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <header class="headercss">
+      <fieldset class="mainlist">
+        <legend>2020년 Front-End 취업현황</legend>
+        <div class="ymd">
+          <select id="sdate" class="sdate">
+            <option value="0">1월</option>
+            <option value="1">2월</option>
+            <option value="2">3월</option>
+            <option value="3">4월</option>
+            <option value="4">5월</option>
+            <option value="5">6월</option>
+            <option value="6">7월</option>
+            <option value="7">8월</option>
+            <option value="8">9월</option>
+            <option value="9">10월</option>
+            <option value="10">11월</option>
+            <option value="11">12월</option>
+          </select>
+        </div>
+        <div class="list">
+          <span class="local">서울</span><label class="chart"></label>
+          <span class="local">경기도</span><label class="chart"></label>
+          <span class="local">지방광역시</span><label class="chart"></label>
+        </div>
+      </fieldset>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+/* 100,300,400,500,700,900 */
+
+%body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 100%;
+  height: auto;
+  width: 100%;
+  -ms-overflow-style: hidden;
+  ::-webkit-scrollbar {
+    display: hidden;
+  }
+}
+%none {
+  text-decoration: none;
+  color: black;
+}
+%liulol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+%clear {
+  clear: both;
+}
+%pointer {
+  cursor: pointer;
+}
+*,
+body {
+  @extend %body;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  @extend %none;
+}
+footer,
+header,
+main,
+section,
+label,
+span,
+aside,
+nav {
+  display: block;
+}
+
+footer,
+header,
+main,
+.categoryMenu {
+  min-width: 320px;
+  max-width: 480px;
+  margin: 0 auto;
+  height: auto;
+}
+header {
+  height: auto;
+}
+main {
+  height: 2248px;
+}
+footer {
+  height: 455px;
+}
+section {
+  width: 99.99%;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+ul,
+ol,
+li {
+  @extend %liulol;
+}
+@mixin font($family, $weight, $size, $color) {
+  @if ($family == "noto") {
+    //100,300,400,500,700,900
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+@mixin flex($w, $h, $just, $items) {
+  display: flex;
+  justify-content: $just;
+  align-items: $items;
+  width: $w;
+  height: $h;
+}
+@mixin size($w, $h, $display) {
+  @if ($display != "") {
+    display: $display;
+  } @else {
+    display: "";
+  }
+  width: $w;
+  height: $h;
+}

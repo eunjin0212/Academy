@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+
+.event_top{
+    width: 1200px; margin: 0 auto;
+    margin-top: 40px; cursor: pointer;
+}
+.event_colorbox{
+    background-color:rgb(240,241,245); height: auto; width: inherit;
+     padding-top: 40px; padding-bottom: 40px;
+}
+.event_bottom{
+    width: 1200px; margin: 0 auto; height: auto;
+    margin-bottom: 40px; 
+}
+.event_btop{
+    width: inherit;height: 104px;margin-bottom: 20px;
+}
+.event_bbottom{
+    width: inherit; height: 490px; 
+    display: flex; flex-wrap: nowrap; justify-content: space-between;
+    
+} 
+.event_bbottom>span{
+    width: 280px; height:inherit; float: left; 
+}
+.event_bbottom>span>span{
+    width: inherit; height: 240px; cursor: pointer;
+}
+.event_bbottom>span>span:nth-child(1){
+    margin-bottom: 10px;
+}
+.event_bbottom>span:nth-child(1),.event_bbottom>span:nth-child(4){
+    cursor: pointer;
+}

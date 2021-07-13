@@ -1,0 +1,123 @@
+<?php $data = date("YmdHis"); ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index11.css?v=<?=$data?>" />
+    <title>모바일 회원가입</title>
+    <script src="../jq/jquery.js"></script>
+    <script>
+      $(function () {
+        const $data = [
+          {
+            tels: ["통신사선택", "SKT", "KT", "LGT", "알뜰폰"],
+            emails: ["도메인선택", "naver.com", "nate.com", "gmail.com", "hotmail.com", "직접입력"],
+          },
+        ];
+
+        $data.forEach(($idx, $args) => {
+          for (let $i = 0; $i < $idx["emails"].length; $i++) {
+            let $opt = "<option value=" + $idx["emails"][$i] + ">" + $idx["emails"][$i] + "</option>";
+            $("#emailSel").append($opt);
+          }
+          for (let $j = 0; $j < $idx["tels"].length; $j++) {
+            let $opt2 = "<option value=" + $idx["tels"][$j] + ">" + $idx["tels"][$j] + "</option>";
+            $("#tel").append($opt2);
+          }
+        });
+
+        let $input = '<input type="hidden" value="" id="selfEmailInput"/>';
+        $(".emailLabel").append($input);
+        let $m = "";
+
+        $("#emailSel").change(() => {
+          if ($("#emailSel").val() === "직접입력") {
+            $("#selfEmailInput").val("");
+            $("#emailSel").css("display", "none");
+            $("#selfEmailInput").attr("type", "text");
+            $("#selfEmailInput").css("display", "block");
+            $m = $("#fEmail") + "@" + $("#selfEmailInput").val();
+            $("#mEmail").val($m);
+          } else {
+            $("#selfEmailInput").css("display", "none");
+            $m = $("#fEmail").val() + "@" + $("#emailSel").val();
+            $("#mEmail").val($m);
+            console.log($("#mEmail").val());
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!--em 폰트의 기울기 html5태그 웹에서는 작동이 안되는 경우가 있다-->
+    <header><u>간편 회원가입</u></header>
+    <form action="../portfolio/shop/memberok.php" method="POST" name="s_m" id="mobileJoinForm" enctype="application/x-www-form-urlencoded">
+      <section class="wrapper">
+        <input type="hidden" name="M_email" id="mEmail" />
+        <input type="hidden" name="M_tel" id="mTel" />
+        <div class="inputBox">
+          <span class="textBox">아이디</span>
+          <input type="text" placeholder="아이디를 입력해주세요." name="M_id" id="id" />
+        </div>
+        <div class="inputBox">
+          <span class="textBox">패스워드</span>
+          <input type="password" placeholder="패스워드를 입력해주세요." id="password" name="M_pass" />
+        </div>
+        <div class="inputBox" id="email">
+          <span class="textBox">이메일</span>
+          <span>
+            <input type="text" placeholder="이메일" id="fEmail" />@
+            <label class="emailLabel">
+              <select class="emailSel" id="emailSel"></select>
+            </label>
+          </span>
+        </div>
+        <div class="inputBox" id="phone">
+          <label class="pTextBox">
+            <span>연락처</span>
+            <span>
+              <select class="tel" id="tel"></select>
+            </span>
+          </label>
+          <span>
+            <input type="tel" placeholder="휴대폰번호를 입력해주세요." pattern="[0-9]{11}" maxlength="11" id="tNum" />
+          </span>
+        </div>
+        <div class="btn"><input id="btn" type="button" value="회원가입" /></div>
+      </section>
+    </form>
+  </body>
+  <script>
+    document.getElementById("btn").addEventListener("click", formCheck);
+    function formCheck() {
+      let id = document.getElementById("id");
+      let pass = document.getElementById("password");
+      let fEmail = document.getElementById("fEmail");
+      let emailSel = document.getElementById("emailSel");
+      let selfInput = document.getElementById("selfEmailInput");
+      let tel = document.getElementById("tel");
+      let tNum = document.getElementById("tNum");
+      let mTel = document.getElementById("mTel");
+      if (id.value == "") {
+        alert("아이디를 입력해주세요.");
+      } else if (pass.value == "") {
+        alert("비밀번호를 입력해주세요.");
+      } else if (fEmail.value == "" || emailSel.value == "도메인선택" || emailSel.value == "" || (selfInput.style.display == "block" && selfInput.value == "")) {
+        alert("이메일을 입력해주세요.");
+      } else if (tel.value == "" || tel.value == "통신사선택") {
+        alert("통신사를 선택해주세요.");
+      } else if (tNum.value == "") {
+        alert("휴대폰 번호를 입력해주세요.");
+      } else if (isNaN(Number(tNum.value)) == true) {
+        alert("숫자만 입력하세요.");
+      } else {
+        let t = tel.value + tNum.value;
+        mTel.value = tNum.value;
+        // parseInt(t, 10);
+        document.getElementById("mobileJoinForm").submit();
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <title>비회원 주문조회 출력</title>
+    <style>
+      #box {
+        width: 70%;
+        margin: 0 auto;
+      }
+      .title {
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid lightseagreen;
+        margin-bottom: 15px;
+        color: lightseagreen;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .red {
+        color: lightseagreen;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      table {
+        margin-top: 15px;
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid lightseagreen;
+        border-collapse: collapse;
+        text-align: center;
+      }
+      table > thead > tr,
+      table > tbody > tr {
+        border: 1px solid darkcyan;
+        height: 30px;
+      }
+      table > thead > tr {
+        color: white;
+        font-weight: bold;
+        background-color: lightseagreen;
+      }
+      table > thead > tr > td,
+      table > tbody > tr > td {
+        border: 1px solid darkcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Get으로 ! -->
+    <section id="box">
+      {{check}}
+      <span v-if="list_views">
+        <div class="title">주문 내역 리스트</div>
+        <order v-bind:orders="code" class="red">주문코드 : {{code}}</order>
+        <table>
+          <thead>
+            <tr>
+              <td>번호</td>
+              <td>상품코드</td>
+              <td>상품명</td>
+              <td>상품가격</td>
+              <td>배송상태</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in list">
+              <td>{{data.a1}}</td>
+              <td>{{data.a2}}</td>
+              <td>{{data.a3}}</td>
+              <td>{{data.a4}} 원</td>
+              <td>{{data.a5}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </span>
+    </section>
+  </body>
+  <script>
+    const arrays = [
+      {
+        numbers: "20210707",
+        product_nm: "그린 도브비누",
+        product_code: "123445",
+        product_money: 34200,
+        product_process: "배송중",
+      },
+      {
+        numbers: "20210707",
+        product_nm: "바디샴푸 1EA",
+        product_code: "225566",
+        product_money: 12000,
+        product_process: "배송중",
+      },
+      {
+        numbers: "20210708",
+        product_nm: "제로세정티슈 5EA",
+        product_code: "030101",
+        product_money: 40000,
+        product_process: "배송준비중",
+      },
+    ];
+
+    let h = location.search;
+    let s = h.split(/&|=/);
+    let prod_code = s[3]; //상품code
+    let person = decodeURI(s[1]); //고객명
+    let pw = atob(s[5]); //패스워드
+    // console.log(person);
+
+    // vue + 자체 렌더링! component
+    let v = {
+      props: ["orders"],
+      template: `<div>
+            </div>`,
+    };
+
+    let vm = new Vue({
+      el: "#box",
+      data: {
+        array: arrays,
+        list: [],
+        code: prod_code,
+        // t:true,
+        i: 1,
+        sign: "",
+        list_views: false,
+      },
+      methods: {},
+      components: {},
+      computed: {
+        check: function () {
+          for (let k in this.array) {
+            console.log(this.array[k].numbers);
+            if (this.array[k].numbers == this.code && pw == "a123") {
+              this.sign = "ok";
+            }
+          }
+          // 앞페이지에서 정상적인 값이 아닐 경우 page를 렌더링할지,
+          // 전페이지로 다시 보낼지를 설정하는 조건 부분
+          if (this.sign == "") {
+            alert("주문번호 및 고객정보를 다시한번 확인하세요!!");
+            history.go(-1);
+          } else {
+            this.list_views = true;
+            // 배열 출력 부분
+            let count = 1;
+            for (let j in this.array) {
+              if (this.array[j]["numbers"] == this.code) {
+                this.list.push({
+                  a1: count++,
+                  a2: this.array[j]["product_code"],
+                  a3: this.array[j]["product_nm"],
+                  a4: this.array[j]["product_money"].toLocaleString(),
+                  a5: this.array[j]["product_process"],
+                });
+              }
+            }
+          }
+
+          // if(this.code!=20210707 && this.code!=20210708){
+          // alert("주문내역이 존재하지 않습니다.");
+          // location.href="./index33.html";
+          // }
+        },
+      },
+    });
+  </script>
+</html>

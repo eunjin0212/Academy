@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>transform</title>
+    <style>
+      .box:nth-of-type(1) {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        /*
+        transform : 변경을 사용함 CSS3 
+        translate: 오브젝트의 위치를 이동시킬 때 사용합니다. (x축, y축)
+        */
+      }
+      .box:nth-of-type(1):hover {
+        transform: translate(100px, 100px);
+      }
+      .box:nth-of-type(2) {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        transform: rotate(30deg);
+      }
+      /* 
+      rotate 는 오브젝트를 시계방향 또는 시계반대방향으로 각도를 이용하여 회전시킵니다.
+      */
+      .box:nth-of-type(3) {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+      }
+      .box:nth-of-type(3):hover {
+        transform: scale(1.5, 0.5);
+      }
+      /*
+      scale : 오브젝트의 크기를 변화시킵니다. 0최하 단위이며, 1은 원래크기
+      */
+
+      .box:nth-of-type(4) {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        transform: skew(0, 15deg);
+        /* skew : 오브젝트를 기울기를 사용합니다. (deg를 사용) */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </body>
+</html>

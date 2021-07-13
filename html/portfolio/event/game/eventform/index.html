@@ -1,0 +1,74 @@
+<?php
+    $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="../../../js/jquery.js"></script>
+    <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css?v=<?php echo $v?>" />
+
+    <title>이벤트 개인정보 수집 동의</title>
+  </head>
+  <body>
+    <form method="POST" enctype="application/x-www-form-urlencoded" name="fm">
+      <input type="hidden" name="e_id" value="hong" />
+      <table>
+        <tr>
+          <td colspan="4"><span class="agreeTitle">이벤트 경품 발송을 위해 개인정보 수집 방침에 동의해주세요.</span></td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <span id="agreeText" class="agreeText"></span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <span>개인정보 수집 및 이용 약관에 모두 동의합니다.</span>
+          </td>
+          <td colspan="2">
+            <input type="checkbox" value="N" name="e_agree" id="e_agree" />
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTitle">고객명</td>
+          <td><input type="text" name="e_name" placeholder="고객명" id="e_name" /></td>
+          <td class="tdTitle">휴대폰번호</td>
+          <td>
+            <input type="hidden" name="e_tel" id="e_tel" />
+            <input type="tel" maxlength="3" id="tel0" /> - <input type="tel" maxlength="4" id="tel1" /> - <input type="tel" maxlength="4" id="tel2" />
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTitle">배송지 주소</td>
+          <td>
+            <input type="text" name="e_addr" id="e_addr" maxlength="5" class="postcodify_postcode5" placeholder="우편번호" readonly />
+          </td>
+          <td colspan="2">
+            <input type="button" value="주소찾기" id="addrBtn" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <input type="text" name="e_road" id="e_road" class="postcodify_address" placeholder="도로명 주소" readonly />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <input type="text" name="e_dtc" id="e_dtc" placeholder="상세주소를 입력해주세요." />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <input type="button" value="이벤트참여" id="eventBtn" onclick="eventCheck()" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+  <script src="./index.js?v=<?php echo $v?>"></script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>v-on:input</title>
+  </head>
+  <body>
+    <section id="box">
+      <btn v-bind:type="btn" v-model="btn_name"></btn>
+      <mids v-bind:type="t" name="mid" v-model="mid" id="mid"></mids>
+    </section>
+  </body>
+  <script>
+    Vue.component("", {}); // 전역 컴포넌트 호출할 필요 없음 혼자 알아서 해결
+    let btnInput = {
+      // 지역component 는 밑에 vue에서 핸들링을 해줘야함
+      template: "<input @click='aaa'/>",
+      methods: {
+        aaa() {
+          vue.aa();
+          // 지역 component상에서는 아래의 Vue로 methods핸들링을 조정할 수 있음
+        },
+      },
+    };
+    let midsInput = {
+      template: "<input v-on:input='ups($event.target.value)' ref='mid'>",
+      // $event.target.value : 사용자가 현재 입력한 값을 가져옴
+      // v-on:input 은 키보드 입력시 마다 체크함
+      // v-on:change 쌉가능 다른 키 눌렀을 때
+      methods: {
+        ups(d) {
+          //v-on 함수를 실행함
+          vue.mid = d; //vm에 있는 data중에서 mid값에 데이터를 적용함
+        },
+      },
+    };
+    let vue = new Vue({
+      el: "#box",
+      data: {
+        btn: "button",
+        btn_name: "click",
+        t: "text",
+        mid: "",
+      },
+      methods: {
+        aa() {
+          if (this.mids == "") {
+            alert("아이디 입력");
+            // this.$refs.mid.focus(); $refs는 사용 못함
+            document.getElementById("mid").focus();
+            // 대신 이걸 사용!
+          } else {
+            alert("ok done");
+          }
+        },
+        bb() {},
+      },
+      components: {
+        btn: btnInput,
+        mids: midsInput,
+      },
+      computed: {},
+    });
+  </script>
+</html>

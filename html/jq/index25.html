@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jqUI</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <script>
+      $(document).ready(function () {
+        let $ea = $(".color").length;
+        for (let $i = 0; $i <= $ea; $i++) {
+          $("#col" + $i).draggable();
+        }
+        $("#box").droppable({
+          over: function () {
+            $(this).css("background-color", "red");
+          },
+          out: function () {
+            $(this).css("background-color", "");
+          },
+        });
+      });
+    </script>
+
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+      .color {
+        width: 50px;
+        height: 50px;
+      }
+      #col0 {
+        background-color: red;
+      }
+      #col1 {
+        background-color: green;
+      }
+      #col2 {
+        background-color: yellow;
+      }
+      #col3 {
+        background-color: blue;
+      }
+      #col4 {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <div class="color" id="col0"></div>
+    <div class="color" id="col1"></div>
+    <div class="color" id="col2"></div>
+    <div class="color" id="col3"></div>
+    <div class="color" id="col4"></div>
+  </body>
+</html>

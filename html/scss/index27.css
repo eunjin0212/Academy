@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.divbox {
+  width: 200px;
+  height: 200px;
+  display: block;
+  position: relative;
+  border: 1px solid black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.divbox > .spanbox {
+  width: 100%;
+  height: 50px;
+  display: block;
+  position: absolute;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+span {
+  display: block;
+  width: 100%;
+  height: inherit;
+}
+
+.menu {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  display: block;
+  position: relative;
+}
+
+.menu > div {
+  width: 800px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  background-color: darkorange;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.menuUl {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menuUl > li {
+  width: 160px;
+  height: inherit;
+  display: block;
+  position: relative;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.menuUl > li > .menuSpan {
+  position: absolute;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.menuUl > li:first-of-type {
+  border-left: 0px;
+}
+
+.menuUl > li:last-of-type {
+  border-right: 0px;
+}
+/*# sourceMappingURL=index27.css.map */

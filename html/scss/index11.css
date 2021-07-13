@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+span,
+label {
+  display: block;
+}
+
+header {
+  width: 99.99%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+header > u {
+  font-size: 30px;
+}
+
+section {
+  height: auto;
+  width: 100%;
+  margin: 40px 0;
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  text-indent: 10px;
+}
+
+.btn {
+  width: 90%;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.btn > input {
+  background-color: lightblue;
+  color: gray;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  text-indent: 0;
+}
+
+.wrapper {
+  width: 90%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+.textBox {
+  width: 100px;
+  height: 30px;
+  background-color: lightblue;
+  color: gray;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+
+.inputBox {
+  width: 99.99%;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#email > span:last-child {
+  width: 100%;
+  height: 40px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+}
+
+#email > span:last-child > input,
+#email > span:last-child > .emailLabel {
+  width: 50%;
+  height: 100%;
+}
+
+#email > span:last-child > input > #emailSel,
+#email > span:last-child > .emailLabel > #emailSel {
+  width: 100%;
+  height: 100%;
+}
+
+.pTextBox {
+  width: 99.99%;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pTextBox > span {
+  width: 100px;
+  height: 30px;
+}
+
+.pTextBox > span:first-child {
+  background-color: lightblue;
+  color: gray;
+}
+
+.pTextBox > span > select {
+  width: 100px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+#phone > span:last-child > input {
+  width: 99.99%;
+  height: 40px;
+}
+
+@media screen and (min-width: 200px) and (max-width: 340px) {
+  section {
+    font-size: 12px;
+  }
+  header > u,
+  .btn > input {
+    font-size: 15px;
+  }
+}
+/*# sourceMappingURL=index11.css.map */
