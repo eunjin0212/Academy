@@ -1,0 +1,1 @@
+d:\study\html\curriculum\portfolio\shop\admin\memberok.php
