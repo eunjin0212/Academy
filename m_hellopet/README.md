@@ -1,7 +1,7 @@
 # Hello Pet Mobile 
 _2021. 06. 30 Middle Test_
 
-👉 [Hello Pet 기획서]('https://github.com/eunjin0212/Academy/tree/master/m_hellopet/proposal')
+👉 [Hello Pet 기획서](https://github.com/eunjin0212/Academy/tree/master/m_hellopet/proposal)
 
 ## ✅ Making
 
@@ -80,7 +80,7 @@ font-, margin- 등과 같이 동일한 네임 스페이스를 가지는 속성�
 }
 ```
 2. 자주 쓰는 속성 $변수로 만들기
-3. 파일 분할 이용 [참고]('https://heropy.blog/2018/01/31/sass/')
+3. 파일 분할 이용 [참고](https://heropy.blog/2018/01/31/sass/)
 
 ## ✅ 이후에 시도해 볼 것
 
