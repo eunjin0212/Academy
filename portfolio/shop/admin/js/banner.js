@@ -1,15 +1,19 @@
-Vue.component('', {
-  template: '',
-  props: [''],
+Vue.component("", {
+  template: "",
+  props: [""],
 })
-let vuu_banner = new Vue({
-  el: '#banner',
-  data: {},
+
+let banner = new Vue({
+  el: "#banner",
+  data: {
+    link: "http://링크주소",
+    num: 1,
+  },
   methods: {},
-  components: {},
+  components: {
+    number: { template: "<td></td>" },
+  },
   computed: {
-    abc: function () {
-      console.log(1)
-    },
+    bannerFunc: function () {},
   },
 })

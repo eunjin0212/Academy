@@ -1,6 +1,6 @@
 <meta charset="UTF-8" />
 <article class="banner_wrapper" id="banner">
-  {{abc}}
+  {{bannerFunc}}
   <div class="banner_title">
     <ul>
       <li>메인 베너 리스트</li>
@@ -25,9 +25,9 @@
       </tr>
     </thead>
     <tbody class="banner_tbody" id="banner_tbody">
-      <td>1</td>
+      <number v-text="num"></number>
       <td><img src="#" alt="실제이미지" /></td>
-      <td>http://링크주소</td>
+      <td>{{link}}</td>
       <td>배너명</td>
       <td>
         <select>

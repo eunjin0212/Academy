@@ -10,7 +10,7 @@
   </head>
   <body>
     <section id="box">
-      <input type="text" v-model="msg" /> <== 사용자 입력값을 "msg" Value 값으로 넣음
+      <!-- <input type="text" v-model="msg" /> <== 사용자 입력값을 "msg" Value 값으로 넣음 -->
       <select v-model="msg">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -21,11 +21,11 @@
   </body>
   <script>
     let a = new Vue({
-      el: "#box",
+      el: '#box',
       data: {
-        msg: "",
+        msg: '',
       },
       methods: {},
-    });
+    })
   </script>
 </html>

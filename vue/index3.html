@@ -36,46 +36,46 @@
     <!-- <input type="button" value="클릭" onclick="bbb(this.value)"> -->
   </body>
   <script>
-    let $ss = "hi";
+    let $ss = 'hi'
     let aa = new Vue({
-      el: "#box3",
+      el: '#box3',
       data: {
-        btn: "button",
-        in1: "text",
-        btn_name: "로그인",
-        input1: "",
+        btn: 'button',
+        in1: 'text',
+        btn_name: '로그인',
+        input1: '',
       },
       methods: {
         loginok: function () {
-          if (this.input1 == "") {
+          if (this.input1 == '') {
             //this: vue에서는 data 인스턴스를 지칭함
-            alert("아이디를 입력하세요");
-            this.$refs.mid.focus();
-            console.log($ss);
+            alert('아이디를 입력하세요')
+            this.$refs.mid.focus()
+            console.log($ss)
           } else {
-            location.href = "http://naver.com";
+            location.href = 'http://naver.com'
           }
         },
       },
-    });
+    })
 
     let a = new Vue({
-      el: "#box",
+      el: '#box',
       data: {
-        btn: "click",
+        btn: 'click',
       },
       methods: {
         //행동역할 + 이벤트 처리
         bb: function () {
           //vue 이벤트 함수
           // alert("test");
-          document.getElementById("box2").style.display = "block";
+          document.getElementById('box2').style.display = 'block'
           //vue 부모 범위 밖에 있는 id값을 컨트롤 할때 사용함
         },
         cc: function () {
-          alert("hi");
+          alert('hi')
         },
       },
-    });
+    })
   </script>
 </html>

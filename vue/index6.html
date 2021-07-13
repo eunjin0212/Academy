@@ -19,53 +19,52 @@
     </section>
     <section id="vue2">
       <input type="checkbox" v-model="ck2" />
-      <!-- a : 뷰전체의 함수를 말하며, text1은 html의 text가 아니라 뷰 안에 데이터에 있는 익명의 변수 text1이다. -->
       <input type="button" v-model="btn2" v-on:click="bbb" />
     </section>
   </body>
   <script>
     let a = new Vue({
-      //vue에서는 var, let, const같은 변수 속성 값을 사용하지 못함!
-      el: "#vue",
+      // vue에서는 var, let, const같은 변수 속성 값을 사용하지 못함!
+      el: '#vue',
       data: {
         text1: null, // 1. 여기다가 값을 넣으면
-        btn: "클릭",
+        btn: '클릭',
       },
       methods: {
         //methods안에는 변수를 못 쓴다. vue밖에 써서 데려와야한다.
         abc: function (aaa) {
           // 3. 1에서 입력한 값을 함수에 가져옴
           // 함수에 인자값을 적용함
-          alert(aaa);
-          location.href = "index6.html?aaa=" + aaa;
+          alert(aaa)
+          location.href = 'index6.html?aaa=' + aaa
         },
       },
-    });
+    })
 
     // 뷰의 체크박스 vue checkbox checked 확인 script
     let b = new Vue({
-      el: "#vue2",
+      el: '#vue2',
       data: {
-        ck: "",
+        ck: '',
         // checked 되면 true , 안되면 '' 빈 칸
         ck2: false,
         // checked 되면 true , 안되면 false
 
-        btn2: "확인",
+        btn2: '확인',
       },
       methods: {
         bbb: function () {
-          //vue checked는 value값으로 검사함.
+          // vue checked는 value값으로 검사함.
           if (this.ck2 == false) {
-            console.log(this.ck2);
-            alert("가입 진행을 위해 동의에 체크해주세요.");
+            console.log(this.ck2)
+            alert('가입 진행을 위해 동의에 체크해주세요.')
           } else {
             // this.ck2 = true;
-            console.log(this.ck2);
-            alert("회원가입 폼으로 넘어갑니다.");
+            console.log(this.ck2)
+            alert('회원가입 폼으로 넘어갑니다.')
           }
         },
       },
-    });
+    })
   </script>
 </html>
