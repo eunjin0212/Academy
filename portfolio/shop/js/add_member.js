@@ -1,6 +1,5 @@
 //우편번호 API연동
 $(function () {
-  console.log('addsearch')
   $('#addsearch').postcodifyPopUp()
 })
 // document.getElementById('addsearch').postcodifyPopUp()
