@@ -28,7 +28,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   /* 모바일 폰트 크기 조정에 따른 관련 부분 (모바일 사이즈와 관계없이 동일한 크기) */
   -ms-text-size-adjust: 100%;
   /* IE */
@@ -67,15 +67,15 @@ textarea:focus {
 }
 
 button,
-input[type='button'],
-input[type='submit'],
-input[type='reset'],
-input[type='checkbox'],
-input[type='radio'] {
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"] {
   cursor: pointer;
 }
 button,
-input[type='button'] {
+input[type="button"] {
   border: none;
   outline: none;
 }
@@ -124,7 +124,7 @@ var {
 }
 
 .section {
-  height: 800px;
+  height: auto;
 }
 
 .footer {
