@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1" />
-    <title>Ajax (1일차) - Javascript (json)</title>
+    <title>Javascript (json)</title>
     <!--json : Javascript Object Notation -->
     <style>
       .survey {
@@ -18,27 +18,27 @@
     <input type="button" value="참여하기" />
   </body>
   <script>
-    let jm;
+    let jm
     function windowck() {
       if (window.XMLHttpRequest) {
-        return new XMLHttpRequest();
+        return new XMLHttpRequest()
       }
     }
     function fileopen() {
       if (jm.readyState == XMLHttpRequest.DONE && jm.status == 200) {
-        jsonfile(this);
+        jsonfile(this)
       }
     }
-    jm = windowck();
-    jm.onreadystatechange = fileopen;
-    jm.open("GET", "./index4.json?v=1", true);
-    jm.send();
+    jm = windowck()
+    jm.onreadystatechange = fileopen
+    jm.open("GET", "./index4.json?v=1", true)
+    jm.send()
     function jsonfile(a) {
       //parsing(Backend-분해),parse(Front-조립)
-      let j = JSON.parse(a.response);
+      let j = JSON.parse(a.response)
       // console.log(j.length);
-      let f;
-      let html = "";
+      let f
+      let html = ""
       /*
         for(f in j){
         */
@@ -58,17 +58,10 @@
       //foreach로 제작하기
       j.forEach(function (a, b, c) {
         //console.log(b);
-        let ids = "r" + b;
-        html +=
-          "<input type='radio' id='" +
-          ids +
-          "' value='" +
-          a +
-          "'>" +
-          a +
-          "<br>";
-      });
-      document.getElementById("survey").innerHTML = html;
+        let ids = "r" + b
+        html += "<input type='radio' id='" + ids + "' value='" + a + "'>" + a + "<br>"
+      })
+      document.getElementById("survey").innerHTML = html
     }
   </script>
 </html>
