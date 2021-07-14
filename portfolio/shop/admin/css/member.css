@@ -3,9 +3,9 @@
 .member_article {
   width: 1200px;
   height: auto;
-  min-height: 600px;
+  min-height: 730px;
   text-align: center;
-  margin: 0 auto 20px;
+  margin: 0 auto;
 }
 
 /**** 전체목록 ****/
