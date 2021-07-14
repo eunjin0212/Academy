@@ -1,0 +1,31 @@
+<article id="banner_input" class="banner_wrapper">
+  <div class="banner_title">
+    <ul>
+      <li>신규 배너등록</li>
+    </ul>
+  </div>
+  <form name="bfrm" enctype="multipart/form-data">
+    <input type="hidden" name="banner_url" value="http://eunjin9639.dothome.co.kr" />
+    <table class="banner_table inputBannerTable">
+      <tbody class="banner_tbody inputBannerTbody">
+        <tr>
+          <td>배너명</td>
+          <td><input type="text" name="bname" id="" v-model="bname" /></td>
+        </tr>
+        <tr>
+          <td>링크주소</td>
+          <td><input type="text" name="blink" id="" v-model="blink" /></td>
+        </tr>
+        <tr>
+          <td>배너 이미지</td>
+          <td><input type="file" accept="image/png, image/gif, image/jpg, image/jpeg, image/svg" name="bimg" v-model="bimg" /> <span>* 업로드 배너 용량은 3MB 이하 입니다.</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <label class="banner_input_btnBox">
+      <input type="button" v-model="register" @click="uploadBanner" />
+      <input type="button" v-model="list" @click="backToList" />
+    </label>
+  </form>
+</article>
+<script src="./js/bannerInput.js?v=<?=$v?>"></script>
