@@ -1,133 +1,295 @@
-.config_aticle {
-    width: 1200px;
-    height: 750px;
-    margin: 0 auto;
-    text-align: center;
+@charset "UTF-8";
+/* basic setting */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.config_aticle_title {
-    font-weight: 500;
-    height: 60px;
-    display: table-cell;
-    vertical-align: middle;
+body,
+html,
+div,
+span,
+label,
+section,
+aside,
+footer,
+header,
+nav,
+video {
+  -ms-overflow-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
 }
 
-.config_aticle_memo {
-    display: block;
-    height: 25px;
-    font-size: 12px;
-    text-align: left;
+body ::-webkit-scrollbar, html ::-webkit-scrollbar, div ::-webkit-scrollbar, span ::-webkit-scrollbar, label ::-webkit-scrollbar, section ::-webkit-scrollbar, aside ::-webkit-scrollbar, footer ::-webkit-scrollbar, header ::-webkit-scrollbar, nav ::-webkit-scrollbar, video ::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a:active,
+a :hover {
+  outline: 0;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+input,
+textarea {
+  outline: 0;
+  overflow: auto;
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+input[type="submit"], input[type="reset"], input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+button,
+input[type="button"] {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+table {
+  /* border-collapse: collapse; */
+  border-spacing: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+/* 섹션 */
+.header {
+  width: 100%;
+  height: 100px;
+  line-height: inherit;
+  background-color: #464646;
+  position: relative;
+}
+
+.section {
+  min-height: 730px;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  line-height: inherit;
+  border-top: 1px solid #464646;
+  margin-top: 20px;
+}
+
+.wrapper {
+  width: 1200px;
+  height: auto;
+  line-height: inherit;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.title {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 100%;
+  font-weight: 600;
+  background-color: #f2f2f2;
+}
+
+.title > ul {
+  width: 1200px;
+  height: auto;
+  line-height: inherit;
+  text-align: left;
+  text-indent: 5px;
+}
+
+.title > ul > li {
+  display: inline-block;
+}
+
+.config_article {
+  width: 1200px;
+  height: auto;
+  line-height: inherit;
+  margin: 0 auto;
+}
+
+.config_article > .config_title {
+  width: 1200px;
+  height: 60px;
+  line-height: 60px;
+  font-weight: 500;
+}
+
+.config_article > .config_title_memo {
+  width: inherit;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
 }
 
 /* form */
-.config_aticle_table {
-    width: 100%;
-    height: auto;
+.config_table {
+  width: 100%;
+  height: auto;
+  line-height: inherit;
 }
 
-.config_aticle_table_tr {
-    height: 37px;
-
+.config_table > tbody > tr {
+  height: 37px;
 }
 
-.config_aticle_table_tr>th {
-    width: 15%;
-    text-align: left;
-    border-top: 1px solid #ccc;
-    border-left: 1px solid white;
+.config_table > tbody > tr > th {
+  width: 15%;
+  text-align: left;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid white;
 }
 
-
-.config_aticle_table_tr td {
-    vertical-align: middle;
-    height: 35px;
-    padding-left: 5px;
-    border-right: 1px solid white;
-    border-top: 1px solid #ccc;
-    text-align: left;
+.config_table > tbody > tr > td {
+  border-top: 1px solid #ccc;
+  border-right: 1px solid white;
+  height: 35px;
+  padding-left: 5px;
+  text-align: left;
+  vertical-align: middle;
 }
 
-.config_aticle_table_tr td select {
-    height: 80%;
-    width: 100px;
+.config_table > tbody > tr > td > select {
+  width: auto;
+  height: auto;
+  line-height: inherit;
 }
 
 .bottom_line {
-    border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .config_input {
-    width: 200px;
-    height: 25px;
-    border: none;
-    background-color: lightgray;
-    text-indent: 5px;
+  width: 200px;
+  height: 25px;
+  border: none;
+  background-color: lightgray;
+  text-indent: 5px;
 }
 
 .config_post_number {
-    width: 70px;
+  width: 70px;
 }
 
-.config_admin>td {
-    height: 50px;
+.config_admin > td {
+  height: 50px;
 }
 
 .config_admin_input {
-    width: 250px;
-    height: 25px;
-    border: none;
-    background-color: lightgray;
-    text-indent: 5px;
+  width: 250px;
+  height: 25px;
+  border: none;
+  background-color: lightgray;
+  text-indent: 5px;
 }
 
 .config_memo {
-    display: block;
-    font-size: 12px;
-    color: rgb(46, 102, 49);
+  display: block;
+  font-size: 12px;
+  color: #2e6631;
 }
 
 .config_admin_second_title {
-    font-weight: 500;
-    height: 60px;
-    display: table-cell;
-    vertical-align: bottom;
-    padding-bottom: 10px;
-    box-sizing: border-box;
+  font-weight: 500;
+  height: 60px;
+  display: table-cell;
+  vertical-align: bottom;
+  padding-bottom: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .config_setting_btn {
-    width: 60px;
-    height: 30px;
-    border: none;
-    background-color: tomato;
-    color: white;
-    margin-top: 20px;
+  width: 60px;
+  height: 30px;
+  border: none;
+  background-color: #708c84;
+  color: white;
+  margin-top: 20px;
+  border-radius: 5px;
 }
 
 /* 파빌리온 관련 on, off 형태 */
-
 .fimg {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ccc;
-    display: inline-block;
-    margin-right: 10px;
-    overflow: hidden;
-    cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  margin-right: 10px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .fdel {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 12px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 #fimg_on {
-    display: none;
+  display: none;
 }
 
 .fileNotice {
-    margin-right: 10px;
-} 
+  margin-right: 10px;
+}
+/*# sourceMappingURL=config.css.map */
