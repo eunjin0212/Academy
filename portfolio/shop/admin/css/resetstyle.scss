@@ -1,0 +1,222 @@
+/* basic setting */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+%body {
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: {
+    size: 100%;
+    family: "Noto Sans KR", sans-serif;
+  }
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+%none {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+%liulol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin size($w, $h, $line) {
+  width: $w;
+  height: $h;
+  @if ($line == "") {
+    line-height: initial;
+  } @else if($line == "$h") {
+    line-height: $h;
+  }
+}
+@mixin flex($dir, $jus, $ali) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jus;
+  align-items: $ali;
+}
+@mixin button($back, $color, $radius, $ver) {
+  @if ($ver == "") {
+    vertical-align: unset;
+  } @else {
+    vertical-align: $ver;
+  }
+  @if ($radius == "") {
+    border-radius: unset;
+  } @else {
+    border-radius: $radius;
+  }
+  background-color: $back;
+  color: $color;
+}
+
+body,
+html,
+div,
+span,
+label,
+section,
+aside,
+footer,
+header,
+nav,
+video {
+  @extend %body;
+}
+
+a {
+  @extend %none;
+  &:active,
+  :hover {
+    outline: 0;
+    color: white;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+input,
+textarea {
+  outline: 0;
+  overflow: auto;
+  &:focus {
+    outline: 0;
+  }
+}
+
+input {
+  &[type="reset"],
+  &[type="checkbox"],
+  &[type="radio"] {
+    cursor: pointer;
+  }
+}
+input[type="submit"],
+input[type="button"],
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+table {
+  /* border-collapse: collapse; */
+  border-spacing: 0;
+}
+
+ul,
+ol,
+li {
+  @extend %liulol;
+}
+
+.clear {
+  clear: both;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+/* 섹션 */
+.header {
+  @include size(100%, 100px, "");
+  background-color: rgb(70, 70, 70);
+  position: relative;
+}
+
+.section {
+  min-height: 730px;
+}
+
+.footer {
+  @include size(100%, 100px, "");
+  border-top: 1px solid rgb(70, 70, 70);
+  margin-top: 20px;
+}
+.wrapper {
+  @include size(1200px, auto, "");
+  text-align: center;
+  margin: 0 auto;
+}
+.title {
+  @include size(100%, 40px, "$h");
+  font: {
+    size: 100%;
+    weight: 600;
+  }
+  background-color: #f2f2f2;
+  & > ul {
+    @include size(1200px, 40px, "$h");
+    text: {
+      align: left;
+      indent: 5px;
+    }
+    & > li {
+      @include size(auto, 40px, "$h");
+      display: inline-block;
+    }
+  }
+}
+.subTitle {
+  @include size(1200px, 50px, "$h");
+  text: {
+    indent: 10px;
+    align: left;
+  }
+  margin-top: 10px;
+}
+.search_form {
+  & > input,
+  & > select {
+    height: 25px;
+    vertical-align: top;
+  }
+  & > input {
+    &[type="submit"] {
+      @include size(60px, 25px, "$h");
+      background-color: rgb(112, 140, 132);
+      color: white;
+      font-size: 90%;
+      border-radius: 5px;
+    }
+    &[type="text"] {
+      width: 200px;
+      font-size: 90%;
+    }
+  }
+}
+
+.table {
+  @include size(1200px, auto, "");
+  margin: 0 auto 10px;
+  text-align: center;
+  font-size: 100%;
+}
