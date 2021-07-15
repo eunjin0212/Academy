@@ -1,6 +1,6 @@
 <meta charset="UTF-8" />
-<article class="member_article">
-  <div class="member_article_title">
+<article class="wrapper">
+  <div class="title">
     <ul>
       <li>전체목록 |</li>
       <li>총 회원수 <span>235</span> 명 중,</li>
@@ -10,8 +10,8 @@
   </div>
 
   <!-- 회원아이디 검색  -->
-  <form id="sform" name="sform" method="GET" action="admin_member.html" onsubmit="return search()" enctype="application/x-www-form-urlencoded">
-    <div class="member_option">
+  <aside class="subTitle member_subTitle">
+    <form id="sform" name="sform" method="GET" action="admin_member.html" onsubmit="return search()" enctype="application/x-www-form-urlencoded" class="search_form">
       <select id="search_part" name="search_part">
         <option value="sid" selected>아이디</option>
         <option value="sname">이름</option>
@@ -19,18 +19,18 @@
       </select>
       <input type="text" id="stext" name="stext" placeholder="검색할 단어를 입력하세요." />
       <input type="submit" class="member_idSearchBtn" value="검색" />
-    </div>
-  </form>
+    </form>
+  </aside>
 
   <!-- 메모 -->
-  <div class="member_memo">회원자료 삭제시 다른 회원이 기존 회원 아이디를 사용하지 못하도록 회원 아이디, 이름, 닉네임은 삭제하지 않고 영구 보관합니다.</div>
+  <div class="member_notice">회원자료 삭제시 다른 회원이 기존 회원 아이디를 사용하지 못하도록 회원 아이디, 이름, 닉네임은 삭제하지 않고 영구 보관합니다.</div>
 
   <!-- 회원 추가버튼  -->
   <span class="member_addMemberBtn">
     <button type="button" id="add_member">회원 추가</button>
   </span>
   <form name="mfrm" method="POST" enctype="application/x-www-form-urlencoded">
-    <table class="member_table">
+    <table class="table member_table">
       <!-- 회원 리스트 테이블 제목 -->
       <thead>
         <tr>
@@ -79,14 +79,12 @@
       </thead>
 
       <!-- 회원 리스트 -->
-      <tbody class="member_tableList" id="member_tableList"></tbody>
-
-      <!-- 가입 회원 없음 -->
-      <tfoot class="member_tableNone" id="member_tableNone">
-        <tr>
+      <tbody class="member_tbody" id="member_tableList">
+        <!-- 가입 회원 없음 -->
+        <tr class="member_tableNone" id="member_tableNone">
           <td colspan="15">가입된 회원이 없습니다.</td>
         </tr>
-      </tfoot>
+      </tbody>
     </table>
   </form>
 
@@ -99,15 +97,15 @@
 
   <!-- 페이지 번호 -->
   <span class="pageing">
-    <label class="page_btn" id="front_page">맨앞</label>
-    <label class="page_btn" id="prev_page">이전</label>
+    <label id="front_page">맨앞</label>
+    <label id="prev_page">이전</label>
     <label>
-      <ul class="member_page">
+      <ul>
         <li>1</li>
       </ul>
     </label>
-    <label class="page_btn" id="next_page">다음</label>
-    <label class="page_btn" id="back_page">맨끝</label>
+    <label id="next_page">다음</label>
+    <label id="back_page">맨끝</label>
   </span>
 </article>
 

@@ -1,0 +1,163 @@
+@charset "UTF-8";
+@import "./resetstyle.scss";
+
+.member_notice {
+  @include size(1200px, 40px, "$h");
+  font-size: 100%;
+  text-indent: 20px;
+  background-color: rgba(112, 140, 132, 0.15);
+}
+
+.member_table {
+  & > thead {
+    & > tr {
+      height: 35px;
+      font-size: 90%;
+      & > th {
+        font: {
+          size: 115%;
+          weight: 400;
+        }
+        background-color: rgb(166, 166, 166);
+        color: white;
+        border-right: 1px solid white;
+      }
+      &:nth-child(2) {
+        & > th {
+          line-height: 16px;
+          padding: 5px;
+          border-top: 1px solid white;
+        }
+      }
+      &:nth-child(1) {
+        border-top: 1px solid white;
+        th {
+          &:nth-of-type(1) {
+            width: 3%;
+          }
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+            width: 12%;
+          }
+          &:nth-of-type(4) {
+            width: 28%;
+          }
+          &:nth-of-type(5),
+          &:nth-of-type(6),
+          &:nth-of-type(7) {
+            width: 10%;
+          }
+          &:nth-of-type(9) {
+            border-right: 1px solid rgb(166, 166, 166);
+          }
+        }
+      }
+    }
+  }
+}
+
+.member_tbody {
+  & > tr {
+    height: 45px;
+    & > td {
+      border: 1px solid rgb(166, 166, 166);
+      &:nth-child(4) {
+        & > label:first-child {
+          margin-right: 30px;
+        }
+      }
+    }
+    &:nth-of-type(even) {
+      & > td {
+        &:nth-of-type(3) {
+          text: {
+            align: left;
+            indent: 10px;
+          }
+        }
+        &:nth-of-type(6) {
+          display: grid;
+          place-content: center;
+          & > select {
+            @include size(82px, 19px, "");
+          }
+        }
+        &:nth-of-type(9) {
+          display: revert;
+          line-height: 70px;
+          & > button {
+            @include size(40px, 25px, "");
+            border-radius: 5px;
+            margin: 0 2.5px;
+            text-align: center;
+            vertical-align: middle;
+            &:nth-of-type(1) {
+              background-color: rgb(112, 140, 150);
+              color: white;
+            }
+            &:nth-of-type(2) {
+              background-color: rgb(112, 120, 132);
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    &:nth-of-type(odd) {
+      & > td {
+        &:nth-of-type(1) {
+          text: {
+            align: left;
+            indent: 10px;
+          }
+        }
+        &:nth-of-type(2) {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+.pageing {
+  @include flex(row, center, "");
+  @include size(1200px, 30px, "");
+  margin: 0 auto;
+  & > label {
+    @include size(50px, 30px, "$h");
+    @include button(rgb(112, 140, 132), white, 5px, top);
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 5px;
+    &:nth-of-type(3) {
+      & > ul {
+        height: 30px;
+        margin: 0 auto;
+        & > li {
+          @include size(40px, 30px, "$h");
+          font-size: 85%;
+          margin-right: 8px;
+          cursor: pointer;
+          display: inline-block;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.member_addMemberBtn,
+.member_tableBtns {
+  @include size(1200px, auto, "");
+  display: block;
+  text-align: right;
+  padding: 15px 0;
+  & > button {
+    @include size(100px, 30px, "");
+    @include button(rgb(112, 140, 132), white, 5px, "");
+    font-size: 90%;
+  }
+}

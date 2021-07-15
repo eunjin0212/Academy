@@ -1,34 +1,161 @@
 @charset "UTF-8";
+/* basic setting */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
-.member_article {
+body,
+html,
+div,
+span,
+label,
+section,
+aside,
+footer,
+header,
+nav,
+video {
+  -ms-overflow-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+body ::-webkit-scrollbar, html ::-webkit-scrollbar, div ::-webkit-scrollbar, span ::-webkit-scrollbar, label ::-webkit-scrollbar, section ::-webkit-scrollbar, aside ::-webkit-scrollbar, footer ::-webkit-scrollbar, header ::-webkit-scrollbar, nav ::-webkit-scrollbar, video ::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a:active,
+a :hover {
+  outline: 0;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+input,
+textarea {
+  outline: 0;
+  overflow: auto;
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+input[type="reset"], input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+table {
+  /* border-collapse: collapse; */
+  border-spacing: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+/* 섹션 */
+.header {
+  width: 100%;
+  height: 100px;
+  line-height: initial;
+  background-color: #464646;
+  position: relative;
+}
+
+.section {
+  min-height: 730px;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  line-height: initial;
+  border-top: 1px solid #464646;
+  margin-top: 20px;
+}
+
+.wrapper {
   width: 1200px;
   height: auto;
-  min-height: 730px;
+  line-height: initial;
   text-align: center;
   margin: 0 auto;
 }
 
-/**** 전체목록 ****/
-.member_article_title {
+.title {
   width: 100%;
-  font-size: 100%;
-  font-weight: 600;
   height: 40px;
   line-height: 40px;
-  background-color: rgb(242, 242, 242);
+  font-size: 100%;
+  font-weight: 600;
+  background-color: #f2f2f2;
 }
-.member_article_title > ul {
+
+.title > ul {
   width: 1200px;
   height: auto;
+  line-height: initial;
   text-align: left;
   text-indent: 5px;
 }
-.member_article_title > ul > li {
+
+.title > ul > li {
   display: inline-block;
 }
 
-/**** 회원아이디 검색 ****/
-.member_option {
+.subTitle {
   width: 1200px;
   height: 50px;
   line-height: 50px;
@@ -36,18 +163,38 @@
   text-align: left;
   margin-top: 10px;
 }
-.member_option > input,
-.member_option > select {
+
+.search_form > input,
+.search_form > select {
   height: 25px;
   vertical-align: top;
 }
-.member_option > input:nth-of-type(1) {
+
+.search_form > input[type="submit"] {
+  width: 60px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #708c84;
+  color: white;
+  font-size: 90%;
+  border-radius: 5px;
+}
+
+.search_form > input[type="text"] {
   width: 200px;
   font-size: 90%;
 }
 
-/**** 테이블 상단 : 메모 ****/
-.member_memo {
+.table {
+  width: 1200px;
+  height: auto;
+  line-height: initial;
+  margin: 0 auto 10px;
+  text-align: center;
+  font-size: 100%;
+}
+
+.member_notice {
   width: 1200px;
   height: 40px;
   line-height: 40px;
@@ -56,197 +203,184 @@
   background-color: rgba(112, 140, 132, 0.15);
 }
 
-/**** 테이블 ****/
-.member_table {
-  width: 1200px;
-  height: auto;
-  background-color: rgb(242, 242, 242);
-  border: 1px solid rgb(166, 166, 166);
-  margin-bottom: 10px;
-}
-.member_table tr {
+.member_table > thead > tr {
   height: 35px;
   font-size: 90%;
 }
-.member_table th {
+
+.member_table > thead > tr > th {
   font-size: 115%;
   font-weight: 400;
-  background-color: rgb(166, 166, 166);
+  background-color: #a6a6a6;
   color: white;
   border-right: 1px solid white;
 }
-.member_table tr:nth-child(2) th {
+
+.member_table > thead > tr:nth-child(2) > th {
   line-height: 16px;
   padding: 5px;
-}
-
-/* 테이블 col 비율 */
-.member_table tr:first-child th:nth-of-type(1) {
-  width: 3%;
-}
-.member_table tr:first-child th:nth-of-type(2),
-.member_table tr:first-child th:nth-of-type(3) {
-  width: 12%;
-}
-.member_table tr:first-child th:nth-of-type(4) {
-  width: 28%;
-}
-.member_table tr:first-child th:nth-of-type(5),
-.member_table tr:first-child th:nth-of-type(6),
-.member_table tr:first-child th:nth-of-type(7) {
-  width: 10%;
-}
-
-/* 테이블 외곽선 */
-.member_table td {
-  border: 1px solid rgb(166, 166, 166);
-}
-.member_table tr:first-child th:nth-of-type(9) {
-  border-right: 1px solid rgb(166, 166, 166);
-}
-.member_table tr:nth-child(2) th {
   border-top: 1px solid white;
 }
 
-/* 테이블 text 셋팅 */
-.member_name,
-.member_nick {
+.member_table > thead > tr:nth-child(1) {
+  border-top: 1px solid white;
+}
+
+.member_table > thead > tr:nth-child(1) th:nth-of-type(1) {
+  width: 3%;
+}
+
+.member_table > thead > tr:nth-child(1) th:nth-of-type(2), .member_table > thead > tr:nth-child(1) th:nth-of-type(3) {
+  width: 12%;
+}
+
+.member_table > thead > tr:nth-child(1) th:nth-of-type(4) {
+  width: 28%;
+}
+
+.member_table > thead > tr:nth-child(1) th:nth-of-type(5), .member_table > thead > tr:nth-child(1) th:nth-of-type(6), .member_table > thead > tr:nth-child(1) th:nth-of-type(7) {
+  width: 10%;
+}
+
+.member_table > thead > tr:nth-child(1) th:nth-of-type(9) {
+  border-right: 1px solid #a6a6a6;
+}
+
+.member_tbody > tr {
+  height: 45px;
+}
+
+.member_tbody > tr > td {
+  border: 1px solid #a6a6a6;
+}
+
+.member_tbody > tr > td:nth-child(4) > label:first-child {
+  margin-right: 30px;
+}
+
+.member_tbody > tr:nth-of-type(even) > td:nth-of-type(3) {
   text-align: left;
   text-indent: 10px;
 }
-.member_mailVerify {
-  color: red;
-}
-.member_tableList > tr:first-child > td:nth-child(4) > label:first-child {
-  margin-right: 30px;
-}
-.user_modify {
-  cursor: pointer;
-}
-.levelSel {
+
+.member_tbody > tr:nth-of-type(even) > td:nth-of-type(6) {
+  display: -ms-grid;
   display: grid;
   place-content: center;
 }
-.levelSel > select {
+
+.member_tbody > tr:nth-of-type(even) > td:nth-of-type(6) > select {
   width: 82px;
   height: 19px;
-}
-/**** 테이블 리스트 없음 ****/
-/* .member_tableList {
-   
-} */
-/* .member_tableNone {
-  display: none;
-}  */
-
-/**** 페이지 번호 ****/
-.member_page {
-  height: 30px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-}
-.member_page > li {
-  width: 40px;
-  height: inherit;
-  line-height: 30px;
-  text-align: center;
-  font-size: 85%;
-  background-color: rgb(242, 242, 242);
-  padding: 0 8px 0 8px;
-  margin-right: 8px;
-  cursor: pointer;
-  display: inline-block;
-  border-radius: 3px;
-}
-.member_page > li:last-child {
-  margin-right: 0;
-}
-.member_page > li:hover {
-  background-color: rgb(112, 140, 132);
-  color: white;
-}
-.pageing {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 1200px;
-  height: 30px;
-  margin: 0 auto;
-}
-.page_btn {
-  display: block;
-  width: 50px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  background-color: rgb(112, 140, 132);
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
-}
-.pageing > label {
-  display: inline-block;
-  margin-left: 5px;
+  line-height: initial;
 }
 
-/**** 버튼 ****/
-.member_idSearchBtn {
-  width: 60px;
-  height: 25px;
-  border-radius: 3px;
-  background-color: rgb(112, 140, 132);
-  color: white;
-  font-size: 90%;
-  border: none;
-  vertical-align: top;
-}
-.member_addMemberBtn,
-.member_tableBtns {
-  display: block;
-  width: 1200px;
-  height: auto;
-  text-align: right;
-}
-.member_addMemberBtn > button,
-.member_tableBtns > button {
-  width: 100px;
-  height: 30px;
-  border-radius: 3px;
-  background-color: rgb(112, 140, 132);
-  color: white;
-  font-size: 90%;
-  border: none;
-}
-.member_idSearchBtn:hover,
-.member_addMemberBtn > button:hover,
-.member_tableBtns > button:hover {
-  box-shadow: 0 3px 5px 0 rgba(100, 100, 100, 0.35);
-}
-.member_addMemberBtn {
-  padding: 15px 0 15px 0;
-}
-.member_tableBtns {
-  padding: 5px 0 15px 0;
-}
-.user_modify {
+.member_tbody > tr:nth-of-type(even) > td:nth-of-type(9) {
   display: revert;
   line-height: 70px;
 }
-.user_modify > button {
-  border: none;
-  outline: none;
+
+.member_tbody > tr:nth-of-type(even) > td:nth-of-type(9) > button {
   width: 40px;
+  height: 25px;
+  line-height: initial;
   border-radius: 5px;
   margin: 0 2.5px;
   text-align: center;
   vertical-align: middle;
-  height: 25px;
 }
-.user_modify > button:nth-of-type(1) {
-  background-color: rgb(112, 140, 150);
+
+.member_tbody > tr:nth-of-type(even) > td:nth-of-type(9) > button:nth-of-type(1) {
+  background-color: #708c96;
   color: white;
 }
-.user_modify > button:nth-of-type(2) {
-  background-color: rgb(112, 120, 132);
+
+.member_tbody > tr:nth-of-type(even) > td:nth-of-type(9) > button:nth-of-type(2) {
+  background-color: #707884;
   color: white;
 }
+
+.member_tbody > tr:nth-of-type(odd) > td:nth-of-type(1) {
+  text-align: left;
+  text-indent: 10px;
+}
+
+.member_tbody > tr:nth-of-type(odd) > td:nth-of-type(2) {
+  color: red;
+}
+
+.pageing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: "";
+      -ms-flex-align: "";
+          align-items: "";
+  width: 1200px;
+  height: 30px;
+  line-height: initial;
+  margin: 0 auto;
+}
+
+.pageing > label {
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: top;
+  border-radius: 5px;
+  background-color: #708c84;
+  color: white;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.pageing > label:nth-of-type(3) > ul {
+  height: 30px;
+  margin: 0 auto;
+}
+
+.pageing > label:nth-of-type(3) > ul > li {
+  width: 40px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 85%;
+  margin-right: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.pageing > label:nth-of-type(3) > ul > li:last-child {
+  margin-right: 0;
+}
+
+.member_addMemberBtn,
+.member_tableBtns {
+  width: 1200px;
+  height: auto;
+  line-height: initial;
+  display: block;
+  text-align: right;
+  padding: 15px 0;
+}
+
+.member_addMemberBtn > button,
+.member_tableBtns > button {
+  width: 100px;
+  height: 30px;
+  line-height: initial;
+  vertical-align: unset;
+  border-radius: 5px;
+  background-color: #708c84;
+  color: white;
+  font-size: 90%;
+}
+/*# sourceMappingURL=member.css.map */
