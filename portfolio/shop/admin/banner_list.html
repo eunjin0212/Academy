@@ -1,19 +1,19 @@
 <meta charset="UTF-8" />
 
-<article class="banner_wrapper" id="banner_list">
+<article class="wrapper" id="banner_list">
   {{bannerDataFunc}}
-  <div class="banner_title">
+  <div class="title">
     <ul>
       <li>배너 설정</li>
     </ul>
   </div>
-  <aside class="banner_subTitle">
+  <aside class="subTitle banner_subTitle">
     <label>메인 배너 효과</label>
     <label for="bannerEffect0"><input type="radio" name="effect" id="bannerEffect0" value="R" />롤링 배너</label>
     <label for="bannerEffect1"><input type="radio" name="effect" id="bannerEffect1" value="F" />페이드 배너</label>
     <label><input type="button" value="효과적용" id="effectApply" onclick="bannerEffect()" /></label>
   </aside>
-  <table class="banner_table">
+  <table class="table banner_table">
     <thead class="banner_thead">
       <tr>
         <td>번호</td>
@@ -25,22 +25,25 @@
         <td>수정 | 삭제</td>
       </tr>
     </thead>
-    <form id="bannerForm" name="bfrm">
+    <form id="bannerForm" name="bfrm" enctype="application/x-www-form-urlencoded">
       <tbody class="banner_tbody" id="banner_tbody">
-        <tr v-if="bool == true" v-for="i, j in bannerArr">
-          <td>{{bannerArr[j].bidx}}</td>
-          <td><img :src="bannerArr[j].bimg" alt="실제이미지" /></td>
-          <td><a :href="bannerArr[j].blink" style="color: black">{{bannerArr[j].blink}}</a></td>
-          <td>{{bannerArr[j].bname}}</td>
+        <tr v-if="bool == true" v-for=" j in bannerArr" class="list">
+          <td>{{j.num}}</td>
+          <td id="tdImg"><img :src="j.img" alt="실제이미지" @click="popup_img(j.img)" /></td>
+          <td class="tdLink">
+            <a :href="j.link" target="_blank" name="linkurls[]" style="color: black" class="link"><input type="text" v-model="j.linkText" /></a>
+          </td>
+          <td>{{j.name}}</td>
           <td>
             <select>
               <option v-bind:value="option" v-for="option in optionArray">{{option}}</option>
             </select>
           </td>
-          <td>{{bannerArr[j].bindate}}</td>
+          <td>{{j.indate}}</td>
           <td class="optionBtn">
-            <input type="button" @click="bannerOptionBtn('modify')" class="optionBtn" v-model="modifyText" /> |
-            <input type="button" @click="bannerOptionBtn('delete')" class="optionBtn" v-model="deleteText" />
+            <input type="button" @click="bannerModifyBtn(j.idx)" class="optionBtn" v-model="modifyText" /> |
+            <input type="button" @click="bannerDeleteBtn(j.idx)" class="optionBtn" v-model="deleteText" />
+            <input type="hidden" name="del_idx" v-bind:value="delIdxVal" />
           </td>
         </tr>
         <tr v-if="bool == false" class="list_none">
@@ -49,6 +52,6 @@
       </tbody>
     </form>
   </table>
-  <span><button id="bannerSave" onclick="bannerInput()">배너등록</button></span>
+  <button id="bannerSave" onclick="bannerInput()">배너등록</button>
 </article>
 <script src="./js/bannerList.js?v=<?=$v?>"></script>

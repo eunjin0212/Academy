@@ -32,44 +32,57 @@ function bannerInput() {
   location.href = "admin_newbanner.html"
 }
 
+let listNone = document.getElementsByClassName("list_none")
+let list = document.getElementsByClassName("list")
+let boolean = false
 let bannerListVue = new Vue({
   el: "#banner_list",
   data: {
     optionArray: ["배너순서", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     modifyText: "수정",
     deleteText: "삭제",
-    bannerArr: "",
+    bannerArr: [],
+    linksText: "",
+    delIdxVal: "",
     bool: "",
   },
   methods: {
-    bannerOptionBtn(option) {
-      // 배너 수정, 삭제 버튼
-      switch (option) {
-        case "modify":
-          if (confirm("해당 배너를 수정하시겠습니까?")) {
-            location.href = ""
-          }
-          break
-        case "delete":
-          if (confirm("해당 배너를 삭제하시겠습니까?")) {
-            location.href = ""
-          }
-          break
+    bannerDeleteBtn(idx) {
+      // 배너 삭제 버튼
+      this.delIdxVal = idx
+      if (confirm("해당 배너를 삭제하시겠습니까?")) {
+        location.href = "./banner_del.php?del_idx=" + idx
+        window.location.reload()
+      }
+    },
+    bannerModifyBtn(idx) {
+      // 배너 수정 버튼
+      if (confirm("해당 배너를 수정하시겠습니까?")) {
+        location.href = ""
       }
     },
     bannerFunc(datas) {
-      this.bannerArr = datas
-      if (!this.bannerArr) {
-        // 배너 이미지 없을 경우
-        this.bool = false
-      } else {
-        this.bool = true
+      this.bool = true
+      for (let i in datas) {
+        this.bannerArr.push({
+          num: Number(i) + 1,
+          idx: datas[i]["bidx"],
+          name: datas[i]["bname"],
+          img: datas[i]["bimg"],
+          link: datas[i]["bimg"],
+          indate: datas[i]["bindate"].substring(0, 10),
+          linkText: datas[i]["bimg"].substring(32, 55) + "...",
+        })
       }
+    },
+    popup_img(src) {
+      // 배너 이미지 클릭
+      window.open(src, "", "_blank")
     },
   },
   computed: {
     bannerDataFunc() {
-      fetch("admin_banner.json")
+      fetch("admin_banner.json?v=<?=$v?>")
         .then((res) => {
           return res.json()
         })
@@ -77,7 +90,10 @@ let bannerListVue = new Vue({
           bannerListVue.bannerFunc(data)
         })
         .catch((error) => {
-          console.log("bannerList.js Ajax Data Error!")
+          error = new Error()
+          if (error == "Error") {
+            this.bool = false
+          }
         })
     },
   },
