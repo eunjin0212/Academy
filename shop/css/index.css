@@ -1,0 +1,48 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans+KR:wght@100;400;700&family=Raleway:wght@100;200;500&display=swap");
+/* font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Raleway', sans-serif; */
+body {
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+}
+.clear {
+  clear: both;
+}
+
+.shop_header {
+  height: 100px;
+}
+.shop_nav {
+  height: 150px;
+}
+.shop_main {
+  height: auto;
+}
+.shop_section {
+  height: 500px;
+}
+.shop_article {
+  height: 500px;
+}
+.shop_footer {
+  height: 150px;
+}

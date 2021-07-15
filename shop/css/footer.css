@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* font-family: 'Noto Sans KR', sans-serif; 100,400,700 */
+.copyright {
+  position: relative;
+  width: 1200px;
+  height: 150px;
+  margin: 0 auto;
+  background-color: gainsboro;
+}
+
+.copy_menu {
+  width: 1200px;
+  height: 50px;
+  border-bottom: 2px solid gray;
+}
+
+.copy_menu > li {
+  float: left;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.copyright > label {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-size: 12px;
+}

@@ -214,3 +214,17 @@
 - [SCSS @extend, scss function, 매개변수 defualt 값](scss/index12.html)
   extend : 해당 속성을 상속
 - [SCSS @at-root](scss/index13.html)
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+  _모바일 폰트 크기 조정에 따른 관련 부분 (모바일 사이즈와 관계없이 동일한 크기)_
+  -ms-text-size-adjust: 100%;
+  _IE_
+  -webkit-text-size-adjust: 100%;
+  _크롬, 사파리_
+  -o-text-size-adjust: 100%;
+  _오페라_
+  -moz-text-size-adjust: 100%;
+  _파이어폭스_
