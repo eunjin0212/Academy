@@ -1,31 +1,197 @@
 @charset "UTF-8";
-/* 게시판 리스트 */
-.board_article {
+/* basic setting */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+html,
+div,
+span,
+label,
+section,
+aside,
+footer,
+header,
+nav,
+video {
+  -ms-overflow-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+body ::-webkit-scrollbar, html ::-webkit-scrollbar, div ::-webkit-scrollbar, span ::-webkit-scrollbar, label ::-webkit-scrollbar, section ::-webkit-scrollbar, aside ::-webkit-scrollbar, footer ::-webkit-scrollbar, header ::-webkit-scrollbar, nav ::-webkit-scrollbar, video ::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a:active,
+a :hover {
+  outline: 0;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+input,
+textarea {
+  outline: 0;
+  overflow: auto;
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+input[type="reset"], input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+table {
+  /* border-collapse: collapse; */
+  border-spacing: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+/* 섹션 */
+.header {
+  width: 100%;
+  height: 100px;
+  line-height: initial;
+  background-color: #464646;
+  position: relative;
+}
+
+.section {
+  min-height: 730px;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  line-height: initial;
+  border-top: 1px solid #464646;
+  margin-top: 20px;
+}
+
+.wrapper {
   width: 1200px;
   height: auto;
-  min-height: 730px;
+  line-height: initial;
   text-align: center;
   margin: 0 auto;
 }
 
-/* table 전 전체 목록 */
-.board_article_title,
-.board_config_caption {
+.title {
   width: 100%;
-  font-size: 100%;
-  font-weight: 600;
   height: 40px;
   line-height: 40px;
-  background-color: rgb(242, 242, 242);
+  font-size: 100%;
+  font-weight: 600;
+  background-color: #f2f2f2;
 }
-.board_article_title > ul {
+
+.title > ul {
   width: 1200px;
   height: auto;
+  line-height: initial;
   text-align: left;
   text-indent: 5px;
 }
-.board_article_title > ul > li {
+
+.title > ul > li {
   display: inline-block;
+}
+
+.subTitle {
+  width: 1200px;
+  height: 50px;
+  line-height: 50px;
+  text-indent: 10px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.search_form > input,
+.search_form > select {
+  height: 25px;
+  vertical-align: top;
+}
+
+.search_form > input[type="submit"] {
+  width: 60px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #708c84;
+  color: white;
+  font-size: 90%;
+  border-radius: 5px;
+}
+
+.search_form > input[type="text"] {
+  width: 200px;
+  font-size: 90%;
+}
+
+.table {
+  width: 1200px;
+  height: auto;
+  line-height: initial;
+  margin: 0 auto 10px;
+  text-align: center;
+  font-size: 100%;
 }
 
 /**** table 검색 ****/
@@ -37,12 +203,14 @@
   text-align: left;
   margin-top: 10px;
 }
+
 .board_option > input,
 .board_option > button,
 .board_option > select {
   height: 25px;
   vertical-align: top;
 }
+
 .board_option > input:nth-of-type(1) {
   width: 200px;
   font-size: 90%;
@@ -52,21 +220,24 @@
 .board_table {
   width: 1200px;
   height: auto;
-  background-color: rgb(242, 242, 242);
-  border: 1px solid rgb(166, 166, 166);
+  background-color: #f2f2f2;
+  border: 1px solid #a6a6a6;
   margin-bottom: 10px;
 }
+
 .board_table tr {
   height: 35px;
   width: 1200px;
   font-size: 90%;
 }
+
 .board_table_option > th {
   color: white;
-  background-color: rgb(166, 166, 166);
+  background-color: #a6a6a6;
   font-size: 110%;
   border-right: 1px solid white;
 }
+
 .board_table_option > th:last-of-type {
   border: none;
 }
@@ -74,10 +245,12 @@
 .board_op_input {
   width: 90%;
 }
+
 .board_op_input_s {
   width: 25px;
   text-align: center;
 }
+
 .board_table_option > td {
   height: 40px;
   background-color: #eee;
@@ -85,6 +258,7 @@
   border-bottom: 1px solid #ccc;
   text-align: center;
 }
+
 .board_table_option > td:last-of-type > label span {
   cursor: pointer;
 }
@@ -107,12 +281,13 @@
   height: auto;
   text-align: right;
 }
+
 .board_idSearchBtn,
 .board_table_btns > button {
   width: 100px;
   height: 25px;
   border-radius: 3px;
-  background-color: rgb(112, 140, 132);
+  background-color: #708c84;
   color: white;
   font-size: 90%;
   border: none;
@@ -120,7 +295,6 @@
 }
 
 /*bmodify 페이지 css*/
-
 /* 게시판 리스트 */
 .board_config {
   width: 1200px;
@@ -128,38 +302,46 @@
   min-height: 600px;
   margin: 0 auto;
 }
+
 .board_config_table {
   width: 100%;
   height: auto;
   border-collapse: collapse;
 }
+
 .board_config_table > tbody tr {
   width: 1200px;
   height: 50px;
   border: 0.5px solid #ccc;
 }
+
 .board_config_table tr:nth-child(6) {
   height: 71px;
 }
+
 .board_config_table th {
   width: 300px;
   height: inherit;
   text-align: left;
   padding-left: 15px;
 }
+
 .board_config_table td > span:first-child {
   width: 600px;
   height: inherit;
   display: block;
 }
+
 .board_config_table td > span:last-child {
   width: 300px;
   height: inherit;
   display: block;
 }
+
 .board_config_table td > span {
   float: left;
 }
+
 .board_config_table input[type="button"] {
   height: 20px;
   color: white;
@@ -169,10 +351,12 @@
   display: inline;
   padding-left: 5px;
 }
+
 .board_config_table input[type="text"] {
   width: 150px;
   height: 20px;
 }
+
 .board_config_table label {
   display: inline;
   font-size: 90%;
@@ -185,12 +369,14 @@
   line-height: 100px;
   text-align: center;
 }
+
 .board_config_btns > button {
   height: 30px;
   color: white;
   padding-right: 5px;
   border: none;
-  background-color: rgb(112, 140, 132);
+  background-color: #708c84;
   display: inline;
   padding-left: 5px;
 }
+/*# sourceMappingURL=board.css.map */

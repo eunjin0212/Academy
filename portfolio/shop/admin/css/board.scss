@@ -1,0 +1,169 @@
+@charset "UTF-8";
+@import "./resetstyle.scss";
+
+/**** table 검색 ****/
+.board_option {
+  width: 1200px;
+  height: 50px;
+  line-height: 50px;
+  text-indent: 10px;
+  text-align: left;
+  margin-top: 10px;
+}
+.board_option > input,
+.board_option > button,
+.board_option > select {
+  height: 25px;
+  vertical-align: top;
+}
+.board_option > input:nth-of-type(1) {
+  width: 200px;
+  font-size: 90%;
+}
+
+/* form */
+.board_table {
+  width: 1200px;
+  height: auto;
+  background-color: rgb(242, 242, 242);
+  border: 1px solid rgb(166, 166, 166);
+  margin-bottom: 10px;
+}
+.board_table tr {
+  height: 35px;
+  width: 1200px;
+  font-size: 90%;
+}
+.board_table_option > th {
+  color: white;
+  background-color: rgb(166, 166, 166);
+  font-size: 110%;
+  border-right: 1px solid white;
+}
+.board_table_option > th:last-of-type {
+  border: none;
+}
+
+.board_op_input {
+  width: 90%;
+}
+.board_op_input_s {
+  width: 25px;
+  text-align: center;
+}
+.board_table_option > td {
+  height: 40px;
+  background-color: #eee;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+.board_table_option > td:last-of-type > label span {
+  cursor: pointer;
+}
+
+#searchResult0,
+#searchResult1 {
+  /* display: none; */
+}
+
+.board_table_option_none {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+/* 버튼 */
+.board_table_btns {
+  width: 100%;
+  height: auto;
+  text-align: right;
+}
+.board_idSearchBtn,
+.board_table_btns > button {
+  width: 100px;
+  height: 25px;
+  border-radius: 3px;
+  background-color: rgb(112, 140, 132);
+  color: white;
+  font-size: 90%;
+  border: none;
+  vertical-align: top;
+}
+
+/*bmodify 페이지 css*/
+
+/* 게시판 리스트 */
+.board_config {
+  width: 1200px;
+  height: auto;
+  min-height: 600px;
+  margin: 0 auto;
+}
+.board_config_table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+}
+.board_config_table > tbody tr {
+  width: 1200px;
+  height: 50px;
+  border: 0.5px solid #ccc;
+}
+.board_config_table tr:nth-child(6) {
+  height: 71px;
+}
+.board_config_table th {
+  width: 300px;
+  height: inherit;
+  text-align: left;
+  padding-left: 15px;
+}
+.board_config_table td > span:first-child {
+  width: 600px;
+  height: inherit;
+  display: block;
+}
+.board_config_table td > span:last-child {
+  width: 300px;
+  height: inherit;
+  display: block;
+}
+.board_config_table td > span {
+  float: left;
+}
+.board_config_table input[type="button"] {
+  height: 20px;
+  color: white;
+  padding-right: 5px;
+  border: none;
+  background-color: gray;
+  display: inline;
+  padding-left: 5px;
+}
+.board_config_table input[type="text"] {
+  width: 150px;
+  height: 20px;
+}
+.board_config_table label {
+  display: inline;
+  font-size: 90%;
+}
+
+/* 버튼 */
+.board_config_btns {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+.board_config_btns > button {
+  height: 30px;
+  color: white;
+  padding-right: 5px;
+  border: none;
+  background-color: rgb(112, 140, 132);
+  display: inline;
+  padding-left: 5px;
+}
