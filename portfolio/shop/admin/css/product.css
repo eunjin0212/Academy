@@ -269,6 +269,10 @@ var {
   margin-top: 20px;
 }
 
+.inputProductTable > tbody > tr:nth-of-type(1) > td:nth-of-type(1) {
+  border-top: #a6a6a6;
+}
+
 .inputProductTable > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > input {
   width: 30%;
 }
@@ -281,27 +285,49 @@ var {
   margin-left: 20px;
 }
 
-.inputProductTable > tbody > tr:nth-of-type(6) > td:nth-of-type(2) > label:nth-of-type(2) {
+.inputProductTable > tbody > tr > td {
+  text-indent: 5px;
+}
+
+.inputProductTable > tbody > tr > td:nth-of-type(1) {
+  width: 12%;
+  height: 40px;
+  background-color: #a6a6a6;
+  border: 1px solid white;
+  color: white;
+}
+
+.inputProductTable > tbody > tr > td:nth-of-type(2) {
+  border: 1px solid #a6a6a6;
+  width: 88%;
+}
+
+.inputProductTable > tbody > tr > td:nth-of-type(2) > input {
+  height: 28px;
+  margin-right: 10px;
+}
+
+.inputProductTable > tbody > .dcNum > td:nth-of-type(2) > label:nth-of-type(2) {
+  margin: 0 20px;
+}
+
+.inputProductTable > tbody > .ea > td:nth-of-type(2) > label {
   margin-left: 20px;
 }
 
-.inputProductTable > tbody > tr:nth-of-type(7) > td:nth-of-type(2) > label {
-  margin-left: 20px;
-}
-
-.inputProductTable > tbody > tr:nth-of-type(9) > td:nth-of-type(2) > input {
+.inputProductTable > tbody > .opt > td:nth-of-type(2) > input {
   margin-left: 5px;
 }
 
-.inputProductTable > tbody > tr:nth-of-type(10) > td:nth-of-type(2) > input {
+.inputProductTable > tbody > .url > td:nth-of-type(2) > input {
   width: 70%;
 }
 
-.inputProductTable > tbody > tr:nth-of-type(11) {
+.inputProductTable > tbody > .addImg {
   height: 90px;
 }
 
-.inputProductTable > tbody > tr:nth-of-type(11) > td:nth-of-type(2) > div {
+.inputProductTable > tbody > .addImg > td:nth-of-type(2) > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -317,33 +343,18 @@ var {
           align-items: "";
 }
 
-.inputProductTable > tbody > tr:nth-of-type(12) > td:nth-of-type(2) {
+.inputProductTable > tbody > .contents > td:nth-of-type(1) {
+  border-bottom: #a6a6a6;
+}
+
+.inputProductTable > tbody > .contents > td:nth-of-type(2) {
   height: 220px;
 }
 
-.inputProductTable > tbody > tr:nth-of-type(12) > td:nth-of-type(2) > textarea {
+.inputProductTable > tbody > .contents > td:nth-of-type(2) > textarea {
   width: 99%;
   height: 200px;
   line-height: initial;
-}
-
-.inputProductTable > tbody > tr > td {
-  border: 1px solid #a6a6a6;
-  text-indent: 5px;
-}
-
-.inputProductTable > tbody > tr > td:nth-of-type(1) {
-  width: 12%;
-  height: 40px;
-}
-
-.inputProductTable > tbody > tr > td:nth-of-type(2) {
-  width: 88%;
-}
-
-.inputProductTable > tbody > tr > td:nth-of-type(2) > input {
-  height: 28px;
-  margin-right: 10px;
 }
 
 .product_input_btnBox {
