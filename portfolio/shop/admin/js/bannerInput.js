@@ -27,6 +27,4 @@ let bannerInputVue = new Vue({
       }
     },
   },
-  components: {},
-  computed: {},
 })
