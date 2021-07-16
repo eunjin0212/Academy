@@ -162,18 +162,18 @@ var {
   width: 1200px;
   height: 50px;
   line-height: 50px;
+  margin-top: 10px;
   text-indent: 10px;
   text-align: left;
-  margin-top: 10px;
 }
 
-.search_form > input,
-.search_form > select {
+.subTitle > input,
+.subTitle > select {
   height: 25px;
   vertical-align: top;
 }
 
-.search_form > input[type="submit"] {
+.subTitle > input[type="button"] {
   width: 60px;
   height: 25px;
   line-height: 25px;
@@ -183,7 +183,7 @@ var {
   border-radius: 5px;
 }
 
-.search_form > input[type="text"] {
+.subTitle > input[type="text"] {
   width: 200px;
   font-size: 90%;
 }
