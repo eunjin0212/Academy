@@ -1,14 +1,12 @@
 <article class="wrapper" id="product_list">
-  <div class="title">
+  <div class="title .product_title">
     <ul>
       <li>상품관리 리스트</li>
     </ul>
   </div>
-  <aside class="subTitle product_subTitle">
-    <form id="sform" name="sform" method="GET" action="admin_member.html" onsubmit="return search()" enctype="application/x-www-form-urlencoded" class="search_form">
-      <input type="text" id="stext" name="stext" placeholder="검색할 단어를 입력하세요." />
-      <input type="submit" class="product_idSearchBtn" value="검색" />
-    </form>
+  <aside class="subTitle">
+    <input type="text" id="stext" name="stext" v-model="searchWord" placeholder="검색할 단어를 입력하세요." />
+    <input type="button" class="product_idSearchBtn" value="검색" @click="searchFunc" />
   </aside>
   <table class="table product_table">
     <thead class="product_thead">
@@ -24,7 +22,7 @@
     </thead>
     <form id="productForm" name="pfrm" enctype="application/x-www-form-urlencoded">
       <tbody class="product_tbody" id="product_tbody">
-        <tr class="list">
+        <tr class="list" v-if="bool == true">
           <td>1</td>
           <td id="tdCode">코드</td>
           <td class="tdName">상품이름</td>
@@ -33,7 +31,7 @@
           <td><img src="#" /></td>
           <td class="">Y</td>
         </tr>
-        <tr class="list_none">
+        <tr class="list_none" v-if="bool == false">
           <td colspan="7">등록된 상품이 없습니다.</td>
         </tr>
       </tbody>
@@ -43,5 +41,3 @@
 </article>
 <script src="./js/productList.js?v=<?=$v?>"></script>
 <!-- v-for=" j in bannerArr" -->
-<!-- v-if="bool == true" -->
-<!-- v-if="bool == false" -->

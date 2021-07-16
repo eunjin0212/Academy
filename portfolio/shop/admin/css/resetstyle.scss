@@ -187,20 +187,18 @@ var {
 }
 .subTitle {
   @include size(1200px, 50px, "$h");
+  margin-top: 10px;
   text: {
     indent: 10px;
     align: left;
   }
-  margin-top: 10px;
-}
-.search_form {
   & > input,
   & > select {
     height: 25px;
     vertical-align: top;
   }
   & > input {
-    &[type="submit"] {
+    &[type="button"] {
       @include size(60px, 25px, "$h");
       background-color: rgb(112, 140, 132);
       color: white;
