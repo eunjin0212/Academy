@@ -39,7 +39,7 @@
           <td>
             할인율 : <input type="number" name="product_dcnum" required v-model="dcnum" pattern="[0-9]+" @input="dcPrice(dcnum)" />
             <label for="dcpartP"> <input type="radio" name="product_dcpart" id="dcpartP" v-model="dcpart" value="P" @change="dcPart('P')" />% [단위] </label>
-            <label for="dcpartW"> <input type="radio" name="product_dcpart" id="dcpartW" v-model="dcpart" value="W" @change="dcPart('W')" />￦ [단위] </label>
+            <label for="dcpartW"> <input type="radio" name="product_dcpart" id="dcpartW" v-model="dcpart" value="M" @change="dcPart('M')" />￦ [단위] </label>
             할인 최종금액 : <input type="text" name="product_sales" v-model="sales" required readonly /> 원
           </td>
         </tr>

@@ -53,7 +53,7 @@ let bannerInputVue = new Vue({
             let finalP = (1 - this.dcnum / 100) * Number(m[0] + m[1])
             this.sales = finalP
             break
-          case "W":
+          case "M":
             let finalW = Number(m[0] + m[1]) - this.dcnum
             this.sales = finalW
             break
