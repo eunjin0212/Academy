@@ -1,79 +1,80 @@
 <article class="wrapper" id="product_input">
+  {{autoNum}}
   <div class="title product_title">
     <ul>
       <li>신규 상품등록</li>
       <li>(*) 항목은 필수 입력사항입니다.</li>
     </ul>
   </div>
-  <form enctype="application/x-www-form-urlencoded" name="pfrm">
+  <form enctype="multipart/form-data" name="pfrm">
     <input type="hidden" name="domain" value="http://eunjin9639.dothome.co.kr" />
-    <input type="hidden" name="product_key" value="" />
+    <input type="hidden" name="product_key" value="new_product" />
     <table class="table inputProductTable">
       <tbody>
         <tr>
           <td>상품코드</td>
-          <td><input type="text" name="goodsno" id="" readonly />※ 해당 상품 코드는 8자리 자동 생성됩니다.</td>
+          <td><input type="text" name="goodsno" v-bind:value="goodsno" readonly />※ 해당 상품 코드는 8자리 자동 생성됩니다.</td>
         </tr>
         <tr>
           <td>상품명 (*)</td>
-          <td><input type="text" name="product_nm" id="" required />※ 상품명은 150자까지 등록 가능합니다.</td>
+          <td><input type="text" name="product_nm" required v-model="nm" />※ 상품명은 150자까지 등록 가능합니다.</td>
         </tr>
         <tr>
           <td>간편설명 (*)</td>
-          <td><input type="text" name="product_nmdtc" id="" required />※ 최대 200자 이내</td>
+          <td><input type="text" name="product_nmdtc" required v-model="nmdtc" />※ 최대 200자 이내</td>
         </tr>
         <tr>
           <td>소비자 가격 (*)</td>
-          <td><input type="number" name="product_money" id="" required /> 원</td>
+          <td><input type="tel" name="product_money" id="product_money" required v-model="money" pattern="[0-9]" @blur="price($event.target.value)" maxlength="7" /> 원</td>
         </tr>
         <tr>
           <td>상품 할인 유/무</td>
           <td>
-            <label for="product_dcY"><input type="radio" name="product_dc" id="product_dcY" value="Y" /> 적용 </label>
-            <label for="product_dcN"><input type="radio" name="product_dc" id="product_dcN" value="N" /> 미적용 </label>
+            <label for="product_dcY"><input type="radio" name="product_dc" id="product_dcY" @change="dcTd('Y')" value="Y" /> 적용 </label>
+            <label for="product_dcN"><input type="radio" name="product_dc" id="product_dcN" @change="dcTd('N')" value="N" checked /> 미적용 </label>
           </td>
         </tr>
-        <tr>
+        <tr v-if="look == true" class="dcNum">
           <td>상품 할인율 (*)</td>
           <td>
-            할인율 : <input type="text" name="product_dcnum" class="short" required pattern="[0-9]+" />
-            <label for="pd_part_P"> <input type="radio" name="product_dcpart" id="pd_part_P" value="P" />% [단위] </label>
-            <label for="pd_part_M" class="rt"> <input type="radio" name="product_dcpart" id="pd_part_M" value="M" />￦ [단위] </label>
-            할인 최종금액 : <input type="text" name="product_sales" class="short" readonly /> 원
+            할인율 : <input type="number" name="product_dcnum" required v-model="dcnum" pattern="[0-9]+" @input="dcPrice(dcnum)" />
+            <label for="dcpartP"> <input type="radio" name="product_dcpart" id="dcpartP" v-model="dcpart" value="P" @change="dcPart('P')" />% [단위] </label>
+            <label for="dcpartW"> <input type="radio" name="product_dcpart" id="dcpartW" v-model="dcpart" value="W" @change="dcPart('W')" />￦ [단위] </label>
+            할인 최종금액 : <input type="text" name="product_sales" v-model="sales" required readonly /> 원
           </td>
         </tr>
-        <tr>
+        <tr class="ea">
           <td>상품 제한수량 (*)</td>
-          <td><input type="number" name="product_ea" id="" required />EA <label>※ 최대수량은 99999개 입니다.</label></td>
+          <td><input type="number" name="product_ea" required v-model="ea" maxlength="5" pattern="[0-9]" />EA <label>※ 최대수량은 99999개 입니다.</label></td>
         </tr>
-        <tr>
+        <tr class="img">
           <td>상품 대표이미지 (*)</td>
-          <td><input type="file" name="product_img" id="" accept=".jpg, .jpeg, .bmp, .png, gif" required /> ※ JPG, JPEG, BMP, PNG, GIF 2MB 이하만 업로드 가능합니다</td>
+          <td><input type="file" name="product_img" accept=".jpg, .jpeg, .bmp, .png, gif" required v-model="img" /> ※ JPG, JPEG, BMP, PNG, GIF 2MB 이하만 업로드 가능합니다</td>
         </tr>
-        <tr>
+        <tr class="opt">
           <td>상품 옵션명</td>
           <td>
-            옵션명 1 <input type="text" name="product_option1" id="" />옵션명 2 <input type="text" name="product_option2" id="" />옵션명 3 <input type="text" name="product_option3" id="" /> ※ 미
-            입력시 옵션은 출력되지 않음
+            옵션명 1 <input type="text" name="product_option1" />옵션명 2 <input type="text" name="product_option2" />옵션명 3 <input type="text" name="product_option3" /> ※ 미 입력시 옵션은 출력되지
+            않음
           </td>
         </tr>
-        <tr>
+        <tr class="url">
           <td>상품 상세보기 URL</td>
-          <td><input type="text" name="product_url" id="" /></td>
+          <td><input type="text" name="product_url" v-model="pUrl" /></td>
         </tr>
-        <tr>
+        <tr class="addImg">
           <td>상품 추가 이미지</td>
           <td>
             <div>
-              <span><input type="file" name="product_img1" id="" accept=".jpg, .jpeg, .bmp, .png, gif" /> ※ JPG, JPEG, BMP, PNG, GIF 2MB 이하만 업로드 가능합니다(500 * 500)</span>
-              <span><input type="file" name="product_img2" id="" accept=".jpg, .jpeg, .bmp, .png, gif" /> ※ JPG, JPEG, BMP, PNG, GIF 2MB 이하만 업로드 가능합니다(500 * 500)</span>
-              <span><input type="file" name="product_img3" id="" accept=".jpg, .jpeg, .bmp, .png, gif" /> ※ JPG, JPEG, BMP, PNG, GIF 2MB 이하만 업로드 가능합니다(500 * 500)</span>
+              <span><input type="file" name="product_img1" accept=".jpg, .jpeg, .bmp, .png, gif" /> ※ JPG, JPEG, BMP, PNG, GIF 2MB 이하만 업로드 가능합니다(500 * 500)</span>
+              <span><input type="file" name="product_img2" accept=".jpg, .jpeg, .bmp, .png, gif" /> ※ JPG, JPEG, BMP, PNG, GIF 2MB 이하만 업로드 가능합니다(500 * 500)</span>
+              <span><input type="file" name="product_img3" accept=".jpg, .jpeg, .bmp, .png, gif" /> ※ JPG, JPEG, BMP, PNG, GIF 2MB 이하만 업로드 가능합니다(500 * 500)</span>
             </div>
           </td>
         </tr>
-        <tr>
+        <tr class="contents">
           <td>상품 상세설명(*)</td>
-          <td><textarea name="product_contents1" required></textarea></td>
+          <td><textarea name="product_contents1" required v-model="contents1"></textarea></td>
         </tr>
       </tbody>
     </table>
