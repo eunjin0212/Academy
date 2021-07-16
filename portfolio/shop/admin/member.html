@@ -10,16 +10,14 @@
   </div>
 
   <!-- 회원아이디 검색  -->
-  <aside class="subTitle member_subTitle">
-    <form id="sform" name="sform" method="GET" action="admin_member.html" onsubmit="return search()" enctype="application/x-www-form-urlencoded" class="search_form">
-      <select id="search_part" name="search_part">
-        <option value="sid" selected>아이디</option>
-        <option value="sname">이름</option>
-        <option value="stel">전화번호</option>
-      </select>
-      <input type="text" id="stext" name="stext" placeholder="검색할 단어를 입력하세요." />
-      <input type="submit" class="member_idSearchBtn" value="검색" />
-    </form>
+  <aside class="subTitle">
+    <select id="search_part" name="search_part">
+      <option value="sid" selected>아이디</option>
+      <option value="sname">이름</option>
+      <option value="stel">전화번호</option>
+    </select>
+    <input type="text" id="stext" name="stext" placeholder="검색할 단어를 입력하세요." />
+    <input type="button" class="member_idSearchBtn" value="검색" onclick="searchFunc()"/>
   </aside>
 
   <!-- 메모 -->

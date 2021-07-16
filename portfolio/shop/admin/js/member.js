@@ -170,12 +170,14 @@ $(function () {
 })
 
 // 검색 기능
-function search() {
-  if (sform.stext.value == "") {
+function searchFunc() {
+  let stext = document.getElementById("stext")
+  let search_part = document.getElementById("search_part")
+  if (stext.value == "") {
     alert("단어를 입력하세요.")
-    return false
+    location.href = "admin_member.html"
   } else {
-    return true
+    location.href = "admin_member.html??search_part=" + search_part.value + "&stext=" + stext.value + ""
   }
 }
 
