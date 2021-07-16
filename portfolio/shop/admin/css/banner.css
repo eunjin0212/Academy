@@ -265,10 +265,12 @@ var {
 }
 
 .banner_tbody > tr > td > img {
-  width: 100px;
-  height: 40px;
+  width: 263px;
+  height: 100px;
   line-height: initial;
   border: none;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .banner_tbody > tr > .tdLink {
