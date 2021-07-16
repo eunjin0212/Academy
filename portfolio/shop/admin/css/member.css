@@ -145,13 +145,16 @@ var {
 
 .title > ul {
   width: 1200px;
-  height: auto;
-  line-height: initial;
+  height: 40px;
+  line-height: 40px;
   text-align: left;
   text-indent: 5px;
 }
 
 .title > ul > li {
+  width: auto;
+  height: 40px;
+  line-height: 40px;
   display: inline-block;
 }
 
