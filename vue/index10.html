@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>News Vue 응용하기(좌우버튼)</title>
     <style>
       .btn {
         display: inline-block;
@@ -32,7 +33,6 @@
         text-indent: 15px;
       }
     </style>
-    <title>News Vue 응용하기(좌우버튼)</title>
   </head>
   <body>
     <section id="news">
@@ -56,15 +56,15 @@
       },
       methods: {
         leftBtn: function () {
-          this.n--;
+          this.n--
           if (this.n < 1) {
-            this.n = 3;
+            this.n = 3
           }
         },
         rightBtn: function () {
-          this.n++;
+          this.n++
           if (this.n > 3) {
-            this.n = 1;
+            this.n = 1
           }
         },
         // 👇<span v-on:click="aaa(0)" class="btn">◀</span>
@@ -86,6 +86,6 @@
         //   }
         // },
       },
-    });
+    })
   </script>
 </html>
